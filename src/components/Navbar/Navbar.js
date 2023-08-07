@@ -1,42 +1,42 @@
 import React from 'react';
-import './Navbar.css';
-
+import styles from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
     
-      
-        <div className="navbar-nav">
-        <NavLink className="nav-link" activeclassname="active" exact="true" to="/">
+   
+        <div className={styles.navbar}>
+        <NavLink className={styles.link} activeclassname="active" exact="true" to="/">
           Inicio
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/lugares">
+        <NavLink className={styles.link} activeclassname="active" to="/lugares">
           Lugares
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/acerca-de">
+        <NavLink className={styles.link} activeclassname="active" to="/acerca-de">
             Acerca de
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/contacto">
+        <NavLink className={styles.link} activeclassname="active" to="/contacto">
             Contacto
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/costumbres">
+        <NavLink className={styles.link} activeclassname="active" to="/costumbres">
             Costumbres
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/historia">
+        <NavLink className={styles.link} activeclassname="active" to="/historia">
             Historia
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/eventos">
+        <NavLink className={styles.link} activeclassname="active" to="/eventos">
             Eventos
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/gastronomia">
+        <NavLink className={styles.link} activeclassname="active" to="/gastronomia">
             Gastronomia
         </NavLink>
-        <NavLink className="nav-link" activeclassname="active" to="/personajes">
+        <NavLink className={styles.link} activeclassname="active" to="/personajes">
             Personajes
         </NavLink>
         
       </div>
+     
     
     );
   };

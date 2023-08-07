@@ -88,7 +88,7 @@ function MyCarousel() {
       {images.map((image, idx) => (
         <Carousel.Item key={idx} style={{ height: '400px' }}>
           <img className="d-block w-100" src={image} alt={`Slide ${idx + 1}`} 
-          style={{ objectFit: 'cover', height: '100%', width: '100%' }}/>
+          style={{ objectFit: 'contain', height: '100%', width: '100%' }}/>
         </Carousel.Item>
       ))}
     </Carousel>

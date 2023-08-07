@@ -11,6 +11,7 @@ import Gastronomia from "./components/Gastronomia/Gastronomia";
 import Historia from "./components/Historia/Historia";
 import Personajes from "./components/Personajes/Personajes";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,9 @@ const App = () => {
           <Route path="/historia" element={<Historia />} />
           <Route path="/personajes" element={<Personajes />} />
         </Routes>
+
+        <Footer />
+
       </BrowserRouter>
     </div>
   );
