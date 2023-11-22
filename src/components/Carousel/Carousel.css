@@ -1,54 +1,99 @@
-.carousel-inner img {
-    width: 100%;
-    height: 100%;
+
+.container{
+  width: 100%;
+  height: 100%;
+  
+  
 }
 
-/* styles.css */
 .carousel {
-    width: 80%; /* Ajusta el ancho del carrusel según tu diseño */
-    margin: 0 auto;
-  }
+  width: 100%;
+  margin: 0 auto;
+  background-image: url(../../img/banner2.jpg);
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+  display: flex;
+  opacity: 0.9;
   
+}
+
+
+
+.carousel-inner {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  transition: transform 0.9s ease-in-out;
+  opacity: 0;
+}
+
+.carousel-item.active{
+  opacity: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  background-color: #a30048;
+  height: 50px;
+  margin: auto;
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  background-color: #a30048;
+  left: 10%;
+  right: 10%;
+  margin: 10px auto;
+}
+
+.carousel-indicators li {
+  background-color: #888;
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+.carousel-indicators .active {
+  background-color: #333;
+}
+
+
+@media screen and (max-width: 768px) {
+
+  .carousel {
+    width: 100%;
+
+  }
   .carousel-inner {
-    display: flex; /* Muestra las imágenes en una línea */
-    overflow: hidden; /* Oculta imágenes adicionales fuera del carrusel */
+    width: 70%;
   }
-  
   .carousel-item {
-    flex: 0 0 100%; /* Cada imagen ocupa todo el ancho del carrusel */
-    transition: transform 0.5s ease-in-out; /* Transición suave entre imágenes */
+    flex: 0 0 100%;
   }
-  
   .carousel-control-prev,
   .carousel-control-next {
-    width: 50px; /* Ajusta el tamaño de las flechas */
-    background-color: #888
-   }
-  
+    width: 50px;
+    height: 50px;
+  }
   .carousel-indicators {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+    left: 0;
+    right: 0;
   }
+}
   
-  .carousel-indicators li {
-    background-color: #888; /* Color de los puntos inactivos */
-    margin: 0 5px;
-    border-radius: 50%;
-    width: 12px;
-    height: 12px;
-    cursor: pointer;
-  }
-  
-  .carousel-indicators .active {
-    background-color: #333; /* Color del punto activo */
-  }
-  
-
-
-
-
-
 
 
 

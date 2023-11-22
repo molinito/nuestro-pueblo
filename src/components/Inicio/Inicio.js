@@ -34,6 +34,8 @@ const CardList = () => {
     <>
       {" "}
       <br />
+      <h1 className={styles.title1}>Mi tierra, mi gente...!!</h1>
+
       <h1 className={styles.title}>Un viaje por nuestra tierra</h1>
       <h3 className={styles.subtitle}>
         ¡Bienvenidos a un viaje en el tiempo... a la historia de una tierra llena

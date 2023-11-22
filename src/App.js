@@ -10,14 +10,14 @@ import Eventos from "./components/Eventos/Eventos";
 import Gastronomia from "./components/Gastronomia/Gastronomia";
 import Historia from "./components/Historia/Historia";
 import Personajes from "./components/Personajes/Personajes";
-import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+      <Header />
         <Navbar />
 
         <Routes>

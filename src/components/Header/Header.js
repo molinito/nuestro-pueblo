@@ -1,17 +1,20 @@
-import React from "react";
-import styles from "./Header.module.css";
-import { Box } from "@chakra-ui/react";
+// crear un header que contenga un video de fondo
 
+import React from 'react';
+import './Header.css';
+import video from '../../img/tierra.webm';
 
-const Header = () => {
-    return (
-        <>
-        <Box className={styles.ini}>
-        <h1>Nuestra tierra, nuestra gente</h1>
-        </Box>
-        </>
-    );
+function Header() {
+  return (
+    <div className="header-container">
+      <video src={video} autoPlay loop muted />
+    </div>
+  );
 }
 
-export default Header; 
+export default Header;
+
+
+
+
 
