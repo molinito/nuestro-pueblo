@@ -2,23 +2,24 @@
     "version": 2,
     "builds": [
       {
-        "src": "server/**",
+        "src": "NUESTRO-PUEBLO/server/**", 
         "use": "@vercel/node"
       },
       {
-        "src": "client/**",
+        "src": "NUESTRO-PUEBLO/client/**",
         "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "server/$1"
+        "dest": "NUESTRO-PUEBLO/server/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "client/$1"
+        "dest": "NUESTRO-PUEBLO/client/$1"
       }
     ]
   }
+  
   
