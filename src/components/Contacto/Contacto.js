@@ -79,7 +79,7 @@ const Contacto = () => {
     // Lógica de envío del formulario
 
     // Redirigir a la página de contacto
-    history.push("/contacto");
+    history.push("https://nuestro-pueblo-molinito.vercel.app/contacto");
   };
 
   return (
@@ -102,6 +102,20 @@ const Contacto = () => {
                 <label htmlFor="desde">Desde:</label>
                 <input type="email" name="desde" className="form-control" />
               </div>
+              <div className="form-group mb-3">
+                  <label htmlFor="mensaje"> Mensaje </label>
+      <textarea
+        name="mensaje"
+                    className="form-control"
+                    rows="3"></textarea>
+                </div>
+                <div className="form-group mb-4">
+                  <label htmlFor="fileAdjunto">Adjuntar Archivo</label>
+                  <input
+                    type="file"
+                    name="fileAdjunto"
+                    className="form-control-file" />
+                </div>
               {/* Resto del formulario */}
 
               <hr />
