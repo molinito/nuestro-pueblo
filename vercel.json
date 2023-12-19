@@ -6,7 +6,7 @@
         "use": "@vercel/node"
       },
       {
-        "src": "NUESTRO-PUEBLO/public/**", 
+        "src": "NUESTRO-PUEBLO/public/**",
         "use": "@vercel/static"
       }
     ],
@@ -17,10 +17,10 @@
       },
       {
         "src": "/(.*)",
-        "dest": "NUESTRO-PUEBLO/public/$1", 
-        "cleanUrls": true
+        "dest": "NUESTRO-PUEBLO/public/$1"
       }
     ]
   }
+  
   
   
