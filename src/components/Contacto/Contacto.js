@@ -66,6 +66,9 @@ export default Contacto; */
 
 
 
+
+
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import './Contacto.css';
@@ -76,10 +79,27 @@ const Contacto = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    // Lógica de envío del formulario
+    // Crear un objeto FormData para recoger los datos del formulario
+    const formData = new FormData(e.target);
 
-    // Redirigir a la página de contacto
-    navigate("/");
+    // Enviar una solicitud POST al servidor
+    fetch('https://nuestro-pueblo.vercel.app/', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Muestra una alerta con el mensaje de la respuesta del servidor
+      alert(data.message);
+
+      // Si el correo se envió correctamente, redirige al usuario a la página de inicio
+      if (data.status === 'success') {
+        navigate("/");
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   };
 
   return (
