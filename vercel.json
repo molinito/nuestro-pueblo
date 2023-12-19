@@ -2,8 +2,12 @@
     "version": 2,
     "builds": [
       {
-        "src": "NUESTRO-PUEBLO/server/**", 
+        "src": "NUESTRO-PUEBLO/server/**",
         "use": "@vercel/node"
+      },
+      {
+        "src": "NUESTRO-PUEBLO/public/**", 
+        "use": "@vercel/static"
       }
     ],
     "routes": [
@@ -13,7 +17,8 @@
       },
       {
         "src": "/(.*)",
-        "dest": "NUESTRO-PUEBLO/$1" 
+        "dest": "NUESTRO-PUEBLO/public/$1", 
+        "cleanUrls": true
       }
     ]
   }
