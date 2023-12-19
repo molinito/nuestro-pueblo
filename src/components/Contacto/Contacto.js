@@ -79,7 +79,7 @@ const Contacto = () => {
     // Lógica de envío del formulario
 
     // Redirigir a la página de contacto
-    history.push("/contacto");
+    history.push("/");
   };
 
   return (
@@ -116,7 +116,6 @@ const Contacto = () => {
                     name="fileAdjunto"
                     className="form-control-file" />
                 </div>
-              {/* Resto del formulario */}
 
               <hr />
               <button type="submit" className="btn btn-info btn-lg btn-block">
