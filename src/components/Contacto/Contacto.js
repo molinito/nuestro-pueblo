@@ -103,6 +103,14 @@ const Contacto = () => {
                 <input type="email" name="desde" className="form-control" />
               </div>
               <div className="form-group mb-3">
+                  <label htmlFor="para">Para:</label>
+                  <input type="email" name="para" className="form-control" />
+                </div>
+                <div className="form-group mb-3">
+                  <label htmlFor="titulo">Titulo</label>
+                  <input type="text" name="titulo" className="form-control" />
+                </div>
+              <div className="form-group mb-3">
                   <label htmlFor="mensaje"> Mensaje </label>
       <textarea
         name="mensaje"
