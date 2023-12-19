@@ -4,10 +4,6 @@
       {
         "src": "NUESTRO-PUEBLO/server/**", 
         "use": "@vercel/node"
-      },
-      {
-        "src": "NUESTRO-PUEBLO/client/**",
-        "use": "@vercel/static"
       }
     ],
     "routes": [
@@ -17,7 +13,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "NUESTRO-PUEBLO/client/$1"
+        "dest": "NUESTRO-PUEBLO/$1" 
       }
     ]
   }
