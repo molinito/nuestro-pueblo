@@ -79,7 +79,7 @@ const Contacto = () => {
     // Lógica de envío del formulario
 
     // Redirigir a la página de contacto
-    history.push("https://nuestro-pueblo-molinito.vercel.app/contacto");
+    history.push("/contacto");
   };
 
   return (
