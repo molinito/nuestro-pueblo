@@ -87,11 +87,21 @@ const Contacto = () => {
       method: 'POST',
       body: formData
     })
-    .then(response => response.json())
+    .then(response => {
+      // Verificar si la respuesta tiene contenido
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.indexOf('application/json') !== -1) {
+        // Si la respuesta es de tipo JSON, analizarla como JSON
+        return response.json();
+      } else {
+        // Si la respuesta no es de tipo JSON, devolver un objeto de error
+        return Promise.reject(new Error('Invalid content type'));
+      }
+    })
     .then(data => {
       // Muestra una alerta con el mensaje de la respuesta del servidor
       alert(data.message);
-
+    
       // Si el correo se envió correctamente, redirige al usuario a la página de inicio
       if (data.status === 'success') {
         navigate("/");
@@ -100,7 +110,9 @@ const Contacto = () => {
     .catch((error) => {
       console.error('Error:', error);
     });
-  };
+
+
+
 
   return (
     <main className="content-wrapper mt-5">
@@ -156,5 +168,10 @@ const Contacto = () => {
     </main>
   );
 };
+}
+
+
+
+
 
 export default Contacto;
