@@ -1,7 +1,10 @@
+/*
 import React from "react";
 import './Contacto.css';
 
 const Contacto = () => {
+
+  
   
   return (
     
@@ -58,4 +61,59 @@ const Contacto = () => {
   );
 }
 
-export default Contacto; 
+export default Contacto; */
+
+
+
+
+import React from "react";
+import { useHistory } from "react-router-dom";
+import './Contacto.css';
+
+const Contacto = () => {
+  const history = useHistory();
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+
+    // Lógica de envío del formulario
+
+    // Redirigir a la página de contacto
+    history.push("/contacto");
+  };
+
+  return (
+    <main className="content-wrapper mt-5">
+      <div className="container" style={{ width: "95% !important" }}>
+        <div className="row justify-content-md-center mb-5">
+          <div className="col-md-12">
+            <h2 className="text-center">
+              Completa el formulario. Envía el mensaje o archivo que quieras compartir
+              <hr />
+            </h2>
+          </div>
+
+          <div className="col-md-6 text-center cardForm">
+            <form
+              onSubmit={handleFormSubmit}
+              encType="multipart/form-data"
+            >
+              <div className="form-group mb-3">
+                <label htmlFor="desde">Desde:</label>
+                <input type="email" name="desde" className="form-control" />
+              </div>
+              {/* Resto del formulario */}
+
+              <hr />
+              <button type="submit" className="btn btn-info btn-lg btn-block">
+                Enviar formulario
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Contacto;
