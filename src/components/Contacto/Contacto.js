@@ -67,11 +67,11 @@ export default Contacto; */
 
 
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import './Contacto.css';
 
 const Contacto = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -79,7 +79,7 @@ const Contacto = () => {
     // Lógica de envío del formulario
 
     // Redirigir a la página de contacto
-    history.push("/");
+    navigate("/");
   };
 
   return (
