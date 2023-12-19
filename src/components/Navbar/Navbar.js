@@ -7,31 +7,31 @@ const Navbar = () => {
     
    
         <div className={styles.navbar}>
-        <NavLink className={styles.link} activeclassName="active" exact="true" to="/">
+        <NavLink className={styles.link} activeclassname="active" exact="true" to="/">
           Inicio
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/lugares">
+        <NavLink className={styles.link} activeclassname="active" to="/lugares">
           Lugares
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/acerca-de">
+        <NavLink className={styles.link} activeclassname="active" to="/acerca-de">
             Acerca de
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/contacto">
+        <NavLink className={styles.link} activeclassname="active" to="/contacto">
             Contacto
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/costumbres">
+        <NavLink className={styles.link} activeclassname="active" to="/costumbres">
             Costumbres
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/historia">
+        <NavLink className={styles.link} activeclassname="active" to="/historia">
             Historia
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/eventos">
+        <NavLink className={styles.link} activeclassname="active" to="/eventos">
             Eventos
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/gastronomia">
+        <NavLink className={styles.link} activeclassname="active" to="/gastronomia">
             Gastronomia
         </NavLink>
-        <NavLink className={styles.link} activeclassName="active" to="/personajes">
+        <NavLink className={styles.link} activeclassname="active" to="/personajes">
             Personajes
         </NavLink>
         

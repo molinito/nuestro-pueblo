@@ -1,11 +1,10 @@
 import React from 'react';
 import { ChakraProvider, CSSReset } from '@chakra-ui/react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import "bootstrap";
 import "bootstrap-modal-js";
-
 
 const Root = () => {
   return (
@@ -16,5 +15,7 @@ const Root = () => {
   );
 };
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+createRoot(rootElement).render(<Root />);
+
 
