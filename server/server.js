@@ -109,8 +109,17 @@ const multer = require("multer");
 const nodemailer = require("nodemailer");
 const path = require("path");
 const fs = require("fs");
+const cors = require('cors');
 
 const app = express();
+app.use(cors({
+  origin: "https://nuestro-pueblo.vercel.app/",
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -193,8 +202,7 @@ app.post("/api/contacto", upload.single("fileAdjunto"), (req, res) => {
   }
 });
 
-// const PORT = process.env.PORT || 3500;
-   const PORT = process.env.PORT || 443;
+const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => {
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
