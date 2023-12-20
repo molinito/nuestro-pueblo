@@ -1,4 +1,4 @@
-/*
+
 import React from "react";
 import './Contacto.css';
 
@@ -20,7 +20,8 @@ const Contacto = () => {
   
             <div className="col-md-6 text-center cardForm">
               <form
-                action="http://localhost:3500/contacto"
+                // action="http://localhost:3500/"
+                action="https://nuestro-pueblo-molinito.vercel.app/"
                 method="POST"
                 encType="multipart/form-data">
                 <div className="form-group mb-3">
@@ -61,7 +62,7 @@ const Contacto = () => {
   );
 }
 
-export default Contacto; */
+export default Contacto; 
 
 
 
@@ -73,7 +74,7 @@ export default Contacto; */
 
 
 
-
+/*
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import './Contacto.css';
@@ -88,7 +89,7 @@ const Contacto = () => {
     const formData = new FormData(e.target);
 
     // Enviar una solicitud POST al servidor
-    fetch('https://nuestro-pueblo.vercel.app/', {
+    fetch('https://localhost:3500', {
       method: 'POST',
       body: formData
     })
@@ -162,4 +163,4 @@ const Contacto = () => {
   );
 };
 
-export default Contacto;
+export default Contacto; */
