@@ -5,13 +5,18 @@ import './index.css';
 import App from './App';
 import "bootstrap";
 import "bootstrap-modal-js";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 
 const Root = () => {
   return (
+    <SpeedInsights>
+  
     <ChakraProvider>
       <CSSReset />
       <App />
     </ChakraProvider>
+    </SpeedInsights>
   );
 };
 
