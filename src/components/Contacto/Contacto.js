@@ -20,8 +20,8 @@ const Contacto = () => {
   
             <div className="col-md-6 text-center cardForm">
               <form
-                // action="http://localhost:3500/"
-                action="https://nuestro-pueblo-molinito.vercel.app/"
+                action="http://localhost:3500/"
+                // action="https://nuestro-pueblo-molinito.vercel.app/"
                 method="POST"
                 encType="multipart/form-data">
                 <div className="form-group mb-3">
