@@ -12,7 +12,6 @@ import Historia from "./components/Historia/Historia";
 import Personajes from "./components/Personajes/Personajes";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const App = () => {
   return (
@@ -21,7 +20,6 @@ const App = () => {
       <BrowserRouter>
       <Header />
         <Navbar />
-        <SpeedInsights>
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/lugares" element={<Lugares />} />
@@ -35,7 +33,6 @@ const App = () => {
         </Routes>
 
         <Footer />
-        </SpeedInsights>
       </BrowserRouter>
     </div>
     
