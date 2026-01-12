@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import styles from "./Inicio.module.css";
@@ -61,7 +61,7 @@ const CardList = () => {
 
              <h1 className={styles.title}>Un lugar, un evento, una historia</h1>
              <h3 className={styles.subtitle}>
-              Elije alguna de las postales para revivir cada momento vivido...</h3>
+              Elige alguna de las postales para revivir cada momento vivido...</h3>
               <br />
         
       <div className={styles.cardContainer}>
@@ -87,9 +87,9 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-<h1 className={styles.title}>Visita nuestra galeria de fotos</h1>
+<h1 className={styles.title}>Visita nuestra galería de fotos</h1>
 <h3 className={styles.subtitle}>
- Reviviremos momentos que quedaron plasmados en el ojo de una camara, desde nuestros ancestros hasta hoy...</h3>
+ Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde nuestros ancestros hasta hoy...</h3>
  <br />
 
  < Carousel />
@@ -103,3 +103,6 @@ const CardList = () => {
 };
 
 export default CardList;
+
+
+

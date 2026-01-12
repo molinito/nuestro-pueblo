@@ -1,111 +1,67 @@
-
-import React from "react";
+﻿
+import React, { useState } from "react";
 import './Contacto.css';
 
-const Contacto = () => {
-
-  
-  
-  return (
-    
-        <main className="content-wrapper mt-5">
-        <div className="container" style={{width: "95% !important"}}>
-          <div className="row justify-content-md-center mb-5">
-            <div className="col-md-12">
-              <h2 className="text-center">
-                Completa el formulario. Envía el mensaje o archivo que quieras compartir
-                <hr />
-              </h2>
-            </div>
-  
-            <div className="col-md-6 text-center cardForm">
-              <form
-                action="http://localhost:3500/"
-                // action="https://nuestro-pueblo-molinito.vercel.app/"
-                method="POST"
-                encType="multipart/form-data">
-                <div className="form-group mb-3">
-                  <label htmlFor="desde">Desde:</label>
-                  <input type="email" name="desde" className="form-control" />
-                </div>
-                <div className="form-group mb-3">
-                  <label htmlFor="para">Para:</label>
-                  <input type="email" name="para" className="form-control" />
-                </div>
-                <div className="form-group mb-3">
-                  <label htmlFor="titulo">Titulo</label>
-                  <input type="text" name="titulo" className="form-control" />
-                </div>
-                <div className="form-group mb-3">
-                  <label htmlFor="mensaje"> Mensaje </label>
-      <textarea
-        name="mensaje"
-                    className="form-control"
-                    rows="3"></textarea>
-                </div>
-                <div className="form-group mb-4">
-                  <label htmlFor="fileAdjunto">Adjuntar Archivo</label>
-                  <input
-                    type="file"
-                    name="fileAdjunto"
-                    className="form-control-file" />
-                </div>
-                <hr />
-                <button type="submit" className="btn btn-info btn-lg btn-block">
-                  Enviar formulario
-                </button>
-    </form>
-            </div>
-          </div>
-        </div>
-      </main>
-  );
-}
-
-export default Contacto; 
-
-
-
-
-
-
-
-
-
-
-
-/*
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import './Contacto.css';
 
 const Contacto = () => {
-  const navigate = useNavigate();
+  const [form, setForm] = useState({
+    desde: '',
+    titulo: '',
+    mensaje: '',
+    fileAdjunto: null
+  });
+  const [preview, setPreview] = useState(null);
+  const [enviando, setEnviando] = useState(false);
+  const [feedback, setFeedback] = useState(null);
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-
-    // Crear un objeto FormData para recoger los datos del formulario
-    const formData = new FormData(e.target);
-
-    // Enviar una solicitud POST al servidor
-    fetch('https://localhost:3500', {
-      method: 'POST',
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Muestra una alerta con el mensaje de la respuesta del servidor
-      alert(data.message);
-
-      // Si el correo se envió correctamente, redirige al usuario a la página de inicio
-      if (data.status === 'success') {
-        navigate("/");
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === 'fileAdjunto') {
+      const file = files[0];
+      setForm({ ...form, fileAdjunto: file });
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onloadend = () => setPreview(reader.result);
+        reader.readAsDataURL(file);
+      } else {
+        setPreview(null);
       }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    } else {
+      setForm({ ...form, [name]: value });
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setFeedback(null);
+    if (!form.desde || !form.mensaje) {
+      setFeedback({ type: 'error', msg: 'El email y el mensaje son obligatorios.' });
+      return;
+    }
+    setEnviando(true);
+    const formData = new FormData();
+    formData.append('desde', form.desde);
+    formData.append('titulo', form.titulo);
+    formData.append('mensaje', form.mensaje);
+    if (form.fileAdjunto) formData.append('fileAdjunto', form.fileAdjunto);
+    // El campo "para" se fija en el backend
+    try {
+      const res = await fetch('http://localhost:3500/api/contacto', {
+        method: 'POST',
+        body: formData
+      });
+      const data = await res.json();
+      if (data.status === 'success') {
+        setFeedback({ type: 'success', msg: '¡Mensaje enviado correctamente! Será revisado antes de publicarse.' });
+        setForm({ desde: '', titulo: '', mensaje: '', fileAdjunto: null });
+        setPreview(null);
+      } else {
+        setFeedback({ type: 'error', msg: data.message || 'Error al enviar.' });
+      }
+    } catch (err) {
+      setFeedback({ type: 'error', msg: 'Error de conexión o servidor.' });
+    }
+    setEnviando(false);
   };
 
   return (
@@ -114,46 +70,39 @@ const Contacto = () => {
         <div className="row justify-content-md-center mb-5">
           <div className="col-md-12">
             <h2 className="text-center">
-              Completa el formulario. Envía el mensaje o archivo que quieras compartir
+              Comparte tu historia, foto o mensaje
               <hr />
             </h2>
           </div>
-
           <div className="col-md-6 text-center cardForm">
-            <form
-              onSubmit={handleFormSubmit}
-              encType="multipart/form-data"
-            >
+            <form onSubmit={handleSubmit} encType="multipart/form-data">
               <div className="form-group mb-3">
-                <label htmlFor="desde">Desde:</label>
-                <input type="email" name="desde" className="form-control" />
+                <label htmlFor="desde">Tu Email:</label>
+                <input type="email" name="desde" className="form-control" value={form.desde} onChange={handleChange} required />
               </div>
               <div className="form-group mb-3">
-                  <label htmlFor="para">Para:</label>
-                  <input type="email" name="para" className="form-control" />
-                </div>
-                <div className="form-group mb-3">
-                  <label htmlFor="titulo">Titulo</label>
-                  <input type="text" name="titulo" className="form-control" />
-                </div>
+                <label htmlFor="titulo">Título</label>
+                <input type="text" name="titulo" className="form-control" value={form.titulo} onChange={handleChange} />
+              </div>
               <div className="form-group mb-3">
-                  <label htmlFor="mensaje"> Mensaje </label>
-      <textarea
-        name="mensaje"
-                    className="form-control"
-                    rows="3"></textarea>
-                </div>
-                <div className="form-group mb-4">
-                  <label htmlFor="fileAdjunto">Adjuntar Archivo</label>
-                  <input
-                    type="file"
-                    name="fileAdjunto"
-                    className="form-control-file" />
-                </div>
-
+                <label htmlFor="mensaje">Mensaje</label>
+                <textarea name="mensaje" className="form-control" rows="3" value={form.mensaje} onChange={handleChange} required></textarea>
+              </div>
+              <div className="form-group mb-4">
+                <label htmlFor="fileAdjunto">Adjuntar imagen (opcional)</label>
+                <input type="file" name="fileAdjunto" className="form-control-file" accept="image/*" onChange={handleChange} />
+                {preview && (
+                  <div style={{ marginTop: 10 }}>
+                    <img src={preview} alt="Vista previa" style={{ maxWidth: '100%', maxHeight: 200 }} />
+                  </div>
+                )}
+              </div>
+              {feedback && (
+                <div className={`alert alert-${feedback.type === 'success' ? 'success' : 'danger'}`}>{feedback.msg}</div>
+              )}
               <hr />
-              <button type="submit" className="btn btn-info btn-lg btn-block">
-                Enviar formulario
+              <button type="submit" className="btn btn-info btn-lg btn-block" disabled={enviando}>
+                {enviando ? 'Enviando...' : 'Enviar'}
               </button>
             </form>
           </div>
@@ -161,6 +110,12 @@ const Contacto = () => {
       </div>
     </main>
   );
-};
+}
 
-export default Contacto; */
+export default Contacto;
+
+
+
+
+
+
