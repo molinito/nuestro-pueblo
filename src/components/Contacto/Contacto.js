@@ -18,12 +18,15 @@ const Contacto = () => {
     const { name, value, files } = e.target;
     if (name === 'fileAdjunto') {
       const file = files[0];
-      setForm({ ...form, fileAdjunto: file });
       if (file && file.type.startsWith('image/')) {
         const reader = new FileReader();
-        reader.onloadend = () => setPreview(reader.result);
+        reader.onloadend = () => {
+          setForm({ ...form, fileAdjunto: reader.result, fileName: file.name });
+          setPreview(reader.result);
+        };
         reader.readAsDataURL(file);
       } else {
+        setForm({ ...form, fileAdjunto: null, fileName: '' });
         setPreview(null);
       }
     } else {
@@ -39,21 +42,34 @@ const Contacto = () => {
       return;
     }
     setEnviando(true);
-    const formData = new FormData();
-    formData.append('desde', form.desde);
-    formData.append('titulo', form.titulo);
-    formData.append('mensaje', form.mensaje);
-    if (form.fileAdjunto) formData.append('fileAdjunto', form.fileAdjunto);
-    // El campo "para" se fija en el backend
+    // Preparar datos para la API serverless
+    let fileBase64 = '';
+    let fileName = '';
+    if (form.fileAdjunto && form.fileAdjunto.startsWith('data:image')) {
+      // Extraer solo la parte base64
+      const base64 = form.fileAdjunto.split(',')[1];
+      fileBase64 = base64;
+      fileName = form.fileName || 'imagen.jpg';
+    }
+    const payload = {
+      desde: form.desde,
+      titulo: form.titulo,
+      mensaje: form.mensaje,
+      fileAdjunto: fileBase64,
+      fileName: fileName
+    };
     try {
-      const res = await fetch('http://localhost:3500/api/contacto', {
+      const res = await fetch('/api/contacto', {
         method: 'POST',
-        body: formData
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
       });
       const data = await res.json();
       if (data.status === 'success') {
         setFeedback({ type: 'success', msg: '¡Mensaje enviado correctamente! Será revisado antes de publicarse.' });
-        setForm({ desde: '', titulo: '', mensaje: '', fileAdjunto: null });
+        setForm({ desde: '', titulo: '', mensaje: '', fileAdjunto: null, fileName: '' });
         setPreview(null);
       } else {
         setFeedback({ type: 'error', msg: data.message || 'Error al enviar.' });
