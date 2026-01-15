@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "./Contacto.css";
 
 const Contacto = () => {
-  const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+  const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
+  const MAX_DIMENSION = 2000;
+  const JPEG_QUALITY = 0.82;
+
   const [form, setForm] = useState({
     desde: "",
     titulo: "",
@@ -13,39 +16,110 @@ const Contacto = () => {
   const [enviando, setEnviando] = useState(false);
   const [feedback, setFeedback] = useState(null);
 
-  const handleChange = (e) => {
+  const readAsDataURL = (blob) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+
+  const loadImage = (dataUrl) =>
+    new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(img);
+      img.onerror = reject;
+      img.src = dataUrl;
+    });
+
+  const compressImage = async (file) => {
+    const dataUrl = await readAsDataURL(file);
+    const img = await loadImage(dataUrl);
+    const scale = Math.min(1, MAX_DIMENSION / Math.max(img.width, img.height));
+    const targetWidth = Math.round(img.width * scale);
+    const targetHeight = Math.round(img.height * scale);
+    const canvas = document.createElement("canvas");
+    canvas.width = targetWidth;
+    canvas.height = targetHeight;
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+    const blob = await new Promise((resolve) =>
+      canvas.toBlob(resolve, "image/jpeg", JPEG_QUALITY)
+    );
+    if (!blob) {
+      throw new Error("No se pudo procesar la imagen.");
+    }
+    const compressedDataUrl = await readAsDataURL(blob);
+    const safeName = file.name.replace(/\.[^.]+$/, ".jpg");
+    return { dataUrl: compressedDataUrl, size: blob.size, fileName: safeName };
+  };
+
+  const resetFileInput = (target) => {
+    if (target) {
+      target.value = "";
+    }
+    setForm((prev) => ({ ...prev, fileAdjunto: null, fileName: "" }));
+    setPreview(null);
+  };
+
+  const handleChange = async (e) => {
     const { name, value, files } = e.target;
     if (name === "fileAdjunto") {
       const file = files[0];
       if (file && !file.type.startsWith("image/")) {
         setFeedback({ type: "error", msg: "Solo se permiten imágenes." });
-        setForm({ ...form, fileAdjunto: null, fileName: "" });
-        setPreview(null);
-        e.target.value = "";
-        return;
-      }
-      if (file && file.size > MAX_IMAGE_BYTES) {
-        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 3MB." });
-        setForm({ ...form, fileAdjunto: null, fileName: "" });
-        setPreview(null);
-        e.target.value = "";
+        resetFileInput(e.target);
         return;
       }
       if (file) {
         setFeedback(null);
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setForm({ ...form, fileAdjunto: reader.result, fileName: file.name });
-          setPreview(reader.result);
-        };
-        reader.readAsDataURL(file);
-      } else {
-        setForm({ ...form, fileAdjunto: null, fileName: "" });
-        setPreview(null);
+        if (file.size > MAX_IMAGE_BYTES) {
+          try {
+            const compressed = await compressImage(file);
+            if (compressed.size > MAX_IMAGE_BYTES) {
+              setFeedback({
+                type: "error",
+                msg: "La imagen supera el tamaño máximo de 3MB."
+              });
+              resetFileInput(e.target);
+              return;
+            }
+            setForm((prev) => ({
+              ...prev,
+              fileAdjunto: compressed.dataUrl,
+              fileName: compressed.fileName
+            }));
+            setPreview(compressed.dataUrl);
+          } catch (error) {
+            setFeedback({
+              type: "error",
+              msg: "No se pudo procesar la imagen. Probá con otra foto."
+            });
+            resetFileInput(e.target);
+          }
+          return;
+        }
+        try {
+          const originalDataUrl = await readAsDataURL(file);
+          setForm((prev) => ({
+            ...prev,
+            fileAdjunto: originalDataUrl,
+            fileName: file.name
+          }));
+          setPreview(originalDataUrl);
+        } catch (error) {
+          setFeedback({
+            type: "error",
+            msg: "No se pudo leer la imagen. Probá con otra foto."
+          });
+          resetFileInput(e.target);
+        }
+        return;
       }
-    } else {
-      setForm({ ...form, [name]: value });
+      resetFileInput(e.target);
+      return;
     }
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -56,11 +130,9 @@ const Contacto = () => {
       return;
     }
     setEnviando(true);
-    // Preparar datos para la API serverless
     let fileBase64 = "";
     let fileName = "";
     if (form.fileAdjunto && form.fileAdjunto.startsWith("data:image")) {
-      // Extraer solo la parte base64
       const base64 = form.fileAdjunto.split(",")[1];
       fileBase64 = base64;
       fileName = form.fileName || "imagen.jpg";
@@ -84,7 +156,7 @@ const Contacto = () => {
       if (data.status === "success") {
         setFeedback({
           type: "success",
-          msg: "Mensaje enviado correctamente. Sera revisado antes de publicarse."
+          msg: "Mensaje enviado correctamente. Será revisado antes de publicarse."
         });
         setForm({ desde: "", titulo: "", mensaje: "", fileAdjunto: null, fileName: "" });
         setPreview(null);
@@ -94,7 +166,7 @@ const Contacto = () => {
     } catch (err) {
       setFeedback({
         type: "error",
-        msg: "Error de conexion o servidor. Si adjuntaste una imagen, debe ser menor a 3MB."
+        msg: "Error de conexión o servidor. Si adjuntaste una imagen, debe ser menor a 3MB."
       });
     }
     setEnviando(false);
@@ -103,10 +175,10 @@ const Contacto = () => {
   return (
     <main className="contacto">
       <header className="contacto__header">
-        <p className="contacto__eyebrow">Envianos tu mensaje</p>
+        <p className="contacto__eyebrow">Envíanos tu mensaje</p>
         <h1 className="contacto__title">Comparte tu historia, foto o mensaje</h1>
         <p className="contacto__subtitle">
-          Tu contenido sera revisado antes de publicarse para mantener el tono
+          Tu contenido será revisado antes de publicarse para mantener el tono
           cultural y familiar del sitio.
         </p>
       </header>
@@ -127,7 +199,7 @@ const Contacto = () => {
             />
           </div>
           <div className="contacto__field">
-            <label htmlFor="titulo">Titulo</label>
+            <label htmlFor="titulo">Título</label>
             <input
               id="titulo"
               type="text"
@@ -149,7 +221,7 @@ const Contacto = () => {
             rows="6"
             value={form.mensaje}
             onChange={handleChange}
-            placeholder="Cuentanos tu historia, anecdotas o recuerdos..."
+            placeholder="Cuéntanos tu historia, anécdotas o recuerdos..."
             required
           ></textarea>
         </div>
@@ -164,7 +236,7 @@ const Contacto = () => {
             accept="image/*"
             onChange={handleChange}
           />
-          <p className="contacto__hint">Solo imagenes, sin contenido explicito.</p>
+          <p className="contacto__hint">Solo imágenes, sin contenido explícito.</p>
           {preview && (
             <div className="contacto__preview">
               <img src={preview} alt="Vista previa" />
