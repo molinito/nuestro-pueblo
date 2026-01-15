@@ -1,13 +1,11 @@
-﻿
 import React, { useState } from "react";
-import './Contacto.css';
-
+import "./Contacto.css";
 
 const Contacto = () => {
   const [form, setForm] = useState({
-    desde: '',
-    titulo: '',
-    mensaje: '',
+    desde: "",
+    titulo: "",
+    mensaje: "",
     fileAdjunto: null
   });
   const [preview, setPreview] = useState(null);
@@ -16,9 +14,9 @@ const Contacto = () => {
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === 'fileAdjunto') {
+    if (name === "fileAdjunto") {
       const file = files[0];
-      if (file && file.type.startsWith('image/')) {
+      if (file && file.type.startsWith("image/")) {
         const reader = new FileReader();
         reader.onloadend = () => {
           setForm({ ...form, fileAdjunto: reader.result, fileName: file.name });
@@ -26,7 +24,7 @@ const Contacto = () => {
         };
         reader.readAsDataURL(file);
       } else {
-        setForm({ ...form, fileAdjunto: null, fileName: '' });
+        setForm({ ...form, fileAdjunto: null, fileName: "" });
         setPreview(null);
       }
     } else {
@@ -38,18 +36,18 @@ const Contacto = () => {
     e.preventDefault();
     setFeedback(null);
     if (!form.desde || !form.mensaje) {
-      setFeedback({ type: 'error', msg: 'El email y el mensaje son obligatorios.' });
+      setFeedback({ type: "error", msg: "El email y el mensaje son obligatorios." });
       return;
     }
     setEnviando(true);
     // Preparar datos para la API serverless
-    let fileBase64 = '';
-    let fileName = '';
-    if (form.fileAdjunto && form.fileAdjunto.startsWith('data:image')) {
+    let fileBase64 = "";
+    let fileName = "";
+    if (form.fileAdjunto && form.fileAdjunto.startsWith("data:image")) {
       // Extraer solo la parte base64
-      const base64 = form.fileAdjunto.split(',')[1];
+      const base64 = form.fileAdjunto.split(",")[1];
       fileBase64 = base64;
-      fileName = form.fileName || 'imagen.jpg';
+      fileName = form.fileName || "imagen.jpg";
     }
     const payload = {
       desde: form.desde,
@@ -59,79 +57,118 @@ const Contacto = () => {
       fileName: fileName
     };
     try {
-      const res = await fetch('/api/contacto', {
-        method: 'POST',
+      const res = await fetch("/api/contacto", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json"
         },
         body: JSON.stringify(payload)
       });
       const data = await res.json();
-      if (data.status === 'success') {
-        setFeedback({ type: 'success', msg: '¡Mensaje enviado correctamente! Será revisado antes de publicarse.' });
-        setForm({ desde: '', titulo: '', mensaje: '', fileAdjunto: null, fileName: '' });
+      if (data.status === "success") {
+        setFeedback({
+          type: "success",
+          msg: "Mensaje enviado correctamente. Sera revisado antes de publicarse."
+        });
+        setForm({ desde: "", titulo: "", mensaje: "", fileAdjunto: null, fileName: "" });
         setPreview(null);
       } else {
-        setFeedback({ type: 'error', msg: data.message || 'Error al enviar.' });
+        setFeedback({ type: "error", msg: data.message || "Error al enviar." });
       }
     } catch (err) {
-      setFeedback({ type: 'error', msg: 'Error de conexión o servidor.' });
+      setFeedback({ type: "error", msg: "Error de conexion o servidor." });
     }
     setEnviando(false);
   };
 
   return (
-    <main className="content-wrapper mt-5">
-      <div className="container" style={{ width: "95% !important" }}>
-        <div className="row justify-content-md-center mb-5">
-          <div className="col-md-12">
-            <h2 className="text-center">
-              Comparte tu historia, foto o mensaje
-              <hr />
-            </h2>
+    <main className="contacto">
+      <header className="contacto__header">
+        <p className="contacto__eyebrow">Envianos tu mensaje</p>
+        <h1 className="contacto__title">Comparte tu historia, foto o mensaje</h1>
+        <p className="contacto__subtitle">
+          Tu contenido sera revisado antes de publicarse para mantener el tono
+          cultural y familiar del sitio.
+        </p>
+      </header>
+
+      <form className="contacto__form" onSubmit={handleSubmit} encType="multipart/form-data">
+        <div className="contacto__grid">
+          <div className="contacto__field">
+            <label htmlFor="desde">Tu email</label>
+            <input
+              id="desde"
+              type="email"
+              name="desde"
+              className="contacto__input"
+              value={form.desde}
+              onChange={handleChange}
+              placeholder="nombre@correo.com"
+              required
+            />
           </div>
-          <div className="col-md-6 text-center cardForm">
-            <form onSubmit={handleSubmit} encType="multipart/form-data">
-              <div className="form-group mb-3">
-                <label htmlFor="desde">Tu Email:</label>
-                <input type="email" name="desde" className="form-control" value={form.desde} onChange={handleChange} required />
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="titulo">Título</label>
-                <input type="text" name="titulo" className="form-control" value={form.titulo} onChange={handleChange} />
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="mensaje">Mensaje</label>
-                <textarea name="mensaje" className="form-control" rows="3" value={form.mensaje} onChange={handleChange} required></textarea>
-              </div>
-              <div className="form-group mb-4">
-                <label htmlFor="fileAdjunto">Adjuntar imagen (opcional)</label>
-                <input type="file" name="fileAdjunto" className="form-control-file" accept="image/*" onChange={handleChange} />
-                {preview && (
-                  <div style={{ marginTop: 10 }}>
-                    <img src={preview} alt="Vista previa" style={{ maxWidth: '100%', maxHeight: 200 }} />
-                  </div>
-                )}
-              </div>
-              {feedback && (
-                <div className={`alert alert-${feedback.type === 'success' ? 'success' : 'danger'}`}>{feedback.msg}</div>
-              )}
-              <hr />
-              <button type="submit" className="btn btn-info btn-lg btn-block" disabled={enviando}>
-                {enviando ? 'Enviando...' : 'Enviar'}
-              </button>
-            </form>
+          <div className="contacto__field">
+            <label htmlFor="titulo">Titulo</label>
+            <input
+              id="titulo"
+              type="text"
+              name="titulo"
+              className="contacto__input"
+              value={form.titulo}
+              onChange={handleChange}
+              placeholder="Ej: Recuerdo de la fiesta"
+            />
           </div>
         </div>
-      </div>
+
+        <div className="contacto__field">
+          <label htmlFor="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            className="contacto__textarea"
+            rows="6"
+            value={form.mensaje}
+            onChange={handleChange}
+            placeholder="Cuentanos tu historia, anecdotas o recuerdos..."
+            required
+          ></textarea>
+        </div>
+
+        <div className="contacto__field">
+          <label htmlFor="fileAdjunto">Adjuntar imagen (opcional)</label>
+          <input
+            id="fileAdjunto"
+            type="file"
+            name="fileAdjunto"
+            className="contacto__file"
+            accept="image/*"
+            onChange={handleChange}
+          />
+          <p className="contacto__hint">Solo imagenes, sin contenido explicito.</p>
+          {preview && (
+            <div className="contacto__preview">
+              <img src={preview} alt="Vista previa" />
+            </div>
+          )}
+        </div>
+
+        {feedback && (
+          <div
+            className={`contacto__alert contacto__alert--${
+              feedback.type === "success" ? "success" : "error"
+            }`}
+          >
+            {feedback.msg}
+          </div>
+        )}
+
+        <button type="submit" className="contacto__submit" disabled={enviando}>
+          {enviando ? "Enviando..." : "Enviar"}
+        </button>
+      </form>
     </main>
   );
-}
+};
 
 export default Contacto;
-
-
-
-
-
-

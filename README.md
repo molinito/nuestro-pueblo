@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Nuestro Pueblo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Sitio web cultural, turístico y de entretenimiento dedicado a contar historias,
+tradiciones y postales de Jesús María y Colonia Caroya (Córdoba, Argentina).
 
-## Available Scripts
+El proyecto reúne relatos, imágenes y eventos locales. El contenido enviado por
+usuarios se publica solo tras revisión del administrador.
 
-In the project directory, you can run:
+## Secciones principales
 
-### `npm start`
+- Inicio: presentación general y acceso a contenidos destacados.
+- Lugares: reseñas de sitios históricos y recorridos culturales.
+- Costumbres: fiestas y tradiciones de la región.
+- Historia: museo, patrimonio e identidad local.
+- Eventos: calendario cultural y festivalero.
+- Personajes: fotografías y memorias de protagonistas locales.
+- Contacto: envío de mensajes e imágenes para revisión.
+- Privacidad: políticas, términos y condiciones del sitio.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Características destacadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Diseño unificado con tipografía y colores del sitio.
+- Vistas con imagen destacada y lightbox para ampliar fotografías.
+- Formulario de contacto con validación y vista previa de imagen.
+- Enlaces de navegación y rutas con React Router.
 
-### `npm test`
+## Scripts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm start
+npm run build
+npm test
+npm run check:encoding
+```
 
-### `npm run build`
+## Encoding (UTF-8)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para evitar problemas de acentos y caracteres especiales, el proyecto fuerza
+UTF-8 con `.editorconfig`. Además, existe un chequeo rápido para detectar
+caracteres dañados:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm run check:encoding
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Notas de contenido
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+El sitio tiene un fin cultural y familiar. El administrador se reserva el
+derecho de publicar, editar o rechazar contenido enviado por usuarios.

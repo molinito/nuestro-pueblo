@@ -1,20 +1,20 @@
-.acerca {
+.donacion {
   width: min(1100px, 94%);
   margin: 2.5rem auto 3.5rem;
   padding: 2.5rem;
-  background: linear-gradient(180deg, #fff5ea 0%, #f7deec 100%);
+  background: linear-gradient(180deg, #fff4ea 0%, #f7deee 100%);
   border-radius: 20px;
   border: 1px solid rgba(163, 0, 72, 0.2);
   box-shadow: 0 18px 35px rgba(115, 0, 52, 0.12);
   text-align: left;
 }
 
-.acerca__hero {
+.donacion__hero {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.acerca__eyebrow {
+.donacion__eyebrow {
   margin: 0;
   font-size: 0.9rem;
   letter-spacing: 0.18em;
@@ -22,22 +22,22 @@
   color: rgba(163, 0, 72, 0.75);
 }
 
-.acerca__title {
+.donacion__title {
   margin: 0.4rem 0 0.35rem;
   font-size: clamp(2rem, 3.4vw, 2.6rem);
   color: var(--site-ink);
 }
 
-.acerca__subtitle {
+.donacion__subtitle {
   margin: 0 auto;
   max-width: 720px;
   font-size: 1.05rem;
   color: rgba(163, 0, 72, 0.9);
 }
 
-.acerca__card {
+.donacion__card {
   display: grid;
-  grid-template-columns: minmax(300px, 1.2fr) minmax(220px, 0.8fr);
+  grid-template-columns: minmax(300px, 1.2fr) minmax(240px, 0.8fr);
   gap: 2rem;
   align-items: start;
   padding: 1.8rem;
@@ -45,10 +45,10 @@
   border-radius: 18px;
   border: 1px solid rgba(163, 0, 72, 0.15);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  animation: acercaFadeUp 520ms ease-out;
+  animation: donacionFadeUp 520ms ease-out;
 }
 
-.acerca__content {
+.donacion__content {
   display: grid;
   gap: 1rem;
   color: var(--site-ink);
@@ -56,11 +56,11 @@
   font-size: 1.05rem;
 }
 
-.acerca__content p {
+.donacion__content p {
   margin: 0;
 }
 
-.acerca__highlight {
+.donacion__highlight {
   padding: 0.9rem 1.1rem;
   border-radius: 14px;
   background: #fff;
@@ -69,7 +69,7 @@
   font-weight: 600;
 }
 
-.acerca__panel {
+.donacion__panel {
   padding: 1.2rem 1.4rem;
   background: #fff;
   border-radius: 16px;
@@ -79,65 +79,94 @@
   gap: 0.8rem;
 }
 
-.acerca__panel h2 {
+.donacion__panel h2 {
   margin: 0;
   font-size: 1.2rem;
   color: var(--site-ink);
 }
 
-.acerca__panel ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.6rem;
-}
-
-.acerca__panel li {
-  display: grid;
-  gap: 0.2rem;
-  font-size: 0.98rem;
-  color: var(--site-ink);
-}
-
-.acerca__panel span {
+.donacion__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: var(--site-ink);
+  color: #fff;
+  font-size: 0.95rem;
   font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 10px 18px rgba(115, 0, 52, 0.2);
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.donacion__cta:hover {
+  background: #7a0036;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(115, 0, 52, 0.25);
+}
+
+.donacion__methods {
+  display: grid;
+  gap: 1rem;
+}
+
+.donacion__label {
+  display: block;
+  font-weight: 600;
+  color: var(--site-ink);
+  margin-bottom: 0.3rem;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
 }
 
-.acerca__icon {
-  font-size: 1rem;
-  color: var(--site-ink);
+.donacion__brand-icon {
+  font-size: 1.05rem;
 }
 
-.acerca__icon--gmail {
-  color: #ea4335;
+.donacion__brand-icon--paypal {
+  color: #003087;
 }
 
-.acerca__icon--linkedin {
-  color: #0a66c2;
+.donacion__brand-icon--santander {
+  color: #ec0000;
 }
 
-.acerca__icon--github {
-  color: #181717;
-}
-
-.acerca__icon--facebook {
-  color: #1877f2;
-}
-
-.acerca__panel a {
+.donacion__methods a {
   color: var(--site-ink);
   text-decoration: none;
   border-bottom: 1px solid rgba(163, 0, 72, 0.35);
   width: fit-content;
 }
 
-.acerca__panel a:hover {
+.donacion__methods a:hover {
   color: #7a0036;
   border-bottom-color: #7a0036;
+}
+
+.donacion__alias {
+  margin: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--site-ink);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.donacion__alias:hover {
+  color: #7a0036;
+}
+
+.donacion__hint {
+  display: block;
+  font-size: 0.9rem;
+  color: rgba(163, 0, 72, 0.75);
+  margin-top: 0.2rem;
 }
 
 .button {
@@ -158,14 +187,14 @@
   text-decoration: none;
 }
 
-.acerca__back {
+.donacion__back {
   margin-top: 2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-@keyframes acercaFadeUp {
+@keyframes donacionFadeUp {
   from {
     opacity: 0;
     transform: translateY(14px);
@@ -177,17 +206,17 @@
 }
 
 @media (max-width: 900px) {
-  .acerca {
+  .donacion {
     padding: 2rem 1.5rem;
   }
 
-  .acerca__card {
+  .donacion__card {
     grid-template-columns: 1fr;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .acerca__card {
+  .donacion__card {
     animation: none;
   }
 }

@@ -12,6 +12,8 @@ import Historia from "./components/Historia/Historia";
 import Personajes from "./components/Personajes/Personajes";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Privacidad from "./components/Privacidad/Privacidad";
+import Donacion from "./components/Donacion/Donacion";
 
 const App = () => {
   return (
@@ -30,6 +32,8 @@ const App = () => {
           <Route path="/gastronomia" element={<Gastronomia />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/personajes" element={<Personajes />} />
+          <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/donacion" element={<Donacion />} />
         </Routes>
 
         <Footer />

@@ -1,21 +1,234 @@
+.gastronomia {
+  width: min(1100px, 94%);
+  margin: 2.5rem auto 3.5rem;
+  padding: 2.5rem;
+  background: linear-gradient(180deg, #fff4e8 0%, #f7ddeb 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(163, 0, 72, 0.2);
+  box-shadow: 0 18px 35px rgba(115, 0, 52, 0.12);
+  text-align: left;
+}
+
+.gastronomia__hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.gastronomia__eyebrow {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(163, 0, 72, 0.75);
+}
+
+.gastronomia__title {
+  margin: 0.4rem 0 0.35rem;
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  color: var(--site-ink);
+}
+
+.gastronomia__subtitle {
+  margin: 0 auto;
+  max-width: 680px;
+  font-size: 1.05rem;
+  color: rgba(163, 0, 72, 0.9);
+}
+
+.gastronomia__card {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: gastronomiaFadeUp 520ms ease-out;
+}
+
+.gastronomia__media-block {
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.gastronomia__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(115, 0, 52, 0.15);
+  cursor: zoom-in;
+}
+
+.gastronomia__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(163, 0, 72, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.gastronomia__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  animation: gastronomiaFloat 6s ease-in-out infinite;
+}
+
+.gastronomia__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(58, 0, 26, 0.45);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.gastronomia__media:hover .gastronomia__overlay,
+.gastronomia__media:focus-visible .gastronomia__overlay {
+  opacity: 1;
+}
+
+.gastronomia__media:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.4);
+  outline-offset: 4px;
+}
+
+.gastronomia__credit {
+  display: grid;
+  gap: 0.3rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(163, 0, 72, 0.9);
+}
+
+.gastronomia__content {
+  display: grid;
+  gap: 1rem;
+  color: var(--site-ink);
+  line-height: 1.65;
+  font-size: 1.03rem;
+}
+
+.gastronomia__content p {
+  margin: 0;
+}
+
 .button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.25;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    color: #fff;
-    border-radius: 0.25rem;
-    text-decoration: none;
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--site-surface);
+  border: 1px solid var(--site-ink);
+  color: var(--site-ink);
+  font-family: var(--site-font);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.gastronomia__back {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gastronomia__lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 0, 12, 0.85);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  z-index: 999;
+  animation: gastronomiaFadeUp 240ms ease-out;
+}
+
+.gastronomia__lightbox-content {
+  position: relative;
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.gastronomia__lightbox img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.gastronomia__lightbox-hint {
+  margin: 0;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: var(--site-font);
+}
+
+.gastronomia__lightbox-hint:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes gastronomiaFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
-  
-  .nav-link {
-    margin: 0 0.5rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes gastronomiaFloat {
+  0%,
+  100% {
+    transform: scale(1.02) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(-6px);
+  }
+}
+
+@media (max-width: 900px) {
+  .gastronomia {
+    padding: 2rem 1.5rem;
+  }
+
+  .gastronomia__card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gastronomia__card,
+  .gastronomia__media img {
+    animation: none;
+  }
+}

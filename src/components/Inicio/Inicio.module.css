@@ -77,9 +77,10 @@
 }
 
 .button {
-  background-color: #a30048;
-  border: none;
-  color:white;
+  background-color: var(--site-surface);
+  border: 1px solid var(--site-ink);
+  color: var(--site-ink);
+  font-family: var(--site-font);
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -90,8 +91,8 @@
 }
 
 .button:hover {
-  background-color: #4747a3;
-  color: white;
+  background-color: #f1d7e5;
+  color: var(--site-ink);
 }
 
 .card2:hover,
@@ -100,7 +101,7 @@
   opacity: 0.5;
   transform: translateY(-10px);
   box-shadow: 4px 3px 4px 4px #a30048;
-  color: black;
+  color: var(--site-ink);
 }
 
 .card1 {

@@ -21,13 +21,13 @@
   margin: 0;
   font-size: clamp(1.35rem, 2.2vw, 2rem);
   line-height: 1.15;
-  color: #2b2b2b;
+  color: var(--site-ink);
 }
 
 .npCarousel__title p {
   margin: 8px 0 0 0;
   font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-  color: #3f3f3f;
+  color: var(--site-ink);
 }
 
 .npCarousel__frame {
@@ -93,7 +93,7 @@
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.12);
   background: rgba(255, 255, 255, 0.85);
-  color: #2b2b2b;
+  color: var(--site-ink);
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -157,7 +157,6 @@
     padding: 12px;
   }
 }
-
 
 
 

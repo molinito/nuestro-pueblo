@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import styles from "./Inicio.module.css";
@@ -23,9 +23,6 @@ const Card = ({ title, description, link, className }) => {
         </Link>
       </Flex>
     </Box>
-   
-    
-
   );
 };
 
@@ -41,10 +38,10 @@ const CardList = () => {
         ¡Bienvenidos a un viaje en el tiempo... a la historia de una tierra llena
         de encanto y misterio! Acompáñanos a descubrir los secretos y maravillas
         de Jesús María y Colonia Caroya, una joya escondida en el corazón de
-        Argentina. Desde sus humildes comienzos con nuestros ancestros los
-        Comechingones.., la llegada y la influencia de los Jesuitas en los siglos
-        XVII y XVIII, hasta la mezcla fascinante de culturas que conformaron
-        los colonos españoles, italianos, europeos y criollos desde épocas
+        Argentina. Desde sus humildes comienzos con nuestros ancestros, los
+        Comechingones, la llegada y la influencia de los Jesuitas en los siglos
+        XVII y XVIII, hasta la mezcla fascinante de culturas que conformaron los
+        colonos españoles, italianos, europeos y criollos desde épocas
         coloniales hasta principios del siglo XX. Cada rincón de esta tierra
         cuenta una historia, una leyenda, una tradición. Únete a nosotros en
         este fascinante recorrido mientras revelamos los relatos de sus
@@ -58,17 +55,16 @@ const CardList = () => {
 
       <br />
 
+      <h1 className={styles.title}>Un lugar, un evento, una historia</h1>
+      <h3 className={styles.subtitle}>
+        Elige alguna de las postales para revivir cada momento vivido...
+      </h3>
+      <br />
 
-             <h1 className={styles.title}>Un lugar, un evento, una historia</h1>
-             <h3 className={styles.subtitle}>
-              Elige alguna de las postales para revivir cada momento vivido...</h3>
-              <br />
-        
       <div className={styles.cardContainer}>
-       
         <Card
           className={styles.card1}
-          description="El museo es un importante sitio histórico y cultural que representa la herencia jesuita en la región. Se encuentra en la ciudad de Jesús Maria, en el camino real.."
+          description="El museo es un importante sitio histórico y cultural que representa la herencia jesuita en la región. Se encuentra en la ciudad de Jesús María, en el camino real."
           link="/historia"
         />
         <Card
@@ -87,22 +83,16 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-<h1 className={styles.title}>Visita nuestra galería de fotos</h1>
-<h3 className={styles.subtitle}>
- Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde nuestros ancestros hasta hoy...</h3>
- <br />
+      <h1 className={styles.title}>Visita nuestra galería de fotos</h1>
+      <h3 className={styles.subtitle}>
+        Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
+        nuestros ancestros hasta hoy...
+      </h3>
+      <br />
 
- < Carousel />
-
-
-      
-
-
+      <Carousel />
     </>
   );
 };
 
 export default CardList;
-
-
-

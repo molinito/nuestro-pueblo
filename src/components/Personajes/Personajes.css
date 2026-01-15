@@ -1,21 +1,257 @@
+.personajes {
+  width: min(1020px, 94%);
+  margin: 2.5rem auto 3.5rem;
+  padding: 2.5rem;
+  background: linear-gradient(180deg, #fff6ea 0%, #f7e1ee 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(163, 0, 72, 0.2);
+  box-shadow: 0 18px 35px rgba(115, 0, 52, 0.12);
+  text-align: left;
+}
+
+.personajes__hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.personajes__eyebrow {
+  margin: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(163, 0, 72, 0.75);
+}
+
+.personajes__title {
+  margin: 0.4rem 0 0.35rem;
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  color: var(--site-ink);
+}
+
+.personajes__subtitle {
+  margin: 0 auto;
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: rgba(163, 0, 72, 0.9);
+}
+
+.personajes__card {
+  display: grid;
+  gap: 1.6rem;
+  justify-items: center;
+  padding: 1.6rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  animation: personajesFadeUp 520ms ease-out;
+}
+
+.personajes__media {
+  position: relative;
+  width: min(720px, 100%);
+  aspect-ratio: 16 / 9;
+  max-height: 420px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(115, 0, 52, 0.15);
+  cursor: zoom-in;
+}
+
+.personajes__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(163, 0, 72, 0.12), transparent 60%);
+  pointer-events: none;
+}
+
+.personajes__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  animation: personajesFloat 6s ease-in-out infinite;
+}
+
+.personajes__overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(58, 0, 26, 0.45);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.personajes__media:hover .personajes__overlay,
+.personajes__media:focus-visible .personajes__overlay {
+  opacity: 1;
+}
+
+.personajes__media:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.4);
+  outline-offset: 4px;
+}
+
+.personajes__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  text-align: center;
+}
+
+.personajes__caption {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--site-ink);
+}
+
+.personajes__credit {
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(163, 0, 72, 0.2);
+  box-shadow: 0 8px 16px rgba(115, 0, 52, 0.08);
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+  text-align: center;
+}
+
+.personajes__credit-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(163, 0, 72, 0.7);
+}
+
+.personajes__credit-name {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--site-ink);
+}
+
+.personajes__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: #f1d7e5;
+  border: 1px solid rgba(163, 0, 72, 0.3);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--site-ink);
+}
+
 .button {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.25;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    color: #fff;
-    border-radius: 0.25rem;
-    text-decoration: none;
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  background-color: var(--site-surface);
+  border: 1px solid var(--site-ink);
+  color: var(--site-ink);
+  font-family: var(--site-font);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.personajes__back {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personajes__lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 0, 12, 0.85);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  z-index: 999;
+  animation: personajesFadeUp 240ms ease-out;
+}
+
+.personajes__lightbox-content {
+  position: relative;
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.personajes__lightbox img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.personajes__lightbox-hint {
+  margin: 0;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: var(--site-font);
+}
+
+.personajes__lightbox-hint:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@keyframes personajesFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
-  
-  .nav-link {
-    margin: 0 0.5rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes personajesFloat {
+  0%,
+  100% {
+    transform: scale(1.02) translateY(0);
+  }
+  50% {
+    transform: scale(1.02) translateY(-6px);
+  }
+}
+
+@media (max-width: 860px) {
+  .personajes {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personajes__card,
+  .personajes__media img {
+    animation: none;
+  }
+}
