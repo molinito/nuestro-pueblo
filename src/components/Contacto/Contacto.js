@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Contacto.css";
 
 const Contacto = () => {
-  const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
+  const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
   const [form, setForm] = useState({
     desde: "",
     titulo: "",
@@ -25,7 +25,7 @@ const Contacto = () => {
         return;
       }
       if (file && file.size > MAX_IMAGE_BYTES) {
-        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 3MB." });
+        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 4MB." });
         setForm({ ...form, fileAdjunto: null, fileName: "" });
         setPreview(null);
         e.target.value = "";

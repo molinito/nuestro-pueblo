@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
+const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
 const adminEmail = "molinito48@gmail.com";
 
 const getContentType = (fileName = "") => {
@@ -47,7 +47,7 @@ export default async function handler(req, res) {
       if (buffer.length > MAX_IMAGE_BYTES) {
         return res.status(413).json({
           status: "failed",
-          message: "La imagen supera el tamaño máximo permitido (3MB)."
+          message: "La imagen supera el tamaño máximo permitido (4MB)."
         });
       }
       attachments.push({
