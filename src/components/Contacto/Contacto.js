@@ -3,8 +3,12 @@ import "./Contacto.css";
 
 const Contacto = () => {
   const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
-  const MAX_DIMENSION = 2000;
-  const JPEG_QUALITY = 0.82;
+  const MAX_DIMENSION = 3000;
+  const MIN_DIMENSION = 1600;
+  const JPEG_QUALITY = 0.9;
+  const MIN_QUALITY = 0.72;
+  const QUALITY_STEP = 0.05;
+  const DIMENSION_STEP = 0.9;
 
   const [form, setForm] = useState({
     desde: "",
@@ -35,23 +39,43 @@ const Contacto = () => {
   const compressImage = async (file) => {
     const dataUrl = await readAsDataURL(file);
     const img = await loadImage(dataUrl);
-    const scale = Math.min(1, MAX_DIMENSION / Math.max(img.width, img.height));
-    const targetWidth = Math.round(img.width * scale);
-    const targetHeight = Math.round(img.height * scale);
-    const canvas = document.createElement("canvas");
-    canvas.width = targetWidth;
-    canvas.height = targetHeight;
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-    const blob = await new Promise((resolve) =>
-      canvas.toBlob(resolve, "image/jpeg", JPEG_QUALITY)
+    let currentDimension = Math.min(
+      MAX_DIMENSION,
+      Math.max(img.width, img.height)
     );
-    if (!blob) {
-      throw new Error("No se pudo procesar la imagen.");
+    let quality = JPEG_QUALITY;
+
+    while (true) {
+      const scale = Math.min(1, currentDimension / Math.max(img.width, img.height));
+      const targetWidth = Math.max(1, Math.round(img.width * scale));
+      const targetHeight = Math.max(1, Math.round(img.height * scale));
+      const canvas = document.createElement("canvas");
+      canvas.width = targetWidth;
+      canvas.height = targetHeight;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+      const blob = await new Promise((resolve) =>
+        canvas.toBlob(resolve, "image/jpeg", quality)
+      );
+      if (!blob) {
+        throw new Error("No se pudo procesar la imagen.");
+      }
+      if (blob.size <= MAX_IMAGE_BYTES) {
+        const compressedDataUrl = await readAsDataURL(blob);
+        const safeName = file.name.replace(/\.[^.]+$/, ".jpg");
+        return { dataUrl: compressedDataUrl, size: blob.size, fileName: safeName };
+      }
+      if (quality > MIN_QUALITY) {
+        quality = Math.max(MIN_QUALITY, quality - QUALITY_STEP);
+        continue;
+      }
+      if (currentDimension > MIN_DIMENSION) {
+        currentDimension = Math.round(currentDimension * DIMENSION_STEP);
+        quality = JPEG_QUALITY;
+        continue;
+      }
+      throw new Error("No se pudo reducir la imagen al tamaño permitido.");
     }
-    const compressedDataUrl = await readAsDataURL(blob);
-    const safeName = file.name.replace(/\.[^.]+$/, ".jpg");
-    return { dataUrl: compressedDataUrl, size: blob.size, fileName: safeName };
   };
 
   const resetFileInput = (target) => {
