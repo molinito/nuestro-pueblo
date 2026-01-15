@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Contacto.css";
 
 const Contacto = () => {
+  const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
   const [form, setForm] = useState({
     desde: "",
     titulo: "",
@@ -16,7 +17,22 @@ const Contacto = () => {
     const { name, value, files } = e.target;
     if (name === "fileAdjunto") {
       const file = files[0];
-      if (file && file.type.startsWith("image/")) {
+      if (file && !file.type.startsWith("image/")) {
+        setFeedback({ type: "error", msg: "Solo se permiten imágenes." });
+        setForm({ ...form, fileAdjunto: null, fileName: "" });
+        setPreview(null);
+        e.target.value = "";
+        return;
+      }
+      if (file && file.size > MAX_IMAGE_BYTES) {
+        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 3MB." });
+        setForm({ ...form, fileAdjunto: null, fileName: "" });
+        setPreview(null);
+        e.target.value = "";
+        return;
+      }
+      if (file) {
+        setFeedback(null);
         const reader = new FileReader();
         reader.onloadend = () => {
           setForm({ ...form, fileAdjunto: reader.result, fileName: file.name });
