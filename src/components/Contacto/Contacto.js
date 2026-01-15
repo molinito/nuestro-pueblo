@@ -36,6 +36,11 @@ const Contacto = () => {
       img.src = dataUrl;
     });
 
+  const canvasToBlob = (canvas, quality) =>
+    new Promise((resolve) => {
+      canvas.toBlob((blob) => resolve(blob), "image/jpeg", quality);
+    });
+
   const compressImage = async (file) => {
     const dataUrl = await readAsDataURL(file);
     const img = await loadImage(dataUrl);
@@ -53,10 +58,11 @@ const Contacto = () => {
       canvas.width = targetWidth;
       canvas.height = targetHeight;
       const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        throw new Error("No se pudo procesar la imagen.");
+      }
       ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
-      const blob = await new Promise((resolve) =>
-        canvas.toBlob(resolve, "image/jpeg", quality)
-      );
+      const blob = await canvasToBlob(canvas, quality);
       if (!blob) {
         throw new Error("No se pudo procesar la imagen.");
       }
