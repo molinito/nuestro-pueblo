@@ -25,7 +25,7 @@ const Contacto = () => {
         return;
       }
       if (file && file.size > MAX_IMAGE_BYTES) {
-        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 4MB." });
+        setFeedback({ type: "error", msg: "La imagen supera el tamaño máximo de 3MB." });
         setForm({ ...form, fileAdjunto: null, fileName: "" });
         setPreview(null);
         e.target.value = "";
@@ -92,7 +92,10 @@ const Contacto = () => {
         setFeedback({ type: "error", msg: data.message || "Error al enviar." });
       }
     } catch (err) {
-      setFeedback({ type: "error", msg: "Error de conexion o servidor." });
+      setFeedback({
+        type: "error",
+        msg: "Error de conexion o servidor. Si adjuntaste una imagen, debe ser menor a 3MB."
+      });
     }
     setEnviando(false);
   };
