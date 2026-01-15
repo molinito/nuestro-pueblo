@@ -37,7 +37,7 @@ const CardList = () => {
       <h3 className={styles.subtitle}>
         ¡Bienvenidos a un viaje en el tiempo... a la historia de una tierra llena
         de encanto y misterio! Acompáñanos a descubrir los secretos y maravillas
-        de Jesús María y Colonia Caroya, una joya escondida en el corazón de
+        de Jesús María y Colonia Caroya, una joya escondida en el corazón de Córdoba,
         Argentina. Desde sus humildes comienzos con nuestros ancestros, los
         Comechingones, la llegada y la influencia de los Jesuitas en los siglos
         XVII y XVIII, hasta la mezcla fascinante de culturas que conformaron los

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Contacto.css";
 
 const Contacto = () => {
-  const MAX_IMAGE_BYTES = 4 * 1024 * 1024;
+  const MAX_IMAGE_BYTES = 3 * 1024 * 1024;
   const MAX_DIMENSION = 3000;
   const MIN_DIMENSION = 1600;
   const JPEG_QUALITY = 0.9;
