@@ -47,9 +47,97 @@
   animation: personajesFadeUp 520ms ease-out;
 }
 
+.personajes__accordion {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.personajes__item {
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 28px rgba(115, 0, 52, 0.12);
+  overflow: hidden;
+}
+
+.personajes__toggle {
+  position: relative;
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 223, 236, 0.8));
+  padding: 1.4rem 6rem 1.4rem 1.6rem;
+  text-align: left;
+  display: grid;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--site-ink);
+  font-family: var(--site-font);
+}
+
+.personajes__toggle:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(246, 219, 233, 0.95));
+}
+
+.personajes__toggle:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.35);
+  outline-offset: 4px;
+}
+
+.personajes__toggle-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--site-ink);
+}
+
+.personajes__toggle-summary {
+  font-size: 1rem;
+  color: rgba(115, 0, 52, 0.85);
+  max-width: 760px;
+}
+
+.personajes__toggle-icon {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(163, 0, 72, 0.9);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(163, 0, 72, 0.25);
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.15);
+}
+
+.personajes__panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease, opacity 260ms ease;
+}
+
+.personajes__item.is-open .personajes__panel {
+  max-height: 3200px;
+  opacity: 1;
+}
+
+.personajes__panel-inner {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(163, 0, 72, 0.12);
+}
+
 .personajes__media {
   position: relative;
-  width: min(720px, 100%);
+  width: 100%;
   aspect-ratio: 16 / 9;
   max-height: 420px;
   border-radius: 16px;
@@ -102,7 +190,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .personajes__caption {
@@ -110,6 +198,13 @@
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--site-ink);
+}
+
+.personajes__note {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(115, 0, 52, 0.9);
 }
 
 .personajes__credit {
@@ -246,6 +341,18 @@
 @media (max-width: 860px) {
   .personajes {
     padding: 2rem 1.5rem;
+  }
+
+  .personajes__panel-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .personajes__toggle {
+    padding: 1.2rem 5rem 1.2rem 1.2rem;
+  }
+
+  .personajes__toggle-title {
+    font-size: 1.2rem;
   }
 }
 

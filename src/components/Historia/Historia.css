@@ -48,6 +48,105 @@
   animation: historiaFadeUp 520ms ease-out;
 }
 
+.historia__card + .historia__card {
+  margin-top: 2rem;
+}
+
+.historia__accordion {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.historia__item {
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 12px 28px rgba(115, 0, 52, 0.12);
+  overflow: hidden;
+}
+
+.historia__toggle {
+  position: relative;
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 223, 236, 0.8));
+  padding: 1.4rem 6rem 1.4rem 1.6rem;
+  text-align: left;
+  display: grid;
+  gap: 0.4rem;
+  cursor: pointer;
+  color: var(--site-ink);
+  font-family: var(--site-font);
+}
+
+.historia__toggle:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(246, 219, 233, 0.95));
+}
+
+.historia__toggle:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.35);
+  outline-offset: 4px;
+}
+
+.historia__toggle-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: rgba(163, 0, 72, 0.75);
+}
+
+.historia__toggle-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--site-ink);
+}
+
+.historia__toggle-summary {
+  font-size: 1rem;
+  color: rgba(115, 0, 52, 0.85);
+  max-width: 760px;
+}
+
+.historia__toggle-icon {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(163, 0, 72, 0.9);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(163, 0, 72, 0.25);
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.15);
+}
+
+.historia__panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 320ms ease, opacity 260ms ease;
+}
+
+.historia__item.is-open .historia__panel {
+  max-height: 3000px;
+  opacity: 1;
+}
+
+.historia__panel-inner {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(163, 0, 72, 0.12);
+}
+
 .historia__media {
   position: relative;
   width: 100%;
@@ -106,8 +205,64 @@
   font-size: 1.03rem;
 }
 
+.historia__card-title {
+  margin: 0;
+  font-size: 1.45rem;
+  color: var(--site-ink);
+}
+
+.historia__credit-inline {
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(250, 234, 244, 0.75);
+  border: 1px solid rgba(163, 0, 72, 0.2);
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.95rem;
+  color: rgba(115, 0, 52, 0.9);
+}
+
+.historia__credit-inline span {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: rgba(163, 0, 72, 0.75);
+}
+
+.historia__credit-inline p {
+  margin: 0;
+  font-weight: 600;
+}
+
 .historia__content p {
   margin: 0;
+}
+
+.historia__credit {
+  margin-top: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(163, 0, 72, 0.2);
+  box-shadow: 0 10px 20px rgba(115, 0, 52, 0.1);
+  display: grid;
+  gap: 0.35rem;
+  text-align: center;
+}
+
+.historia__credit-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(163, 0, 72, 0.7);
+}
+
+.historia__credit-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--site-ink);
 }
 
 .button {
@@ -206,8 +361,17 @@
     padding: 2rem 1.5rem;
   }
 
-  .historia__card {
+  .historia__card,
+  .historia__panel-inner {
     grid-template-columns: 1fr;
+  }
+
+  .historia__toggle {
+    padding: 1.2rem 5rem 1.2rem 1.2rem;
+  }
+
+  .historia__toggle-title {
+    font-size: 1.2rem;
   }
 }
 

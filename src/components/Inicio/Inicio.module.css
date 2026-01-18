@@ -77,9 +77,9 @@
 }
 
 .button {
-  background-color: var(--site-surface);
+  background-color: var(--site-ink);
   border: 1px solid var(--site-ink);
-  color: var(--site-ink);
+  color: #fff;
   font-family: var(--site-font);
   padding: 10px 20px;
   text-align: center;
@@ -91,8 +91,8 @@
 }
 
 .button:hover {
-  background-color: #f1d7e5;
-  color: var(--site-ink);
+  background-color: #7a0036;
+  color: #fff;
 }
 
 .card2:hover,
