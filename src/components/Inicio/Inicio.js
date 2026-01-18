@@ -74,7 +74,7 @@ const CardList = () => {
         />
         <Card
           className={styles.card3}
-          description="Fiesta Nacional e Internacional del Salame Quintero en Colonia Caroya, Córdoba, Argentina. Esta fiesta es un evento anual que celebra la tradición gastronómica de la región y..."
+          description="Fiesta Nacional e Internacional del Salame Quintero en Colonia Caroya, Córdoba, Argentina. Esta fiesta es un evento anual que celebra la tradición gastronómica..."
           link="/costumbres"
         />
       </div>

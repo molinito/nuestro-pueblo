@@ -10,6 +10,7 @@ import Eventos from "./components/Eventos/Eventos";
 import Gastronomia from "./components/Gastronomia/Gastronomia";
 import Historia from "./components/Historia/Historia";
 import Personajes from "./components/Personajes/Personajes";
+import AyerHoy from "./components/AyerHoy/AyerHoy";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Privacidad from "./components/Privacidad/Privacidad";
@@ -32,6 +33,7 @@ const App = () => {
           <Route path="/gastronomia" element={<Gastronomia />} />
           <Route path="/historia" element={<Historia />} />
           <Route path="/personajes" element={<Personajes />} />
+          <Route path="/ayer-hoy" element={<AyerHoy />} />
           <Route path="/privacidad" element={<Privacidad />} />
           <Route path="/donacion" element={<Donacion />} />
         </Routes>

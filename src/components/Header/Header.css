@@ -17,9 +17,13 @@
 
 @media (max-width: 768px) {
   .header-container {
-    height: 34vh;
-    min-height: 210px;
-    max-height: 380px;
+    height: 30vh;
+    min-height: 200px;
+    max-height: 320px;
     border-radius: 14px;
+  }
+
+  .header-container video {
+    object-position: 66% center;
   }
 }
