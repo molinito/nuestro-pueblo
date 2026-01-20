@@ -2,20 +2,30 @@
 :root {
   --site-font: 'Times New Roman', Times, serif;
   --site-ink: #a30048;
-  --site-bg: antiquewhite;
+  /* Previous solid background kept for quick rollback */
+  --site-bg-color: antiquewhite;
+  --site-bg: var(--site-bg-color);
   --site-surface: #fff7e9;
   --chakra-fonts-body: var(--site-font);
   --chakra-fonts-heading: var(--site-font);
   --chakra-colors-chakra-body-text: var(--site-ink);
   --chakra-colors-chakra-body-bg: var(--site-bg);
-  background-color: var(--site-bg);
+  background-color: var(--site-bg-color);
 }
 
-body {
+html {
+  background-color: var(--site-bg-color);
+}
+
+body,
+body.chakra-ui-light,
+body.chakra-ui-dark {
   margin: 0;
   font-family: var(--site-font);
   color: var(--site-ink);
-  background-color: var(--site-bg);
+  background-color: var(--site-bg-color);
+  background-repeat: repeat;
+  background-size: 900px auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

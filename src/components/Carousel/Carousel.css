@@ -49,7 +49,7 @@
   max-height: 520px;
   border-radius: 18px;
   overflow: hidden;
-  background-image: url('../../img/paperold.png');
+  background-image: url('../../img/paperold.webp');
   background-repeat: repeat;
   background-size: 520px auto;
   background-position: center;
@@ -157,6 +157,5 @@
     padding: 12px;
   }
 }
-
 
 

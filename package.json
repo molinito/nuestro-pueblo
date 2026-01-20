@@ -28,6 +28,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "check:encoding": "node scripts/check-encoding.js"
@@ -50,9 +51,26 @@
       "last 1 safari version"
     ]
   },
+  "reactSnap": {
+    "include": [
+      "/",
+      "/lugares",
+      "/historia",
+      "/costumbres",
+      "/ayer-hoy",
+      "/personajes",
+      "/eventos",
+      "/gastronomia",
+      "/acerca-de",
+      "/contacto",
+      "/privacidad",
+      "/donacion"
+    ]
+  },
   "devDependencies": {
     "@babel/plugin-transform-class-properties": "^7.23.3",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "react-snap": "^1.23.0"
   },
   "engines": {
     "node": "24.x"

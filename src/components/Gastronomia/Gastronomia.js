@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Gastronomia.css";
-import comidasTipicas from "./comidas-tipicas.jpeg";
+import comidasTipicas from "./comidas-tipicas.webp";
 
 const Gastronomia = () => {
   const [isOpen, setIsOpen] = useState(false);

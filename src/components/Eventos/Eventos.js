@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Eventos.css";
-import jm from "../../img/jm.jpg";
+import jm from "../../img/jm.webp";
 
 const Eventos = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -152,6 +152,18 @@ const Contacto = () => {
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
+  const parseResponse = async (res) => {
+    const text = await res.text();
+    if (!text) {
+      return {};
+    }
+    try {
+      return JSON.parse(text);
+    } catch (error) {
+      return { raw: text };
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFeedback(null);
@@ -182,8 +194,13 @@ const Contacto = () => {
         },
         body: JSON.stringify(payload)
       });
-      const data = await res.json();
-      if (data.status === "success") {
+      const data = await parseResponse(res);
+      if (!res.ok) {
+        setFeedback({
+          type: "error",
+          msg: data.message || `Error del servidor (${res.status}).`
+        });
+      } else if (data.status === "success") {
         setFeedback({
           type: "success",
           msg: "Mensaje enviado correctamente. Será revisado antes de publicarse."
@@ -196,7 +213,7 @@ const Contacto = () => {
     } catch (err) {
       setFeedback({
         type: "error",
-        msg: "Error de conexión o servidor. Si adjuntaste una imagen, debe ser menor a 3MB."
+        msg: "No se pudo conectar con el servidor. Probá nuevamente."
       });
     }
     setEnviando(false);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Historia.css";
-import museoImg from "./museo.jpg";
-import historiaImg from "./1.jpg";
+import museoImg from "./museo.webp";
+import historiaImg from "./1.webp";
 
 const historias = [
   {

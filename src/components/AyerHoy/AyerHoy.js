@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./AyerHoy.css";
-import ayeryhoy from "./ayeryhoy.jpg";
-import ayeryhoy1 from "./ayeryhoy1.jpg";
-import ayeryhoy2 from "./ayeryhoy2.jpg";
-import ayeryhoy3 from "./ayeryhoy3.jpg";
-import ayeryhoy4 from "./ayeryhoy4.jpg";
-import ayeryhoy5 from "./ayeryhoy5.jpg";
-import ayeryhoy6 from "./ayeryhoy6.jpg";
-import ayeryhoy7 from "./ayeryhoy7.jpg";
-import ayeryhoy8 from "./ayeryhoy8.jpg";
-import ayeryhoy9 from "./ayeryhoy9.jpg";
-import ayeryhoy10 from "./ayeryhoy10.jpg";
+import ayeryhoy from "./ayeryhoy.webp";
+import ayeryhoy1 from "./ayeryhoy1.webp";
+import ayeryhoy2 from "./ayeryhoy2.webp";
+import ayeryhoy3 from "./ayeryhoy3.webp";
+import ayeryhoy4 from "./ayeryhoy4.webp";
+import ayeryhoy5 from "./ayeryhoy5.webp";
+import ayeryhoy6 from "./ayeryhoy6.webp";
+import ayeryhoy7 from "./ayeryhoy7.webp";
+import ayeryhoy8 from "./ayeryhoy8.webp";
+import ayeryhoy9 from "./ayeryhoy9.webp";
+import ayeryhoy10 from "./ayeryhoy10.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Costumbres.css";
-import fiestaSalame from "./Fiesta salame.jpg";
-import chapita from "./chapita.png";
-import chapita1 from "./chapita1.png";
-import chapita2 from "./chapita2.jpg";
-import chapita3 from "./chapita3.jpg";
-import chapita4 from "./chapita4.jpg";
-import chapita5 from "./chapita5.jpg";
+import fiestaSalame from "./Fiesta salame.webp";
+import chapita from "./chapita.webp";
+import chapita1 from "./chapita1.webp";
+import chapita2 from "./chapita2.webp";
+import chapita3 from "./chapita3.webp";
+import chapita4 from "./chapita4.webp";
+import chapita5 from "./chapita5.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },

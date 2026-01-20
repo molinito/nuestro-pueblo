@@ -105,19 +105,19 @@
 }
 
 .card1 {
-  background-image: url('../../img/museo.jpg');
+  background-image: url('../../img/museo.webp');
   font-size: 18px;
 
 }
 
 .card2 {
-  background-image: url('../../img/jm.jpg');
+  background-image: url('../../img/jm.webp');
   font-size: 18px;
 
 }
 
 .card3 {
-  background-image: url('../../img/vendimia.jpg');
+  background-image: url('../../img/vendimia.webp');
   font-size: 18px;
 
 }
@@ -146,5 +146,4 @@
       font-size: 20px;
   }
 }
-
 

@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Lugares.css";
-import museoArmas from "./Museo Armas.jpg";
-import guyon from "./guyon.png";
-import guyon1 from "./guyon1.png";
-import guyon2 from "./guyon2.png";
-import guyon3 from "./guyon3.png";
-import guyon4 from "./guyon4.png";
-import guyon5 from "./guyon5.png";
-import guyon6 from "./guyon6.png";
-import guyon7 from "./guyon7.png";
-import guyon8 from "./guyon8.jpg";
+import museoArmas from "./Museo Armas.webp";
+import guyon from "./guyon.webp";
+import guyon1 from "./guyon1.webp";
+import guyon2 from "./guyon2.webp";
+import guyon3 from "./guyon3.webp";
+import guyon4 from "./guyon4.webp";
+import guyon5 from "./guyon5.webp";
+import guyon6 from "./guyon6.webp";
+import guyon7 from "./guyon7.webp";
+import guyon8 from "./guyon8.webp";
 
 const guyonPhotos = [
   { src: guyon, alt: "Casa Guyón: fachada principal" },

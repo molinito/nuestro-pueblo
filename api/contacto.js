@@ -43,7 +43,13 @@ export default async function handler(req, res) {
 
     const attachments = [];
     if (fileAdjunto && fileName) {
-      const buffer = Buffer.from(fileAdjunto, "base64");
+      const rawBase64 = String(fileAdjunto).includes(",")
+        ? String(fileAdjunto).split(",").pop()
+        : String(fileAdjunto);
+      if (!rawBase64) {
+        return res.status(400).json({ status: "failed", message: "Adjunto inválido" });
+      }
+      const buffer = Buffer.from(rawBase64, "base64");
       if (buffer.length > MAX_IMAGE_BYTES) {
         return res.status(413).json({
           status: "failed",
