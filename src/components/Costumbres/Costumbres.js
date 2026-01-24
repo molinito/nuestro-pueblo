@@ -8,6 +8,9 @@ import chapita2 from "./chapita2.webp";
 import chapita3 from "./chapita3.webp";
 import chapita4 from "./chapita4.webp";
 import chapita5 from "./chapita5.webp";
+import campanita from "./campanita.webp";
+import campanita1 from "./campanita1.webp";
+import campanita2 from "./campanita2.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -16,6 +19,12 @@ const chapitas = [
   { src: chapita3, alt: "Chapitas históricas de marcas locales" },
   { src: chapita4, alt: "Chapitas con diseños de época" },
   { src: chapita5, alt: "Colección de chapitas argentinas" },
+];
+
+const campanitas = [
+  { src: campanita, alt: "Portada del libro Campanita" },
+  { src: campanita1, alt: "Páginas ilustradas del libro Campanita" },
+  { src: campanita2, alt: "Lectura en el aula con el libro Campanita" },
 ];
 
 const costumbres = [
@@ -30,6 +39,16 @@ const costumbres = [
     paragraphs: [
       "Fiesta Nacional e Internacional del Salame en Colonia Caroya, Córdoba, Argentina. Esta fiesta es un evento anual que celebra la tradición gastronómica de la región y, en particular, el famoso salame quintero, un embutido típico de la zona. La Fiesta del Salame se lleva a cabo en Colonia Caroya, una localidad con una rica historia vinculada a la cultura italiana y la producción de embutidos. Durante el festival, los visitantes pueden disfrutar de una amplia variedad de actividades, como degustaciones de salame, concursos para elegir el mejor salame, exhibiciones de artesanías locales, música folclórica, danzas tradicionales y otras expresiones culturales. Es una fiesta muy popular que atrae a turistas locales e internacionales, así como a personas de otras provincias de Argentina. El ambiente festivo y la deliciosa comida hacen que esta celebración sea única y atractiva para todos los amantes de la gastronomía y la cultura. La Fiesta Nacional e Internacional del Salame Quintero es una oportunidad para que los habitantes de Colonia Caroya muestren con orgullo su tradición culinaria y para que los visitantes descubran y disfruten de la riqueza cultural de esta encantadora localidad en Córdoba. Si tienes la oportunidad de visitarla durante el festival, seguramente tendrás una experiencia memorable y sabrosa.",
     ],
+  },
+  {
+    id: "campanita",
+    title: "El libro que nos enseñó a leer...",
+    summary: "Campanita fue la puerta de entrada a las palabras y a la infancia compartida.",
+    type: "gallery",
+    paragraphs: [
+      "Hubo un tiempo en que el mundo cabía en una mochila de cuero y el aroma de la mañana se mezclaba con el olor a lápiz recién tajado. Para muchos de nosotros, la puerta de entrada al universo de las palabras no fue una pantalla, sino un libro de tapa colorida y nombre musical: Campanita. Abrir sus páginas era iniciar un ritual. Todavía podemos escuchar en la memoria el pasar de sus hojas de papel rústico, mientras el dedo índice recorría con lentitud aquellas letras negras y gruesas. \"Mamá me ama. Amo a mi mamá\". No eran solo frases; eran conquistas. Las ilustraciones del libro tenían esa calidez de la acuarela y el trazo suave. Dibujos de niños con guardapolvos blancos impecables, pelotas de trapo, y una madre que siempre nos esperaba con la mesa puesta. Campanita no solo nos enseñó a leer; nos dibujó una infancia de patio, del juego del tejo, al elástico o la payana. Su método silábico era como una canción que repetíamos a coro en el aula, un eco de voces infantiles que hoy resuena con la nostalgia de lo que fue puro y simple.",
+    ],
+    gallery: campanitas,
   },
   {
     id: "chapitas",

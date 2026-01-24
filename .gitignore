@@ -19,6 +19,9 @@
 .env.production.local
 .env
 
+# Large local-only assets
+src/components/Videos/1.mp4
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -12,6 +12,10 @@ import ayeryhoy7 from "./ayeryhoy7.webp";
 import ayeryhoy8 from "./ayeryhoy8.webp";
 import ayeryhoy9 from "./ayeryhoy9.webp";
 import ayeryhoy10 from "./ayeryhoy10.webp";
+import casaRicardoAntes from "./casa-ricardo-antes.webp";
+import casaRicardoHoy from "./casa-ricardo-hoy.webp";
+import tiendaLaNueva from "./tienda-la-nueva.webp";
+import tiendaLaNuevaHoy from "./tienda-la-nueva-hoy.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
@@ -56,7 +60,7 @@ const AyerHoy = () => {
         <p className="ayer-hoy__eyebrow">Ayer y hoy</p>
         <h1 className="ayer-hoy__title">Dos tiempos, una misma memoria</h1>
         <p className="ayer-hoy__subtitle">
-          Comparativas visuales de edificios y comercios de Jes˙s Mar˝a, Cˇrdoba,
+          Comparativas visuales de edificios y comercios de Jesús María, Córdoba,
           Argentina.
         </p>
       </header>
@@ -126,6 +130,146 @@ const AyerHoy = () => {
                 <span className="ayer-hoy__credit-label">Créditos</span>
                 <p className="ayer-hoy__credit-text">
                   Fotos: Sr. Guillermo Ordoñez (Facebook)
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "casa-ricardo" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("casa-ricardo")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "casa-ricardo")}
+            aria-expanded={openId === "casa-ricardo"}
+            aria-controls="ayer-hoy-panel-casa-ricardo"
+            id="ayer-hoy-header-casa-ricardo"
+          >
+            <span className="ayer-hoy__toggle-title">Casa Ricardo Divo</span>
+            <span className="ayer-hoy__toggle-summary">
+              Una tienda emblemática de Jesús María en los años 70 y 80.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "casa-ricardo" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-casa-ricardo"
+            role="region"
+            aria-labelledby="ayer-hoy-header-casa-ricardo"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  Esta era una tienda en Jesús María, propiedad del Sr. Ricardo Divo,
+                  un lugar de compras muy reconocido en las décadas del 70 y 80.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {[
+                  {
+                    src: casaRicardoAntes,
+                    alt: "Casa Ricardo Divo en Jesús María, antes",
+                  },
+                  {
+                    src: casaRicardoHoy,
+                    alt: "Casa Ricardo Divo en Jesús María, hoy",
+                  },
+                ].map((foto) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt)}
+                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "tienda-la-nueva" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("tienda-la-nueva")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "tienda-la-nueva")}
+            aria-expanded={openId === "tienda-la-nueva"}
+            aria-controls="ayer-hoy-panel-tienda-la-nueva"
+            id="ayer-hoy-header-tienda-la-nueva"
+          >
+            <span className="ayer-hoy__toggle-title">Tienda La Nueva</span>
+            <span className="ayer-hoy__toggle-summary">
+              De la esquina histórica a la memoria comercial de Jesús María.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "tienda-la-nueva" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-tienda-la-nueva"
+            role="region"
+            aria-labelledby="ayer-hoy-header-tienda-la-nueva"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  Tienda La Nueva de la década de los 30 / 40, en la esq. de Juilio A.
+                  Roca y Córdoba. Más adelante en la esquina en la esq. de John Kenedy
+                  y San Martín, frente al banco Córdoba, funcionó por muchos años
+                  Tienda La Nueva dedicada a ropa, calzado y artículos del hogar. Hoy
+                  en lugar de la tienda está calzados La Focce.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {[
+                  {
+                    src: tiendaLaNueva,
+                    alt: "Tienda La Nueva en Jesús María, década de 1930-1940",
+                  },
+                  {
+                    src: tiendaLaNuevaHoy,
+                    alt: "Actual ubicación de Tienda La Nueva en Jesús María",
+                  },
+                ].map((foto) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt)}
+                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="ayer-hoy__credits">
+                <span className="ayer-hoy__credit-label">Fuente</span>
+                <p className="ayer-hoy__credit-text">
+                  Extracto de texto, extraído de{" "}
+                  <a
+                    href="https://diarioeldespertador.com.ar/contenido/14066/daguerrotipos"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    diarioeldespertador.com.ar
+                  </a>
+                  .
                 </p>
               </div>
             </div>
