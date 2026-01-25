@@ -8,7 +8,7 @@ const Footer = () => {
         <p>&copy; Copyright 2023 Todos los derechos reservados</p>
         <p>Powered by Molinito</p>
         <a
-          href="https://www.facebook.com/marcelo.saravia.98434"
+          href="https://www.facebook.com/groups/26140216205584060"
           target="_blank"
           rel="noopener noreferrer"
         >
