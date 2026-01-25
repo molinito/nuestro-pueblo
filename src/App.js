@@ -15,6 +15,7 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Privacidad from "./components/Privacidad/Privacidad";
 import Donacion from "./components/Donacion/Donacion";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
         </Routes>
 
         <Footer />
+        <Analytics />
       </BrowserRouter>
     </div>
     

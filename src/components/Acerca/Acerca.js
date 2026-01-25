@@ -71,11 +71,11 @@ const Acerca = () => {
                 <FaFacebookF className="acerca__icon acerca__icon--facebook" /> Facebook:
               </span>
               <a
-                href="https://www.facebook.com/marcelo.saravia.98434/"
+                href="https://www.facebook.com/groups/26140216205584060"
                 target="_blank"
                 rel="noreferrer"
               >
-                facebook.com/marcelo.saravia.98434
+                facebook.com/groups/26140216205584060
               </a>
             </li>
           </ul>

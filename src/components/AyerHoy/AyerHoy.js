@@ -16,6 +16,8 @@ import casaRicardoAntes from "./casa-ricardo-antes.webp";
 import casaRicardoHoy from "./casa-ricardo-hoy.webp";
 import tiendaLaNueva from "./tienda-la-nueva.webp";
 import tiendaLaNuevaHoy from "./tienda-la-nueva-hoy.webp";
+import museoAyer from "./museo-ayer.webp";
+import museoHoy from "./museo-hoy.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
@@ -271,6 +273,71 @@ const AyerHoy = () => {
                   </a>
                   .
                 </p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "museo-jesuitico" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("museo-jesuitico")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "museo-jesuitico")}
+            aria-expanded={openId === "museo-jesuitico"}
+            aria-controls="ayer-hoy-panel-museo-jesuitico"
+            id="ayer-hoy-header-museo-jesuitico"
+          >
+            <span className="ayer-hoy__toggle-title">
+              Estancia de Jesús María - Museo Jesuítico Nacional
+            </span>
+            <span className="ayer-hoy__toggle-summary">
+              Un legado jesuítico que marcó la identidad vitivinícola de la región.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "museo-jesuitico" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-museo-jesuitico"
+            role="region"
+            aria-labelledby="ayer-hoy-header-museo-jesuitico"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  Estancia de Jesús María - Museo Jesuítico Nacional - Fundada en
+                  1618, por los jesuitas, esta estancia se destacó por su producción
+                  vitivinícola, que marcó la identidad de la región y sigue vigente
+                  hasta hoy.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {[
+                  {
+                    src: museoAyer,
+                    alt: "Estancia de Jesús María, museo jesuítico nacional, antes",
+                  },
+                  {
+                    src: museoHoy,
+                    alt: "Estancia de Jesús María, museo jesuítico nacional, hoy",
+                  },
+                ].map((foto) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt)}
+                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
