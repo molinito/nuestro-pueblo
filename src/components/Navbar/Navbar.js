@@ -104,7 +104,7 @@ const Navbar = () => {
           </div>
         </div>
         <NavLink className={styles.link} activeclassname="active" to="/donacion" onClick={closeAllMenus}>
-          Donación
+          Colaboración
         </NavLink>
         <NavLink className={styles.link} activeclassname="active" to="/privacidad" onClick={closeAllMenus}>
           Privacidad

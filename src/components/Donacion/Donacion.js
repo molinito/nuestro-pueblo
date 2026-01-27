@@ -20,7 +20,7 @@ const Donacion = () => {
   return (
     <main className="donacion">
       <header className="donacion__hero">
-        <p className="donacion__eyebrow">Donación</p>
+        <p className="donacion__eyebrow">Colaboración</p>
         <h1 className="donacion__title">Ayudá a sostener este proyecto</h1>
         <p className="donacion__subtitle">
           Un sitio hecho con amor, memoria y muchas horas de trabajo.
