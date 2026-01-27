@@ -1,5 +1,5 @@
 import styles from "./Footer.module.css";
-import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -10,6 +10,24 @@ const Footer = () => {
           <p>Powered by Molinito</p>
         </div>
         <div className={styles.socialIcons}>
+          <a
+            className={`${styles.socialLink} ${styles.gmail}`}
+            href="mailto:molinito48@gmail.com"
+            aria-label="Gmail"
+          >
+            <FaEnvelope />
+          </a>
+
+          <a
+            className={`${styles.socialLink} ${styles.whatsapp}`}
+            href="https://wa.me/5493525610862?text=Hola%E2%80%A6!!!%2C%20este%20es%20un%20chat%20con%20destino%20comercial.%20Puedes%20dejar%20tu%20consulta%20acerca%20del%20portal%20web%20o%20si%20necesitas%20una%20p%C3%A1gina%20web%20para%20tu%20negocio."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <FaWhatsapp />
+          </a>
+
           <a
             className={`${styles.socialLink} ${styles.facebook}`}
             href="https://www.facebook.com/groups/26140216205584060"

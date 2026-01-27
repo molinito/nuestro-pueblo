@@ -80,7 +80,7 @@ const Navbar = () => {
         </div>
       </div>
       <NavLink className={styles.link} activeclassname="active" to="/donacion">
-        Donación
+        Colaboración
       </NavLink>
       <NavLink className={styles.link} activeclassname="active" to="/privacidad">
         Privacidad

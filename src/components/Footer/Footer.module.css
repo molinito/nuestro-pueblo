@@ -61,12 +61,28 @@
   color: #0a66c2;
 }
 
+.gmail {
+  color: #d93025;
+}
+
+.whatsapp {
+  color: #25d366;
+}
+
 .facebook:hover {
   background-color: rgba(24, 119, 242, 0.12);
 }
 
 .linkedin:hover {
   background-color: rgba(10, 102, 194, 0.12);
+}
+
+.gmail:hover {
+  background-color: rgba(217, 48, 37, 0.12);
+}
+
+.whatsapp:hover {
+  background-color: rgba(37, 211, 102, 0.12);
 }
 
 @media screen and (max-width: 768px) {
