@@ -18,6 +18,10 @@ import tiendaLaNueva from "./tienda-la-nueva.webp";
 import tiendaLaNuevaHoy from "./tienda-la-nueva-hoy.webp";
 import museoAyer from "./museo-ayer.webp";
 import museoHoy from "./museo-hoy.webp";
+import bvAgueroAyer from "./bvAguero-ayer.webp";
+import bvAgueroHoy from "./bvAguero-hoy.webp";
+import castuloPenaAyer from "./castuloPena-ayer.webp";
+import castuloPenaHoy from "./castuloPena-hoy.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
@@ -323,6 +327,134 @@ const AyerHoy = () => {
                   {
                     src: museoHoy,
                     alt: "Estancia de Jesús María, museo jesuítico nacional, hoy",
+                  },
+                ].map((foto) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt)}
+                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "boulevard-aguero" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("boulevard-aguero")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "boulevard-aguero")}
+            aria-expanded={openId === "boulevard-aguero"}
+            aria-controls="ayer-hoy-panel-boulevard-aguero"
+            id="ayer-hoy-header-boulevard-aguero"
+          >
+            <span className="ayer-hoy__toggle-title">
+              Boulevard Agüero esquina Juan Bautista Alberdi en Jesús María. Ahora hay unos
+              consultorios.
+            </span>
+            <span className="ayer-hoy__toggle-summary">
+              Una esquina familiar que cambió con el tiempo.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "boulevard-aguero" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-boulevard-aguero"
+            role="region"
+            aria-labelledby="ayer-hoy-header-boulevard-aguero"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  Comentó el sr. Edu Coltsauer que era la casa de sus abuelos Ester
+                  D&apos;olivo y Luis Bergagna proxi 1935.
+                </p>
+                <p>
+                  Fuente sr. Norma Aussello de Facebook. La foto actualizada por mi.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {[
+                  {
+                    src: bvAgueroAyer,
+                    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, antes",
+                  },
+                  {
+                    src: bvAgueroHoy,
+                    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, hoy",
+                  },
+                ].map((foto) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt)}
+                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "castillo-cespedes" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("castillo-cespedes")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "castillo-cespedes")}
+            aria-expanded={openId === "castillo-cespedes"}
+            aria-controls="ayer-hoy-panel-castillo-cespedes"
+            id="ayer-hoy-header-castillo-cespedes"
+          >
+            <span className="ayer-hoy__toggle-title">Castillo Céspedes</span>
+            <span className="ayer-hoy__toggle-summary">
+              La torre histórica en el actual Club Social.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "castillo-cespedes" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-castillo-cespedes"
+            role="region"
+            aria-labelledby="ayer-hoy-header-castillo-cespedes"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  La torre fue diseñada y construida entre 1896 y 1898 en el parque de la
+                  casa de la familia Céspedes, actual Club Social.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {[
+                  {
+                    src: castuloPenaAyer,
+                    alt: "Castillo Céspedes, antes",
+                  },
+                  {
+                    src: castuloPenaHoy,
+                    alt: "Castillo Céspedes, hoy",
                   },
                 ].map((foto) => (
                   <div

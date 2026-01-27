@@ -4,24 +4,32 @@ import { FaFacebook, FaLinkedin } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.socialIcons}>
-        <p>&copy; Copyright 2023 Todos los derechos reservados</p>
-        <p>Powered by Molinito</p>
-        <a
-          href="https://www.facebook.com/groups/26140216205584060"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaFacebook />
-        </a>
+      <div className={styles.footerInner}>
+        <div className={styles.footerText}>
+          <p>&copy; Copyright 2023 Todos los derechos reservados</p>
+          <p>Powered by Molinito</p>
+        </div>
+        <div className={styles.socialIcons}>
+          <a
+            className={`${styles.socialLink} ${styles.facebook}`}
+            href="https://www.facebook.com/groups/26140216205584060"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <FaFacebook />
+          </a>
 
-        <a
-          href="https://www.linkedin.com/in/marcelo-saravia-27128092"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin />
-        </a>
+          <a
+            className={`${styles.socialLink} ${styles.linkedin}`}
+            href="https://www.linkedin.com/in/marcelo-saravia-27128092"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin />
+          </a>
+        </div>
       </div>
     </footer>
   );

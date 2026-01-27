@@ -3,54 +3,80 @@
   background-color: var(--site-surface);
   position: relative;
   color: var(--site-ink);
-  height: 80px;
-  width: 80%;
+  width: 100%;
   margin-top: 40px;
-  display: block;
-}
-.footer p {
-  padding: 10px;
-  color: var(--site-ink);
-  text-align: center;
-  margin: 10px;
   display: flex;
-  justify-content: space-around;
-  font-size: x-large;
+  justify-content: center;
+  padding: 16px 24px;
+}
+
+.footerInner {
+  width: min(1100px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 28px;
+  flex-wrap: wrap;
+}
+
+.footerText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.footerText p {
+  color: var(--site-ink);
+  margin: 0;
+  font-size: 1rem;
 }
 
 .socialIcons {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
+  gap: 10px;
 }
 
-.socialIcons a {
+.socialLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  margin: 0 5px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background-color: #fff;
-  color: var(--site-ink);
-  border: 1px solid var(--site-ink);
+  background-color: transparent;
+  border: 1px solid currentColor;
   transition: background-color 0.3s ease;
-  margin-top: 15px;
+  font-size: 1.1rem;
 }
 
-.socialIcons a:hover {
-  background-color: #f1d7e5;
-  color: var(--site-ink);
+.facebook {
+  color: #1877f2;
 }
 
-@media screen and (max-width: 1280px) {
-  .footer {
-    width: 100%;
+.linkedin {
+  color: #0a66c2;
+}
+
+.facebook:hover {
+  background-color: rgba(24, 119, 242, 0.12);
+}
+
+.linkedin:hover {
+  background-color: rgba(10, 102, 194, 0.12);
+}
+
+@media screen and (max-width: 768px) {
+  .footerInner {
+    flex-direction: column;
   }
-
-  .footer p {
-    font-size: 1rem;
-  }
 }
 
+@media screen and (min-width: 1024px) {
+  .footerText p {
+    font-size: 1.1rem;
+  }
+}
