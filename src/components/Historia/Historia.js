@@ -3,6 +3,19 @@ import { NavLink } from "react-router-dom";
 import "./Historia.css";
 import museoImg from "./museo.webp";
 import historiaImg from "./1.webp";
+import castillo1 from "./castillo1.webp";
+import castillo2 from "./castillo2.webp";
+import castillo3 from "./castillo3.webp";
+import castillo4 from "./castillo4.webp";
+import castillo5 from "./castillo5.webp";
+
+const torreCespedesPhotos = [
+  { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
+  { src: castillo2, alt: "Torre Céspedes, fachada con vegetación" },
+  { src: castillo3, alt: "Torre Céspedes, torreón y muros de piedra" },
+  { src: castillo4, alt: "Torre Céspedes, detalles de la arquitectura" },
+  { src: castillo5, alt: "Torre Céspedes, vista del parque" },
+];
 
 const historias = [
   {
@@ -10,6 +23,7 @@ const historias = [
     title: "Museo Jesuítico de Jesús María",
     summary:
       "Una visita a la herencia jesuita que marcó el camino cultural de la región.",
+    type: "single",
     image: museoImg,
     alt: "Museo Jesuítico de Jesús María",
     paragraphs: [
@@ -22,6 +36,7 @@ const historias = [
     title: "Colonia San Martín y el nombre Caroya",
     summary:
       "El nombre Caroya prevaleció y quedó grabado en la memoria fundacional.",
+    type: "single",
     image: historiaImg,
     alt: "Fotografía histórica de Colonia Caroya",
     paragraphs: [
@@ -39,6 +54,25 @@ const historias = [
     ],
     credit: "Foto y Texto: Sr. Mariano Aliaga (tomados de Facebook)",
   },
+  {
+    id: "torre-cespedes",
+    title: "Torre Céspedes (Club Social)",
+    summary:
+      "Un pequeño castillo inspirado en las torres francesas y la memoria del Club Social.",
+    type: "gallery",
+    gallery: torreCespedesPhotos,
+    paragraphs: [
+      "La torre fue diseñada y construida entre 1896 y 1898, en el parque de la casa de la familia Céspedes, el actual Club Social.",
+      "Fue encargada por Don Gabriel Céspedes al ingeniero y constructor Pedro Buscá, oriundo de Mataró, España, para completar su casa de veraneo. Es un pequeño castillo, único en su tipo, con orígenes en las torres de homenaje francesas.",
+      "Ubicada en la calle Cástulo Peña 387 en Jesús María, la construcción evoca a Alicante, ciudad natal del inmigrante español Gabriel Céspedes. En el parque, árboles exóticos crecían en perfecta armonía con la construcción y conformaban un verdadero jardín botánico, todo regado por una red de acequias.",
+    ],
+    video: {
+      title: "Los misterios de la Torre Céspedes",
+      source: "el doce.tv",
+      href: "https://www.youtube.com/watch?v=2q0W3hPAKwE",
+      label: "Ver nota en YouTube",
+    },
+  },
 ];
 
 const Historia = () => {
@@ -51,6 +85,12 @@ const Historia = () => {
 
   const openImage = (src, alt) => setLightbox({ src, alt });
   const closeImage = () => setLightbox(null);
+  const handleImageKeyDown = (event, src, alt) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openImage(src, alt);
+    }
+  };
   const handleKeyDown = (event, id) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -101,34 +141,88 @@ const Historia = () => {
                 role="region"
                 aria-labelledby={headerId}
               >
-                <div className="historia__panel-inner">
-                  <div
-                    className="historia__media"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => openImage(historia.image, historia.alt)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        openImage(historia.image, historia.alt);
-                      }
-                    }}
-                    aria-label={`Agrandar imagen de ${historia.title}`}
-                  >
-                    <img src={historia.image} alt={historia.alt} />
-                    <div className="historia__overlay">Haz click para agrandar</div>
-                  </div>
-                  <div className="historia__content">
-                    {historia.paragraphs.map((paragraph, index) => (
-                      <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
-                    ))}
-                    {historia.credit && (
-                      <div className="historia__credit-inline">
-                        <span>Créditos</span>
-                        <p>{historia.credit}</p>
+                <div
+                  className={`historia__panel-inner${
+                    historia.type === "gallery" ? " historia__panel-inner--gallery" : ""
+                  }`}
+                >
+                  {historia.type === "single" && (
+                    <>
+                      <div
+                        className="historia__media"
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => openImage(historia.image, historia.alt)}
+                        onKeyDown={(event) =>
+                          handleImageKeyDown(event, historia.image, historia.alt)
+                        }
+                        aria-label={`Agrandar imagen de ${historia.title}`}
+                      >
+                        <img src={historia.image} alt={historia.alt} />
+                        <div className="historia__overlay">Haz click para agrandar</div>
                       </div>
-                    )}
-                  </div>
+                      <div className="historia__content">
+                        {historia.paragraphs.map((paragraph, index) => (
+                          <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
+                        ))}
+                        {historia.credit && (
+                          <div className="historia__credit-inline">
+                            <span>Créditos</span>
+                            <p>{historia.credit}</p>
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
+
+                  {historia.type === "gallery" && (
+                    <>
+                      <div className="historia__content">
+                        {historia.paragraphs.map((paragraph, index) => (
+                          <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
+                        ))}
+                        {historia.video && (
+                          <div className="historia__video">
+                            <span className="historia__video-label">
+                              Mira el video…!!
+                            </span>
+                            <p className="historia__video-title">{historia.video.title}</p>
+                            <p className="historia__video-source">
+                              Fuente: {historia.video.source}
+                            </p>
+                            <a
+                              className="historia__video-link"
+                              href={historia.video.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {historia.video.label}
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                      <div className="historia__gallery">
+                        {historia.gallery.map((photo, index) => (
+                          <div
+                            key={photo.src}
+                            className={`historia__gallery-item${
+                              index === 0 ? " is-feature" : ""
+                            }${index === 3 ? " is-tall" : ""}`}
+                            role="button"
+                            tabIndex={0}
+                            onClick={() => openImage(photo.src, photo.alt)}
+                            onKeyDown={(event) =>
+                              handleImageKeyDown(event, photo.src, photo.alt)
+                            }
+                            aria-label={`Agrandar imagen: ${photo.alt}`}
+                          >
+                            <img src={photo.src} alt={photo.alt} />
+                            <div className="historia__overlay">Haz click para agrandar</div>
+                          </div>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </article>
