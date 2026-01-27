@@ -9,7 +9,7 @@
 }
 
 .title1{
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
   color: #a30048;
   text-align: center;
@@ -19,7 +19,7 @@
 }
 
 .subtitle{
-  font-size: 16px;
+  font-size: 20px;
   color: #a30048;
   text-align: center;
   margin-top: 30px;
@@ -65,7 +65,7 @@
 }
 
 .cardContent p {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .card h2 {
@@ -110,19 +110,19 @@
 
 .card1 {
   background-image: url('../../img/museo.webp');
-  font-size: 16px;
+  font-size: 20px;
 
 }
 
 .card2 {
   background-image: url('../../img/jm.webp');
-  font-size: 16px;
+  font-size: 20px;
 
 }
 
 .card3 {
   background-image: url('../../img/vendimia.webp');
-  font-size: 16px;
+  font-size: 20px;
 
 }
 
@@ -147,6 +147,6 @@
       font-size: 24px;
   }
   .subtitle {
-      font-size: 16px;
+      font-size: 20px;
   }
 }
