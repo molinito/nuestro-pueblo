@@ -27,10 +27,6 @@ const Navbar = () => {
     setIsOpen((current) => !current);
   };
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
   const toggleMobileMenu = () => {
     setIsMobileOpen((current) => !current);
   };
