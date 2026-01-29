@@ -243,6 +243,24 @@
   margin: 0;
 }
 
+.historia__list-title {
+  margin: 0.6rem 0 0;
+  font-weight: 700;
+  color: var(--site-ink);
+}
+
+.historia__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.6rem;
+  color: rgba(115, 0, 52, 0.92);
+}
+
+.historia__list li {
+  line-height: 1.6;
+}
+
 .historia__video {
   margin-top: 0.6rem;
   padding: 1rem 1.1rem;

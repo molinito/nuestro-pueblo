@@ -8,6 +8,12 @@ import castillo2 from "./castillo2.webp";
 import castillo3 from "./castillo3.webp";
 import castillo4 from "./castillo4.webp";
 import castillo5 from "./castillo5.webp";
+import festivalAyer from "./festival-ayer.jpg";
+import festivalAntes from "./festival-antes.jpg";
+import festivalAntes1 from "./festival-antes1.jpg";
+import festivalAntes2 from "./festival-antes2.jpg";
+import festivalAntes3 from "./festival-antes3.jpg";
+import festivalAntes4 from "./festival-antes4.jpg";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -17,7 +23,36 @@ const torreCespedesPhotos = [
   { src: castillo5, alt: "Torre Céspedes, vista del parque" },
 ];
 
+const festivalPhotos = [
+  { src: festivalAyer, alt: "Festival Nacional de Doma y Folklore de Jesús María" },
+  { src: festivalAntes, alt: "Primeros años del festival en el Anfiteatro José Hernández" },
+  { src: festivalAntes1, alt: "Escena histórica de la doma en Jesús María" },
+  { src: festivalAntes2, alt: "Jineteada histórica en Jesús María" },
+  { src: festivalAntes3, alt: "Noche de folklore en el escenario principal" },
+  { src: festivalAntes4, alt: "Postales del público en el festival" },
+];
+
 const historias = [
+  {
+    id: "festival-jesus-maria",
+    title: "Festival Nacional de Doma y Folklore de Jesús María",
+    summary:
+      "El Festival, la casa más grande de Argentina, donde conviven las tradiciones, el folclore, la doma y el canto.",
+    type: "gallery",
+    gallery: festivalPhotos,
+    paragraphs: [
+      "El Festival Nacional de Doma y Folklore de Jesús María nació en enero de 1966 en Córdoba, Argentina, impulsado por la cooperadora de la Escuela Primer Teniente Morandini para recaudar fondos, combinando la jineteada con el canto nativo. Con 60 ediciones en 2026, consolidó a la ciudad como sede folclórica, destacándose por su fin solidario que beneficia a más de 20 escuelas.",
+      "El evento se realiza ininterrumpidamente, salvo en 2021 por la pandemia, consolidándose como una de las fiestas más importantes del país durante el verano cordobés.",
+    ],
+    listTitle: "Hitos y Detalles de su Historia",
+    list: [
+      "Orígenes (1965): La idea surgió el 16 de mayo de 1965, impulsada por Enrique Jarbas Pereyra, para realizar un evento de doma y folklore con el objetivo de ayudar a instituciones escolares.",
+      "Primera Edición (1966): Se llevó a cabo del 8 al 16 de enero de 1966 en el Anfiteatro José Hernández, con la participación de figuras como Jorge Cafrune y el Chango Nieto.",
+      "Compromiso Comunitario: Miembros de la primera comisión llegaron a hipotecar sus casas para financiar el evento, construyendo el anfiteatro que hoy es un coloso de la tradición.",
+      "Crecimiento: De recibir 45,000 personas en su inicio, pasó a superar las 200,000 localidades vendidas en años recientes, convirtiéndose en uno de los festivales más importantes de América.",
+      "Tradición: El festival mantiene la esencia criolla, la música folclórica y las competencias de jineteada (crina limpia, gurupa sureña y bastos).",
+    ],
+  },
   {
     id: "museo-jesuitico",
     title: "Museo Jesuítico de Jesús María",
@@ -165,6 +200,18 @@ const Historia = () => {
                         {historia.paragraphs.map((paragraph, index) => (
                           <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
                         ))}
+                        {historia.list && (
+                          <>
+                            {historia.listTitle && (
+                              <p className="historia__list-title">{historia.listTitle}</p>
+                            )}
+                            <ul className="historia__list">
+                              {historia.list.map((item, index) => (
+                                <li key={`${historia.id}-li-${index}`}>{item}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
                         {historia.credit && (
                           <div className="historia__credit-inline">
                             <span>Créditos</span>
@@ -181,6 +228,18 @@ const Historia = () => {
                         {historia.paragraphs.map((paragraph, index) => (
                           <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
                         ))}
+                        {historia.list && (
+                          <>
+                            {historia.listTitle && (
+                              <p className="historia__list-title">{historia.listTitle}</p>
+                            )}
+                            <ul className="historia__list">
+                              {historia.list.map((item, index) => (
+                                <li key={`${historia.id}-li-${index}`}>{item}</li>
+                              ))}
+                            </ul>
+                          </>
+                        )}
                         {historia.video && (
                           <div className="historia__video">
                             <span className="historia__video-label">
