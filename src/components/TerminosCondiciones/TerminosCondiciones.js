@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Privacidad.css";
+import "./TerminosCondiciones.css";
 
-const Privacidad = () => {
+const TerminosCondiciones = () => {
   return (
     <main className="privacidad">
-      <h1>Privacidad, Terminos y Condiciones</h1>
+      <h1>Términos y Condiciones</h1>
       <p>
         Este sitio tiene un fin cultural, turistico y de entretenimiento. Al
         acceder, navegar o enviar contenido, aceptas estas politicas de
@@ -72,7 +72,6 @@ const Privacidad = () => {
         </p>
       </section>
 
-
       <section className="privacidad__section">
         <h2>6. Origen de los contenidos y derechos de autor</h2>
         <p>
@@ -104,4 +103,4 @@ const Privacidad = () => {
   );
 };
 
-export default Privacidad;
+export default TerminosCondiciones;

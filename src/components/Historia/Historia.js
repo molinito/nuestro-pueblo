@@ -8,12 +8,12 @@ import castillo2 from "./castillo2.webp";
 import castillo3 from "./castillo3.webp";
 import castillo4 from "./castillo4.webp";
 import castillo5 from "./castillo5.webp";
-import festivalAyer from "./festival-ayer.jpg";
-import festivalAntes from "./festival-antes.jpg";
-import festivalAntes1 from "./festival-antes1.jpg";
-import festivalAntes2 from "./festival-antes2.jpg";
-import festivalAntes3 from "./festival-antes3.jpg";
-import festivalAntes4 from "./festival-antes4.jpg";
+import festivalAyer from "./festival-ayer.webp";
+import festivalAntes from "./festival-antes.webp";
+import festivalAntes1 from "./festival-antes1.webp";
+import festivalAntes2 from "./festival-antes2.webp";
+import festivalAntes3 from "./festival-antes3.webp";
+import festivalAntes4 from "./festival-antes4.webp";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },

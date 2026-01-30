@@ -8,6 +8,28 @@ import dolivo1 from "./dolivo1.webp";
 import dolivo2 from "./dolivo2.webp";
 
 const personajes = [
+    {
+      id: "miguel-dominguez",
+      title: "Miguel Ángel 'La Papa' Domínguez, el legendario fotógrafo del pueblo",
+      summary: "Con mucha emoción y respeto...les presento esta historia...",
+      type: "gallery",
+      gallery: [
+        { src: require("./papa.webp"), alt: "Miguel Ángel Domínguez retrato" },
+        { src: require("./papa2.webp"), alt: "Miguel Ángel Domínguez trabajando" },
+        { src: require("./papa3.webp"), alt: "Miguel Ángel Domínguez y su poni" }
+      ],
+      paragraphs: [
+        "Agosto 2017",
+        "Miguel Ángel Domínguez (75, casado, 2 hijas), conocido como “La Papa”, juega a las cartas con un compañero del geriátrico en el que está –transitoriamente dice- por una fuerte artrosis. Nos habla de su vida como fo­tógrafo; quizá uno de los más representativos de la zona. “No estudié fotografía. Aprendí de la forma más práctica: con al­guien que sabe y te critica. De jovencito trabajaba en Hi­dráulica en Córdoba; era en­cargado del cobro del canon de riego. Yo tenía una maqui-nita, y como Hidráulica inau­guraba obras y no tenían fotó­grafo, empecé a sacar fotos. Y como sufro de claustrofobia y no podía hacer laboratorio (re­velado y copias) llevaba mis ro­llos al estudio de un fotógrafo de Córdoba, Vidal. Mientras me las hacían él analizaba mis fotos y yo aprendía”. Dice que Vidal (cuyo nombre no recuerda) era una autoridad en fotografía y que lo quiso in-corporar a su estudio. “Era un buen trabajo. En esos tiempos te llamaban y no te decían cuántas fotos querían… la gente no se fijaba… Pero a mí me tiraba Jesús María, así que renuncié a Hidráulica, y un 25 de Mayo me puse a sacar fotos en el desfile. Saqué a los aban­derados, al público, a hijos de amigos… Y me compraban. En estos 40 años de profesión solo una persona me devolvió una foto porque no la había pe­dido”, ríe divertido, y agrega que ese fue el puntapié para se­guir con bautismos y casamien­tos, hasta llegar a ser testigo de los acontecimientos más rele­vantes de la zona. “Estuve 22 años en el Festival, desde la primera la fiesta del salame, en la de la vendimia, las comi­das típicas, en Puerto Caroya desde que inauguraron”. Le fue bien desde el vamos: “Podría haber tenido ayudan­tes, pero la gente me decía: si te contrato a vos, vas vos. Me hubiera sido muy fácil; eran tiempos en que se ganaba mu­cha plata… En épocas de Me-nem una foto costaba $ 1,15 y la vendías a $5”.",
+        "El poni Una de sus anécdotas –y auda­cias- más divertidas es la del poni que con un amigo (creáse o no) metían adentro de su Fiat 128 para llevarlo a fiestas patro­nales y fotografiar niños con una Polaroid. Cañada de Río Pinto, Tulumba, General Paz… ningún pueblo vecino se privó del poni. ¿Cómo lo subían al 128? “Sacábamos el asiento de atrás y el respaldo. Yo embo­caba al poni de un lado, mi amigo lo llamaba del otro, y se subía. En el baúl llevábamos sombreros, arneses, riendas, comida y un tacho para darle agua… Una vez me pregunta­ron: ¿pero no se orinaba? ¡No, porque le hacíamos hacer pis antes de subir al auto! Y como el poni era más largo que el ancho del auto, le doblábamos la cabeza y el pescuezo que-daba encima del asiento de­lantero”. ¿Nunca los paró la po­licía? “No, pero un día en Tu-lumba oigo que dos tipos dicen: Ché, recién pasaron dos locos con un caballo adentro del auto”, ríe.",
+        "Otra anécdota es la del amigo que se casó dos veces. “Tenía un casamiento en la Colonia. Me demoré en salir por espe­rar a un ayudante y para cor­tar camino tomé por el cemen­terio, pero se me reventó la goma delantera y no pude se­guir. Menos mal que unos chi­cos me ayudaron, pero llegué cuando los novios salían de la Iglesia. Así que le pedí al padre Pez que me hiciera el favor de que volvieran a entrar y simu­lara la ceremonia. ¡Saqué to­das las fotos! Y yo le decía al novio: no te separes nunca por­que te hice casar dos veces. ¡Y no se separó!”.",
+        "La foto que no fue No sabe cuál de todas las que sacó (6000 rollos de 36 fotos) es “la foto”, pero evoca la que no pudo sacar: “Yo tenía ado­ración por el Papa Juan Pablo II. Cuando vino a Córdoba no conseguí credencial, pero me armé una y me fui. Mientras daba Misa en la Catedral me fui a la policía en el Cabildo, y me quedé viéndolo en el moni­tor. Cuando salió, me digo: ¡ésta es la mía! Me le crucé, pero quedé petrificado. Fue algo que no sentí nunca… ni le-vanté la máquina… Y lo veía como con un haz luminoso; y no era el sol porque lo tenía detrás mío. Saqué una foto re­cién cuando se subió al papa móvil, contra el plexiglás. Un desastre”.",
+        "Y hablando de Papas… ¿por qué su apodo? “Me llaman “La Papa”, pero es “El Papa”. Mi abuelo era muy amigo del cura párroco y salían a recorrer ba­res. Cuando la gente los veía solían decir: Ahí viene el cura con el Papa. Así le quedó a mi abuelo, Y lo heredó mi padre y después yo”, remata."
+      ],
+      credit: {
+        name: "Gaston Gomez Fotos antiguas Colonia Caroya y Jesús Maria de Facebook. Créditos fotos: Radio Jesus Maria y FM Comunicar."
+      }
+    },
   {
     id: "cufre",
     title: "Escenario Martín Fierro",

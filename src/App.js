@@ -13,9 +13,10 @@ import Personajes from "./components/Personajes/Personajes";
 import AyerHoy from "./components/AyerHoy/AyerHoy";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Privacidad from "./components/Privacidad/Privacidad";
+import TerminosCondiciones from "./components/TerminosCondiciones/TerminosCondiciones";
 import Donacion from "./components/Donacion/Donacion";
 import { Analytics } from "@vercel/analytics/react";
+import Error404 from "./components/Error404/Error404";
 
 const App = () => {
   return (
@@ -35,8 +36,9 @@ const App = () => {
           <Route path="/historia" element={<Historia />} />
           <Route path="/personajes" element={<Personajes />} />
           <Route path="/ayer-hoy" element={<AyerHoy />} />
-          <Route path="/privacidad" element={<Privacidad />} />
+          <Route path="/terminos" element={<TerminosCondiciones />} />
           <Route path="/donacion" element={<Donacion />} />
+          <Route path="*" element={<Error404 />} />
         </Routes>
 
         <Footer />

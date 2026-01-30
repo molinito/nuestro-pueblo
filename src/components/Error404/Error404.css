@@ -1,0 +1,53 @@
+.error404 {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--site-surface, #fff);
+}
+
+.error404__container {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  background: rgba(255,255,255,0.95);
+}
+
+.error404__title {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #d32f2f;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+}
+
+.error404__subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.error404__desc {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.error404__btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  background: #1976d2;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.error404__btn:hover {
+  background: #125ea2;
+}
