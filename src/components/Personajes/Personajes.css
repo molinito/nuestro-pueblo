@@ -136,7 +136,7 @@
 }
 
 .personajes__panel-inner--gallery {
-  grid-template-columns: minmax(260px, 1fr) minmax(320px, 1fr);
+  grid-template-columns: 1fr;
   align-items: start;
 }
 
@@ -205,6 +205,12 @@
   text-align: left;
 }
 
+.personajes__content--gallery::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .personajes__caption {
   margin: 0;
   font-size: 1.05rem;
@@ -231,6 +237,12 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: 160px;
   gap: 0.75rem;
+}
+
+.personajes__gallery--float {
+  float: right;
+  width: min(360px, 45%);
+  margin: 0.2rem 0 1.2rem 1.6rem;
 }
 
 .personajes__gallery-item {
@@ -430,6 +442,12 @@
   .personajes__gallery {
     grid-template-columns: 1fr;
     grid-auto-rows: 200px;
+  }
+
+  .personajes__gallery--float {
+    float: none;
+    width: 100%;
+    margin: 0 0 1.2rem 0;
   }
 
   .personajes__gallery-item.is-feature {

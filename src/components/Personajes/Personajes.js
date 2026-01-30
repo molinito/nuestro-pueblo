@@ -161,7 +161,25 @@ const Personajes = () => {
                 <div className={panelClassName}>
                   {personaje.type === "gallery" ? (
                     <>
-                      <div className="personajes__content">
+                      <div className="personajes__content personajes__content--gallery">
+                        <div className="personajes__gallery personajes__gallery--float">
+                          {personaje.gallery.map((foto, index) => (
+                            <div
+                              key={foto.src}
+                              className={`personajes__gallery-item${
+                                index === 0 ? " is-feature" : ""
+                              }`}
+                              role="button"
+                              tabIndex={0}
+                              onClick={() => openImage(foto.src, foto.alt)}
+                              onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                              aria-label={`Agrandar imagen: ${foto.alt}`}
+                            >
+                              <img src={foto.src} alt={foto.alt} />
+                              <div className="personajes__overlay">Haz click para agrandar</div>
+                            </div>
+                          ))}
+                        </div>
                         {personaje.paragraphs.map((paragraph, index) => (
                           <p key={`${personaje.id}-p-${index}`} className="personajes__text">
                             {paragraph}
@@ -186,24 +204,6 @@ const Personajes = () => {
                             )}
                           </div>
                         )}
-                      </div>
-                      <div className="personajes__gallery">
-                        {personaje.gallery.map((foto, index) => (
-                          <div
-                            key={foto.src}
-                            className={`personajes__gallery-item${
-                              index === 0 ? " is-feature" : ""
-                            }`}
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => openImage(foto.src, foto.alt)}
-                            onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
-                            aria-label={`Agrandar imagen: ${foto.alt}`}
-                          >
-                            <img src={foto.src} alt={foto.alt} />
-                            <div className="personajes__overlay">Haz click para agrandar</div>
-                          </div>
-                        ))}
                       </div>
                     </>
                   ) : (

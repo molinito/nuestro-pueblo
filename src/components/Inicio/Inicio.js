@@ -31,9 +31,9 @@ const CardList = () => {
     <>
       {" "}
       <br />
-      <h1 className={styles.title1}>Mi tierra, mi gente...!!</h1>
+      <h1 className={styles.title1}>Historia, Cultura y Tradición en Jesús María y Colonia Caroya</h1>
 
-      <h1 className={styles.title}>Un viaje por nuestra tierra</h1>
+      <h2 className={styles.title}>Un viaje por nuestra tierra</h2>
       <h3 className={styles.subtitle}>
         ¡Bienvenidos a un viaje en el tiempo... a la historia de una tierra llena
         de encanto y misterio! Acompáñanos a descubrir los secretos y maravillas
@@ -55,7 +55,7 @@ const CardList = () => {
 
       <br />
 
-      <h1 className={styles.title}>Un lugar, un evento, una historia</h1>
+      <h2 className={styles.title}>Un lugar, un evento, una historia</h2>
       <h3 className={styles.subtitle}>
         Elige alguna de las postales para revivir cada momento vivido...
       </h3>
@@ -83,7 +83,7 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-      <h1 className={styles.title}>Visita nuestra galería de fotos</h1>
+      <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
       <h3 className={styles.subtitle}>
         Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
         nuestros ancestros hasta hoy...
