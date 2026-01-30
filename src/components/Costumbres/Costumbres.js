@@ -11,6 +11,12 @@ import chapita5 from "./chapita5.webp";
 import campanita from "./campanita.webp";
 import campanita1 from "./campanita1.webp";
 import campanita2 from "./campanita2.webp";
+import pastillitas from "./pastillitas.jpg";
+import pastillita1 from "./pastillita1.jpg";
+import pastillita2 from "./pastillita2.jpg";
+import pastillita3 from "./pastillita3.jpeg";
+import pastillita4 from "./pastillita4.jpg";
+import pastillita5 from "./pastillita5.jpeg";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -25,6 +31,15 @@ const campanitas = [
   { src: campanita, alt: "Portada del libro Campanita" },
   { src: campanita1, alt: "Páginas ilustradas del libro Campanita" },
   { src: campanita2, alt: "Lectura en el aula con el libro Campanita" },
+];
+
+const golosinas = [
+  { src: pastillitas, alt: "Golosinas clásicas de la infancia" },
+  { src: pastillita1, alt: "Pastillitas y caramelos nostálgicos" },
+  { src: pastillita2, alt: "Golosinas de kiosco de los 70 y 80" },
+  { src: pastillita3, alt: "Dulces icónicos de la infancia" },
+  { src: pastillita4, alt: "Colección de golosinas clásicas" },
+  { src: pastillita5, alt: "Golosinas que marcaron una época" },
 ];
 
 const costumbres = [
@@ -69,6 +84,19 @@ const costumbres = [
         { href: "https://donchapi.com.ar/", label: "donchapi.com.ar" },
       ],
     },
+  },
+  {
+    id: "golosinas",
+    title: "Golosinas de la infancia que ya no están...!!!",
+    summary:
+      "Sabores de kiosco que marcaron una época y siguen vivos en la memoria.",
+    type: "gallery",
+    paragraphs: [
+      "Hubo un tiempo en que la felicidad cabía en un bolsillo chico y pegajoso. Un tiempo en que salir a la vereda era toda una aventura y el mundo empezaba en la esquina del kiosco. Éramos chicos en los 70 y los 80, cuando la infancia tenía sabor a caramelo Media Hora, que parecía eterno, y a chicle Bazooka, duro como una promesa, con ese papelito que traía un chiste malo… pero inolvidable. Masticábamos risas, inflábamos globos torcidos y creíamos que eso era la eternidad.",
+      "Las galletitas Manón crujían como las tardes de tarea a medio hacer, acompañadas por una chocolatada tibia y la radio sonando de fondo. Las pastillitas Billiken y las D.R.F. eran pequeñas joyas de colores, compartidas a escondidas, moneda de cambio en recreos y secretos. Y esos juguitos con forma de pelota, que primero se miraban, después se agitaban y recién al final se tomaban, eran pura magia embotellada: sabían a juego, a verano, a rodillas raspadas y manos sucias.",
+      "No teníamos pantallas, pero teníamos tiempo. No había notificaciones, pero sí silbidos desde la ventana llamándonos a entrar. Hoy, muchas de esas golosinas ya no existen, pero siguen viviendo en algún rincón de la memoria, intactas. Porque no eran solo dulces: eran rituales, eran excusas para encontrarnos, eran la prueba de que fuimos niños… y fuimos felices sin saberlo. Y cada vez que recordamos esos sabores, por un instante, volvemos a serlo.",
+    ],
+    gallery: golosinas,
   },
 ];
 
