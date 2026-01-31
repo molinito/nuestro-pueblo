@@ -137,12 +137,69 @@ const Historia = () => {
     <main className="historia">
       <header className="historia__hero">
         <p className="historia__eyebrow">Nuestra historia</p>
-        <h1 className="historia__title">Relatos de mi tierra...!!</h1>
+        <h1 className="historia__title">Historia de Jesús María y Colonia Caroya</h1>
         <p className="historia__subtitle">
           Memorias que explican el origen de nuestros nombres, caminos y
           tradiciones.
         </p>
       </header>
+
+      <section className="historia__intro">
+        <h2>Orígenes y primeros pobladores</h2>
+        <p>
+          Esta página reúne la historia de Jesús María y Colonia Caroya con un enfoque
+          local y humano: no sólo fechas y nombres, sino también el pulso cotidiano de
+          quienes habitaron estas tierras. Antes de la llegada de los colonos, el paisaje
+          ya estaba marcado por las huellas de los pueblos originarios. Con el tiempo,
+          el paso de los jesuitas dejó estancias, caminos y una organización productiva
+          que moldeó la región. Por eso, cuando hablamos de la historia de Jesús María
+          y de Colonia Caroya, hablamos también de trabajo rural, de acequias, de
+          sembradíos y de un modo de vida que todavía se reconoce en la memoria familiar.
+        </p>
+        <p>
+          La formación de estas comunidades fue un proceso lento, tejido por oleadas de
+          inmigrantes y por la convivencia entre culturas. Llegaron familias italianas,
+          españolas y de otros puntos de Europa, que dejaron su impronta en el lenguaje,
+          en la comida y en las tradiciones. Cada barrio, cada capilla y cada escuela
+          cuenta un capítulo distinto, y todos suman para explicar por qué esta región
+          tiene una identidad tan particular dentro de Córdoba.
+        </p>
+
+        <h2>Crecimiento, trabajo y vida comunitaria</h2>
+        <p>
+          El crecimiento de Jesús María y Colonia Caroya estuvo ligado a la tierra y a
+          las fiestas populares. Con el desarrollo de la agricultura, la vitivinicultura
+          y el comercio, nacieron instituciones que siguen vigentes: clubes, cooperadoras,
+          bibliotecas y escuelas que sostienen la vida comunitaria. Estas ciudades no
+          sólo crecieron en población, sino también en relatos: historias de familias
+          trabajadoras, de artesanos, de músicos y de vecinos que hicieron de la cultura
+          un puente entre generaciones.
+        </p>
+        <p>
+          En esta sección buscamos que la historia de Jesús María no quede guardada en
+          libros difíciles de encontrar. Queremos que esté disponible, clara y cercana,
+          para quienes buscan información confiable y para quienes necesitan reconocer
+          la raíz de su propio apellido. Por eso, combinamos datos históricos con
+          testimonios, anécdotas y recuerdos que ayudan a entender el presente.
+        </p>
+
+        <h2>Lugares históricos de Colonia Caroya</h2>
+        <p>
+          Los lugares históricos de Colonia Caroya son parte esencial del relato regional.
+          Las estancias jesuíticas, las casonas antiguas y los sitios patrimoniales no
+          son postales aisladas: son escenarios donde sucedieron encuentros, celebraciones
+          y momentos decisivos. Conocer estos lugares ayuda a visualizar cómo se organizaron
+          las primeras colonias y cómo se transformó el territorio con el paso del tiempo.
+        </p>
+        <p>
+          En la misma línea, Jesús María conserva espacios que hablan de su desarrollo
+          cultural y social. Museos, plazas, edificios públicos y sitios de encuentro
+          forman parte del mapa afectivo de la región. Muchos de estos lugares siguen
+          siendo punto de referencia para vecinos y visitantes, y su historia se enlaza
+          con la de quienes los habitaron.
+        </p>
+
+      </section>
 
       <section className="historia__accordion">
         {historias.map((historia) => {

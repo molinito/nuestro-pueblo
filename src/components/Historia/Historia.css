@@ -35,6 +35,27 @@
   color: rgba(163, 0, 72, 0.9);
 }
 
+.historia__intro {
+  margin: 1.5rem auto 2.5rem;
+  max-width: 900px;
+  display: grid;
+  gap: 1.2rem;
+  color: var(--site-ink);
+  line-height: 1.7;
+  font-size: 1.03rem;
+}
+
+.historia__intro h2 {
+  margin: 0.6rem 0 0;
+  font-size: 1.25rem;
+  color: rgba(115, 0, 52, 0.95);
+}
+
+.historia__intro p {
+  margin: 0;
+  color: rgba(115, 0, 52, 0.95);
+}
+
 .historia__card {
   display: grid;
   grid-template-columns: minmax(240px, 1fr) minmax(300px, 1.2fr);
