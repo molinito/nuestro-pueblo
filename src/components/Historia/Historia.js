@@ -137,7 +137,7 @@ const Historia = () => {
     <main className="historia">
       <header className="historia__hero">
         <p className="historia__eyebrow">Nuestra historia</p>
-        <h1 className="historia__title">Relatos de Colonia Caroya</h1>
+        <h1 className="historia__title">Relatos de mi tierra...!!</h1>
         <p className="historia__subtitle">
           Memorias que explican el origen de nuestros nombres, caminos y
           tradiciones.

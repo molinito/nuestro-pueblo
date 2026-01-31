@@ -11,12 +11,12 @@ import chapita5 from "./chapita5.webp";
 import campanita from "./campanita.webp";
 import campanita1 from "./campanita1.webp";
 import campanita2 from "./campanita2.webp";
-import pastillitas from "./pastillitas.jpg";
-import pastillita1 from "./pastillita1.jpg";
-import pastillita2 from "./pastillita2.jpg";
-import pastillita3 from "./pastillita3.jpeg";
-import pastillita4 from "./pastillita4.jpg";
-import pastillita5 from "./pastillita5.jpeg";
+import pastillitas from "./pastillitas.webp";
+import pastillita1 from "./pastillita1.webp";
+import pastillita2 from "./pastillita2.webp";
+import pastillita3 from "./pastillita3.webp";
+import pastillita4 from "./pastillita4.webp";
+import pastillita5 from "./pastillita5.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -127,7 +127,7 @@ const Costumbres = () => {
     <main className="costumbres">
       <header className="costumbres__hero">
         <p className="costumbres__eyebrow">Nuestras costumbres</p>
-        <h1 className="costumbres__title">Costumbres de Colonia Caroya</h1>
+        <h1 className="costumbres__title">Costumbres de mi tierra...mi gente ...!!!</h1>
         <p className="costumbres__subtitle">
           Tradiciones, festivales y memorias que siguen vivas en la comunidad.
         </p>

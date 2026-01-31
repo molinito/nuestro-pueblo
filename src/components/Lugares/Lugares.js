@@ -98,7 +98,7 @@ const Lugares = () => {
     <main className="lugares">
       <header className="lugares__hero">
         <p className="lugares__eyebrow">Lugares para visitar</p>
-        <h1 className="lugares__title">Lugares de Colonia Caroya</h1>
+        <h1 className="lugares__title">Lugares de mi tierra...!!!</h1>
         <p className="lugares__subtitle">
           Postales, memoria y patrimonio que definen el pulso cultural de la región.
         </p>

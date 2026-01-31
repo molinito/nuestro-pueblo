@@ -115,7 +115,7 @@ const Personajes = () => {
     <main className="personajes">
       <header className="personajes__hero">
         <p className="personajes__eyebrow">Personajes de la zona</p>
-        <h1 className="personajes__title">Memorias del escenario</h1>
+        <h1 className="personajes__title">Memorias de nuestra gente...!!</h1>
         <p className="personajes__subtitle">
           Postales que celebran a quienes dejaron huella en la identidad
           cultural de nuestra tierra.
