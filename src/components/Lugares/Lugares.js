@@ -126,8 +126,8 @@ const lugares = [
     type: "gallery",
     gallery: monserratPhotos,
     videoLabel: "Documental de la Parroquia Nuestra Señora de Monserrat",
-    videoHref: "https://youtu.be/DYSpm1Hci3k",
-    videoThumbnail: "https://img.youtube.com/vi/DYSpm1Hci3k/hqdefault.jpg",
+    videoHref: "https://youtu.be/IXyMLJA5Yjk",
+    videoThumbnail: "https://img.youtube.com/vi/IXyMLJA5Yjk/hqdefault.jpg",
     paragraphs: [
       "La Parroquia Nuestra Señora de Monserrat es el corazón espiritual e histórico de Colonia Caroya, Córdoba. Inaugurada en 1896, fue construida por inmigrantes friulanos y es considerada un testimonio vivo de la colonización italiana en la región. En 2005, fue declarada Monumento Histórico Municipal.",
     ],
