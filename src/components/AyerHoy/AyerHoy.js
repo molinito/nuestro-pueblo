@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./AyerHoy.css";
 import ayeryhoy from "./ayeryhoy.webp";
 import ayeryhoy1 from "./ayeryhoy1.webp";
@@ -37,12 +37,29 @@ const fotos = [
   { src: ayeryhoy10, alt: "Miradas cruzadas del pasado y el presente" },
 ];
 
+const ayerHoyIds = [
+  "galeria",
+  "casa-ricardo",
+  "tienda-la-nueva",
+  "museo-jesuitico",
+  "boulevard-aguero",
+  "castillo-cespedes",
+];
+
+const hasAyerHoyId = (id) => ayerHoyIds.includes(id);
+
 const AyerHoy = () => {
-  const [openId, setOpenId] = useState("galeria");
+  const { ayerHoyId } = useParams();
+  const navigate = useNavigate();
+  const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenId((current) => (current === id ? null : id));
+    setOpenId((current) => {
+      const nextId = current === id ? null : id;
+      navigate(nextId ? `/ayer-hoy/${nextId}` : "/ayer-hoy");
+      return nextId;
+    });
   };
 
   const openImage = (src, alt) => setLightbox({ src, alt });
@@ -59,6 +76,12 @@ const AyerHoy = () => {
       openImage(src, alt);
     }
   };
+
+  useEffect(() => {
+    if (!ayerHoyId) return;
+    if (hasAyerHoyId(ayerHoyId)) return;
+    navigate("/ayer-hoy", { replace: true });
+  }, [ayerHoyId, navigate]);
 
   return (
     <main className="ayer-hoy">

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Costumbres.css";
 import fiestaSalame from "./Fiesta salame.webp";
 import chapita from "./chapita.webp";
@@ -100,12 +100,20 @@ const costumbres = [
   },
 ];
 
+const hasCostumbreId = (id) => costumbres.some((costumbre) => costumbre.id === id);
+
 const Costumbres = () => {
-  const [openId, setOpenId] = useState(costumbres[0]?.id ?? null);
+  const { costumbreId } = useParams();
+  const navigate = useNavigate();
+  const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenId((current) => (current === id ? null : id));
+    setOpenId((current) => {
+      const nextId = current === id ? null : id;
+      navigate(nextId ? `/costumbres/${nextId}` : "/costumbres");
+      return nextId;
+    });
   };
 
   const openImage = (src, alt) => setLightbox({ src, alt });
@@ -122,6 +130,12 @@ const Costumbres = () => {
       toggleItem(id);
     }
   };
+
+  useEffect(() => {
+    if (!costumbreId) return;
+    if (hasCostumbreId(costumbreId)) return;
+    navigate("/costumbres", { replace: true });
+  }, [costumbreId, navigate]);
 
   return (
     <main className="costumbres">

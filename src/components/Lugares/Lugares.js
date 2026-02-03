@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
 import museoArmas from "./Museo Armas.webp";
 import guyon from "./guyon.webp";
@@ -11,6 +11,26 @@ import guyon5 from "./guyon5.webp";
 import guyon6 from "./guyon6.webp";
 import guyon7 from "./guyon7.webp";
 import guyon8 from "./guyon8.webp";
+import whatsapp1 from "./monserrat-1.webp";
+import whatsapp2 from "./monserrat-2.webp";
+import whatsapp3 from "./monserrat-3.webp";
+import whatsapp4 from "./monserrat-4.webp";
+import whatsapp5 from "./monserrat-5.webp";
+import whatsapp6 from "./monserrat-6.webp";
+import whatsapp7 from "./monserrat-7.webp";
+import whatsapp8 from "./monserrat-8.webp";
+import whatsapp9 from "./monserrat-9.webp";
+import whatsapp10 from "./monserrat-10.webp";
+import whatsapp11 from "./monserrat-11.webp";
+import whatsapp12 from "./monserrat-12.webp";
+import whatsapp13 from "./monserrat-13.webp";
+import whatsapp14 from "./monserrat-14.webp";
+import whatsapp15 from "./monserrat-15.webp";
+import whatsapp16 from "./monserrat-16.webp";
+import whatsapp17 from "./monserrat-17.webp";
+import whatsapp18 from "./monserrat-18.webp";
+import whatsapp19 from "./monserrat-19.webp";
+import whatsapp20 from "./monserrat-20.webp";
 
 const guyonPhotos = [
   { src: guyon, alt: "Casa Guyón: fachada principal" },
@@ -22,6 +42,29 @@ const guyonPhotos = [
   { src: guyon6, alt: "Casa Guyón: reja ornamental y campana" },
   { src: guyon7, alt: "Casa Guyón: sendero en el jardín botánico" },
   { src: guyon8, alt: "Casa Guyón: vista lateral de los jardines" },
+];
+
+const monserratPhotos = [
+  { src: whatsapp1, alt: "Parroquia Nuestra Señora de Monserrat: vista exterior 1" },
+  { src: whatsapp2, alt: "Parroquia Nuestra Señora de Monserrat: vista exterior 2" },
+  { src: whatsapp3, alt: "Parroquia Nuestra Señora de Monserrat: vista exterior 3" },
+  { src: whatsapp4, alt: "Parroquia Nuestra Señora de Monserrat: vista exterior 4" },
+  { src: whatsapp5, alt: "Parroquia Nuestra Señora de Monserrat: detalle arquitectónico" },
+  { src: whatsapp6, alt: "Parroquia Nuestra Señora de Monserrat: interior 1" },
+  { src: whatsapp7, alt: "Parroquia Nuestra Señora de Monserrat: interior 2" },
+  { src: whatsapp8, alt: "Parroquia Nuestra Señora de Monserrat: interior 3" },
+  { src: whatsapp9, alt: "Parroquia Nuestra Señora de Monserrat: interior 4" },
+  { src: whatsapp10, alt: "Parroquia Nuestra Señora de Monserrat: interior 5" },
+  { src: whatsapp11, alt: "Parroquia Nuestra Señora de Monserrat: interior 6" },
+  { src: whatsapp12, alt: "Parroquia Nuestra Señora de Monserrat: interior 7" },
+  { src: whatsapp13, alt: "Parroquia Nuestra Señora de Monserrat: interior 8" },
+  { src: whatsapp14, alt: "Parroquia Nuestra Señora de Monserrat: interior 9" },
+  { src: whatsapp15, alt: "Parroquia Nuestra Señora de Monserrat: interior 10" },
+  { src: whatsapp16, alt: "Parroquia Nuestra Señora de Monserrat: interior 11" },
+  { src: whatsapp17, alt: "Parroquia Nuestra Señora de Monserrat: interior 12" },
+  { src: whatsapp18, alt: "Parroquia Nuestra Señora de Monserrat: interior 13" },
+  { src: whatsapp19, alt: "Parroquia Nuestra Señora de Monserrat: interior 14" },
+  { src: whatsapp20, alt: "Parroquia Nuestra Señora de Monserrat: interior 15" },
 ];
 
 const lugares = [
@@ -75,18 +118,77 @@ const lugares = [
       note: "Textos: Google Sites",
     },
   },
+  {
+    id: "iglesia-monserrat",
+    title: "Iglesia Nuestra Señora de Monserrat",
+    summary:
+      "El corazón espiritual e histórico de Colonia Caroya, legado de la inmigración friulana.",
+    type: "gallery",
+    gallery: monserratPhotos,
+    videoLabel: "Documental de la Parroquia Nuestra Señora de Monserrat",
+    videoHref: "https://youtu.be/DYSpm1Hci3k",
+    videoThumbnail: "https://img.youtube.com/vi/DYSpm1Hci3k/hqdefault.jpg",
+    paragraphs: [
+      "La Parroquia Nuestra Señora de Monserrat es el corazón espiritual e histórico de Colonia Caroya, Córdoba. Inaugurada en 1896, fue construida por inmigrantes friulanos y es considerada un testimonio vivo de la colonización italiana en la región. En 2005, fue declarada Monumento Histórico Municipal.",
+    ],
+    credit: {
+      name: "Fotos, video documental y texto narrativo Marcelo Saravia",
+    },
+  },
 ];
 
+const hasLugarId = (id) => lugares.some((lugar) => lugar.id === id);
+
 const Lugares = () => {
-  const [openId, setOpenId] = useState(lugares[0]?.id ?? null);
+  const { lugarId } = useParams();
+  const navigate = useNavigate();
+  const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenId((current) => (current === id ? null : id));
+    setOpenId((current) => {
+      const nextId = current === id ? null : id;
+      navigate(nextId ? `/lugares/${nextId}` : "/lugares");
+      return nextId;
+    });
   };
 
-  const openImage = (src, alt) => setLightbox({ src, alt });
+  const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
+    setLightbox({ gallery, index });
   const closeImage = () => setLightbox(null);
+  const showPrevImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex =
+        (current.index - 1 + current.gallery.length) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const showNextImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex = (current.index + 1) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeImage();
+      if (event.key === "ArrowLeft") showPrevImage();
+      if (event.key === "ArrowRight") showNextImage();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightbox]);
+
+  useEffect(() => {
+    if (!lugarId) return;
+    if (hasLugarId(lugarId)) return;
+    navigate("/lugares", { replace: true });
+  }, [lugarId, navigate]);
+
   const handleToggleKeyDown = (event, id) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -175,6 +277,26 @@ const Lugares = () => {
                             ))}
                           </ul>
                         )}
+                        {lugar.videoHref && (
+                          <div className="lugares__video-card">
+                            <p className="lugares__panel-subtitle">{lugar.videoLabel}</p>
+                            <a
+                              className="lugares__video-link"
+                              href={lugar.videoHref}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <img
+                                className="lugares__video-thumb"
+                                src={lugar.videoThumbnail}
+                                alt={lugar.videoLabel}
+                              />
+                              <span className="lugares__video-cta">
+                                Ver documental en YouTube
+                              </span>
+                            </a>
+                          </div>
+                        )}
                         {lugar.credit && (
                           <div className="lugares__credit-inline">
                             <span className="lugares__credit-label">Créditos</span>
@@ -195,13 +317,15 @@ const Lugares = () => {
                             }${index === 4 ? " is-tall" : ""}`}
                             role="button"
                             tabIndex={0}
-                            onClick={() => openImage(photo.src, photo.alt)}
                             onKeyDown={(event) => {
                               if (event.key === "Enter" || event.key === " ") {
                                 event.preventDefault();
-                                openImage(photo.src, photo.alt);
+                                openImage(photo.src, photo.alt, lugar.gallery, index);
                               }
                             }}
+                            onClick={() =>
+                              openImage(photo.src, photo.alt, lugar.gallery, index)
+                            }
                             aria-label={`Agrandar imagen: ${photo.alt}`}
                           >
                             <img src={photo.src} alt={photo.alt} />
@@ -249,10 +373,40 @@ const Lugares = () => {
       {lightbox && (
         <div className="lugares__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="lugares__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
-            <button type="button" className="lugares__lightbox-hint" onClick={closeImage}>
-              Click para achicar
-            </button>
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="lugares__lightbox-nav is-prev"
+                onClick={showPrevImage}
+                aria-label="Imagen anterior"
+              >
+                ‹
+              </button>
+            )}
+            <img
+              src={lightbox.gallery[lightbox.index].src}
+              alt={lightbox.gallery[lightbox.index].alt}
+            />
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="lugares__lightbox-nav is-next"
+                onClick={showNextImage}
+                aria-label="Imagen siguiente"
+              >
+                ›
+              </button>
+            )}
+            <div className="lugares__lightbox-actions">
+              {lightbox.gallery.length > 1 && (
+                <span className="lugares__lightbox-counter">
+                  {lightbox.index + 1} / {lightbox.gallery.length}
+                </span>
+              )}
+              <button type="button" className="lugares__lightbox-hint" onClick={closeImage}>
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}

@@ -28,14 +28,19 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/lugares" element={<Lugares />} />
+          <Route path="/lugares/:lugarId" element={<Lugares />} />
           <Route path="/acerca-de" element={<Acerca />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/costumbres" element={<Costumbres />} />
+          <Route path="/costumbres/:costumbreId" element={<Costumbres />} />
           <Route path="/eventos" element={<Eventos />} />
           <Route path="/gastronomia" element={<Gastronomia />} />
           <Route path="/historia" element={<Historia />} />
+          <Route path="/historia/:historiaId" element={<Historia />} />
           <Route path="/personajes" element={<Personajes />} />
+          <Route path="/personajes/:personajeId" element={<Personajes />} />
           <Route path="/ayer-hoy" element={<AyerHoy />} />
+          <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
           <Route path="/terminos" element={<TerminosCondiciones />} />
           <Route path="/donacion" element={<Donacion />} />
           <Route path="*" element={<Error404 />} />

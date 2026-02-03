@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Personajes.css";
 import cufre from "./cufre.webp";
 import donaMecha from "./donaMecha.webp";
@@ -88,12 +88,20 @@ const personajes = [
   },
 ];
 
+const hasPersonajeId = (id) => personajes.some((personaje) => personaje.id === id);
+
 const Personajes = () => {
-  const [openId, setOpenId] = useState(personajes[0]?.id ?? null);
+  const { personajeId } = useParams();
+  const navigate = useNavigate();
+  const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenId((current) => (current === id ? null : id));
+    setOpenId((current) => {
+      const nextId = current === id ? null : id;
+      navigate(nextId ? `/personajes/${nextId}` : "/personajes");
+      return nextId;
+    });
   };
 
   const openImage = (src, alt) => setLightbox({ src, alt });
@@ -110,6 +118,12 @@ const Personajes = () => {
       openImage(src, alt);
     }
   };
+
+  useEffect(() => {
+    if (!personajeId) return;
+    if (hasPersonajeId(personajeId)) return;
+    navigate("/personajes", { replace: true });
+  }, [personajeId, navigate]);
 
   return (
     <main className="personajes">

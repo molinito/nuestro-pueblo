@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
 import museoImg from "./museo.webp";
 import historiaImg from "./1.webp";
@@ -110,12 +110,20 @@ const historias = [
   },
 ];
 
+const hasHistoriaId = (id) => historias.some((historia) => historia.id === id);
+
 const Historia = () => {
-  const [openId, setOpenId] = useState(historias[0]?.id ?? null);
+  const { historiaId } = useParams();
+  const navigate = useNavigate();
+  const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
   const toggleItem = (id) => {
-    setOpenId((current) => (current === id ? null : id));
+    setOpenId((current) => {
+      const nextId = current === id ? null : id;
+      navigate(nextId ? `/historia/${nextId}` : "/historia");
+      return nextId;
+    });
   };
 
   const openImage = (src, alt) => setLightbox({ src, alt });
@@ -132,6 +140,12 @@ const Historia = () => {
       toggleItem(id);
     }
   };
+
+  useEffect(() => {
+    if (!historiaId) return;
+    if (hasHistoriaId(historiaId)) return;
+    navigate("/historia", { replace: true });
+  }, [historiaId, navigate]);
 
   return (
     <main className="historia">
