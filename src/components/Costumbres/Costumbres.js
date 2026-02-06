@@ -17,6 +17,19 @@ import pastillita2 from "./pastillita2.webp";
 import pastillita3 from "./pastillita3.webp";
 import pastillita4 from "./pastillita4.webp";
 import pastillita5 from "./pastillita5.webp";
+import etiqueta1 from "./etiqueta1.png";
+import etiqueta1a from "./etiqueta1a.png";
+import etiqueta2 from "./etiqueta2.png";
+import etiqueta2a from "./etiqueta2a.png";
+import etiqueta3 from "./etiqueta3.png";
+import etiqueta3a from "./etiqueta3a.png";
+import etiqueta4a from "./etiqueta4a.png";
+import etiqueta5 from "./etiqueta5.png";
+import etiqueta5a from "./etiqueta5a.png";
+import etiqueta6 from "./etiqueta6.png";
+import etiqueta6a from "./etiqueta6a.png";
+import etiqueta7 from "./etiqueta7.webp";
+import etiquetasCover from "./etiquetas.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -40,6 +53,22 @@ const golosinas = [
   { src: pastillita3, alt: "Dulces icónicos de la infancia" },
   { src: pastillita4, alt: "Colección de golosinas clásicas" },
   { src: pastillita5, alt: "Golosinas que marcaron una época" },
+];
+
+const etiquetas = [
+  { src: etiquetasCover, alt: "Juego de la chantas: colección de etiquetas" },
+  { src: etiqueta1, alt: "Juego de la chantas: etiqueta 1" },
+  { src: etiqueta1a, alt: "Juego de la chantas: etiqueta 2" },
+  { src: etiqueta2, alt: "Juego de la chantas: etiqueta 3" },
+  { src: etiqueta2a, alt: "Juego de la chantas: etiqueta 4" },
+  { src: etiqueta3, alt: "Juego de la chantas: etiqueta 5" },
+  { src: etiqueta3a, alt: "Juego de la chantas: etiqueta 6" },
+  { src: etiqueta4a, alt: "Juego de la chantas: etiqueta 7" },
+  { src: etiqueta5, alt: "Juego de la chantas: etiqueta 8" },
+  { src: etiqueta5a, alt: "Juego de la chantas: etiqueta 9" },
+  { src: etiqueta6, alt: "Juego de la chantas: etiqueta 10" },
+  { src: etiqueta6a, alt: "Juego de la chantas: etiqueta 11" },
+  { src: etiqueta7, alt: "Juego de la chantas: etiqueta 12" },
 ];
 
 const costumbres = [
@@ -98,6 +127,23 @@ const costumbres = [
     ],
     gallery: golosinas,
   },
+  {
+    id: "chantas-etiquetas",
+    title: "El juego de la chantas...!!!(etiquetas)",
+    summary: "Etiquetas coleccionables que reviven un juego clásico del barrio.",
+    type: "gallery",
+    videoLabel: "Video del juego de la chantas",
+    videoHref: "https://youtu.be/nk0hjxJ-Wzc",
+    videoThumbnail: "https://img.youtube.com/vi/nk0hjxJ-Wzc/hqdefault.jpg",
+    paragraphs: [
+      "Hubo un tiempo en que la infancia no necesitaba pantallas, ni instrucciones impresas, ni juguetes comprados. Alcanzaba con una vereda, un ladrillo gastado, una piedra cualquiera... y un puñado de etiquetas de cigarrillos dobladas con cuidado, como si fueran un tesoro. Era un juego simple, pero en él se jugaba todo. Las etiquetas se colocaban debajo del ladrillo, una sobre otra, mezcladas: las propias... y las de los otros. Cada una tenía su historia. Algunas venían de un padre, otras de un tío, otras de algún paquete encontrado en la calle. No eran solo papel: eran colores, marcas, rarezas, prestigio. Luego venía el silencio. Ese silencio único que solo existe antes de un intento decisivo. Desde la distancia acordada —nunca exacta, siempre discutida— la piedra viajaba por el aire. Un segundo eterno. Y entonces... el golpe. Si el ladrillo caía, no había dudas ni discusiones. El ganador se llevaba todo. Lo suyo... y lo ajeno. Los bolsillos se llenaban de papel, pero también de orgullo. Se caminaba distinto al volver a casa. Más erguido. Más grande. Y si el ladrillo no se movía... si apenas temblaba... había que aceptar la pérdida. Sin excusas. Sin revancha inmediata. Aprendíamos ahí, sin saberlo, que no siempre se gana. Que el riesgo existe. Que apostar implica perder. El juego no duraba horas. Duraba tardes enteras. Porque no era solo tirar una piedra: era mirar cómo tiraban los otros, era negociar turnos, era discutir reglas que cambiaban según el día, era aprender a esperar. Hoy, ese ladrillo ya no está. La piedra se perdió. Y las etiquetas, amarillentas, quedaron en algún cajón... si es que quedaron. Pero el recuerdo sigue ahí. Vivo. Intacto. Porque ese juego no era solo un juego. Era una escuela. Una forma de entender el mundo. Un ritual de barrio que nos enseñó valor, paciencia y coraje. Y aunque el tiempo haya pasado, cada vez que vemos un ladrillo en el suelo, algo en nosotros vuelve a apuntar... como si la infancia todavía estuviera esperando su turno para tirar.",
+    ],
+    credits: {
+      title: "Fotos, narración y video : Marcelo Saravia",
+      links: [],
+    },
+    gallery: etiquetas,
+  },
 ];
 
 const hasCostumbreId = (id) => costumbres.some((costumbre) => costumbre.id === id);
@@ -116,12 +162,28 @@ const Costumbres = () => {
     });
   };
 
-  const openImage = (src, alt) => setLightbox({ src, alt });
+  const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
+    setLightbox({ gallery, index });
   const closeImage = () => setLightbox(null);
-  const handleImageKeyDown = (event, src, alt) => {
+  const showPrevImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex =
+        (current.index - 1 + current.gallery.length) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const showNextImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex = (current.index + 1) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const handleImageKeyDown = (event, src, alt, gallery = [{ src, alt }], index = 0) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openImage(src, alt);
+      openImage(src, alt, gallery, index);
     }
   };
   const handleToggleKeyDown = (event, id) => {
@@ -136,6 +198,17 @@ const Costumbres = () => {
     if (hasCostumbreId(costumbreId)) return;
     navigate("/costumbres", { replace: true });
   }, [costumbreId, navigate]);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeImage();
+      if (event.key === "ArrowLeft") showPrevImage();
+      if (event.key === "ArrowRight") showNextImage();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightbox]);
 
   return (
     <main className="costumbres">
@@ -214,6 +287,26 @@ const Costumbres = () => {
                           {costumbre.paragraphs.map((paragraph, index) => (
                             <p key={`${costumbre.id}-p-${index}`}>{paragraph}</p>
                           ))}
+                          {costumbre.videoHref && (
+                            <div className="costumbres__video-card">
+                              <p className="costumbres__video-title">{costumbre.videoLabel}</p>
+                              <a
+                                className="costumbres__video-link"
+                                href={costumbre.videoHref}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <img
+                                  className="costumbres__video-thumb"
+                                  src={costumbre.videoThumbnail}
+                                  alt={costumbre.videoLabel}
+                                />
+                                <span className="costumbres__video-cta">
+                                  Ver video en YouTube
+                                </span>
+                              </a>
+                            </div>
+                          )}
                         </div>
                         <div className="costumbres__gallery">
                           {costumbre.gallery.map((photo, index) => (
@@ -224,12 +317,14 @@ const Costumbres = () => {
                               }${index === 3 ? " is-tall" : ""}`}
                               role="button"
                               tabIndex={0}
-                              onClick={() => openImage(photo.src, photo.alt)}
-                              onKeyDown={(event) =>
-                                handleImageKeyDown(event, photo.src, photo.alt)
-                              }
-                              aria-label={`Agrandar imagen: ${photo.alt}`}
-                            >
+                            onClick={() =>
+                              openImage(photo.src, photo.alt, costumbre.gallery, index)
+                            }
+                            onKeyDown={(event) =>
+                              handleImageKeyDown(event, photo.src, photo.alt, costumbre.gallery, index)
+                            }
+                            aria-label={`Agrandar imagen: ${photo.alt}`}
+                          >
                               <img src={photo.src} alt={photo.alt} />
                               <div className="costumbres__overlay">Haz click para agrandar</div>
                             </div>
@@ -271,10 +366,40 @@ const Costumbres = () => {
       {lightbox && (
         <div className="costumbres__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="costumbres__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
-            <button type="button" className="costumbres__lightbox-hint" onClick={closeImage}>
-              Click para achicar
-            </button>
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="costumbres__lightbox-nav is-prev"
+                onClick={showPrevImage}
+                aria-label="Imagen anterior"
+              >
+                ‹
+              </button>
+            )}
+            <img
+              src={lightbox.gallery[lightbox.index].src}
+              alt={lightbox.gallery[lightbox.index].alt}
+            />
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="costumbres__lightbox-nav is-next"
+                onClick={showNextImage}
+                aria-label="Imagen siguiente"
+              >
+                ›
+              </button>
+            )}
+            <div className="costumbres__lightbox-actions">
+              {lightbox.gallery.length > 1 && (
+                <span className="costumbres__lightbox-counter">
+                  {lightbox.index + 1} / {lightbox.gallery.length}
+                </span>
+              )}
+              <button type="button" className="costumbres__lightbox-hint" onClick={closeImage}>
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}

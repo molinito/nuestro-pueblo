@@ -270,6 +270,47 @@
   margin: 0;
 }
 
+.costumbres__video-card {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.costumbres__video-title {
+  margin: 0;
+  font-weight: 700;
+  color: rgba(115, 0, 52, 0.9);
+}
+
+.costumbres__video-link {
+  display: grid;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.costumbres__video-thumb {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(163, 0, 72, 0.25);
+  box-shadow: 0 10px 24px rgba(115, 0, 52, 0.16);
+  display: block;
+}
+
+.costumbres__video-cta {
+  width: fit-content;
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(163, 0, 72, 0.3);
+  background: rgba(250, 234, 244, 0.75);
+  color: var(--site-ink);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.costumbres__video-link:hover .costumbres__video-cta {
+  background: rgba(246, 219, 233, 0.9);
+}
+
 .costumbres__gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -416,6 +457,47 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.costumbres__lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(24, 0, 12, 0.45);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.costumbres__lightbox-nav.is-prev {
+  left: -1rem;
+}
+
+.costumbres__lightbox-nav.is-next {
+  right: -1rem;
+}
+
+.costumbres__lightbox-nav:hover {
+  background: rgba(24, 0, 12, 0.7);
+}
+
+.costumbres__lightbox-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.costumbres__lightbox-counter {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
 .costumbres__lightbox-hint {
   margin: 0;
   padding: 0.4rem 1rem;
@@ -480,6 +562,14 @@
 
   .costumbres__gallery-item.is-feature {
     grid-column: span 2;
+  }
+
+  .costumbres__lightbox-nav.is-prev {
+    left: 0.3rem;
+  }
+
+  .costumbres__lightbox-nav.is-next {
+    right: 0.3rem;
   }
 }
 
