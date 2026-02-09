@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Personajes.css";
-import cufre from "./cufre.webp";
-import donaMecha from "./donaMecha.webp";
-import dolivo from "./dolivo.webp";
-import dolivo1 from "./dolivo1.webp";
-import dolivo2 from "./dolivo2.webp";
+import cufre from "./cufre/cufre.webp";
+import donaMecha from "./dona-mecha/donaMecha.webp";
+import dolivo from "./oscar-dolivo/dolivo.webp";
+import dolivo1 from "./oscar-dolivo/dolivo1.webp";
+import dolivo2 from "./oscar-dolivo/dolivo2.webp";
 
 const personajes = [
     {
@@ -14,9 +14,9 @@ const personajes = [
       summary: "Con mucha emoción y respeto...les presento esta historia...",
       type: "gallery",
       gallery: [
-        { src: require("./papa.webp"), alt: "Miguel Ángel Domínguez retrato" },
-        { src: require("./papa2.webp"), alt: "Miguel Ángel Domínguez trabajando" },
-        { src: require("./papa3.webp"), alt: "Miguel Ángel Domínguez y su poni" }
+        { src: require("./miguel-dominguez/papa.webp"), alt: "Miguel Ángel Domínguez retrato" },
+        { src: require("./miguel-dominguez/papa2.webp"), alt: "Miguel Ángel Domínguez trabajando" },
+        { src: require("./miguel-dominguez/papa3.webp"), alt: "Miguel Ángel Domínguez y su poni" }
       ],
       paragraphs: [
         "Agosto 2017",
