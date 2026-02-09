@@ -38,6 +38,7 @@ const historias = [
     title: "Festival Nacional de Doma y Folklore de Jesús María",
     summary:
       "El Festival, la casa más grande de Argentina, donde conviven las tradiciones, el folclore, la doma y el canto.",
+    address: "Dirección: Cleto Peña 82, Jesús María",
     type: "gallery",
     gallery: festivalPhotos,
     paragraphs: [
@@ -58,6 +59,7 @@ const historias = [
     title: "Museo Jesuítico de Jesús María",
     summary:
       "Una visita a la herencia jesuita que marcó el camino cultural de la región.",
+    address: "Dirección: Pedro de Oñate 246, Jesús María",
     type: "single",
     image: museoImg,
     alt: "Museo Jesuítico de Jesús María",
@@ -94,6 +96,7 @@ const historias = [
     title: "Torre Céspedes (Club Social)",
     summary:
       "Un pequeño castillo inspirado en las torres francesas y la memoria del Club Social.",
+    address: "Dirección Cástulo Peña 387, Jesús María",
     type: "gallery",
     gallery: torreCespedesPhotos,
     paragraphs: [
@@ -237,6 +240,9 @@ const Historia = () => {
               >
                 <span className="historia__toggle-title">{historia.title}</span>
                 <span className="historia__toggle-summary">{historia.summary}</span>
+                {historia.address && (
+                  <span className="historia__toggle-address">{historia.address}</span>
+                )}
                 <span className="historia__toggle-icon">
                   {isOpen ? "Cerrar —" : "Abrir +"}
                 </span>

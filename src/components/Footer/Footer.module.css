@@ -40,6 +40,30 @@
   gap: 10px;
 }
 
+.footerActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.qrBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrImage {
+  width: clamp(80px, 12vw, 110px);
+  height: auto;
+  padding: 6px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(115, 0, 52, 0.2);
+  box-shadow: 0 10px 18px rgba(115, 0, 52, 0.16);
+}
+
 .socialLink {
   display: inline-flex;
   align-items: center;

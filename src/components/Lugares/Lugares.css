@@ -90,6 +90,11 @@
   max-width: 760px;
 }
 
+.lugares__toggle-address {
+  font-size: 0.95rem;
+  color: rgba(115, 0, 52, 0.78);
+}
+
 .lugares__toggle-icon {
   position: absolute;
   right: 1.2rem;

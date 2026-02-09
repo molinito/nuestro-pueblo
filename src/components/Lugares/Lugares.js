@@ -73,6 +73,7 @@ const lugares = [
     title: "Estancia Jesuítica de Caroya",
     summary:
       "El primer establecimiento jesuítico rural de la región, declarado Patrimonio de la Humanidad.",
+    address: "Dirección: Entre Jesús Maria y Colonia Caroya, sobre ruta E66",
     type: "single",
     image: museoArmas,
     alt: "Museo Histórico y de los Inmigrantes",
@@ -93,6 +94,7 @@ const lugares = [
     title: "Casa Guyón",
     summary:
       "La casona en ruinas y su parque botánico, testigos de una época de esplendor social.",
+    address: "Dirección: Av. San Martín 1034, Colonia Caroya.",
     type: "gallery",
     gallery: guyonPhotos,
     paragraphs: [
@@ -123,6 +125,7 @@ const lugares = [
     title: "Iglesia Nuestra Señora de Monserrat",
     summary:
       "El corazón espiritual e histórico de Colonia Caroya, legado de la inmigración friulana.",
+    address: "Dirección: Avenida San Martín 3720, Colonia Caroya.",
     type: "gallery",
     gallery: monserratPhotos,
     videoLabel: "Documental de la Parroquia Nuestra Señora de Monserrat",
@@ -228,6 +231,9 @@ const Lugares = () => {
               >
                 <span className="lugares__toggle-title">{lugar.title}</span>
                 <span className="lugares__toggle-summary">{lugar.summary}</span>
+                {lugar.address && (
+                  <span className="lugares__toggle-address">{lugar.address}</span>
+                )}
                 <span className="lugares__toggle-icon">
                   {isOpen ? "Cerrar —" : "Abrir +"}
                 </span>
