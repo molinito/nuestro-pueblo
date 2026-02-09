@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./AyerHoy.css";
-import ayeryhoy from "./ayeryhoy.webp";
-import ayeryhoy1 from "./ayeryhoy1.webp";
-import ayeryhoy2 from "./ayeryhoy2.webp";
-import ayeryhoy3 from "./ayeryhoy3.webp";
-import ayeryhoy4 from "./ayeryhoy4.webp";
-import ayeryhoy5 from "./ayeryhoy5.webp";
-import ayeryhoy6 from "./ayeryhoy6.webp";
-import ayeryhoy7 from "./ayeryhoy7.webp";
-import ayeryhoy8 from "./ayeryhoy8.webp";
-import ayeryhoy9 from "./ayeryhoy9.webp";
-import ayeryhoy10 from "./ayeryhoy10.webp";
-import casaRicardoAntes from "./casa-ricardo-antes.webp";
-import casaRicardoHoy from "./casa-ricardo-hoy.webp";
-import tiendaLaNueva from "./tienda-la-nueva.webp";
-import tiendaLaNuevaHoy from "./tienda-la-nueva-hoy.webp";
-import museoAyer from "./museo-ayer.webp";
-import museoHoy from "./museo-hoy.webp";
-import bvAgueroAyer from "./bvAguero-ayer.webp";
-import bvAgueroHoy from "./bvAguero-hoy.webp";
-import castuloPenaAyer from "./castuloPena-ayer.webp";
-import castuloPenaHoy from "./castuloPena-hoy.webp";
+import ayeryhoy from "./galeria/ayeryhoy.webp";
+import ayeryhoy1 from "./galeria/ayeryhoy1.webp";
+import ayeryhoy2 from "./galeria/ayeryhoy2.webp";
+import ayeryhoy3 from "./galeria/ayeryhoy3.webp";
+import ayeryhoy4 from "./galeria/ayeryhoy4.webp";
+import ayeryhoy5 from "./galeria/ayeryhoy5.webp";
+import ayeryhoy6 from "./galeria/ayeryhoy6.webp";
+import ayeryhoy7 from "./galeria/ayeryhoy7.webp";
+import ayeryhoy8 from "./galeria/ayeryhoy8.webp";
+import ayeryhoy9 from "./galeria/ayeryhoy9.webp";
+import ayeryhoy10 from "./galeria/ayeryhoy10.webp";
+import casaRicardoAntes from "./casa-ricardo/casa-ricardo-antes.webp";
+import casaRicardoHoy from "./casa-ricardo/casa-ricardo-hoy.webp";
+import tiendaLaNueva from "./tienda-la-nueva/tienda-la-nueva.webp";
+import tiendaLaNuevaHoy from "./tienda-la-nueva/tienda-la-nueva-hoy.webp";
+import museoAyer from "./museo-jesuitico/museo-ayer.webp";
+import museoHoy from "./museo-jesuitico/museo-hoy.webp";
+import bvAgueroAyer from "./boulevard-aguero/bvAguero-ayer.webp";
+import bvAgueroHoy from "./boulevard-aguero/bvAguero-hoy.webp";
+import castuloPenaAyer from "./castillo-cespedes/castuloPena-ayer.webp";
+import castuloPenaHoy from "./castillo-cespedes/castuloPena-hoy.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
