@@ -12,3 +12,6 @@ file 'armas10.webm'
 file 'armas11.webm'
 file 'armas12.webm'
 file 'armas13_clip.webm'
+
+
+ahora quiero destructurar un poco el componente Lugares, porque dentro tengo muchos archivos y quiero organizarlos. Quiero que dentro de la carpeta Lugares, crees una subcarpeta para cada acordion, de manera que podamos mover el contenido de cada acordion a esa subcarpeta. Te animas ? 

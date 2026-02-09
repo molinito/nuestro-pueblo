@@ -21,6 +21,12 @@
 
 # Large local-only assets
 src/components/Videos/1.mp4
+*.webm
+*.mov
+*.mp4
+*.mkv
+*.avi
+!src/img/tierra.webm
 
 npm-debug.log*
 yarn-debug.log*
