@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
-import museoImg from "./museo.webp";
-import historiaImg from "./1.webp";
-import castillo1 from "./castillo1.webp";
-import castillo2 from "./castillo2.webp";
-import castillo3 from "./castillo3.webp";
-import castillo4 from "./castillo4.webp";
-import castillo5 from "./castillo5.webp";
-import festivalAyer from "./festival-ayer.webp";
-import festivalAntes from "./festival-antes.webp";
-import festivalAntes1 from "./festival-antes1.webp";
-import festivalAntes2 from "./festival-antes2.webp";
-import festivalAntes3 from "./festival-antes3.webp";
-import festivalAntes4 from "./festival-antes4.webp";
+import museoImg from "./museo-jesuitico/museo.webp";
+import historiaImg from "./colonia-san-martin/1.webp";
+import castillo1 from "./torre-cespedes/castillo1.webp";
+import castillo2 from "./torre-cespedes/castillo2.webp";
+import castillo3 from "./torre-cespedes/castillo3.webp";
+import castillo4 from "./torre-cespedes/castillo4.webp";
+import castillo5 from "./torre-cespedes/castillo5.webp";
+import festivalAyer from "./festival-jesus-maria/festival-ayer.webp";
+import festivalAntes from "./festival-jesus-maria/festival-antes.webp";
+import festivalAntes1 from "./festival-jesus-maria/festival-antes1.webp";
+import festivalAntes2 from "./festival-jesus-maria/festival-antes2.webp";
+import festivalAntes3 from "./festival-jesus-maria/festival-antes3.webp";
+import festivalAntes4 from "./festival-jesus-maria/festival-antes4.webp";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
