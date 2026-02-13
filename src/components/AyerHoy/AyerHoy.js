@@ -22,6 +22,11 @@ import bvAgueroAyer from "./boulevard-aguero/bvAguero-ayer.webp";
 import bvAgueroHoy from "./boulevard-aguero/bvAguero-hoy.webp";
 import castuloPenaAyer from "./castillo-cespedes/castuloPena-ayer.webp";
 import castuloPenaHoy from "./castillo-cespedes/castuloPena-hoy.webp";
+import castilloAyerExtra from "./castillo-cespedes/castillo-ayer.webp";
+import ypfAyer from "./ypf/ypf-ayer.webp";
+import ypfAyer1 from "./ypf/ypf-ayer-1.webp";
+import ypfHoy from "./ypf/ypf-hoy.webp";
+import ypfHoy1 from "./ypf/ypf-hoy1.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
@@ -37,6 +42,84 @@ const fotos = [
   { src: ayeryhoy10, alt: "Miradas cruzadas del pasado y el presente" },
 ];
 
+const casaRicardoGallery = [
+  {
+    src: casaRicardoAntes,
+    alt: "Casa Ricardo Divo en Jesús María, antes",
+  },
+  {
+    src: casaRicardoHoy,
+    alt: "Casa Ricardo Divo en Jesús María, hoy",
+  },
+];
+
+const tiendaLaNuevaGallery = [
+  {
+    src: tiendaLaNueva,
+    alt: "Tienda La Nueva en Jesús María, década de 1930-1940",
+  },
+  {
+    src: tiendaLaNuevaHoy,
+    alt: "Actual ubicación de Tienda La Nueva en Jesús María",
+  },
+];
+
+const museoJesuiticoGallery = [
+  {
+    src: museoAyer,
+    alt: "Estancia de Jesús María, museo jesuítico nacional, antes",
+  },
+  {
+    src: museoHoy,
+    alt: "Estancia de Jesús María, museo jesuítico nacional, hoy",
+  },
+];
+
+const boulevardAgueroGallery = [
+  {
+    src: bvAgueroAyer,
+    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, antes",
+  },
+  {
+    src: bvAgueroHoy,
+    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, hoy",
+  },
+];
+
+const castilloCespedesGallery = [
+  {
+    src: castuloPenaAyer,
+    alt: "Castillo Céspedes, antes",
+  },
+  {
+    src: castilloAyerExtra,
+    alt: "Castillo Céspedes, vista histórica",
+  },
+  {
+    src: castuloPenaHoy,
+    alt: "Castillo Céspedes, hoy",
+  },
+];
+
+const ypfGallery = [
+  {
+    src: ypfAyer,
+    alt: "YPF en Jesús María, antes",
+  },
+  {
+    src: ypfAyer1,
+    alt: "YPF en Jesús María, otra vista histórica",
+  },
+  {
+    src: ypfHoy,
+    alt: "YPF en Jesús María, hoy",
+  },
+  {
+    src: ypfHoy1,
+    alt: "YPF en Jesús María, vista actual",
+  },
+];
+
 const ayerHoyIds = [
   "galeria",
   "casa-ricardo",
@@ -44,6 +127,7 @@ const ayerHoyIds = [
   "museo-jesuitico",
   "boulevard-aguero",
   "castillo-cespedes",
+  "ypf",
 ];
 
 const hasAyerHoyId = (id) => ayerHoyIds.includes(id);
@@ -62,18 +146,34 @@ const AyerHoy = () => {
     });
   };
 
-  const openImage = (src, alt) => setLightbox({ src, alt });
+  const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
+    setLightbox({ gallery, index });
   const closeImage = () => setLightbox(null);
+  const showPrevImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex =
+        (current.index - 1 + current.gallery.length) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const showNextImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex = (current.index + 1) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
   const handleToggleKeyDown = (event, id) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       toggleItem(id);
     }
   };
-  const handleImageKeyDown = (event, src, alt) => {
+  const handleImageKeyDown = (event, src, alt, gallery = [{ src, alt }], index = 0) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openImage(src, alt);
+      openImage(src, alt, gallery, index);
     }
   };
 
@@ -82,6 +182,17 @@ const AyerHoy = () => {
     if (hasAyerHoyId(ayerHoyId)) return;
     navigate("/ayer-hoy", { replace: true });
   }, [ayerHoyId, navigate]);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeImage();
+      if (event.key === "ArrowLeft") showPrevImage();
+      if (event.key === "ArrowRight") showNextImage();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightbox]);
 
   return (
     <main className="ayer-hoy">
@@ -145,8 +256,10 @@ const AyerHoy = () => {
                     }${index === 3 ? " is-tall" : ""}`}
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() => openImage(foto.src, foto.alt, fotos, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, fotos, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -198,23 +311,16 @@ const AyerHoy = () => {
               </div>
 
               <div className="ayer-hoy__gallery">
-                {[
-                  {
-                    src: casaRicardoAntes,
-                    alt: "Casa Ricardo Divo en Jesús María, antes",
-                  },
-                  {
-                    src: casaRicardoHoy,
-                    alt: "Casa Ricardo Divo en Jesús María, hoy",
-                  },
-                ].map((foto) => (
+                {casaRicardoGallery.map((foto, index) => (
                   <div
                     key={foto.src}
                     className="ayer-hoy__gallery-item"
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() => openImage(foto.src, foto.alt, casaRicardoGallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, casaRicardoGallery, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -262,23 +368,18 @@ const AyerHoy = () => {
               </div>
 
               <div className="ayer-hoy__gallery">
-                {[
-                  {
-                    src: tiendaLaNueva,
-                    alt: "Tienda La Nueva en Jesús María, década de 1930-1940",
-                  },
-                  {
-                    src: tiendaLaNuevaHoy,
-                    alt: "Actual ubicación de Tienda La Nueva en Jesús María",
-                  },
-                ].map((foto) => (
+                {tiendaLaNuevaGallery.map((foto, index) => (
                   <div
                     key={foto.src}
                     className="ayer-hoy__gallery-item"
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() =>
+                      openImage(foto.src, foto.alt, tiendaLaNuevaGallery, index)
+                    }
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, tiendaLaNuevaGallery, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -342,23 +443,18 @@ const AyerHoy = () => {
               </div>
 
               <div className="ayer-hoy__gallery">
-                {[
-                  {
-                    src: museoAyer,
-                    alt: "Estancia de Jesús María, museo jesuítico nacional, antes",
-                  },
-                  {
-                    src: museoHoy,
-                    alt: "Estancia de Jesús María, museo jesuítico nacional, hoy",
-                  },
-                ].map((foto) => (
+                {museoJesuiticoGallery.map((foto, index) => (
                   <div
                     key={foto.src}
                     className="ayer-hoy__gallery-item"
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() =>
+                      openImage(foto.src, foto.alt, museoJesuiticoGallery, index)
+                    }
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, museoJesuiticoGallery, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -409,23 +505,18 @@ const AyerHoy = () => {
               </div>
 
               <div className="ayer-hoy__gallery">
-                {[
-                  {
-                    src: bvAgueroAyer,
-                    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, antes",
-                  },
-                  {
-                    src: bvAgueroHoy,
-                    alt: "Boulevard Agüero y Juan Bautista Alberdi en Jesús María, hoy",
-                  },
-                ].map((foto) => (
+                {boulevardAgueroGallery.map((foto, index) => (
                   <div
                     key={foto.src}
                     className="ayer-hoy__gallery-item"
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() =>
+                      openImage(foto.src, foto.alt, boulevardAgueroGallery, index)
+                    }
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, boulevardAgueroGallery, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -470,23 +561,74 @@ const AyerHoy = () => {
               </div>
 
               <div className="ayer-hoy__gallery">
-                {[
-                  {
-                    src: castuloPenaAyer,
-                    alt: "Castillo Céspedes, antes",
-                  },
-                  {
-                    src: castuloPenaHoy,
-                    alt: "Castillo Céspedes, hoy",
-                  },
-                ].map((foto) => (
+                {castilloCespedesGallery.map((foto, index) => (
                   <div
                     key={foto.src}
                     className="ayer-hoy__gallery-item"
                     role="button"
                     tabIndex={0}
-                    onClick={() => openImage(foto.src, foto.alt)}
-                    onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
+                    onClick={() =>
+                      openImage(foto.src, foto.alt, castilloCespedesGallery, index)
+                    }
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, castilloCespedesGallery, index)
+                    }
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "ypf" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("ypf")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "ypf")}
+            aria-expanded={openId === "ypf"}
+            aria-controls="ayer-hoy-panel-ypf"
+            id="ayer-hoy-header-ypf"
+          >
+            <span className="ayer-hoy__toggle-title">YPF</span>
+            <span className="ayer-hoy__toggle-summary">
+              La estación de servicio en distintas épocas.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "ypf" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-ypf"
+            role="region"
+            aria-labelledby="ayer-hoy-header-ypf"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  Imágenes de la YPF de Jesús María que muestran su evolución con el
+                  paso del tiempo y los cambios en su entorno.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {ypfGallery.map((foto, index) => (
+                  <div
+                    key={foto.src}
+                    className={`ayer-hoy__gallery-item${
+                      index === 0 ? " is-feature" : ""
+                    }${index === 3 ? " is-tall" : ""}`}
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt, ypfGallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, ypfGallery, index)
+                    }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
                     <img src={foto.src} alt={foto.alt} />
@@ -506,10 +648,40 @@ const AyerHoy = () => {
       {lightbox && (
         <div className="ayer-hoy__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="ayer-hoy__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
-            <button type="button" className="ayer-hoy__lightbox-hint" onClick={closeImage}>
-              Click para achicar
-            </button>
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="ayer-hoy__lightbox-nav is-prev"
+                onClick={showPrevImage}
+                aria-label="Imagen anterior"
+              >
+                ‹
+              </button>
+            )}
+            <img
+              src={lightbox.gallery[lightbox.index].src}
+              alt={lightbox.gallery[lightbox.index].alt}
+            />
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="ayer-hoy__lightbox-nav is-next"
+                onClick={showNextImage}
+                aria-label="Imagen siguiente"
+              >
+                ›
+              </button>
+            )}
+            <div className="ayer-hoy__lightbox-actions">
+              {lightbox.gallery.length > 1 && (
+                <span className="ayer-hoy__lightbox-counter">
+                  {lightbox.index + 1} / {lightbox.gallery.length}
+                </span>
+              )}
+              <button type="button" className="ayer-hoy__lightbox-hint" onClick={closeImage}>
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}

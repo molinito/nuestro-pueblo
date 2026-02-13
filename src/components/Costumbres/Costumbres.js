@@ -30,6 +30,14 @@ import etiqueta6 from "./chantas-etiquetas/etiqueta6.webp";
 import etiqueta6a from "./chantas-etiquetas/etiqueta6a.webp";
 import etiqueta7 from "./chantas-etiquetas/etiqueta7.webp";
 import etiquetasCover from "./chantas-etiquetas/etiquetas.webp";
+import saraFru1 from "./sarayfru/1.webp";
+import saraFru2 from "./sarayfru/2.webp";
+import saraFru3 from "./sarayfru/3.webp";
+import saraFru4 from "./sarayfru/4.webp";
+import saraFru5 from "./sarayfru/5.webp";
+import saraFru6 from "./sarayfru/6.webp";
+import saraFru7 from "./sarayfru/7.webp";
+import saraFru8 from "./sarayfru/8.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -69,6 +77,17 @@ const etiquetas = [
   { src: etiqueta6, alt: "Juego de la chantas: etiqueta 10" },
   { src: etiqueta6a, alt: "Juego de la chantas: etiqueta 11" },
   { src: etiqueta7, alt: "Juego de la chantas: etiqueta 12" },
+];
+
+const saraYFru = [
+  { src: saraFru1, alt: "Figuritas Sara Key y Frutillitas: colección 1" },
+  { src: saraFru2, alt: "Figuritas Sara Key y Frutillitas: colección 2" },
+  { src: saraFru3, alt: "Figuritas Sara Key y Frutillitas: colección 3" },
+  { src: saraFru4, alt: "Figuritas Sara Key y Frutillitas: colección 4" },
+  { src: saraFru5, alt: "Figuritas Sara Key y Frutillitas: colección 5" },
+  { src: saraFru6, alt: "Figuritas Sara Key y Frutillitas: colección 6" },
+  { src: saraFru7, alt: "Figuritas Sara Key y Frutillitas: colección 7" },
+  { src: saraFru8, alt: "Figuritas Sara Key y Frutillitas: colección 8" },
 ];
 
 const costumbres = [
@@ -143,6 +162,20 @@ const costumbres = [
       links: [],
     },
     gallery: etiquetas,
+  },
+  {
+    id: "sara-key-frutillitas",
+    title: "Figuritas de Sara Key y Frutillitas",
+    summary: "Figuritas de nuestra niñez.",
+    type: "gallery",
+    paragraphs: [
+      "Sara Key era famosísima por ese estilo romántico y campestre, con sus vestidos largos, sombreros de paja y esos dibujos que transmitían mucha paz y nostalgia. Era muy común ver sus diseños no solo en figuritas, sino también en tarjetas de felicitación y diarios personales.",
+      "Por otro lado, Frutillitas era todo un fenómeno. Lo más recordado, además de sus coloridos diseños de frutas, era que ¡las figuritas tenían olor! Al rasparlas, desprendían aroma a fresa, chocolate o limón, según el personaje.",
+      "Y quizás, sin que lo supiéramos entonces, esas figuritas eran mucho más que papel ilustrado.",
+      "Eran tardes interminables en el piso del dormitorio, intercambios en el recreo, carpetas cuidadosamente ordenadas, sobres perfumados guardados como tesoros. Eran la ilusión de un mundo dulce, amable, donde todo parecía posible. Sara Key nos enseñaba la ternura en cada trazo suave y cada escena campestre que parecía abrazarnos. Frutillitas nos regalaba color, alegría… y ese perfume inolvidable que todavía hoy, con solo recordarlo, despierta una sonrisa.",
+      "Para aquellas niñas de los 80 y 90 —hoy mujeres, madres, profesionales, soñadoras— esas imágenes no eran simples diseños: eran refugio, eran imaginación, eran inocencia pura. Eran el corazón latiendo fuerte ante cada álbum nuevo, cada figurita repetida que podía convertirse en un intercambio feliz.",
+    ],
+    gallery: saraYFru,
   },
 ];
 

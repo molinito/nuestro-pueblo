@@ -253,6 +253,47 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.ayer-hoy__lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(24, 0, 12, 0.45);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.ayer-hoy__lightbox-nav.is-prev {
+  left: -1rem;
+}
+
+.ayer-hoy__lightbox-nav.is-next {
+  right: -1rem;
+}
+
+.ayer-hoy__lightbox-nav:hover {
+  background: rgba(24, 0, 12, 0.7);
+}
+
+.ayer-hoy__lightbox-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.ayer-hoy__lightbox-counter {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
 .ayer-hoy__lightbox-hint {
   margin: 0;
   padding: 0.4rem 1rem;
@@ -300,6 +341,14 @@
 
   .ayer-hoy__gallery-item.is-feature {
     grid-column: span 2;
+  }
+
+  .ayer-hoy__lightbox-nav.is-prev {
+    left: 0.3rem;
+  }
+
+  .ayer-hoy__lightbox-nav.is-next {
+    right: 0.3rem;
   }
 }
 

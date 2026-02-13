@@ -64,6 +64,16 @@
   background: rgba(255, 255, 255, 0.35);
 }
 
+.npCarousel__image-button {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: block;
+  cursor: zoom-in;
+}
+
 .npCarousel__image {
   position: relative;
   z-index: 1;
@@ -157,5 +167,4 @@
     padding: 12px;
   }
 }
-
 
