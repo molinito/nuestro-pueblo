@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Inicio.module.css";
 import Carousel from "../Carousel/Carousel";
 
@@ -27,6 +27,16 @@ const Card = ({ title, description, link, className }) => {
 };
 
 const CardList = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const target = document.querySelector(location.hash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [location.hash]);
+
   return (
     <>
       {" "}
@@ -117,14 +127,16 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-      <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
-      <h3 className={styles.subtitle}>
-        Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
-        nuestros ancestros hasta hoy...
-      </h3>
-      <br />
+      <section id="album">
+        <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
+        <h3 className={styles.subtitle}>
+          Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
+          nuestros ancestros hasta hoy...
+        </h3>
+        <br />
 
-      <Carousel />
+        <Carousel />
+      </section>
     </>
   );
 };

@@ -1,14 +1,37 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './Carousel.css';
-import img1 from '../../img/1.webp';
-import img2 from '../../img/2.webp';
-import img3 from '../../img/3.webp';
-import img4 from '../../img/4.webp';
-import img5 from '../../img/5.webp';
-import img6 from '../../img/tractor.webp';
+import img1 from '../../img/galeria/1.webp';
+import img2 from '../../img/galeria/2.webp';
+import img3 from '../../img/galeria/3.webp';
+import img4 from '../../img/galeria/4.webp';
+import img5 from '../../img/galeria/5.webp';
+import anaLondero from '../../img/galeria/ana-londero.webp';
+import avenida from '../../img/galeria/avenida.webp';
+import chataVieja from '../../img/galeria/chata-vieja.webp';
+import familia from '../../img/galeria/familia.webp';
+import familia1 from '../../img/galeria/familia1.webp';
+import friuli from '../../img/galeria/friuli.webp';
+import patioInternoCasaCaroya from '../../img/galeria/patiointerno-casacaroya.webp';
+import plazaPio from '../../img/galeria/plaza pio.webp';
+import img6 from '../../img/galeria/tractor.webp';
 import albumCover from '../../img/album.png';
 
-const defaultSlides = [img1, img2, img3, img4, img5, img6].map((src, idx, list) => ({
+const defaultSlides = [
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  anaLondero,
+  avenida,
+  chataVieja,
+  familia,
+  familia1,
+  friuli,
+  patioInternoCasaCaroya,
+  plazaPio,
+  img6,
+].map((src, idx, list) => ({
   src,
   alt: `Imagen ${idx + 1} de ${list.length}`,
 }));
