@@ -173,6 +173,10 @@
   border-top: 1px solid rgba(163, 0, 72, 0.12);
 }
 
+.historia__panel-inner > * {
+  min-width: 0;
+}
+
 .historia__panel-inner--gallery {
   align-items: start;
 }
@@ -233,6 +237,8 @@
   color: var(--site-ink);
   line-height: 1.65;
   font-size: 1.03rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .historia__card-title {
@@ -281,10 +287,12 @@
   display: grid;
   gap: 0.6rem;
   color: rgba(115, 0, 52, 0.92);
+  overflow-wrap: anywhere;
 }
 
 .historia__list li {
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .historia__video {
@@ -301,6 +309,7 @@
 .historia__aside {
   display: grid;
   gap: 0.9rem;
+  min-width: 0;
 }
 
 .historia__video-label {
