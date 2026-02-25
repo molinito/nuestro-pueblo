@@ -14,6 +14,7 @@ import festivalAntes1 from "./festival-jesus-maria/festival-antes1.webp";
 import festivalAntes2 from "./festival-jesus-maria/festival-antes2.webp";
 import festivalAntes3 from "./festival-jesus-maria/festival-antes3.webp";
 import festivalAntes4 from "./festival-jesus-maria/festival-antes4.webp";
+import belgranoHistoria from "./belgrano/data";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -68,6 +69,7 @@ const historias = [
       "El museo exhibe una variedad de objetos y artefactos históricos que ilustran la vida y el trabajo de los jesuitas en la estancia, así como la influencia que tuvieron en la comunidad local y en la evangelización de la población indígena. Además de las exposiciones permanentes, el museo también alberga eventos culturales y actividades educativas para los visitantes. Es un destino interesante para aquellos interesados en la historia jesuita, la historia colonial argentina y la preservación del patrimonio cultural. Si tienes la oportunidad de visitar Jesús María, te recomiendo que no te pierdas la experiencia de conocer este fascinante museo y sumergirte en la historia de la región.",
     ],
   },
+  belgranoHistoria,
   {
     id: "colonia-san-martin",
     title: "Colonia San Martín y el nombre Caroya",
@@ -317,15 +319,55 @@ const Historia = () => {
                             </ul>
                           </>
                         )}
+                      </div>
+                      <div className="historia__aside">
+                        <p className="historia__gallery-note">
+                          Las imágenes son meramente ilustrativas
+                        </p>
+                        <div className="historia__gallery">
+                          {historia.gallery.map((photo, index) => (
+                            <div
+                              key={photo.src}
+                              className={`historia__gallery-item${
+                                index === 0 ? " is-feature" : ""
+                              }${index === 3 ? " is-tall" : ""}`}
+                              role="button"
+                              tabIndex={0}
+                              onClick={() => openImage(photo.src, photo.alt)}
+                              onKeyDown={(event) =>
+                                handleImageKeyDown(event, photo.src, photo.alt)
+                              }
+                              aria-label={`Agrandar imagen: ${photo.alt}`}
+                            >
+                              <img src={photo.src} alt={photo.alt} />
+                              <div className="historia__overlay">Haz click para agrandar</div>
+                            </div>
+                          ))}
+                        </div>
                         {historia.video && (
                           <div className="historia__video">
                             <span className="historia__video-label">
                               Mira el video…!!
                             </span>
-                            <p className="historia__video-title">{historia.video.title}</p>
-                            <p className="historia__video-source">
-                              Fuente: {historia.video.source}
-                            </p>
+                            {historia.video.thumbnail && (
+                              <a
+                                className="historia__video-thumb"
+                                href={historia.video.href}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <img
+                                  src={historia.video.thumbnail}
+                                  alt={`Miniatura del video: ${historia.video.title}`}
+                                />
+                              </a>
+                            )}
+                          <p className="historia__video-title">{historia.video.title}</p>
+                          {historia.video.credit && (
+                            <p className="historia__video-credit">
+                              Creditos: {historia.video.credit}
+                              </p>
+                            )}
                             <a
                               className="historia__video-link"
                               href={historia.video.href}
@@ -336,26 +378,6 @@ const Historia = () => {
                             </a>
                           </div>
                         )}
-                      </div>
-                      <div className="historia__gallery">
-                        {historia.gallery.map((photo, index) => (
-                          <div
-                            key={photo.src}
-                            className={`historia__gallery-item${
-                              index === 0 ? " is-feature" : ""
-                            }${index === 3 ? " is-tall" : ""}`}
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => openImage(photo.src, photo.alt)}
-                            onKeyDown={(event) =>
-                              handleImageKeyDown(event, photo.src, photo.alt)
-                            }
-                            aria-label={`Agrandar imagen: ${photo.alt}`}
-                          >
-                            <img src={photo.src} alt={photo.alt} />
-                            <div className="historia__overlay">Haz click para agrandar</div>
-                          </div>
-                        ))}
                       </div>
                     </>
                   )}
