@@ -27,6 +27,14 @@ import ypfAyer from "./ypf/ypf-ayer.webp";
 import ypfAyer1 from "./ypf/ypf-ayer-1.webp";
 import ypfHoy from "./ypf/ypf-hoy.webp";
 import ypfHoy1 from "./ypf/ypf-hoy1.webp";
+import rosarioAyer from "./rosario/rosario.webp";
+import rosarioHoy from "./rosario/rosario1.webp";
+import bodegaAyer from "./bodega/bodega.webp";
+import bodegaHoy from "./bodega/bodega1.webp";
+import agrariaAyer from "./agraria/agraria.webp";
+import agrariaHoy from "./agraria/agraria1.webp";
+import ipem69Ayer from "./ipem69/ipem69.webp";
+import ipem69Hoy from "./ipem69/ipem691.webp";
 
 const fotos = [
   { src: ayeryhoy, alt: "Ayer y hoy en Jesús María" },
@@ -120,6 +128,50 @@ const ypfGallery = [
   },
 ];
 
+const rosarioGallery = [
+  {
+    src: rosarioAyer,
+    alt: "Iglesia del Santísimo Rosario Lote XI, vista histórica",
+  },
+  {
+    src: rosarioHoy,
+    alt: "Iglesia del Santísimo Rosario Lote XI, vista actual",
+  },
+];
+
+const bodegaGallery = [
+  {
+    src: bodegaAyer,
+    alt: "Bodega La Caroyense, vista histórica",
+  },
+  {
+    src: bodegaHoy,
+    alt: "Bodega La Caroyense, vista actual",
+  },
+];
+
+const agrariaGallery = [
+  {
+    src: agrariaAyer,
+    alt: "Club Agraria de Colonia Caroya, vista histórica",
+  },
+  {
+    src: agrariaHoy,
+    alt: "Club Agraria de Colonia Caroya, vista actual",
+  },
+];
+
+const ipem69Gallery = [
+  {
+    src: ipem69Ayer,
+    alt: "Escuela técnica IPEM 69 de Jesús María, vista histórica",
+  },
+  {
+    src: ipem69Hoy,
+    alt: "Escuela técnica IPEM 69 de Jesús María, vista actual",
+  },
+];
+
 const ayerHoyIds = [
   "galeria",
   "casa-ricardo",
@@ -128,6 +180,10 @@ const ayerHoyIds = [
   "boulevard-aguero",
   "castillo-cespedes",
   "ypf",
+  "rosario",
+  "bodega",
+  "agraria",
+  "ipem69",
 ];
 
 const hasAyerHoyId = (id) => ayerHoyIds.includes(id);
@@ -461,6 +517,252 @@ const AyerHoy = () => {
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "rosario" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("rosario")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "rosario")}
+            aria-expanded={openId === "rosario"}
+            aria-controls="ayer-hoy-panel-rosario"
+            id="ayer-hoy-header-rosario"
+          >
+            <span className="ayer-hoy__toggle-title">
+              Iglesia del Santísimo Rosario Lote XI
+            </span>
+            <span className="ayer-hoy__toggle-summary">
+              La memoria de la comunidad del Lote XI en dos tiempos.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "rosario" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-rosario"
+            role="region"
+            aria-labelledby="ayer-hoy-header-rosario"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  La Iglesia del Santísimo Rosario del Lote XI acompaña la vida
+                  espiritual y social de la zona. Estas imágenes muestran su
+                  presencia a través del tiempo.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {rosarioGallery.map((foto, index) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt, rosarioGallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, rosarioGallery, index)
+                    }
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="ayer-hoy__credits">
+                <span className="ayer-hoy__credit-label">Créditos</span>
+                <p className="ayer-hoy__credit-text">
+                  Archivo Histórico Colonia Caroya, Facebook
+                  <br />
+                  Imagen hoy. Marcelo Saravia
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "bodega" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("bodega")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "bodega")}
+            aria-expanded={openId === "bodega"}
+            aria-controls="ayer-hoy-panel-bodega"
+            id="ayer-hoy-header-bodega"
+          >
+            <span className="ayer-hoy__toggle-title">Bodega La Caroyense</span>
+            <span className="ayer-hoy__toggle-summary">
+              Un símbolo del trabajo vitivinícola en Colonia Caroya.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "bodega" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-bodega"
+            role="region"
+            aria-labelledby="ayer-hoy-header-bodega"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  La Bodega La Caroyense es parte de la identidad productiva de la
+                  zona. Estas comparativas muestran su evolución y permanencia en el
+                  paisaje local.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {bodegaGallery.map((foto, index) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt, bodegaGallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, bodegaGallery, index)
+                    }
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "agraria" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("agraria")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "agraria")}
+            aria-expanded={openId === "agraria"}
+            aria-controls="ayer-hoy-panel-agraria"
+            id="ayer-hoy-header-agraria"
+          >
+            <span className="ayer-hoy__toggle-title">Club Agraria de Colonia Caroya</span>
+            <span className="ayer-hoy__toggle-summary">
+              Deporte, encuentros y vida social en dos épocas.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "agraria" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-agraria"
+            role="region"
+            aria-labelledby="ayer-hoy-header-agraria"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  El Club Agraria es un punto de encuentro histórico para la
+                  comunidad de Colonia Caroya. Las imágenes reflejan su rol social
+                  y su continuidad en el tiempo.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {agrariaGallery.map((foto, index) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt, agrariaGallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, agrariaGallery, index)
+                    }
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+        <article className={`ayer-hoy__item${openId === "ipem69" ? " is-open" : ""}`}>
+          <button
+            type="button"
+            className="ayer-hoy__toggle"
+            onClick={() => toggleItem("ipem69")}
+            onKeyDown={(event) => handleToggleKeyDown(event, "ipem69")}
+            aria-expanded={openId === "ipem69"}
+            aria-controls="ayer-hoy-panel-ipem69"
+            id="ayer-hoy-header-ipem69"
+          >
+            <span className="ayer-hoy__toggle-title">
+              Escuela Técnica IPEM 69 de Jesús María
+            </span>
+            <span className="ayer-hoy__toggle-summary">
+              Formación técnica y vida estudiantil a través del tiempo.
+            </span>
+            <span className="ayer-hoy__toggle-icon">
+              {openId === "ipem69" ? "Cerrar —" : "Abrir +"}
+            </span>
+          </button>
+
+          <div
+            className="ayer-hoy__panel"
+            id="ayer-hoy-panel-ipem69"
+            role="region"
+            aria-labelledby="ayer-hoy-header-ipem69"
+          >
+            <div className="ayer-hoy__panel-inner">
+              <div className="ayer-hoy__content">
+                <p>
+                  La escuela técnica IPEM 69 de Jesús María es parte del recorrido
+                  educativo de muchas generaciones. Estas fotos muestran su presencia
+                  en el pasado y su imagen actual.
+                </p>
+              </div>
+
+              <div className="ayer-hoy__gallery">
+                {ipem69Gallery.map((foto, index) => (
+                  <div
+                    key={foto.src}
+                    className="ayer-hoy__gallery-item"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => openImage(foto.src, foto.alt, ipem69Gallery, index)}
+                    onKeyDown={(event) =>
+                      handleImageKeyDown(event, foto.src, foto.alt, ipem69Gallery, index)
+                    }
+                    aria-label={`Agrandar imagen: ${foto.alt}`}
+                  >
+                    <img src={foto.src} alt={foto.alt} />
+                    <div className="ayer-hoy__overlay">Haz click para agrandar</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="ayer-hoy__credits">
+                <span className="ayer-hoy__credit-label">Créditos</span>
+                <p className="ayer-hoy__credit-text">
+                  Nora Veronica Peralta
+                  <br />
+                  Ipetym 69 año 1947 ( gentileza de la srta Gringa Gris de Scrosoppi)
+                  <br />
+                  Facebook Fotos Antiguas de Colonia Caroya y Jesús María
+                  <br />
+                  Imagen hoy. Marcelo Saravia
+                </p>
               </div>
             </div>
           </div>

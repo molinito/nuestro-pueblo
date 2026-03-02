@@ -214,6 +214,8 @@
 .ayer-hoy__credit-text {
   margin: 0;
   font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.5;
   color: rgba(115, 0, 52, 0.9);
 }
 
