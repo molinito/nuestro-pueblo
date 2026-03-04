@@ -42,7 +42,7 @@ const CardList = () => {
       {" "}
       <br />
       <h1 className={styles.title1}>
-        Nuestro Pueblo: historia, lugares y memoria de Jesús María y Colonia Caroya
+        Nuestro Pueblo: historia, lugares y memoria de Jesús María, Colonia Caroya y Sinsacate
       </h1>
 
       <h2 className={styles.title}>Un viaje por nuestra tierra</h2>

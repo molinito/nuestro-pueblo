@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
+import Search from "../Search/Search";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,18 +53,13 @@ const Navbar = () => {
           <span className={styles.mobileToggleBar} />
         </span>
       </button>
+      <Search onNavigate={closeAllMenus} />
       <div
         id="main-nav-links"
         className={`${styles.navLinks} ${isMobileOpen ? styles.navLinksOpen : ""}`}
       >
         <NavLink className={styles.link} activeclassname="active" exact="true" to="/" onClick={closeAllMenus}>
           Inicio
-        </NavLink>
-        <NavLink className={styles.link} activeclassname="active" to="/acerca-de" onClick={closeAllMenus}>
-          Sobre mí
-        </NavLink>
-        <NavLink className={styles.link} activeclassname="active" to="/contacto" onClick={closeAllMenus}>
-          Envíanos tu mensaje
         </NavLink>
         <div className={styles.dropdown} ref={dropdownRef}>
           <button
@@ -103,6 +99,12 @@ const Navbar = () => {
             </NavLink>
           </div>
         </div>
+        <NavLink className={styles.link} activeclassname="active" to="/acerca-de" onClick={closeAllMenus}>
+          Sobre mí
+        </NavLink>
+        <NavLink className={styles.link} activeclassname="active" to="/contacto" onClick={closeAllMenus}>
+          Envíanos tu mensaje
+        </NavLink>
         <NavLink className={styles.link} activeclassname="active" to="/donacion" onClick={closeAllMenus}>
           Colaboración
         </NavLink>
