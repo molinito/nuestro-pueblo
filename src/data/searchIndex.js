@@ -70,6 +70,13 @@ export const searchIndex = [
     section: "Lugares"
   },
   {
+    id: "lugares-posta-sinsacate",
+    title: "La Posta de Sinsacate",
+    subtitle: "El lugar de descanso de generales y tropas",
+    href: "/lugares/posta-sinsacate",
+    section: "Lugares"
+  },
+  {
     id: "lugares-guyon",
     title: "Casa Guyón",
     subtitle: "La casona en ruinas y su parque botánico",

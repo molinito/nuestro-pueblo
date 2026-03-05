@@ -2,11 +2,18 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
 import { estanciaJesuitica } from "./estancia-jesuitica/data";
+import { postaSinsacate } from "./sinsacate/data";
 import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
 
-const lugares = [estanciaJesuitica, casaGuyon, casaCopetti, iglesiaMonserrat];
+const lugares = [
+  estanciaJesuitica,
+  postaSinsacate,
+  casaGuyon,
+  casaCopetti,
+  iglesiaMonserrat
+];
 
 const hasLugarId = (id) => lugares.some((lugar) => lugar.id === id);
 
