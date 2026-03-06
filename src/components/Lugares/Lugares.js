@@ -3,6 +3,7 @@ import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
 import { estanciaJesuitica } from "./estancia-jesuitica/data";
 import { postaSinsacate } from "./sinsacate/data";
+import { sinsaCarruajes } from "./sinsa-carruajes/data";
 import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
@@ -10,6 +11,7 @@ import { iglesiaMonserrat } from "./iglesia-monserrat/data";
 const lugares = [
   estanciaJesuitica,
   postaSinsacate,
+  sinsaCarruajes,
   casaGuyon,
   casaCopetti,
   iglesiaMonserrat
@@ -176,6 +178,9 @@ const Lugares = () => {
                                 Ver documental en YouTube
                               </span>
                             </a>
+                            {lugar.videoCredit && (
+                              <p className="lugares__video-credit">{lugar.videoCredit}</p>
+                            )}
                           </div>
                         )}
                         {lugar.credit && (
@@ -183,9 +188,14 @@ const Lugares = () => {
                             <span className="lugares__credit-label">Créditos</span>
                             <p className="lugares__credit-name">{lugar.credit.name}</p>
                             {lugar.credit.noteLabel && lugar.credit.noteName && (
-                              <p className="lugares__credit-note">
-                                {lugar.credit.noteLabel} <strong>{lugar.credit.noteName}</strong>
-                              </p>
+                              <>
+                                <p className="lugares__credit-note">
+                                  {lugar.credit.noteLabel}
+                                </p>
+                                <p className="lugares__credit-note">
+                                  <strong>{lugar.credit.noteName}</strong>
+                                </p>
+                              </>
                             )}
                             {lugar.credit.note && !lugar.credit.noteLabel && (
                               <p className="lugares__credit-note">{lugar.credit.note}</p>
@@ -194,13 +204,20 @@ const Lugares = () => {
                         )}
                       </div>
 
-                      <div className="lugares__gallery">
-                        {lugar.gallery.map((photo, index) => (
+                      <div
+                        className={`lugares__gallery${
+                          lugar.galleryCaptioned ? " is-captioned" : ""
+                        }`}
+                      >
+                        {lugar.gallery.map((photo, index) => {
+                          const isFeature = !lugar.galleryCaptioned && index === 0;
+                          const isTall = !lugar.galleryCaptioned && index === 4;
+                          return (
                           <div
                             key={photo.src}
                             className={`lugares__gallery-item${
-                              index === 0 ? " is-feature" : ""
-                            }${index === 4 ? " is-tall" : ""}`}
+                              isFeature ? " is-feature" : ""
+                            }${isTall ? " is-tall" : ""}`}
                             role="button"
                             tabIndex={0}
                             onKeyDown={(event) => {
@@ -214,10 +231,18 @@ const Lugares = () => {
                             }
                             aria-label={`Agrandar imagen: ${photo.alt}`}
                           >
-                            <img src={photo.src} alt={photo.alt} />
-                            <div className="lugares__overlay">Haz click para agrandar</div>
+                            <div className="lugares__gallery-frame">
+                              <img src={photo.src} alt={photo.alt} />
+                              <div className="lugares__overlay">Haz click para agrandar</div>
+                            </div>
+                            {photo.title && (
+                              <div className="lugares__gallery-caption">
+                                <p className="lugares__gallery-title">{photo.title}</p>
+                              </div>
+                            )}
                           </div>
-                        ))}
+                          );
+                        })}
                       </div>
                     </>
                   )}

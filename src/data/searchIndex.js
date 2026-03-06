@@ -77,6 +77,13 @@ export const searchIndex = [
     section: "Lugares"
   },
   {
+    id: "lugares-carruajes",
+    title: "De caminos, postas y carruajes",
+    subtitle: "Rutas coloniales, postas y carretas en Córdoba",
+    href: "/lugares/sinsa-carruajes",
+    section: "Lugares"
+  },
+  {
     id: "lugares-guyon",
     title: "Casa Guyón",
     subtitle: "La casona en ruinas y su parque botánico",
