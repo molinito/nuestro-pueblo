@@ -275,9 +275,9 @@ const Costumbres = () => {
               >
                 <span className="costumbres__toggle-title">{costumbre.title}</span>
                 <span className="costumbres__toggle-summary">{costumbre.summary}</span>
-                <span className="costumbres__toggle-icon">
-                  {isOpen ? "Cerrar —" : "Abrir +"}
-                </span>
+                {!isOpen && (
+                  <span className="costumbres__toggle-secondary">Abrir +</span>
+                )}
               </button>
 
               <div
@@ -386,6 +386,17 @@ const Costumbres = () => {
                     </>
                   )}
                 </div>
+                {isOpen && (
+                  <div className="costumbres__panel-actions">
+                    <button
+                      type="button"
+                      className="costumbres__panel-toggle"
+                      onClick={() => toggleItem(costumbre.id)}
+                    >
+                      Cerrar —
+                    </button>
+                  </div>
+                )}
               </div>
             </article>
           );

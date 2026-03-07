@@ -111,9 +111,9 @@ const Lugares = () => {
                 {lugar.address && (
                   <span className="lugares__toggle-address">{lugar.address}</span>
                 )}
-                <span className="lugares__toggle-icon">
-                  {isOpen ? "Cerrar —" : "Abrir +"}
-                </span>
+                {!isOpen && (
+                  <span className="lugares__toggle-secondary">Abrir +</span>
+                )}
               </button>
 
               <div
@@ -244,6 +244,17 @@ const Lugares = () => {
                           );
                         })}
                       </div>
+                      {isOpen && (
+                        <div className="lugares__panel-actions">
+                          <button
+                            type="button"
+                            className="lugares__panel-toggle"
+                            onClick={() => toggleItem(lugar.id)}
+                          >
+                            Cerrar —
+                          </button>
+                        </div>
+                      )}
                     </>
                   )}
 

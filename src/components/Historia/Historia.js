@@ -245,9 +245,9 @@ const Historia = () => {
                 {historia.address && (
                   <span className="historia__toggle-address">{historia.address}</span>
                 )}
-                <span className="historia__toggle-icon">
-                  {isOpen ? "Cerrar —" : "Abrir +"}
-                </span>
+                {!isOpen && (
+                  <span className="historia__toggle-secondary">Abrir +</span>
+                )}
               </button>
               <div
                 className="historia__panel"
@@ -380,6 +380,17 @@ const Historia = () => {
                         )}
                       </div>
                     </>
+                  )}
+                  {isOpen && (
+                    <div className="historia__panel-actions">
+                      <button
+                        type="button"
+                        className="historia__panel-toggle"
+                        onClick={() => toggleItem(historia.id)}
+                      >
+                        Cerrar —
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>

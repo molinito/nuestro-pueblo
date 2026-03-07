@@ -113,6 +113,23 @@
   box-shadow: 0 6px 16px rgba(115, 0, 52, 0.15);
 }
 
+.personajes__toggle-secondary {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(163, 0, 72, 0.9);
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(163, 0, 72, 0.25);
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.12);
+  pointer-events: none;
+}
+
 .personajes__panel {
   max-height: 0;
   opacity: 0;
@@ -138,6 +155,29 @@
 .personajes__panel-inner--gallery {
   grid-template-columns: 1fr;
   align-items: start;
+}
+
+.personajes__panel-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.personajes__panel-toggle {
+  border: 1px solid rgba(163, 0, 72, 0.3);
+  background: rgba(255, 255, 255, 0.75);
+  color: rgba(115, 0, 52, 0.9);
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--site-font);
+  font-size: 0.9rem;
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.12);
+}
+
+.personajes__panel-toggle:hover {
+  background: rgba(246, 219, 233, 0.85);
 }
 
 .personajes__media {

@@ -276,9 +276,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Un recorrido por el tiempo a través de fachadas, esquinas y comercios.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "galeria" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "galeria" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -330,6 +330,15 @@ const AyerHoy = () => {
                   Fotos: Sr. Guillermo Ordoñez (Facebook)
                 </p>
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("galeria")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -347,9 +356,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Una tienda emblemática de Jesús María en los años 70 y 80.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "casa-ricardo" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "casa-ricardo" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -384,6 +393,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("casa-ricardo")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -401,9 +419,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               De la esquina histórica a la memoria comercial de Jesús María.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "tienda-la-nueva" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "tienda-la-nueva" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -458,6 +476,15 @@ const AyerHoy = () => {
                   .
                 </p>
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("tienda-la-nueva")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -477,9 +504,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Un legado jesuítico que marcó la identidad vitivinícola de la región.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "museo-jesuitico" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "museo-jesuitico" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -518,6 +545,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("museo-jesuitico")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -537,9 +573,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               La memoria de la comunidad del Lote XI en dos tiempos.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "rosario" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "rosario" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -584,6 +620,15 @@ const AyerHoy = () => {
                   Imagen hoy. Marcelo Saravia
                 </p>
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("rosario")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -601,9 +646,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Un símbolo del trabajo vitivinícola en Colonia Caroya.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "bodega" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "bodega" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -639,6 +684,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("bodega")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -656,9 +710,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Deporte, encuentros y vida social en dos épocas.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "agraria" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "agraria" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -694,8 +748,17 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("agraria")}
+              >
+                Cerrar —
+              </button>
             </div>
-          </div>
+            </div>
+            </div>
         </article>
         <article className={`ayer-hoy__item${openId === "ipem69" ? " is-open" : ""}`}>
           <button
@@ -713,9 +776,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Formación técnica y vida estudiantil a través del tiempo.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "ipem69" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "ipem69" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -764,6 +827,15 @@ const AyerHoy = () => {
                   Imagen hoy. Marcelo Saravia
                 </p>
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("ipem69")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -784,9 +856,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               Una esquina familiar que cambió con el tiempo.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "boulevard-aguero" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "boulevard-aguero" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -826,6 +898,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("boulevard-aguero")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -843,9 +924,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               La torre histórica en el actual Club Social.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "castillo-cespedes" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "castillo-cespedes" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -882,6 +963,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("castillo-cespedes")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>
@@ -899,9 +989,9 @@ const AyerHoy = () => {
             <span className="ayer-hoy__toggle-summary">
               La estación de servicio en distintas épocas.
             </span>
-            <span className="ayer-hoy__toggle-icon">
-              {openId === "ypf" ? "Cerrar —" : "Abrir +"}
-            </span>
+            {openId !== "ypf" && (
+              <span className="ayer-hoy__toggle-secondary">Abrir +</span>
+            )}
           </button>
 
           <div
@@ -938,6 +1028,15 @@ const AyerHoy = () => {
                   </div>
                 ))}
               </div>
+            <div className="ayer-hoy__panel-actions">
+              <button
+                type="button"
+                className="ayer-hoy__panel-toggle"
+                onClick={() => toggleItem("ypf")}
+              >
+                Cerrar —
+              </button>
+            </div>
             </div>
           </div>
         </article>

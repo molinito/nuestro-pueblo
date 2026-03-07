@@ -161,9 +161,9 @@ const Personajes = () => {
               >
                 <span className="personajes__toggle-title">{personaje.title}</span>
                 <span className="personajes__toggle-summary">{personaje.summary}</span>
-                <span className="personajes__toggle-icon">
-                  {isOpen ? "Cerrar —" : "Abrir +"}
-                </span>
+                {!isOpen && (
+                  <span className="personajes__toggle-secondary">Abrir +</span>
+                )}
               </button>
 
               <div
@@ -248,6 +248,17 @@ const Personajes = () => {
                         )}
                       </div>
                     </>
+                  )}
+                  {isOpen && (
+                    <div className="personajes__panel-actions">
+                      <button
+                        type="button"
+                        className="personajes__panel-toggle"
+                        onClick={() => toggleItem(personaje.id)}
+                      >
+                        Cerrar —
+                      </button>
+                    </div>
                   )}
                 </div>
               </div>
