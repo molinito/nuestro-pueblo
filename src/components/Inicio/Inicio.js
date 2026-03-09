@@ -70,7 +70,7 @@ const CardList = () => {
         aportes de la comunidad, para que el archivo siga creciendo.
       </p>
 
-      <section className={styles.origins} aria-labelledby="origenes-title">
+      <section className={styles.origins} aria-labelledby="origenes-title" id="origenes">
         <div className={styles.originsHeader}>
           <p className={styles.originsEyebrow}>Tres pueblos – tres orígenes distintos</p>
           <h2 className={styles.originsTitle} id="origenes-title">
@@ -456,7 +456,7 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-      <section id="album">
+      <section id="album-fotos">
         <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
         <h3 className={styles.subtitle}>
           Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
