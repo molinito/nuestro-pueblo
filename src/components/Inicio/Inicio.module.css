@@ -174,11 +174,259 @@
   height: 100%;
 }
 
+.origins {
+  margin: 32px auto 36px;
+  padding: 28px 24px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fff8ef 0%, #f7efe2 100%);
+  border: 1px solid rgba(121, 74, 36, 0.25);
+  box-shadow: 0 18px 35px rgba(121, 74, 36, 0.12);
+}
+
+.originsHeader {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.originsEyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.8rem;
+  color: rgba(121, 74, 36, 0.8);
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originsTitle {
+  margin: 8px 0 6px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: #5a2a12;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originsIntro {
+  margin: 0 auto;
+  max-width: 720px;
+  font-size: 1rem;
+  color: rgba(90, 42, 18, 0.85);
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.originCard {
+  border-radius: 18px;
+  padding: 18px 18px 14px;
+  background: #fff;
+  border: 1px solid rgba(90, 42, 18, 0.18);
+  box-shadow: 0 12px 22px rgba(90, 42, 18, 0.1);
+  display: grid;
+  gap: 10px;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originCardSinsacate {
+  background: linear-gradient(160deg, #f7efe3 0%, #efe1cc 100%);
+}
+
+.originCardJesusMaria {
+  background: linear-gradient(160deg, #f3e5e5 0%, #e8d5d5 100%);
+}
+
+.originCardCaroya {
+  background: linear-gradient(160deg, #f1efe6 0%, #e6e1cf 100%);
+}
+
+.originTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.originTop h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #5a2a12;
+}
+
+.originTag {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(90, 42, 18, 0.2);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(90, 42, 18, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.originLead {
+  margin: 0;
+  color: rgba(90, 42, 18, 0.9);
+  font-size: 0.98rem;
+}
+
+.originDetails {
+  border-top: 1px dashed rgba(90, 42, 18, 0.3);
+  padding-top: 10px;
+}
+
+.originSummary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  color: #6b2e12;
+  margin-bottom: 6px;
+}
+
+.originSummary::-webkit-details-marker {
+  display: none;
+}
+
+.originDetails p {
+  margin: 0 0 8px;
+  color: rgba(90, 42, 18, 0.85);
+  font-size: 0.95rem;
+}
+
+.originDetailTitle {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: #5a2a12;
+  font-size: 0.95rem;
+}
+
+.originTimeline {
+  margin: 0 0 8px;
+  padding-left: 1.1rem;
+  color: rgba(90, 42, 18, 0.85);
+  font-size: 0.92rem;
+  display: grid;
+  gap: 4px;
+}
+
+.originMedia {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: 0 10px 20px rgba(90, 42, 18, 0.15);
+}
+
+.originThumb {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 220ms ease;
+}
+
+.originMedia:hover .originThumb,
+.originMedia:focus-visible .originThumb {
+  transform: scale(1.05);
+}
+
+.originOverlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(58, 28, 10, 0.45);
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 180ms ease;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.originMedia:hover .originOverlay,
+.originMedia:focus-visible .originOverlay {
+  opacity: 1;
+}
+
+.originCaption {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(90, 42, 18, 0.8);
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originLightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 12, 4, 0.85);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  z-index: 999;
+}
+
+.originLightboxContent {
+  max-width: min(1100px, 92vw);
+  max-height: 86vh;
+  display: grid;
+  gap: 0.8rem;
+  justify-items: center;
+}
+
+.originLightboxContent img {
+  width: 100%;
+  height: auto;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.originLightboxClose {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+.originLightboxClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.originClose {
+  border: 1px solid rgba(90, 42, 18, 0.35);
+  background: rgba(255, 255, 255, 0.8);
+  color: #5a2a12;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 0.9rem;
+}
+
+.originClose:hover {
+  background: rgba(246, 229, 208, 0.9);
+}
+
 @media (max-width: 768px) {
   .title {
       font-size: 24px;
   }
   .subtitle {
       font-size: 20px;
+  }
+  .origins {
+    padding: 22px 16px;
+  }
+  .originsGrid {
+    grid-template-columns: 1fr;
   }
 }
