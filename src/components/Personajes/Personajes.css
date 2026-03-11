@@ -157,6 +157,11 @@
   align-items: start;
 }
 
+.personajes__panel-inner--split {
+  grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.2fr);
+  align-items: start;
+}
+
 .personajes__panel-actions {
   grid-column: 1 / -1;
   display: flex;
@@ -283,6 +288,12 @@
   float: right;
   width: min(360px, 45%);
   margin: 0.2rem 0 1.2rem 1.6rem;
+}
+
+.personajes__gallery--split {
+  float: none;
+  width: 100%;
+  margin: 0;
 }
 
 .personajes__gallery-item {
@@ -424,6 +435,15 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.personajes__lightbox-caption {
+  margin: 0;
+  max-width: 900px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .personajes__lightbox-hint {
   margin: 0;
   padding: 0.4rem 1rem;
@@ -469,6 +489,14 @@
   .personajes__panel-inner,
   .personajes__panel-inner--gallery {
     grid-template-columns: 1fr;
+  }
+
+  .personajes__panel-inner--split {
+    grid-template-columns: 1fr;
+  }
+
+  .personajes__panel-inner--split .personajes__content {
+    order: -1;
   }
 
   .personajes__toggle {

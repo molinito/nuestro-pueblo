@@ -6,6 +6,14 @@ import donaMecha from "./dona-mecha/donaMecha.webp";
 import dolivo from "./oscar-dolivo/dolivo.webp";
 import dolivo1 from "./oscar-dolivo/dolivo1.webp";
 import dolivo2 from "./oscar-dolivo/dolivo2.webp";
+import pioLeon01 from "./pio-leon/pio-leon-01.webp";
+import pioLeon02 from "./pio-leon/pio-leon-02.webp";
+import pioLeon03 from "./pio-leon/pio-leon-03.webp";
+import pioLeon04 from "./pio-leon/pio-leon-04.webp";
+import pioLeon05 from "./pio-leon/pio-leon-05.webp";
+import pioLeon06 from "./pio-leon/pio-leon-06.webp";
+import pioLeon07 from "./pio-leon/pio-leon-07.webp";
+import pioLeon08 from "./pio-leon/pio-leon-08.webp";
 
 const personajes = [
     {
@@ -28,6 +36,49 @@ const personajes = [
       ],
       credit: {
         name: "Gaston Gomez Fotos antiguas Colonia Caroya y Jesús Maria de Facebook. Créditos fotos: Radio Jesus Maria y FM Comunicar."
+      }
+    },
+    {
+      id: "pio-leon",
+      title: "Pío León",
+      summary: "Fundador de la ciudad de Jesús María (Córdoba, Argentina).",
+      type: "gallery",
+      gallery: [
+        {
+          src: pioLeon01,
+          alt: "Imagen histórica vinculada a Pío León, 1",
+          caption:
+            "Foto desde atrás del Museo, de fondo línea blanca con el río y detrás un par de casonas, todo lo que existía entre 1870-1880."
+        },
+        { src: pioLeon02, alt: "Imagen histórica vinculada a Pío León, 2" },
+        { src: pioLeon03, alt: "Imagen histórica vinculada a Pío León, 3" },
+        { src: pioLeon04, alt: "Imagen histórica vinculada a Pío León, 4" },
+        { src: pioLeon05, alt: "Imagen histórica vinculada a Pío León, 5" },
+        { src: pioLeon06, alt: "Imagen histórica vinculada a Pío León, 6" },
+        { src: pioLeon07, alt: "Imagen histórica vinculada a Pío León, 7" },
+        { src: pioLeon08, alt: "Imagen histórica vinculada a Pío León, 8" }
+      ],
+      paragraphs: [
+        "Fundador de la ciudad de Jesús María (Córdoba, Argentina).",
+        "Origen y primeros años.",
+        "Pío León nació el 5 de mayo de 1816 en Asunción, Paraguay. Sus padres fueron José Lino de León y Manuela Loisaga. Fue bautizado al día siguiente de su nacimiento en la Catedral de Asunción.",
+        "Durante el siglo XIX muchos comerciantes, estancieros y familias se movían por las rutas comerciales del antiguo Camino Real, que conectaba Córdoba con el Alto Perú. En ese contexto, León terminó estableciéndose en la región del norte cordobés.",
+        "Llegada a Córdoba y vínculo con la Estancia Jesús María.",
+        "Pío León se radicó en la zona de Jesús María y Sinsacate luego de casarse con Saturnina, hija del propietario de la Estancia Jesús María, una de las antiguas estancias jesuíticas del siglo XVII.",
+        "La estancia había sido fundada en 1618 por los jesuitas y era un centro agrícola y vitivinícola importante del sistema productivo jesuítico en Córdoba. Tras la expulsión de la orden en el siglo XVIII, las tierras pasaron por distintos propietarios privados, hasta que la familia vinculada a León llegó a poseer parte de ellas.",
+        "El origen de la ciudad de Jesús María.",
+        "Hacia 1873, decidió lotear parte de los campos cercanos a la estación del ferrocarril. Ese trazado dio origen al pueblo que luego sería la ciudad de Jesús María.",
+        "Este hecho fue clave por dos razones: el ferrocarril era el gran motor de crecimiento urbano y, al dividir y vender parcelas para viviendas y comercios, León permitió que se estableciera una comunidad estable alrededor de la estación.",
+        "Influencia política y social.",
+        "Pío León fue considerado una figura influyente en la región, no solo como propietario rural sino también como impulsor del desarrollo urbano y económico. Su iniciativa permitió que en pocos años el lugar pasara de ser una zona de estancias rurales a convertirse en un centro comercial y de servicios del norte de Córdoba.",
+        "Fallecimiento.",
+        "Pío León murió el 11 de enero de 1883. Inicialmente fue enterrado en el cementerio de Sinsacate. Décadas después, el 20 de agosto de 1953, sus restos fueron trasladados al cementerio de Jesús María, la ciudad que él mismo había fundado.",
+        "Legado en la ciudad.",
+        "La importancia de Pío León en la historia local es tan grande que su nombre permanece en múltiples lugares e instituciones. Entre ellos: Plaza Pío León en el centro de la ciudad, premios Pío León que la municipalidad entrega cada año a vecinos destacados, e instituciones educativas como la Asociación Educativa Pío León."
+      ],
+      credit: {
+        name:
+          "Créditos fotos: fm-comunicar.com.ar, instagram.com/p/Cxv8XQ3OfEh, diarioeldespertador.com.ar."
       }
     },
   {
@@ -104,7 +155,7 @@ const Personajes = () => {
     });
   };
 
-  const openImage = (src, alt) => setLightbox({ src, alt });
+  const openImage = (src, alt, caption = "") => setLightbox({ src, alt, caption });
   const closeImage = () => setLightbox(null);
   const handleToggleKeyDown = (event, id) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -112,10 +163,10 @@ const Personajes = () => {
       toggleItem(id);
     }
   };
-  const handleImageKeyDown = (event, src, alt) => {
+  const handleImageKeyDown = (event, src, alt, caption = "") => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openImage(src, alt);
+      openImage(src, alt, caption);
     }
   };
 
@@ -139,11 +190,12 @@ const Personajes = () => {
       <section className="personajes__accordion">
         {personajes.map((personaje) => {
           const isOpen = openId === personaje.id;
+          const isSplitGallery = personaje.id === "pio-leon";
           const panelId = `personajes-panel-${personaje.id}`;
           const headerId = `personajes-header-${personaje.id}`;
           const panelClassName = `personajes__panel-inner${
             personaje.type === "gallery" ? " personajes__panel-inner--gallery" : ""
-          }`;
+          }${isSplitGallery ? " personajes__panel-inner--split" : ""}`;
 
           return (
             <article
@@ -175,50 +227,117 @@ const Personajes = () => {
                 <div className={panelClassName}>
                   {personaje.type === "gallery" ? (
                     <>
-                      <div className="personajes__content personajes__content--gallery">
-                        <div className="personajes__gallery personajes__gallery--float">
-                          {personaje.gallery.map((foto, index) => (
-                            <div
-                              key={foto.src}
-                              className={`personajes__gallery-item${
-                                index === 0 ? " is-feature" : ""
-                              }`}
-                              role="button"
-                              tabIndex={0}
-                              onClick={() => openImage(foto.src, foto.alt)}
-                              onKeyDown={(event) => handleImageKeyDown(event, foto.src, foto.alt)}
-                              aria-label={`Agrandar imagen: ${foto.alt}`}
-                            >
-                              <img src={foto.src} alt={foto.alt} />
-                              <div className="personajes__overlay">Haz click para agrandar</div>
-                            </div>
-                          ))}
-                        </div>
-                        {personaje.paragraphs.map((paragraph, index) => (
-                          <p key={`${personaje.id}-p-${index}`} className="personajes__text">
-                            {paragraph}
-                          </p>
-                        ))}
-                        {personaje.credit && (
-                          <div className="personajes__credit">
-                            <span className="personajes__credit-label">Créditos</span>
-                            <p className="personajes__credit-name">{personaje.credit.name}</p>
-                            {personaje.credit.link && (
-                              <a
-                                className="personajes__credit-link"
-                                href={personaje.credit.link}
-                                target="_blank"
-                                rel="noreferrer"
+                      {isSplitGallery ? (
+                        <>
+                          <div className="personajes__gallery personajes__gallery--split">
+                            {personaje.gallery.map((foto, index) => (
+                              <div
+                                key={foto.src}
+                                className={`personajes__gallery-item${
+                                  index === 0 ? " is-feature" : ""
+                                }`}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() =>
+                                  openImage(foto.src, foto.alt, foto.caption)
+                                }
+                                onKeyDown={(event) =>
+                                  handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
+                                }
+                                aria-label={`Agrandar imagen: ${foto.alt}`}
                               >
-                                {personaje.credit.linkLabel}
-                              </a>
-                            )}
-                            {personaje.credit.note && (
-                              <p className="personajes__credit-note">{personaje.credit.note}</p>
+                                <img src={foto.src} alt={foto.alt} />
+                                <div className="personajes__overlay">
+                                  Haz click para agrandar
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          <div className="personajes__content personajes__content--gallery">
+                            {personaje.paragraphs.map((paragraph, index) => (
+                              <p key={`${personaje.id}-p-${index}`} className="personajes__text">
+                                {paragraph}
+                              </p>
+                            ))}
+                            {personaje.credit && (
+                              <div className="personajes__credit">
+                                <span className="personajes__credit-label">Créditos</span>
+                                <p className="personajes__credit-name">
+                                  {personaje.credit.name}
+                                </p>
+                                {personaje.credit.link && (
+                                  <a
+                                    className="personajes__credit-link"
+                                    href={personaje.credit.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {personaje.credit.linkLabel}
+                                  </a>
+                                )}
+                                {personaje.credit.note && (
+                                  <p className="personajes__credit-note">
+                                    {personaje.credit.note}
+                                  </p>
+                                )}
+                              </div>
                             )}
                           </div>
-                        )}
-                      </div>
+                        </>
+                      ) : (
+                        <div className="personajes__content personajes__content--gallery">
+                          <div className="personajes__gallery personajes__gallery--float">
+                            {personaje.gallery.map((foto, index) => (
+                              <div
+                                key={foto.src}
+                                className={`personajes__gallery-item${
+                                  index === 0 ? " is-feature" : ""
+                                }`}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() =>
+                                  openImage(foto.src, foto.alt, foto.caption)
+                                }
+                                onKeyDown={(event) =>
+                                  handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
+                                }
+                                aria-label={`Agrandar imagen: ${foto.alt}`}
+                              >
+                                <img src={foto.src} alt={foto.alt} />
+                                <div className="personajes__overlay">
+                                  Haz click para agrandar
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                          {personaje.paragraphs.map((paragraph, index) => (
+                            <p key={`${personaje.id}-p-${index}`} className="personajes__text">
+                              {paragraph}
+                            </p>
+                          ))}
+                          {personaje.credit && (
+                            <div className="personajes__credit">
+                              <span className="personajes__credit-label">Créditos</span>
+                              <p className="personajes__credit-name">{personaje.credit.name}</p>
+                              {personaje.credit.link && (
+                                <a
+                                  className="personajes__credit-link"
+                                  href={personaje.credit.link}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {personaje.credit.linkLabel}
+                                </a>
+                              )}
+                              {personaje.credit.note && (
+                                <p className="personajes__credit-note">
+                                  {personaje.credit.note}
+                                </p>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </>
                   ) : (
                     <>
@@ -275,6 +394,9 @@ const Personajes = () => {
         <div className="personajes__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="personajes__lightbox-content" onClick={(event) => event.stopPropagation()}>
             <img src={lightbox.src} alt={lightbox.alt} />
+            {lightbox.caption && (
+              <p className="personajes__lightbox-caption">{lightbox.caption}</p>
+            )}
             <button type="button" className="personajes__lightbox-hint" onClick={closeImage}>
               Click para achicar
             </button>
