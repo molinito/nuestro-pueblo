@@ -136,7 +136,11 @@ const personajes = [
         "Filomena Rossi falleció el 6 de septiembre de 1921 o 1922 (según las fuentes) a los 59 años, tras una grave enfermedad. Sus restos se encuentran en el cementerio de San Miguel de Tucumán.",
         "Hoy su memoria sigue viva: existe la Biblioteca Maestra Filomena Rossi creada en 1978 en su homenaje, y una calle de Colonia Caroya (calle 33) lleva su nombre.",
         "Las escuelas crecieron, las generaciones pasaron, pero el recuerdo permanece. Porque toda historia tiene un comienzo… y en Colonia Caroya ese comienzo lleva un nombre: Filomena Rossi."
-      ]
+      ],
+      credit: {
+        name: "Fotos, fuentes: FMComunicar, Facebook, Diario El Despertador.",
+        note: "Relato editado por Marcelo Saravia."
+      }
     },
   {
     id: "cufre",
@@ -312,7 +316,7 @@ const Personajes = () => {
                                 )}
                                 {personaje.credit.note && (
                                   <p className="personajes__credit-note">
-                                    {personaje.credit.note}
+                                    <strong>{personaje.credit.note}</strong>
                                   </p>
                                 )}
                               </div>
@@ -390,7 +394,7 @@ const Personajes = () => {
                               )}
                               {personaje.credit.note && (
                                 <p className="personajes__credit-note">
-                                  {personaje.credit.note}
+                                  <strong>{personaje.credit.note}</strong>
                                 </p>
                               )}
                             </div>
