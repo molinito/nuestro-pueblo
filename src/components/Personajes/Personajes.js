@@ -14,6 +14,14 @@ import pioLeon05 from "./pio-leon/pio-leon-05.webp";
 import pioLeon06 from "./pio-leon/pio-leon-06.webp";
 import pioLeon07 from "./pio-leon/pio-leon-07.webp";
 import pioLeon08 from "./pio-leon/pio-leon-08.webp";
+import filomena01 from "./Filomena/filomena-01.webp";
+import filomena02 from "./Filomena/filomena-02.webp";
+import filomena03 from "./Filomena/filomena-03.webp";
+import filomena04 from "./Filomena/filomena-04.webp";
+import filomena05 from "./Filomena/filomena-05.webp";
+import filomena06 from "./Filomena/filomena-06.webp";
+import filomena07 from "./Filomena/filomena-07.webp";
+import filomena08 from "./Filomena/filomena-08.webp";
 
 const personajes = [
     {
@@ -80,6 +88,55 @@ const personajes = [
         name:
           "Créditos fotos: fm-comunicar.com.ar, instagram.com/p/Cxv8XQ3OfEh, diarioeldespertador.com.ar."
       }
+    },
+    {
+      id: "filomena-rossi",
+      title: "Filomena Rossi, la primera maestra",
+      summary: "La educadora que sembró conocimiento en los inicios de Colonia Caroya.",
+      type: "gallery",
+      gallery: [
+        { src: filomena01, alt: "Imagen historica vinculada a Filomena Rossi, 1" },
+        { src: filomena02, alt: "Imagen historica vinculada a Filomena Rossi, 2" },
+        { src: filomena03, alt: "Imagen historica vinculada a Filomena Rossi, 3" },
+        {
+          src: filomena04,
+          alt: "Imagen historica vinculada a Filomena Rossi, 4",
+          caption: "Imagen ilustrativa de escuelas de principios del siglo XIX en Argentina."
+        },
+        {
+          src: filomena05,
+          alt: "Imagen historica vinculada a Filomena Rossi, 5",
+          caption: "Imagen ilustrativa de escuelas de principios del siglo XIX en Argentina."
+        },
+        { src: filomena06, alt: "Imagen historica vinculada a Filomena Rossi, 6" },
+        {
+          src: filomena07,
+          alt: "Imagen historica vinculada a Filomena Rossi, 7",
+          caption: "Imagen ilustrativa de escuelas de principios del siglo XIX en Argentina."
+        },
+        {
+          src: filomena08,
+          alt: "Imagen historica vinculada a Filomena Rossi, 8",
+          caption: "Imagen ilustrativa de escuelas de principios del siglo XIX en Argentina."
+        }
+      ],
+      paragraphs: [
+        "A fines del siglo XIX, cuando Colonia Caroya recién comenzaba a nacer entre viñedos, chacras y caminos de tierra, la educación todavía era un sueño lejano para muchos inmigrantes.",
+        "Las familias friulanas habían llegado desde Italia buscando una nueva vida en estas tierras de Córdoba. Trabajaban la tierra desde el amanecer hasta la noche. Pero había algo que no querían que sus hijos perdieran: la posibilidad de aprender.",
+        "En ese contexto aparece una mujer que marcaría la historia de la colonia. Su nombre era Filomena Rossi.",
+        "Había nacido en 1854 en Cividale, en la región italiana de Friuli. Cuando su familia se instaló en la colonia, los vecinos comenzaron a pedirle ayuda para enseñar a sus hijos.",
+        "Filomena aceptó. En un galpón de la casa familiar, entre bancos improvisados y cuadernos escasos, comenzaron las primeras clases. Se realizaban en el lote 8-B de Los Chañares.",
+        "Allí enseñaba a leer, escribir y hacer cuentas. Los alumnos eran hijos de agricultores, inmigrantes recién llegados que apenas hablaban español.",
+        "Comenzó con más de 20 alumnos, pero el número fue creciendo con el aumento de la colonia. La pequeña aula creció rápidamente.",
+        "En una comunidad que recién nacía, ella sembró algo tan importante como el trigo o la vid: el conocimiento.",
+        "Con el tiempo, el sistema educativo se organizó y aparecieron las primeras escuelas oficiales. Pero en la memoria de Colonia Caroya quedó grabado un nombre.",
+        "El de la mujer que enseñó cuando todavía no existían escuelas. Filomena Rossi, la primera maestra de la colonia.",
+        "Vida personal.",
+        "Su vida tuvo episodios personales importantes: tuvo un hijo de soltera llamado Domingo, que llevó su apellido. Más tarde se casó con Pablo Messi, un inmigrante proveniente de Bérgamo (Italia). Posteriormente vivió en San Miguel de Tucumán, donde tuvo dos hijas: Paulina y Gilda.",
+        "Filomena Rossi falleció el 6 de septiembre de 1921 o 1922 (según las fuentes) a los 59 años, tras una grave enfermedad. Sus restos se encuentran en el cementerio de San Miguel de Tucumán.",
+        "Hoy su memoria sigue viva: existe la Biblioteca Maestra Filomena Rossi creada en 1978 en su homenaje, y una calle de Colonia Caroya (calle 33) lleva su nombre.",
+        "Las escuelas crecieron, las generaciones pasaron, pero el recuerdo permanece. Porque toda historia tiene un comienzo… y en Colonia Caroya ese comienzo lleva un nombre: Filomena Rossi."
+      ]
     },
   {
     id: "cufre",
@@ -190,12 +247,14 @@ const Personajes = () => {
       <section className="personajes__accordion">
         {personajes.map((personaje) => {
           const isOpen = openId === personaje.id;
-          const isSplitGallery = personaje.id === "pio-leon";
+          const isSplitGallery = ["pio-leon", "filomena-rossi"].includes(personaje.id);
           const panelId = `personajes-panel-${personaje.id}`;
           const headerId = `personajes-header-${personaje.id}`;
           const panelClassName = `personajes__panel-inner${
             personaje.type === "gallery" ? " personajes__panel-inner--gallery" : ""
-          }${isSplitGallery ? " personajes__panel-inner--split" : ""}`;
+          }${personaje.type === "text" ? " personajes__panel-inner--text" : ""}${
+            isSplitGallery ? " personajes__panel-inner--split" : ""
+          }`;
 
           return (
             <article
@@ -229,30 +288,6 @@ const Personajes = () => {
                     <>
                       {isSplitGallery ? (
                         <>
-                          <div className="personajes__gallery personajes__gallery--split">
-                            {personaje.gallery.map((foto, index) => (
-                              <div
-                                key={foto.src}
-                                className={`personajes__gallery-item${
-                                  index === 0 ? " is-feature" : ""
-                                }`}
-                                role="button"
-                                tabIndex={0}
-                                onClick={() =>
-                                  openImage(foto.src, foto.alt, foto.caption)
-                                }
-                                onKeyDown={(event) =>
-                                  handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
-                                }
-                                aria-label={`Agrandar imagen: ${foto.alt}`}
-                              >
-                                <img src={foto.src} alt={foto.alt} />
-                                <div className="personajes__overlay">
-                                  Haz click para agrandar
-                                </div>
-                              </div>
-                            ))}
-                          </div>
                           <div className="personajes__content personajes__content--gallery">
                             {personaje.paragraphs.map((paragraph, index) => (
                               <p key={`${personaje.id}-p-${index}`} className="personajes__text">
@@ -282,6 +317,30 @@ const Personajes = () => {
                                 )}
                               </div>
                             )}
+                          </div>
+                          <div className="personajes__gallery personajes__gallery--split">
+                            {personaje.gallery.map((foto, index) => (
+                              <div
+                                key={foto.src}
+                                className={`personajes__gallery-item${
+                                  index === 0 ? " is-feature" : ""
+                                }`}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() =>
+                                  openImage(foto.src, foto.alt, foto.caption)
+                                }
+                                onKeyDown={(event) =>
+                                  handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
+                                }
+                                aria-label={`Agrandar imagen: ${foto.alt}`}
+                              >
+                                <img src={foto.src} alt={foto.alt} />
+                                <div className="personajes__overlay">
+                                  Haz click para agrandar
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         </>
                       ) : (
@@ -339,6 +398,20 @@ const Personajes = () => {
                         </div>
                       )}
                     </>
+                  ) : personaje.type === "text" ? (
+                    <div className="personajes__content">
+                      {personaje.paragraphs.map((paragraph, index) => (
+                        <p key={`${personaje.id}-p-${index}`} className="personajes__text">
+                          {paragraph}
+                        </p>
+                      ))}
+                      {personaje.credit && (
+                        <div className="personajes__credit">
+                          <span className="personajes__credit-label">Créditos</span>
+                          <p className="personajes__credit-name">{personaje.credit.name}</p>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <>
                       <div

@@ -157,6 +157,11 @@
   align-items: start;
 }
 
+.personajes__panel-inner--text {
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
 .personajes__panel-inner--split {
   grid-template-columns: minmax(240px, 1fr) minmax(320px, 1.2fr);
   align-items: start;
