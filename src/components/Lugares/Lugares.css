@@ -496,6 +496,16 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.lugares__lightbox-caption {
+  margin: 0;
+  max-width: 900px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .lugares__lightbox-nav {
   position: absolute;
   top: 50%;

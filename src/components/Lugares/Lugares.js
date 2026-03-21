@@ -7,11 +7,13 @@ import { sinsaCarruajes } from "./sinsa-carruajes/data";
 import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
+import { estacionTren } from "./estacion-tren/data";
 
 const lugares = [
   estanciaJesuitica,
   postaSinsacate,
   sinsaCarruajes,
+  estacionTren,
   casaGuyon,
   casaCopetti,
   iglesiaMonserrat
@@ -145,9 +147,16 @@ const Lugares = () => {
                   {lugar.type === "gallery" && (
                     <>
                       <div className="lugares__content">
-                        {lugar.paragraphs.map((paragraph, index) => (
-                          <p key={`${lugar.id}-p-${index}`}>{paragraph}</p>
-                        ))}
+                        {lugar.paragraphs.map((paragraph, index) => {
+                          if (typeof paragraph === "string") {
+                            return <p key={`${lugar.id}-p-${index}`}>{paragraph}</p>;
+                          }
+                          return (
+                            <p key={`${lugar.id}-p-${index}`}>
+                              {paragraph.strong ? <strong>{paragraph.text}</strong> : paragraph.text}
+                            </p>
+                          );
+                        })}
                         {lugar.featuresTitle && (
                           <p className="lugares__panel-subtitle">{lugar.featuresTitle}</p>
                         )}
@@ -309,6 +318,11 @@ const Lugares = () => {
               src={lightbox.gallery[lightbox.index].src}
               alt={lightbox.gallery[lightbox.index].alt}
             />
+            {lightbox.gallery[lightbox.index].caption && (
+              <p className="lugares__lightbox-caption">
+                {lightbox.gallery[lightbox.index].caption}
+              </p>
+            )}
             {lightbox.gallery.length > 1 && (
               <button
                 type="button"

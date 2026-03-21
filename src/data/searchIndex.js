@@ -84,6 +84,13 @@ export const searchIndex = [
     section: "Lugares"
   },
   {
+    id: "lugares-estacion-tren",
+    title: "La estación que trajo el progreso",
+    subtitle: "El tren como corazón de la ciudad y memoria sobre rieles",
+    href: "/lugares/estacion-tren",
+    section: "Lugares"
+  },
+  {
     id: "lugares-guyon",
     title: "Casa Guyón",
     subtitle: "La casona en ruinas y su parque botánico",
