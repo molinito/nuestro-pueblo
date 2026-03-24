@@ -197,6 +197,14 @@ export const searchIndex = [
     section: "Personajes"
   },
   {
+    id: "personajes-olga-prosdocimo",
+    title:
+      "Olga Prosdócimo: La maestra que enseñó con el corazón y quedó para siempre en el alma de un pueblo",
+    subtitle: "La educadora que transformó la escuela en una casa de comunidad",
+    href: "/personajes/olga-prosdocimo",
+    section: "Personajes"
+  },
+  {
     id: "ayer-hoy",
     title: "Dos tiempos, una misma memoria",
     subtitle: "Comparativas visuales del ayer y el hoy",

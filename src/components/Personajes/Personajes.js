@@ -22,6 +22,10 @@ import filomena05 from "./Filomena/filomena-05.webp";
 import filomena06 from "./Filomena/filomena-06.webp";
 import filomena07 from "./Filomena/filomena-07.webp";
 import filomena08 from "./Filomena/filomena-08.webp";
+import olga01 from "./olga-prosdocimo/olga-prosdocimo-01.webp";
+import olga02 from "./olga-prosdocimo/olga-prosdocimo-02.webp";
+import olga03 from "./olga-prosdocimo/olga-prosdocimo-03.webp";
+import olga04 from "./olga-prosdocimo/olga-prosdocimo-04.webp";
 
 const personajes = [
     {
@@ -142,6 +146,54 @@ const personajes = [
         note: "Relato editado por Marcelo Saravia."
       }
     },
+    {
+      id: "olga-prosdocimo",
+      title:
+        "Olga Prosdócimo: La maestra que enseñó con el corazón y quedó para siempre en el alma de un pueblo",
+      summary: "La educadora que transformó la escuela en una casa de comunidad.",
+      type: "gallery",
+      gallery: [
+        { src: olga01, alt: "Imagen histórica vinculada a Olga Prosdócimo, 1" },
+        { src: olga02, alt: "Imagen histórica vinculada a Olga Prosdócimo, 2" },
+        { src: olga03, alt: "Imagen histórica vinculada a Olga Prosdócimo, 3" },
+        { src: olga04, alt: "Imagen histórica vinculada a Olga Prosdócimo, 4" }
+      ],
+      paragraphs: [
+        "Hay personas que pasan por la vida… y hay otras que se quedan para siempre.",
+        "No en los libros. No en los archivos. Sino en algo mucho más profundo: en la memoria viva de un pueblo.",
+        "Así fue Olga Prosdócimo.",
+        "🌿 Una vocación que nació en la infancia.",
+        "En el corazón rural de Colonia Caroya, en Tronco Pozo, creció una niña que no necesitaba pizarrón ni aula para saber cuál sería su destino. Jugaba a ser maestra. Sus alumnos eran ladrillos, sus clases eran imaginarias, pero su vocación… absolutamente real.",
+        "Desde muy pequeña, Olga ya había entendido algo que muchos descubren tarde: enseñar no es un trabajo… es una forma de amar.",
+        "🎓 El regreso de quien eligió volver.",
+        "En tiempos donde no era común que una joven del interior viajara a estudiar, Olga lo hizo. Se fue a Córdoba con un sueño claro. Y volvió con algo aún más importante: una misión.",
+        "Podría haberse quedado en la ciudad. Podría haber elegido otro camino. Pero eligió volver. Volver a su gente. A su tierra. A sus raíces. Porque sabía que ahí… era donde más la necesitaban.",
+        "🏫 La escuela, su segundo hogar.",
+        "La Escuela General San Martín no fue solo su lugar de trabajo. Fue su mundo. Fue el espacio donde dejó su huella más profunda: como docente, como vicedirectora, como directora… pero sobre todo, como persona.",
+        "Porque Olga no enseñaba solamente contenidos. Enseñaba valores. Enseñaba respeto. Enseñaba humanidad.",
+        "Y lo hacía de una manera que quienes pasaron por sus aulas nunca olvidaron: “Si quieren llegar a los chicos… háganlo con amor. Sin amor, no se llega.” Y ella enseñaba… con amor. Siempre.",
+        "❤️ Mucho más que una maestra.",
+        "Pero reducir a Olga Prosdócimo a su rol docente sería quedarse corto. Muy corto.",
+        "Porque Olga fue también: catequista, solidaria, caritativa, comprometida con su comunidad y con cada persona. Era de esas personas que no preguntan “por qué” ni “para qué”. Simplemente… ayudan. De las que están. Siempre.",
+        "🤝 La mujer que todos recuerdan.",
+        "Quienes la conocieron no hablan solo de una docente. Hablan de una presencia. De una mirada cálida. De una palabra justa. De una mano tendida.",
+        "Fue guía para muchos. Apoyo para otros. Y ejemplo… para todos. Porque Olga tenía algo que no se enseña en ningún instituto: tenía alma.",
+        "🕊️ Una vida que dejó huella.",
+        "Su partida llegó demasiado temprano. Pero hay vidas que, aunque breves, dejan marcas eternas. Y la de Olga fue una de ellas.",
+        "Hoy, su nombre vive en una calle de Colonia Caroya. La calle 46, que pasa justamente frente a la escuela que fue su casa.",
+        "Pero ese no es el verdadero homenaje. El verdadero homenaje está en otro lado.",
+        "🌟 El legado invisible.",
+        "Está en cada alumno que aprendió a ser mejor persona. En cada colega que encontró en ella una guía. En cada gesto solidario que inspiró.",
+        "Está en cada recuerdo. En cada historia contada. En cada emoción que todavía hoy… aparece al nombrarla.",
+        "Porque Olga Prosdócimo no fue solo una maestra. Fue de esas personas que transforman lugares. Que dejan huellas invisibles. Que construyen comunidad.",
+        "💫 Un nombre que el pueblo no olvida.",
+        "Hoy, Colonia Caroya la recuerda. La nombra. La siente. La extraña.",
+        "Porque hay personas que no se van nunca del todo. Se quedan en las aulas. En las calles. En la memoria. En el corazón.",
+        "Y Olga… se quedó en todos.",
+        "🕯️ Cierre.",
+        "Hay vidas que se miden en años. Y hay otras… que se miden en amor. La de Olga Prosdócimo, sin dudas, pertenece a las segundas."
+      ]
+    },
   {
     id: "cufre",
     title: "Escenario Martín Fierro",
@@ -251,7 +303,9 @@ const Personajes = () => {
       <section className="personajes__accordion">
         {personajes.map((personaje) => {
           const isOpen = openId === personaje.id;
-          const isSplitGallery = ["pio-leon", "filomena-rossi"].includes(personaje.id);
+          const isSplitGallery = ["pio-leon", "filomena-rossi", "olga-prosdocimo"].includes(
+            personaje.id
+          );
           const panelId = `personajes-panel-${personaje.id}`;
           const headerId = `personajes-header-${personaje.id}`;
           const panelClassName = `personajes__panel-inner${
