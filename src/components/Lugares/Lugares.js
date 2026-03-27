@@ -320,7 +320,14 @@ const Lugares = () => {
             />
             {lightbox.gallery[lightbox.index].caption && (
               <p className="lugares__lightbox-caption">
-                {lightbox.gallery[lightbox.index].caption}
+                {lightbox.gallery[lightbox.index].caption
+                  .split("\n")
+                  .map((line, idx, arr) => (
+                    <span key={`${lightbox.index}-caption-${idx}`}>
+                      {line}
+                      {idx < arr.length - 1 && <br />}
+                    </span>
+                  ))}
               </p>
             )}
             {lightbox.gallery.length > 1 && (

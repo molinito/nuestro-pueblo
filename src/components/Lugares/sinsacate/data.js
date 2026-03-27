@@ -11,6 +11,9 @@ import sinsacate10 from "./sinsacate-10.webp";
 import sinsacate11 from "./sinsacate-11.webp";
 import sinsacate12 from "./sinsacate-12.webp";
 import sinsacate13 from "./sinsacate-13.webp";
+import sinsacate14 from "./sinsacate-14.webp";
+import sinsacate15 from "./sinsacate-15.webp";
+import sinsacate16 from "./sinsacate-16.webp";
 
 const sinsacatePhotos = [
   { src: sinsacate01, alt: "La Posta de Sinsacate, vista 1" },
@@ -25,7 +28,20 @@ const sinsacatePhotos = [
   { src: sinsacate10, alt: "La Posta de Sinsacate, vista 10" },
   { src: sinsacate11, alt: "La Posta de Sinsacate, vista 11" },
   { src: sinsacate12, alt: "La Posta de Sinsacate, vista 12" },
-  { src: sinsacate13, alt: "La Posta de Sinsacate, vista 13" }
+  { src: sinsacate13, alt: "La Posta de Sinsacate, vista 13" },
+  {
+    src: sinsacate14,
+    alt: "La Posta de Sinsacate, vista 14",
+    caption:
+      "\"Un detalle interesante de la publicación original, es que se observan dos salas en el espacio donde hoy está el Mástil, sin un uso claramente establecido. También se puede ver que el techo de la capilla no es \"a dos aguas\" como ahora, sino con una sola caída hacia el norte. Tampoco tenía el atrio….\"\nGracias al colaborador Santiago Scalisi de Fotos Antiguas C.Cya y J.M. - Facebook - por el comentario descriptivo."
+  },
+  { src: sinsacate15, alt: "La Posta de Sinsacate, vista 15" },
+  {
+    src: sinsacate16,
+    alt: "La Posta de Sinsacate, vista 16",
+    caption:
+      "\"Esa foto anterior a la restauración realizada por el estado nacional entre el 41 y el 46, antes de que fuera convertida en Museo. Si mal no recuerdo, las imágenes fueron tomadas por un fotógrafo de apellido \"González-González\" ...\"\nGracias al colaborador Santiago Scalisi de Fotos Antiguas C.Cya y J.M. - Facebook - por el comentario descriptivo."
+  }
 ];
 
 export const postaSinsacate = {

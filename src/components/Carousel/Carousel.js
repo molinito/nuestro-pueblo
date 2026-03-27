@@ -18,6 +18,11 @@ import copettiAdultos from '../../img/galeria/copetti-adultos.webp';
 import copettiNino from '../../img/galeria/copetti-nino.webp';
 import copetti1 from '../../img/galeria/copetti1.webp';
 import img6 from '../../img/galeria/tractor.webp';
+import familia3 from '../../img/galeria/familia3.webp';
+import familia4 from '../../img/galeria/familia4.webp';
+import familia5 from '../../img/galeria/familia5.webp';
+import familia6 from '../../img/galeria/familia6.webp';
+import familia7 from '../../img/galeria/familia7.webp';
 import albumCover from '../../img/album.png';
 
 const defaultSlides = [
@@ -44,6 +49,36 @@ const defaultSlides = [
   copettiAdultos,
   copettiNino,
   img6,
+  {
+    src: familia3,
+    alt: 'Familia de Antonio Copetti y María Brollo',
+    caption:
+      'Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
+  },
+  {
+    src: familia4,
+    alt: 'Imagen de Archivo Histórico Colonia Caroya',
+    caption:
+      'Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
+  },
+  {
+    src: familia5,
+    alt: 'Imagen de Archivo Histórico Colonia Caroya',
+    caption:
+      'Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
+  },
+  {
+    src: familia6,
+    alt: 'Imagen de Archivo Histórico Colonia Caroya',
+    caption:
+      'Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
+  },
+  {
+    src: familia7,
+    alt: 'Familia de Antonio Copetti y María Brollo',
+    caption:
+      'Familia de Antonio Copetti y María Brollo. Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
+  },
 ];
 
 function CustomCarousel({
