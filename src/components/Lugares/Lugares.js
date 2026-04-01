@@ -8,12 +8,14 @@ import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
 import { estacionTren } from "./estacion-tren/data";
+import { estacionCaroya } from "./eynard/data";
 
 const lugares = [
   estanciaJesuitica,
   postaSinsacate,
   sinsaCarruajes,
   estacionTren,
+  estacionCaroya,
   casaGuyon,
   casaCopetti,
   iglesiaMonserrat
@@ -153,7 +155,19 @@ const Lugares = () => {
                           }
                           return (
                             <p key={`${lugar.id}-p-${index}`}>
-                              {paragraph.strong ? <strong>{paragraph.text}</strong> : paragraph.text}
+                              {paragraph.strong ? (
+                                <strong>{paragraph.text}</strong>
+                              ) : (
+                                paragraph.text
+                              )}
+                              {paragraph.linkText && paragraph.linkHref && (
+                                <>
+                                  {" "}
+                                  <a href={paragraph.linkHref}>
+                                    <strong>{paragraph.linkText}</strong>
+                                  </a>
+                                </>
+                              )}
                             </p>
                           );
                         })}
@@ -169,7 +183,7 @@ const Lugares = () => {
                             ))}
                           </ul>
                         )}
-                        {lugar.videoHref && (
+                        {lugar.videoHref && lugar.videoPosition !== "afterGallery" && (
                           <div className="lugares__video-card">
                             <p className="lugares__panel-subtitle">{lugar.videoLabel}</p>
                             <a
@@ -213,46 +227,105 @@ const Lugares = () => {
                         )}
                       </div>
 
-                      <div
-                        className={`lugares__gallery${
-                          lugar.galleryCaptioned ? " is-captioned" : ""
-                        }`}
-                      >
-                        {lugar.gallery.map((photo, index) => {
-                          const isFeature = !lugar.galleryCaptioned && index === 0;
-                          const isTall = !lugar.galleryCaptioned && index === 4;
-                          return (
+                      {(() => {
+                        const galleryMarkup = (
                           <div
-                            key={photo.src}
-                            className={`lugares__gallery-item${
-                              isFeature ? " is-feature" : ""
-                            }${isTall ? " is-tall" : ""}`}
-                            role="button"
-                            tabIndex={0}
-                            onKeyDown={(event) => {
-                              if (event.key === "Enter" || event.key === " ") {
-                                event.preventDefault();
-                                openImage(photo.src, photo.alt, lugar.gallery, index);
-                              }
-                            }}
-                            onClick={() =>
-                              openImage(photo.src, photo.alt, lugar.gallery, index)
-                            }
-                            aria-label={`Agrandar imagen: ${photo.alt}`}
+                            className={`lugares__gallery${
+                              lugar.galleryCaptioned ? " is-captioned" : ""
+                            }`}
                           >
-                            <div className="lugares__gallery-frame">
-                              <img src={photo.src} alt={photo.alt} />
-                              <div className="lugares__overlay">Haz click para agrandar</div>
-                            </div>
-                            {photo.title && (
-                              <div className="lugares__gallery-caption">
-                                <p className="lugares__gallery-title">{photo.title}</p>
-                              </div>
-                            )}
+                            {lugar.gallery.map((photo, index) => {
+                              const isFeature = !lugar.galleryCaptioned && index === 0;
+                              const isTall = !lugar.galleryCaptioned && index === 4;
+                              return (
+                                <div
+                                  key={photo.src}
+                                  className={`lugares__gallery-item${
+                                    isFeature ? " is-feature" : ""
+                                  }${isTall ? " is-tall" : ""}`}
+                                  role="button"
+                                  tabIndex={0}
+                                  onKeyDown={(event) => {
+                                    if (event.key === "Enter" || event.key === " ") {
+                                      event.preventDefault();
+                                      openImage(photo.src, photo.alt, lugar.gallery, index);
+                                    }
+                                  }}
+                                  onClick={() =>
+                                    openImage(photo.src, photo.alt, lugar.gallery, index)
+                                  }
+                                  aria-label={`Agrandar imagen: ${photo.alt}`}
+                                >
+                                  <div className="lugares__gallery-frame">
+                                    <img src={photo.src} alt={photo.alt} />
+                                    <div className="lugares__overlay">
+                                      Haz click para agrandar
+                                    </div>
+                                  </div>
+                                  {photo.title && (
+                                    <div className="lugares__gallery-caption">
+                                      <p className="lugares__gallery-title">{photo.title}</p>
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
                           </div>
+                        );
+
+                        const videoMarkup =
+                          lugar.videoHref && lugar.videoPosition === "afterGallery" ? (
+                            <div
+                              className="lugares__video-card"
+                              id={`lugares-video-${lugar.id}`}
+                            >
+                              <p className="lugares__panel-subtitle">{lugar.videoLabel}</p>
+                              <a
+                                className="lugares__video-link"
+                                href={lugar.videoHref}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                <img
+                                  className="lugares__video-thumb"
+                                  src={lugar.videoThumbnail}
+                                  alt={lugar.videoLabel}
+                                />
+                                <span className="lugares__video-cta">
+                                  Ver documental en YouTube
+                                </span>
+                              </a>
+                              {lugar.videoCredit && (
+                                <p className="lugares__video-credit">{lugar.videoCredit}</p>
+                              )}
+                            </div>
+                          ) : null;
+
+                        if (videoMarkup) {
+                          return (
+                            <div className="lugares__gallery-column">
+                              {galleryMarkup}
+                              {(lugar.galleryCredits || lugar.galleryCreditsNote) && (
+                                <div className="lugares__gallery-credits">
+                                  {lugar.galleryCredits && (
+                                    <p className="lugares__gallery-credit">
+                                      {lugar.galleryCredits}
+                                    </p>
+                                  )}
+                                  {lugar.galleryCreditsNote && (
+                                    <p className="lugares__gallery-credit">
+                                      {lugar.galleryCreditsNote}
+                                    </p>
+                                  )}
+                                </div>
+                              )}
+                              {videoMarkup}
+                            </div>
                           );
-                        })}
-                      </div>
+                        }
+
+                        return galleryMarkup;
+                      })()}
                       {isOpen && (
                         <div className="lugares__panel-actions">
                           <button
