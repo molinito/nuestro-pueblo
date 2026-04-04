@@ -5,6 +5,12 @@ import eynard04 from "./5964.webp";
 import eynard05 from "./5966.webp";
 import eynard06 from "./5968.webp";
 import eynard07 from "./5969.webp";
+import eynard08 from "./5970.webp";
+import eynard09 from "./5971.webp";
+import eynard10 from "./5972.webp";
+import eynard11 from "./5973.webp";
+import eynard12 from "./5974.webp";
+import eynard13 from "./5975.webp";
 
 const eynardFotos = [
   {
@@ -40,6 +46,39 @@ const eynardFotos = [
   {
     src: eynard07,
     alt: "Estación Caroya, registro histórico 7",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  }
+];
+
+const eynardFotosParte2 = [
+  {
+    src: eynard08,
+    alt: "Memorias de familia, registro 1",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard09,
+    alt: "Memorias de familia, registro 2",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard10,
+    alt: "Memorias de familia, registro 3",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard11,
+    alt: "Memorias de familia, registro 4",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard12,
+    alt: "Memorias de familia, registro 5",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard13,
+    alt: "Memorias de familia, registro 6",
     title: "Créditos: Album familiar del Dr. Aldo Eynard"
   }
 ];
@@ -80,5 +119,59 @@ export const estacionCaroya = {
       linkText: "Ir al video",
       linkHref: "#lugares-video-estacion-caroya"
     }
+  ]
+};
+
+export const estacionCaroyaParte2 = {
+  id: "estacion-caroya-parte-2",
+  title: "Estación Caroya: donde el tren dio origen a un pueblo - Parte 2 de 3.-",
+  summary: "Memoria familiar que ilumina la historia local.",
+  type: "gallery",
+  gallery: eynardFotosParte2,
+  galleryCredits: "Créditos fotos: \"Album familiar del Dr. Aldo Eynard\"",
+  galleryCreditsNote: "Imágenes restauradas y colorizadas por M. Saravia",
+  galleryCreditsExtraText:
+    "Extractos de textos extraídos del blog por el Dr. Aldo Eynard.",
+  galleryCreditsExtraLinkText: "https://eynardsupabarbetta.blogspot.com/",
+  galleryCreditsExtraLinkHref: "https://eynardsupabarbetta.blogspot.com/",
+  videoLabel: "Entrevista con el Dr. Aldo Eynard",
+  videoHref: "https://youtu.be/3H9CRZLbwjs",
+  videoThumbnail: "https://img.youtube.com/vi/3H9CRZLbwjs/hqdefault.jpg",
+  videoPosition: "afterGallery",
+  paragraphs: [
+    "En los pueblos del norte cordobés —Jesús María, Colonia Caroya, Sinsacate— la historia no siempre está escrita en libros.",
+    "A veces vive en las familias, en las estancias, en los recuerdos que pasan de generación en generación.",
+    "El doctor Aldo Renato Eynard es uno de esos casos donde la memoria personal se convierte en historia colectiva.",
+    "🌱 Origen y raíces",
+    "Nacido en Córdoba, Eynard reconstruyó a lo largo de los años la historia de su familia en el blog:",
+    {
+      text: "👉 “SUPA BARBETTA: Historia de los Eynard della Vignassa a la Argentina”.",
+      linkText: "Visitar blog",
+      linkHref: "https://eynardsupabarbetta.blogspot.com/"
+    },
+    "Allí, más que escribir una genealogía, arma un verdadero rompecabezas de identidades.",
+    "En uno de sus relatos describe a su madre, María Esperanza Sánchez Gigena, nacida en el ámbito rural de Calamuchita, en la estancia “El Sauce”, en una Córdoba todavía marcada por:",
+    "la vida de campo",
+    "las familias tradicionales",
+    "y los cambios sociales de comienzos del siglo XX",
+    "Su historia la lleva luego a Jesús María, donde ejerce como maestra en la escuela Antonio Ortiz de Ocampo, lugar donde conoce a Renato Eynard, quien sería su compañero de vida",
+    "🚂 Estación Caroya: un punto de encuentro",
+    "En los relatos familiares aparece una referencia concreta que conecta directamente con la historia regional:",
+    "“Almacén… en Estación Aburra (actual Estación Caroya)”",
+    "Ese detalle, aparentemente menor, revela mucho:",
+    "la presencia de la familia en la zona",
+    "el vínculo con el ferrocarril",
+    "y la importancia de Estación Caroya como centro de vida social y económica",
+    "Porque en aquella época, el tren no solo transportaba personas:",
+    "transportaba historias.",
+    "🏡 La Guardia: el corazón familiar",
+    "Uno de los escenarios más significativos del relato es La Guardia.",
+    "Allí, Aldo Eynard recuerda:",
+    "reuniones familiares",
+    "fotografías con múltiples generaciones",
+    "escenas cotidianas en el campo",
+    "Y también momentos más profundos, como cuando menciona que un familiar fue llevado a una casa de la servidumbre de la estancia, donde finalmente falleció",
+    "La Guardia aparece así como algo más que un lugar físico:",
+    "👉 es un núcleo de vida, de vínculos y de memoria."
   ]
 };

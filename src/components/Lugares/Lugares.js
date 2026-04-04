@@ -8,7 +8,7 @@ import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
 import { estacionTren } from "./estacion-tren/data";
-import { estacionCaroya } from "./eynard/data";
+import { estacionCaroya, estacionCaroyaParte2 } from "./eynard/data";
 
 const lugares = [
   estanciaJesuitica,
@@ -16,6 +16,7 @@ const lugares = [
   sinsaCarruajes,
   estacionTren,
   estacionCaroya,
+  estacionCaroyaParte2,
   casaGuyon,
   casaCopetti,
   iglesiaMonserrat
@@ -301,11 +302,13 @@ const Lugares = () => {
                             </div>
                           ) : null;
 
-                        if (videoMarkup) {
+                        if (videoMarkup || lugar.galleryCredits || lugar.galleryCreditsNote) {
                           return (
                             <div className="lugares__gallery-column">
                               {galleryMarkup}
-                              {(lugar.galleryCredits || lugar.galleryCreditsNote) && (
+                              {(lugar.galleryCredits ||
+                                lugar.galleryCreditsNote ||
+                                lugar.galleryCreditsExtraText) && (
                                 <div className="lugares__gallery-credits">
                                   {lugar.galleryCredits && (
                                     <p className="lugares__gallery-credit">
@@ -315,6 +318,19 @@ const Lugares = () => {
                                   {lugar.galleryCreditsNote && (
                                     <p className="lugares__gallery-credit">
                                       {lugar.galleryCreditsNote}
+                                    </p>
+                                  )}
+                                  {lugar.galleryCreditsExtraText && (
+                                    <p className="lugares__gallery-credit">
+                                      {lugar.galleryCreditsExtraText}{" "}
+                                      {lugar.galleryCreditsExtraLinkText &&
+                                      lugar.galleryCreditsExtraLinkHref ? (
+                                        <a href={lugar.galleryCreditsExtraLinkHref}>
+                                          <strong>
+                                            {lugar.galleryCreditsExtraLinkText}
+                                          </strong>
+                                        </a>
+                                      ) : null}
                                     </p>
                                   )}
                                 </div>
