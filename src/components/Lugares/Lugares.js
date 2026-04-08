@@ -268,9 +268,18 @@ const Lugares = () => {
                                       Haz click para agrandar
                                     </div>
                                   </div>
-                                  {photo.title && (
+                                  {(photo.title || photo.caption) && (
                                     <div className="lugares__gallery-caption">
-                                      <p className="lugares__gallery-title">{photo.title}</p>
+                                      {photo.title && (
+                                        <p className="lugares__gallery-title">
+                                          {photo.title}
+                                        </p>
+                                      )}
+                                      {photo.caption && (
+                                        <p className="lugares__gallery-text">
+                                          {photo.caption}
+                                        </p>
+                                      )}
                                     </div>
                                   )}
                                 </div>

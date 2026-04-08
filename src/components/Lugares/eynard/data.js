@@ -92,27 +92,42 @@ const eynardFotosParte3 = [
   {
     src: eynard14,
     alt: "Memorias de familia, registro final 1",
-    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+    title:
+      "El Genearca de la Familia Abburrá Peiretti, con su esposa y sus 8 hijos ( ca. 1937)",
+    caption:
+      "El Genearca de la Familia Abburrá Peiretti, con su esposa y sus 8 hijos ( ca. 1937)"
   },
   {
     src: eynard15,
     alt: "Memorias de familia, registro final 2",
-    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+    title:
+      "Ultima foto ( ca. 1935) de Giovanni Bartolomeo Eynard Benech, geneárca que dá origen por linea paterna a los Eynard de Argentina",
+    caption:
+      "Ultima foto ( ca. 1935) de Giovanni Bartolomeo Eynard Benech, geneárca que dá origen por linea paterna a los Eynard de Argentina"
   },
   {
     src: eynard16,
     alt: "Memorias de familia, registro final 3",
-    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+    title:
+      "Las jóvenes Maestras de la Escuela de Niñas, turno tarde, Francisco Ortíz de Ocampo, Jesus Maria, Córdoba 1940",
+    caption:
+      "Las jóvenes Maestras de la Escuela de Niñas, turno tarde, Francisco Ortíz de Ocampo, Jesus Maria, Córdoba 1940"
   },
   {
     src: eynard17,
     alt: "Memorias de familia, registro final 4",
-    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+    title:
+      "Renato Eynard Abburrá y Maria Esperanza Sánchez Gigena en un banco. Coniferal del Parque Sarmiento en Córdoba, 1940. Padres del Dr. A. Eynard",
+    caption:
+      "Renato Eynard Abburrá y Maria Esperanza Sánchez Gigena en un banco. Coniferal del Parque Sarmiento en Córdoba, 1940. Padres del Dr. A. Eynard"
   },
   {
     src: eynard18,
     alt: "Memorias de familia, registro final 5",
-    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+    title:
+      "María Esperanza ( Nena) , con el uniforme de las pupilas de las Esclavas, de Barrio Gral Paz, Córdoba, 1927-28 ca. Madre del Dr. Aldo Eynard",
+    caption:
+      "María Esperanza ( Nena) , con el uniforme de las pupilas de las Esclavas, de Barrio Gral Paz, Córdoba, 1927-28 ca. Madre del Dr. Aldo Eynard"
   }
 ];
 
