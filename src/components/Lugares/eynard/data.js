@@ -11,6 +11,11 @@ import eynard10 from "./5972.webp";
 import eynard11 from "./5973.webp";
 import eynard12 from "./5974.webp";
 import eynard13 from "./5975.webp";
+import eynard14 from "./familia.webp";
+import eynard15 from "./familia1.webp";
+import eynard16 from "./familia2.webp";
+import eynard17 from "./familia3.webp";
+import eynard18 from "./familia4.webp";
 
 const eynardFotos = [
   {
@@ -83,6 +88,34 @@ const eynardFotosParte2 = [
   }
 ];
 
+const eynardFotosParte3 = [
+  {
+    src: eynard14,
+    alt: "Memorias de familia, registro final 1",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard15,
+    alt: "Memorias de familia, registro final 2",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard16,
+    alt: "Memorias de familia, registro final 3",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard17,
+    alt: "Memorias de familia, registro final 4",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard18,
+    alt: "Memorias de familia, registro final 5",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  }
+];
+
 export const estacionCaroya = {
   id: "estacion-caroya",
   title: "Estación Caroya: donde el tren dio origen a un pueblo - Parte 1 de 3.-",
@@ -95,6 +128,10 @@ export const estacionCaroya = {
   videoPosition: "afterGallery",
   galleryCredits: "Créditos fotos: \"Album familiar del Dr. Aldo Eynard\"",
   galleryCreditsNote: "Imágenes restauradas y colorizadas por M. Saravia",
+  videoLabel: "Entrevista con el Dr. Aldo Eynard",
+  videoHref: "https://youtu.be/xj4xh98kccE",
+  videoThumbnail: "https://img.youtube.com/vi/xj4xh98kccE/hqdefault.jpg",
+  videoPosition: "afterGallery",
   paragraphs: [
     "Hubo un tiempo en que el sonido del tren marcaba el ritmo de la vida.",
     "En el corazón del norte cordobés, muy cerca de Colonia Caroya y de Jesús María, existió —y aún permanece en pie— un punto clave del desarrollo regional: la Estación Caroya.",
@@ -173,5 +210,63 @@ export const estacionCaroyaParte2 = {
     "Y también momentos más profundos, como cuando menciona que un familiar fue llevado a una casa de la servidumbre de la estancia, donde finalmente falleció",
     "La Guardia aparece así como algo más que un lugar físico:",
     "👉 es un núcleo de vida, de vínculos y de memoria."
+  ]
+};
+
+export const estacionCaroyaParte3 = {
+  id: "estacion-caroya-parte-3",
+  title: "Estación Caroya: donde el tren dio origen a un pueblo - Parte 3 de 3.-",
+  summary: "Lo que queda cuando todo pasa",
+  type: "gallery",
+  gallery: eynardFotosParte3,
+  galleryCredits: "Créditos fotos: \"Album familiar del Dr. Aldo Eynard\"",
+  galleryCreditsNote: "Imágenes restauradas y colorizadas por M. Saravia",
+  videoLabel: "Entrevista con el Dr. Aldo Eynard",
+  videoHref: "https://youtu.be/QtobH_q7bWc",
+  videoThumbnail: "https://img.youtube.com/vi/QtobH_q7bWc/hqdefault.jpg",
+  videoPosition: "afterGallery",
+  videoCreditText:
+    "Mi mas profundo agradecimiento al Dr. Aldo Eynard - Te invito a visitar su blog para conocer más su historia -",
+  videoCreditLinkText: "https://eynardsupabarbetta.blogspot.com/",
+  videoCreditLinkHref: "https://eynardsupabarbetta.blogspot.com/",
+  paragraphs: [
+    "Hay historias que se cuentan con fechas, con documentos, con nombres prolijos ordenados en un árbol familiar.",
+    "Y hay otras… que se cuentan con la voz.",
+    "Con silencios.",
+    "Con miradas que se pierden por un instante.",
+    "Con recuerdos que no siempre terminan de decirse.",
+    "En esta última parte, el Dr. Aldo Eynard ya no habla como científico.",
+    "Habla como hijo.",
+    "Como nieto.",
+    "Como alguien que ha vivido lo suficiente como para entender que el tiempo no se detiene… pero la memoria sí puede quedarse.",
+    "Aparecen entonces sus abuelos, sus padres, las escenas simples:",
+    "una casa, un patio, una conversación, un gesto cotidiano que en su momento parecía menor…",
+    "y que hoy, con los años, se vuelve inmenso.",
+    "Porque hay algo que se percibe en cada palabra.",
+    "No es solo recuerdo.",
+    "Es una forma de amor.",
+    "Un amor sereno, profundo, sin estridencias…",
+    "de esos que no necesitan explicarse.",
+    "Como si cada imagen del pasado estuviera todavía ahí,",
+    "esperando ser visitada una vez más.",
+    "Y uno entiende, mientras lo escucha, que no se trata solamente de reconstruir la historia.",
+    "Se trata de no perderla.",
+    "De sostenerla.",
+    "De volver a nombrar a quienes ya no están, para que de algún modo… sigan estando.",
+    "Tal vez por eso esta entrevista no termina cuando se apaga la cámara.",
+    "Porque lo que queda no es solo lo que se dijo,",
+    "sino lo que se sintió.",
+    "Esa nostalgia suave…",
+    "esa gratitud silenciosa…",
+    "esa certeza de haber sido parte de algo que valió la pena.",
+    "Y entonces, inevitablemente, aparece una sensación difícil de explicar.",
+    "Como cuando alguien querido se va de viaje sin tiempo de regreso.",
+    "No hay tristeza completa…",
+    "pero tampoco hay indiferencia.",
+    "Hay algo más.",
+    "Una mezcla de emoción, de respeto, de tiempo compartido…",
+    "y de preguntas que ya no necesitan respuesta.",
+    "Porque al final, la historia no es lo que pasó.",
+    "Es lo que queda en nosotros cuando recordamos."
   ]
 };

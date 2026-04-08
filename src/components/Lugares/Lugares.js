@@ -8,7 +8,11 @@ import { casaGuyon } from "./casa-guyon/data";
 import { casaCopetti } from "./copetti/data";
 import { iglesiaMonserrat } from "./iglesia-monserrat/data";
 import { estacionTren } from "./estacion-tren/data";
-import { estacionCaroya, estacionCaroyaParte2 } from "./eynard/data";
+import {
+  estacionCaroya,
+  estacionCaroyaParte2,
+  estacionCaroyaParte3
+} from "./eynard/data";
 
 const lugares = [
   estanciaJesuitica,
@@ -17,6 +21,7 @@ const lugares = [
   estacionTren,
   estacionCaroya,
   estacionCaroyaParte2,
+  estacionCaroyaParte3,
   casaGuyon,
   casaCopetti,
   iglesiaMonserrat
@@ -298,6 +303,14 @@ const Lugares = () => {
                               </a>
                               {lugar.videoCredit && (
                                 <p className="lugares__video-credit">{lugar.videoCredit}</p>
+                              )}
+                              {lugar.videoCreditText && lugar.videoCreditLinkHref && (
+                                <p className="lugares__video-credit">
+                                  {lugar.videoCreditText}{" "}
+                                  <a href={lugar.videoCreditLinkHref}>
+                                    <strong>{lugar.videoCreditLinkText}</strong>
+                                  </a>
+                                </p>
                               )}
                             </div>
                           ) : null;
