@@ -128,10 +128,6 @@ export const estacionCaroya = {
   videoPosition: "afterGallery",
   galleryCredits: "Créditos fotos: \"Album familiar del Dr. Aldo Eynard\"",
   galleryCreditsNote: "Imágenes restauradas y colorizadas por M. Saravia",
-  videoLabel: "Entrevista con el Dr. Aldo Eynard",
-  videoHref: "https://youtu.be/xj4xh98kccE",
-  videoThumbnail: "https://img.youtube.com/vi/xj4xh98kccE/hqdefault.jpg",
-  videoPosition: "afterGallery",
   paragraphs: [
     "Hubo un tiempo en que el sonido del tren marcaba el ritmo de la vida.",
     "En el corazón del norte cordobés, muy cerca de Colonia Caroya y de Jesús María, existió —y aún permanece en pie— un punto clave del desarrollo regional: la Estación Caroya.",
