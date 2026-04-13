@@ -415,6 +415,14 @@ const Lugares = () => {
       {lightbox && (
         <div className="lugares__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="lugares__lightbox-content" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="lugares__lightbox-close"
+              onClick={closeImage}
+              aria-label="Cerrar"
+            >
+              ×
+            </button>
             {lightbox.gallery.length > 1 && (
               <button
                 type="button"
