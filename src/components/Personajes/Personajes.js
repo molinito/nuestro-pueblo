@@ -36,6 +36,7 @@ import canciani07 from "./canciani/canciani-07.webp";
 import canciani08 from "./canciani/canciani-08.webp";
 import canciani09 from "./canciani/canciani-09.webp";
 import canciani10 from "./canciani/canciani-10.webp";
+import canciani11 from "./canciani/canciani-comisionado.webp";
 
 const personajes = [
     {
@@ -260,13 +261,18 @@ const personajes = [
           src: canciani10,
           alt: "posta-sinsacate 1942",
           caption: "posta-sinsacate 1942"
+        },
+        {
+          src: canciani11,
+          alt: "Leonardo Canciani, comisionado",
+          caption: "Leonardo Canciani, comisionado"
         }
       ],
       paragraphs: [
         "En los años en que Colonia Caroya comenzaba a organizarse como comunidad, cuando todavía se estaban definiendo sus instituciones, sus normas y su identidad, aparecen figuras que no buscaban protagonismo…",
         "pero que fueron fundamentales.",
         "Leonardo Canciani fue una de ellas.",
-        "Según la memoria familiar que hoy reaparece, habría ejercido funciones de gobierno en la intendencia de esos días, en una época donde el municipio era más esfuerzo que estructura, más compromiso que cargo.",
+        "Según la memoria familiar y la confirmación municipal reciente, Leonardo Canciani ejerció funciones de gobierno en los comienzos políticos de la colonia. En ese tiempo no existía la figura de “intendente”, sino la de “Comisionado”, en una época donde el municipio era más esfuerzo que estructura, más compromiso que cargo.",
         "No era el tiempo de la política como la conocemos hoy.",
         "Era el tiempo de hacer pueblo.",
         "🧬 Raíces friulanas y destino argentino",
