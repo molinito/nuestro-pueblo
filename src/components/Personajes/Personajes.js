@@ -26,6 +26,16 @@ import olga01 from "./olga-prosdocimo/olga-prosdocimo-01.webp";
 import olga02 from "./olga-prosdocimo/olga-prosdocimo-02.webp";
 import olga03 from "./olga-prosdocimo/olga-prosdocimo-03.webp";
 import olga04 from "./olga-prosdocimo/olga-prosdocimo-04.webp";
+import canciani01 from "./canciani/canciani-01.webp";
+import canciani02 from "./canciani/canciani-02.webp";
+import canciani03 from "./canciani/canciani-03.webp";
+import canciani04 from "./canciani/canciani-04.webp";
+import canciani05 from "./canciani/canciani-05.webp";
+import canciani06 from "./canciani/canciani-06.webp";
+import canciani07 from "./canciani/canciani-07.webp";
+import canciani08 from "./canciani/canciani-08.webp";
+import canciani09 from "./canciani/canciani-09.webp";
+import canciani10 from "./canciani/canciani-10.webp";
 
 const personajes = [
     {
@@ -194,6 +204,108 @@ const personajes = [
         "Hay vidas que se miden en años. Y hay otras… que se miden en amor. La de Olga Prosdócimo, sin dudas, pertenece a las segundas."
       ]
     },
+    {
+      id: "canciani",
+      title: "Leonardo Canciani: un nombre que quedó en las calles… y en la memoria",
+      summary: "Raíces friulanas, memoria familiar y vida institucional.",
+      type: "gallery",
+      gallery: [
+        {
+          src: canciani01,
+          alt: "Esquina Colon y Crdoba Jesus Maria Tito Peiretti y Elsa Silva1933 -1",
+          caption:
+            "Esquina Colon y Crdoba Jesus Maria Tito Peiretti y Elsa Silva1933 -1"
+        },
+        {
+          src: canciani02,
+          alt: "Jaime Ros-plaza Pio Leon",
+          caption: "Jaime Ros-plaza Pio Leon"
+        },
+        {
+          src: canciani03,
+          alt: "LUNA DE MIEL DE JUAN ARTICO Y MAGDALENA CANCIANI",
+          caption: "LUNA DE MIEL DE JUAN ARTICO Y MAGDALENA CANCIANI"
+        },
+        {
+          src: canciani04,
+          alt:
+            "Leonardo Canciani con su familia, una de ellas Margarita, mi bisabuela",
+          caption:
+            "Leonardo Canciani con su familia, una de ellas Margarita, mi bisabuela"
+        },
+        {
+          src: canciani05,
+          alt: "Margarita Magdalena Artico mi abuela",
+          caption: "Margarita Magdalena Artico mi abuela"
+        },
+        {
+          src: canciani06,
+          alt:
+            "Mi madre Elsa y su hermana Nelly - calle Cordoba Jesus maria - Año 1934 - 35",
+          caption:
+            "Mi madre Elsa y su hermana Nelly - calle Cordoba Jesus maria - Año 1934 - 35"
+        },
+        {
+          src: canciani07,
+          alt: "casamiento Juan Artico . Oliva Canciani",
+          caption: "casamiento Juan Artico . Oliva Canciani"
+        },
+        {
+          src: canciani08,
+          alt: "leonardo canciani- 1920-1925",
+          caption: "leonardo canciani- 1920-1925"
+        },
+        { src: canciani09, alt: "manuscrito", caption: "manuscrito" },
+        {
+          src: canciani10,
+          alt: "posta-sinsacate 1942",
+          caption: "posta-sinsacate 1942"
+        }
+      ],
+      paragraphs: [
+        "En los años en que Colonia Caroya comenzaba a organizarse como comunidad, cuando todavía se estaban definiendo sus instituciones, sus normas y su identidad, aparecen figuras que no buscaban protagonismo…",
+        "pero que fueron fundamentales.",
+        "Leonardo Canciani fue una de ellas.",
+        "Según la memoria familiar que hoy reaparece, habría ejercido funciones de gobierno en la intendencia de esos días, en una época donde el municipio era más esfuerzo que estructura, más compromiso que cargo.",
+        "No era el tiempo de la política como la conocemos hoy.",
+        "Era el tiempo de hacer pueblo.",
+        "🧬 Raíces friulanas y destino argentino",
+        "Como tantos otros nombres de la región,",
+        "Canciani remite directamente al norte de Italia, al Friuli.",
+        "Su historia se entrelaza con otra familia profundamente ligada a la identidad caroyense: los Artico.",
+        "Desde Gemona del Friuli, en 1878, llegó Girolamo Artico, parte de esa corriente inmigratoria que daría origen a la colonia.",
+        "Años más tarde, su hijo Juan Artico, ya en suelo argentino, no solo continuaría ese legado…",
+        "sino que lo ampliaría.",
+        "En una esquina emblemática de Jesús María, donde se cruzan Colón y Córdoba, funcionaba Casa Artico.",
+        "No era solo un comercio.",
+        "Era un lugar donde el tiempo se detenía en una imagen.",
+        "Juan Artico, bisabuelo del testimonio que hoy revive esta historia, tenía allí un estudio fotográfico.",
+        "Gracias a eso —sin saberlo— dejó un legado invaluable:",
+        "la posibilidad de ver el pasado.",
+        "En esas fotografías, probablemente, también haya quedado registrada la familia Canciani.",
+        "💍 El cruce de dos historias",
+        "La historia da un giro íntimo y profundo:",
+        "Juan Artico, tras enviudar de María Scopegna, se casó en segundas nupcias con Margarita Canciani, hija de Leonardo Canciani.",
+        "Así, dos linajes se unieron:",
+        "El de los inmigrantes que llegaron con sueños desde Europa",
+        "Y el de quienes ayudaron a organizar la vida institucional del nuevo pueblo",
+        "🕰️ La memoria viva",
+        "El testimonio que hoy llega tiene un valor inmenso:",
+        "“Tuve la suerte de conocer a mis bisabuelos Juan y Margarita…” nos cuenta Angel Ros",
+        "No es un dato menor.",
+        "Es la prueba de que esta historia no está perdida.",
+        "🏙️ Una calle, un nombre… y todo lo que no se ve",
+        "Hoy, en Colonia Caroya, una calle lleva el nombre de Leonardo Canciani.",
+        "Muchos pasan por allí sin saber quién fue.",
+        "Sin saber que ese nombre representa:",
+        "Una familia",
+        "Una historia de inmigración",
+        "Una etapa de construcción institucional",
+        "Y un legado que aún respira en descendientes y fotografías."
+      ],
+      galleryNote:
+        "El texto descriptivo ha sido ensamblado con información que me suministró el colaborador Angel Ros, tataranieto de Leonardo Canciani, quien aportó no solo los datos históricos sino también las fotos. Las imágenes fueron restauradas y colorizadas por mí con la autorización de Angel Ros."
+    },
   {
     id: "cufre",
     title: "Escenario Martín Fierro",
@@ -303,9 +415,12 @@ const Personajes = () => {
       <section className="personajes__accordion">
         {personajes.map((personaje) => {
           const isOpen = openId === personaje.id;
-          const isSplitGallery = ["pio-leon", "filomena-rossi", "olga-prosdocimo"].includes(
-            personaje.id
-          );
+          const isSplitGallery = [
+            "pio-leon",
+            "filomena-rossi",
+            "olga-prosdocimo",
+            "canciani"
+          ].includes(personaje.id);
           const panelId = `personajes-panel-${personaje.id}`;
           const headerId = `personajes-header-${personaje.id}`;
           const panelClassName = `personajes__panel-inner${
@@ -376,29 +491,36 @@ const Personajes = () => {
                               </div>
                             )}
                           </div>
-                          <div className="personajes__gallery personajes__gallery--split">
-                            {personaje.gallery.map((foto, index) => (
-                              <div
-                                key={foto.src}
-                                className={`personajes__gallery-item${
-                                  index === 0 ? " is-feature" : ""
-                                }`}
-                                role="button"
-                                tabIndex={0}
-                                onClick={() =>
-                                  openImage(foto.src, foto.alt, foto.caption)
-                                }
-                                onKeyDown={(event) =>
-                                  handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
-                                }
-                                aria-label={`Agrandar imagen: ${foto.alt}`}
-                              >
-                                <img src={foto.src} alt={foto.alt} />
-                                <div className="personajes__overlay">
-                                  Haz click para agrandar
+                          <div className="personajes__gallery-column">
+                            <div className="personajes__gallery personajes__gallery--split">
+                              {personaje.gallery.map((foto, index) => (
+                                <div
+                                  key={foto.src}
+                                  className={`personajes__gallery-item${
+                                    index === 0 ? " is-feature" : ""
+                                  }`}
+                                  role="button"
+                                  tabIndex={0}
+                                  onClick={() =>
+                                    openImage(foto.src, foto.alt, foto.caption)
+                                  }
+                                  onKeyDown={(event) =>
+                                    handleImageKeyDown(event, foto.src, foto.alt, foto.caption)
+                                  }
+                                  aria-label={`Agrandar imagen: ${foto.alt}`}
+                                >
+                                  <img src={foto.src} alt={foto.alt} />
+                                  <div className="personajes__overlay">
+                                    Haz click para agrandar
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
+                            {personaje.galleryNote && (
+                              <p className="personajes__gallery-note">
+                                <strong>{personaje.galleryNote}</strong>
+                              </p>
+                            )}
                           </div>
                         </>
                       ) : (
