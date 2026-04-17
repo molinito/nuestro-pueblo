@@ -545,45 +545,6 @@
   line-height: 1.5;
 }
 
-.lugares__lightbox-meta {
-  display: grid;
-  gap: 0.7rem;
-  justify-items: center;
-}
-
-.lugares__lightbox-ident-toggle {
-  padding: 0.4rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.95rem;
-  cursor: pointer;
-  font-family: var(--site-font);
-}
-
-.lugares__lightbox-ident-toggle:hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.lugares__lightbox-ident {
-  margin: 0;
-  padding: 0.9rem 1.2rem;
-  width: min(860px, 92vw);
-  border-radius: 16px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-align: left;
-}
-
-.lugares__lightbox-ident li {
-  margin: 0.1rem 0;
-}
-
 .lugares__lightbox-nav {
   position: absolute;
   top: 50%;
