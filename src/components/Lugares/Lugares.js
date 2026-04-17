@@ -44,22 +44,27 @@ const Lugares = () => {
   };
 
   const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
-    setLightbox({ gallery, index });
+    setLightbox({ gallery, index, showIdentification: false });
   const closeImage = () => setLightbox(null);
   const showPrevImage = () => {
     setLightbox((current) => {
       if (!current || current.gallery.length <= 1) return current;
       const nextIndex =
         (current.index - 1 + current.gallery.length) % current.gallery.length;
-      return { ...current, index: nextIndex };
+      return { ...current, index: nextIndex, showIdentification: false };
     });
   };
   const showNextImage = () => {
     setLightbox((current) => {
       if (!current || current.gallery.length <= 1) return current;
       const nextIndex = (current.index + 1) % current.gallery.length;
-      return { ...current, index: nextIndex };
+      return { ...current, index: nextIndex, showIdentification: false };
     });
+  };
+  const toggleLightboxIdentification = () => {
+    setLightbox((current) =>
+      current ? { ...current, showIdentification: !current.showIdentification } : current
+    );
   };
 
   useEffect(() => {
@@ -437,18 +442,45 @@ const Lugares = () => {
               src={lightbox.gallery[lightbox.index].src}
               alt={lightbox.gallery[lightbox.index].alt}
             />
-            {lightbox.gallery[lightbox.index].caption && (
-              <p className="lugares__lightbox-caption">
-                {lightbox.gallery[lightbox.index].caption
-                  .split("\n")
-                  .map((line, idx, arr) => (
-                    <span key={`${lightbox.index}-caption-${idx}`}>
-                      {line}
-                      {idx < arr.length - 1 && <br />}
-                    </span>
-                  ))}
-              </p>
-            )}
+            {(() => {
+              const current = lightbox.gallery[lightbox.index];
+              if (!current?.caption && !current?.identification) return null;
+
+              return (
+                <div className="lugares__lightbox-meta">
+                  {current.caption && (
+                    <p className="lugares__lightbox-caption">
+                      {current.caption.split("\n").map((line, idx, arr) => (
+                        <span key={`${lightbox.index}-caption-${idx}`}>
+                          {line}
+                          {idx < arr.length - 1 && <br />}
+                        </span>
+                      ))}
+                    </p>
+                  )}
+
+                  {Array.isArray(current.identification) && current.identification.length > 0 && (
+                    <>
+                      <button
+                        type="button"
+                        className="lugares__lightbox-ident-toggle"
+                        onClick={toggleLightboxIdentification}
+                      >
+                        {lightbox.showIdentification ? "Ocultar nombres" : "Ver nombres"}
+                      </button>
+
+                      {lightbox.showIdentification && (
+                        <ol className="lugares__lightbox-ident">
+                          {current.identification.map((name, idx) => (
+                            <li key={`${lightbox.index}-ident-${idx}`}>{name}</li>
+                          ))}
+                        </ol>
+                      )}
+                    </>
+                  )}
+                </div>
+              );
+            })()}
             {lightbox.gallery.length > 1 && (
               <button
                 type="button"

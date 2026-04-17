@@ -70,8 +70,18 @@ const eynardFotosParte2 = [
     src: eynard10,
     alt: "Memorias de familia, registro 3",
     title: "Créditos: Album familiar del Dr. Aldo Eynard",
-    caption:
-      "De pie, de izq a derecha: Juan Abburrá (abogado); Renato Eynard Abburrá (Maestro Normal); Dorita Abburrá (de Villa María); bisabuelo Vicente Abburrá (el genearca).\nSentadas, de izq a derecha: Matilde Abburrá; bisabuela Catalina Peiretti de Abburrá; Cutuca Orellano de Abburrá (esposa de Clodomiro); Vicenta Aburrá de Araoz; nonna Anita Abburrá de Eynard; Florentina Abburrá de Carbonetti; Teresa Abburrá.\nSentados en el suelo, de izq a derecha: Cacho Carbonetti Abburrá; Vicente Eduardo (\"Tito\") Eynard Abburrá; Domingo Carbonetti Abburrá (\"Mingui\"); Lilia Carbonetti Abburrá; Irma Eynard Abburrá; Alcira Carbonetti Abburrá."
+    caption: "Identificación de personas (según foto original numerada).",
+    identification: [
+      "María Luisa Peralta",
+      "Elena Rosatti",
+      "Sra. de Amaya (Directora)",
+      "Sra. de Paz (Vicedirectora)",
+      "Gioconda Carrara de Biondi",
+      "María Esperanza Sánchez Gigena",
+      "Clelia Gerez",
+      "Lala Silvestre",
+      "“Pituca” Roig"
+    ]
   },
   {
     src: eynard11,
