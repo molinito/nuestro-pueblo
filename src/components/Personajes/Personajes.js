@@ -37,6 +37,10 @@ import canciani08 from "./canciani/canciani-08.webp";
 import canciani09 from "./canciani/canciani-09.webp";
 import canciani10 from "./canciani/canciani-10.webp";
 import canciani11 from "./canciani/canciani-comisionado.webp";
+import pascottini01 from "./pascotini/pascottini-01.webp";
+import pascottini02 from "./pascotini/pascottini-02.webp";
+import pascottini03 from "./pascotini/pascottini-03.webp";
+import pascottini04 from "./pascotini/pascottini-04.webp";
 
 const personajes = [
     {
@@ -312,6 +316,52 @@ const personajes = [
       galleryNote:
         "El texto descriptivo ha sido ensamblado con información que me suministró el colaborador Angel Ros, tataranieto de Leonardo Canciani, quien aportó no solo los datos históricos sino también las fotos. Las imágenes fueron restauradas y colorizadas por mí con la autorización de Angel Ros."
     },
+    {
+      id: "pascottini",
+      title: "La familia Pascottini",
+      summary: "Una semilla inmigrante que creció con el pueblo.",
+      type: "gallery",
+      gallery: [
+        {
+          src: pascottini01,
+          alt: "Bisabuelos Antonia Ravazollo y Bernardo Pascottini",
+          caption: "Bisabuelos Antonia Ravazollo y Bernardo Pascottini"
+        },
+        {
+          src: pascottini02,
+          alt: "Matrimonio Ana Pascotini - Enrique Visitin",
+          caption: "Matrimonio Ana Pascotini - Enrique Visitin"
+        },
+        {
+          src: pascottini03,
+          alt:
+            "Nona Ofelia \"Chichina\" Pascottini, bisnieta de Francisco Pascottini y Luisa Cragnolini (llegados a Caroya en 1879)",
+          caption:
+            "Nona Ofelia \"Chichina\" Pascottini quien bisnieta de Francisco Pascottini y Luisa Cragnolini inmigrantes llegados a Caroya en 1879"
+        },
+        {
+          src: pascottini04,
+          alt: "Santiago Pascottini, abuelo de Chichina",
+          caption: "Santiago Pascottini abuelo de Chichina"
+        }
+      ],
+      paragraphs: [
+        "La Historia de la familia Pascottini en Colonia Caroya se inicia junto con el despertar del Pueblo.",
+        "El 4 de diciembre de 1879 arriban a Caroya y luego de una gran travesía Francisco Pascottini y Luisa Cragnolini, nacidos en Gemona del Friuli en 1843 (Francesco) y en 1849 (Luigia).",
+        "Los registros nos dicen que se casan e inmediatamente parten hacia América.",
+        "Ya en Colonia Caroya tienen a su primogénito Santiago Pascottini y dos mujeres más (Ana y María), aunque en el censo de 1895 figuran dos varones que morirían al poco tiempo de nacer y una hija que murió a los pocos meses.",
+        "En 1897 el Estado, como a tantos otros colonos, le asigna a Francisco su lote y el título de propiedad (lote 45 B). Allí seguramente se dedicó a la agricultura hasta que muere en 1916, y Luisa lo sobrevive hasta 1940, año en que muere.",
+        "Su hijo Santiago se casa en segundas nupcias en 1907 con Nazarena Sbardelatti (italiana) y, a los pocos años, con la mayoría de sus hijos ya nacidos (entre ellos mi bisabuelo Bernardo Pascottini, nacido en 1914) emigran hacia Córdoba capital.",
+        "En 1937 Bernardo Pascottini se casa con Antonia Ravazollo, quien también era hija de un inmigrante agricultor de la zona de Trento llegado antes de la primera guerra.",
+        "En 1941 nace su segunda hija Ofelia \"Chichina\" Pascottini, quien aún vive, y es así que llegamos hasta el día de hoy.",
+        "Esto es un pequeño aporte que irá creciendo como una semilla... la misma semilla que sembró Francisco y Luisa y que hoy fructifica en un centenar de descendientes que nos sentimos orgullosos de poder contar esta historia.",
+        "En la foto podemos ver a Santiago, su hijo Bernardo y a su esposa Antonia y a la hija de ellos, Chichina.",
+        "No tenemos fotos de Francisco y de Luisa: quizás este compartir traiga novedades y enriquezca esta búsqueda."
+      ],
+      galleryNote:
+        "Créditos: Texto descriptivo e imágenes Sr. Diego Castro de Facebook",
+      galleryNoteSecondary: "Fotos restauradas y colorizadas por M. Saravia"
+    },
   {
     id: "cufre",
     title: "Escenario Martín Fierro",
@@ -425,7 +475,8 @@ const Personajes = () => {
             "pio-leon",
             "filomena-rossi",
             "olga-prosdocimo",
-            "canciani"
+            "canciani",
+            "pascottini"
           ].includes(personaje.id);
           const panelId = `personajes-panel-${personaje.id}`;
           const headerId = `personajes-header-${personaje.id}`;
@@ -522,10 +573,20 @@ const Personajes = () => {
                                 </div>
                               ))}
                             </div>
-                            {personaje.galleryNote && (
-                              <p className="personajes__gallery-note">
-                                <strong>{personaje.galleryNote}</strong>
-                              </p>
+                            {(personaje.galleryNote ||
+                              personaje.galleryNoteSecondary) && (
+                              <div className="personajes__gallery-notes">
+                                {personaje.galleryNote && (
+                                  <p className="personajes__gallery-note">
+                                    <strong>{personaje.galleryNote}</strong>
+                                  </p>
+                                )}
+                                {personaje.galleryNoteSecondary && (
+                                  <p className="personajes__gallery-note">
+                                    <strong>{personaje.galleryNoteSecondary}</strong>
+                                  </p>
+                                )}
+                              </div>
                             )}
                           </div>
                         </>

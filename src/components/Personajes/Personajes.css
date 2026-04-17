@@ -331,6 +331,11 @@
   gap: 0.6rem;
 }
 
+.personajes__gallery-notes {
+  display: grid;
+  gap: 0.3rem;
+}
+
 .personajes__gallery-note {
   margin: 0.6rem 0 0;
   font-size: 1rem;
