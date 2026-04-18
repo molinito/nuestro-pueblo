@@ -505,25 +505,41 @@
   justify-items: center;
 }
 
-.lugares__lightbox-close {
-  position: absolute;
-  top: -0.6rem;
-  right: -0.6rem;
-  width: 2.4rem;
-  height: 2.4rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(24, 0, 12, 0.7);
-  color: #fff;
-  font-size: 1.6rem;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
+.lugares__lightbox-imageWrap {
+  position: relative;
+  width: 100%;
 }
 
-.lugares__lightbox-close:hover {
-  background: rgba(24, 0, 12, 0.9);
+.lugares__lightbox-identOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-height: 42%;
+  overflow: auto;
+  padding: 0.9rem 1rem;
+  border-radius: 0 0 16px 16px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.lugares__lightbox-identTitle {
+  margin: 0 0 0.45rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.lugares__lightbox-identInline {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 650;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  text-align: left;
 }
 
 .lugares__lightbox img {
@@ -545,6 +561,39 @@
   line-height: 1.5;
 }
 
+.lugares__lightbox-ident-toggle {
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: var(--site-font);
+}
+
+.lugares__lightbox-ident-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lugares__lightbox-ident {
+  margin: 0;
+  padding: 0.9rem 1.2rem;
+  width: min(860px, 92vw);
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.lugares__lightbox-ident li {
+  margin: 0.1rem 0;
+}
+
 .lugares__lightbox-nav {
   position: absolute;
   top: 50%;
@@ -560,14 +609,15 @@
   cursor: pointer;
   display: grid;
   place-items: center;
+  z-index: 5;
 }
 
 .lugares__lightbox-nav.is-prev {
-  left: -1rem;
+  left: 0.6rem;
 }
 
 .lugares__lightbox-nav.is-next {
-  right: -1rem;
+  right: 0.6rem;
 }
 
 .lugares__lightbox-nav:hover {
@@ -584,6 +634,16 @@
   color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+.lugares__lightbox-description {
+  margin: 0;
+  max-width: 900px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .lugares__lightbox-hint {
@@ -661,6 +721,7 @@
     right: 0.3rem;
   }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .lugares__media img {

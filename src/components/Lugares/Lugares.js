@@ -34,6 +34,13 @@ const Lugares = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+  const currentLightboxPhoto = lightbox ? lightbox.gallery[lightbox.index] : null;
+  const lightboxImageSrc =
+    currentLightboxPhoto &&
+    lightbox?.showReference &&
+    currentLightboxPhoto.referenceSrc
+      ? currentLightboxPhoto.referenceSrc
+      : currentLightboxPhoto?.src;
 
   const toggleItem = (id) => {
     setOpenId((current) => {
@@ -44,21 +51,31 @@ const Lugares = () => {
   };
 
   const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
-    setLightbox({ gallery, index });
+    setLightbox({ gallery, index, showReference: false });
   const closeImage = () => setLightbox(null);
   const showPrevImage = () => {
     setLightbox((current) => {
       if (!current || current.gallery.length <= 1) return current;
       const nextIndex =
         (current.index - 1 + current.gallery.length) % current.gallery.length;
-      return { ...current, index: nextIndex };
+      return { ...current, index: nextIndex, showReference: false };
     });
   };
   const showNextImage = () => {
     setLightbox((current) => {
       if (!current || current.gallery.length <= 1) return current;
       const nextIndex = (current.index + 1) % current.gallery.length;
-      return { ...current, index: nextIndex };
+      return { ...current, index: nextIndex, showReference: false };
+    });
+  };
+  const toggleLightboxReference = () => {
+    setLightbox((current) => {
+      if (!current) return current;
+      const nextShowReference = !current.showReference;
+      return {
+        ...current,
+        showReference: nextShowReference
+      };
     });
   };
 
@@ -415,14 +432,6 @@ const Lugares = () => {
       {lightbox && (
         <div className="lugares__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="lugares__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <button
-              type="button"
-              className="lugares__lightbox-close"
-              onClick={closeImage}
-              aria-label="Cerrar"
-            >
-              ×
-            </button>
             {lightbox.gallery.length > 1 && (
               <button
                 type="button"
@@ -433,22 +442,49 @@ const Lugares = () => {
                 ‹
               </button>
             )}
-            <img
-              src={lightbox.gallery[lightbox.index].src}
-              alt={lightbox.gallery[lightbox.index].alt}
-            />
-            {lightbox.gallery[lightbox.index].caption && (
+            <div className="lugares__lightbox-imageWrap">
+              <img src={lightboxImageSrc} alt={currentLightboxPhoto?.alt || ""} />
+              {(lightbox.showReference || currentLightboxPhoto?.identificationOverlay) &&
+                Array.isArray(currentLightboxPhoto?.identification) &&
+                currentLightboxPhoto.identification.length > 0 && (
+                  <div className="lugares__lightbox-identOverlay" aria-label="Identificación">
+                    <p className="lugares__lightbox-identTitle">
+                      Identificación (1–{currentLightboxPhoto.identification.length})
+                    </p>
+                    <p className="lugares__lightbox-identInline">
+                      {currentLightboxPhoto.identification
+                        .map((name, idx) => `${idx + 1}. ${name}`)
+                        .join("; ")}
+                      .
+                    </p>
+                  </div>
+                )}
+            </div>
+
+            <div className="lugares__lightbox-meta">
+            {currentLightboxPhoto?.caption && (
               <p className="lugares__lightbox-caption">
-                {lightbox.gallery[lightbox.index].caption
+                {currentLightboxPhoto.caption
                   .split("\n")
-                  .map((line, idx, arr) => (
-                    <span key={`${lightbox.index}-caption-${idx}`}>
-                      {line}
-                      {idx < arr.length - 1 && <br />}
-                    </span>
+                    .map((line, idx, arr) => (
+                      <span key={`${lightbox.index}-caption-${idx}`}>
+                        {line}
+                        {idx < arr.length - 1 && <br />}
+                      </span>
+                    ))}
+                </p>
+              )}
+            </div>
+            {Array.isArray(currentLightboxPhoto?.identification) &&
+              currentLightboxPhoto.identification.length > 0 &&
+              !currentLightboxPhoto.referenceSrc &&
+              !currentLightboxPhoto.identificationOverlay && (
+                <ol className="lugares__lightbox-ident">
+                  {currentLightboxPhoto.identification.map((name, idx) => (
+                    <li key={`${lightbox.index}-ident-${idx}`}>{name}</li>
                   ))}
-              </p>
-            )}
+                </ol>
+              )}
             {lightbox.gallery.length > 1 && (
               <button
                 type="button"
@@ -459,11 +495,27 @@ const Lugares = () => {
                 ›
               </button>
             )}
+            {currentLightboxPhoto?.lightboxLabel && (
+              <p className="lugares__lightbox-description">
+                {currentLightboxPhoto.lightboxLabel}
+              </p>
+            )}
             <div className="lugares__lightbox-actions">
               {lightbox.gallery.length > 1 && (
                 <span className="lugares__lightbox-counter">
                   {lightbox.index + 1} / {lightbox.gallery.length}
                 </span>
+              )}
+              {currentLightboxPhoto?.referenceSrc && (
+                <button
+                  type="button"
+                  className="lugares__lightbox-hint"
+                  onClick={toggleLightboxReference}
+                >
+                  {lightbox.showReference
+                    ? "Ver foto colorizada"
+                    : currentLightboxPhoto.referenceLabel || "Ver foto original numerada"}
+                </button>
               )}
               <button type="button" className="lugares__lightbox-hint" onClick={closeImage}>
                 Cerrar

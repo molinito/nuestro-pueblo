@@ -5,6 +5,7 @@ import eynard04 from "./5964.webp";
 import eynard05 from "./5966.webp";
 import eynard06 from "./5968.webp";
 import eynard07 from "./5969.webp";
+import eynardAburra from "./estacion-aburra.webp";
 import eynard08 from "./5970.webp";
 import eynard09 from "./5971.webp";
 import eynard10 from "./5972.webp";
@@ -14,13 +15,22 @@ import eynard13 from "./5975.webp";
 import eynard14 from "./familia.webp";
 import eynard15 from "./familia1.webp";
 import eynard16 from "./familia2.webp";
+import eynard16Original from "./familia2-original.webp";
 import eynard17 from "./familia3.webp";
 import eynard18 from "./familia4.webp";
+import eynard19 from "./familia10.webp";
+import eynard19Original from "./familia10-original.webp";
+import eynardVicenteCatalina from "./vicente-catalina.webp";
 
 const eynardFotos = [
   {
     src: eynard01,
     alt: "Estación Caroya, registro histórico 1",
+    title: "Créditos: Album familiar del Dr. Aldo Eynard"
+  },
+  {
+    src: eynardAburra,
+    alt: "Estación Aburrá (actual Estación Caroya)",
     title: "Créditos: Album familiar del Dr. Aldo Eynard"
   },
   {
@@ -113,7 +123,20 @@ const eynardFotosParte3 = [
     title:
       "Las jóvenes Maestras de la Escuela de Niñas, turno tarde, Francisco Ortíz de Ocampo, Jesus Maria, Córdoba 1940",
     caption:
-      "Las jóvenes Maestras de la Escuela de Niñas, turno tarde, Francisco Ortíz de Ocampo, Jesus Maria, Córdoba 1940"
+      "Las jóvenes Maestras de la Escuela de Niñas, turno tarde, Francisco Ortíz de Ocampo, Jesus Maria, Córdoba 1940.\nIdentificación (según foto original numerada):",
+    referenceSrc: eynard16Original,
+    referenceLabel: "Ver foto original numerada",
+    identification: [
+      "María Luisa Peralta",
+      "Elena Rosatti",
+      "Sra. de Amaya (Directora)",
+      "Sra. de Paz (Vicedirectora)",
+      "Gioconda Carrara de Biondi",
+      "María Esperanza Sánchez Gigena",
+      "Clelia Gerez",
+      "Lala Silvestre",
+      "“Pituca” Roig"
+    ]
   },
   {
     src: eynard17,
@@ -130,6 +153,36 @@ const eynardFotosParte3 = [
       "María Esperanza ( Nena) , con el uniforme de las pupilas de las Esclavas, de Barrio Gral Paz, Córdoba, 1927-28 ca. Madre del Dr. Aldo Eynard",
     caption:
       "María Esperanza ( Nena) , con el uniforme de las pupilas de las Esclavas, de Barrio Gral Paz, Córdoba, 1927-28 ca. Madre del Dr. Aldo Eynard"
+  },
+  {
+    src: eynard19,
+    alt: "Patio de la Guardia, verano de 1940 o 1941",
+    title: "Patio de la Guardia, verano de 1940 o 1941.",
+    lightboxLabel: "Patio de la Guardia, verano de 1940 o 1941.",
+    referenceSrc: eynard19Original,
+    referenceLabel: "Ver foto original numerada",
+    identification: [
+      "Vicente Eduardo (Tito) Eynard Abburrá (Piloto Civil)",
+      "Jorge Araoz Abburrá (Abogado)",
+      "Néné Abburrá Orellano",
+      "Carlos Alberto Abburrá Orellano (Cirujano)",
+      "Cacho Carbonetti Abburrá (Abogado)",
+      "Renato Eynard Abburrá (Maestro Normal)",
+      "Anita Abburrá Peiretti (la nonna)",
+      "Teresa Abburrá Peiretti",
+      "Antonio Abburrá Peiretti",
+      "Matilde Abburrá Peiretti",
+      "Cutuca Orellano de Abburrá",
+      "Vicenta Abburra de Araoz",
+      "No identificado",
+      "No identificada"
+    ]
+  },
+  {
+    src: eynardVicenteCatalina,
+    alt: "Vicente Abburrá y Catalina Peiretti",
+    title: "Vicente Abburrá y Catalina Peiretti",
+    caption: "Vicente Abburrá y Catalina Peiretti"
   }
 ];
 

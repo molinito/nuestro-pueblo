@@ -23,6 +23,8 @@ import familia4 from '../../img/galeria/familia4.webp';
 import familia5 from '../../img/galeria/familia5.webp';
 import familia6 from '../../img/galeria/familia6.webp';
 import familia7 from '../../img/galeria/familia7.webp';
+import renatoEynard from '../../img/galeria/renato-eynard.webp';
+import escuelaVarones1923 from '../../img/galeria/escuela-varones-1923.webp';
 import albumCover from '../../img/album.png';
 
 const defaultSlides = [
@@ -79,6 +81,18 @@ const defaultSlides = [
     caption:
       'Familia de Antonio Copetti y María Brollo. Créditos Archivo Histórico Colonia Caroya - Facebook - Restauración y color M. Saravia.',
   },
+  {
+    src: renatoEynard,
+    alt: 'Escuela de Varones, Jesus Maria, 1923',
+    caption:
+      'Escuela de Varones Jesus Maria, 1923. Les enseñaban manualidades utiles al hombre de campo: areglar lazos y cinchas, hacer cestería, suela de alpargatas, esterillado ( probablemente es la Antonio Ortiz de ocampo). Alumnos exiben sus trabajos.',
+  },
+  {
+    src: escuelaVarones1923,
+    alt: 'Esc de Varones, Jesus María 1923',
+    caption:
+      'Esc de Varones, Jesus María 1923. La Directora , al centro , es la Srta Lydia Olmos Ossán.',
+  },
 ];
 
 function CustomCarousel({
@@ -120,10 +134,24 @@ function CustomCarousel({
       if (event.key === 'Escape') {
         setLightbox(null);
       }
+      if (event.key === 'ArrowLeft') {
+        setLightbox((current) => {
+          if (!current || current.index <= 0) return current;
+          const nextIndex = current.index - 1;
+          return { ...normalizedSlides[nextIndex], index: nextIndex };
+        });
+      }
+      if (event.key === 'ArrowRight') {
+        setLightbox((current) => {
+          if (!current || current.index >= normalizedSlides.length - 1) return current;
+          const nextIndex = current.index + 1;
+          return { ...normalizedSlides[nextIndex], index: nextIndex };
+        });
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightbox]);
+  }, [lightbox, normalizedSlides]);
 
   const totalPages = Math.max(1, normalizedSlides.length);
   const currentSlide = normalizedSlides[pageIndex];
@@ -142,6 +170,16 @@ function CustomCarousel({
       setPageIndex((prev) => (direction === 'next' ? prev + 1 : prev - 1));
       setIsTurning(false);
     }, 520);
+  };
+
+  const handleLightboxTurn = (direction) => {
+    setLightbox((current) => {
+      if (!current) return current;
+      if (direction === 'prev' && current.index <= 0) return current;
+      if (direction === 'next' && current.index >= normalizedSlides.length - 1) return current;
+      const nextIndex = direction === 'next' ? current.index + 1 : current.index - 1;
+      return { ...normalizedSlides[nextIndex], index: nextIndex };
+    });
   };
 
   const renderPhoto = (slide) => {
@@ -266,12 +304,45 @@ function CustomCarousel({
       )}
 
       {lightbox && (
-        <div className="npAlbum__lightbox" onClick={() => setLightbox(null)} role="dialog" aria-modal="true">
+        <div
+          className="npAlbum__lightbox"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+        >
           <div className="npAlbum__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
-            <button type="button" className="npAlbum__lightbox-hint" onClick={() => setLightbox(null)}>
-              Click para achicar y volver al álbum
+            <button
+              type="button"
+              className="npAlbum__lightbox-nav is-prev"
+              onClick={() => handleLightboxTurn('prev')}
+              aria-label="Imagen anterior"
+              disabled={lightbox.index <= 0}
+            >
+              ‹
             </button>
+            <img src={lightbox.src} alt={lightbox.alt} />
+            <button
+              type="button"
+              className="npAlbum__lightbox-nav is-next"
+              onClick={() => handleLightboxTurn('next')}
+              aria-label="Imagen siguiente"
+              disabled={lightbox.index >= normalizedSlides.length - 1}
+            >
+              ›
+            </button>
+            {lightbox.caption && <p className="npAlbum__lightbox-caption">{lightbox.caption}</p>}
+            <div className="npAlbum__lightbox-actions">
+              <span className="npAlbum__lightbox-counter">
+                {lightbox.index + 1} / {normalizedSlides.length}
+              </span>
+              <button
+                type="button"
+                className="npAlbum__lightbox-hint"
+                onClick={() => setLightbox(null)}
+              >
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}
