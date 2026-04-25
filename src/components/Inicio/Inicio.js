@@ -405,7 +405,7 @@ const CardList = () => {
               que forjaron Colonia Caroya.
             </p>
           </div>
-          <Link className={styles.memoriasCalloutBtn} to="/memorias-de-nuestra-tierra">
+          <Link className={styles.memoriasCalloutBtn} to="/memorias">
             Conocer las historias
           </Link>
         </div>

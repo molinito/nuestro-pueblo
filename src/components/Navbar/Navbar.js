@@ -79,7 +79,7 @@ const Navbar = () => {
             <NavLink
               className={styles.dropdownLink}
               activeclassname="active"
-              to="/memorias-de-nuestra-tierra"
+              to="/memorias"
               onClick={closeAllMenus}
             >
               Memorias de Nuestra Tierra

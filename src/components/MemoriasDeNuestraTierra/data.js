@@ -8,7 +8,7 @@ import platano6 from "./platano6.webp";
 import platano7 from "./platano7.webp";
 import platano8 from "./platano8.webp";
 
-export const MEMORIAS_BASE_PATH = "/memorias-de-nuestra-tierra";
+export const MEMORIAS_BASE_PATH = "/memorias";
 
 export const memoriasHistorias = [
   {

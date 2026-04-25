@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate, useParams } from "react-router-dom";
 import Inicio from "./components/Inicio/Inicio";
 import Lugares from "../src/components/Lugares/Lugares";
 import Acerca from "../src/components/Acerca/Acerca";
@@ -19,6 +19,11 @@ import { Analytics } from "@vercel/analytics/react";
 import Error404 from "./components/Error404/Error404";
 import MemoriasDeNuestraTierraIndex from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraIndex";
 import MemoriasDeNuestraTierraHistoria from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraHistoria";
+
+const MemoriasLegacyRedirect = () => {
+  const { memoriaSlug } = useParams();
+  return <Navigate to={memoriaSlug ? `/memorias/${memoriaSlug}` : "/memorias"} replace />;
+};
 
 const App = () => {
   return (
@@ -44,12 +49,20 @@ const App = () => {
           <Route path="/ayer-hoy" element={<AyerHoy />} />
           <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
           <Route
-            path="/memorias-de-nuestra-tierra"
+            path="/memorias"
             element={<MemoriasDeNuestraTierraIndex />}
           />
           <Route
-            path="/memorias-de-nuestra-tierra/:memoriaSlug"
+            path="/memorias/:memoriaSlug"
             element={<MemoriasDeNuestraTierraHistoria />}
+          />
+          <Route
+            path="/memorias-de-nuestra-tierra"
+            element={<Navigate to="/memorias" replace />}
+          />
+          <Route
+            path="/memorias-de-nuestra-tierra/:memoriaSlug"
+            element={<MemoriasLegacyRedirect />}
           />
           <Route path="/terminos" element={<TerminosCondiciones />} />
           <Route path="/donacion" element={<Donacion />} />
