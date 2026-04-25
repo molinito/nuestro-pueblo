@@ -76,6 +76,14 @@ const Navbar = () => {
             id="mis-contenidos-menu"
             className={`${styles.dropdownMenu} ${isOpen ? styles.dropdownMenuOpen : ""}`}
           >
+            <NavLink
+              className={styles.dropdownLink}
+              activeclassname="active"
+              to="/memorias-de-nuestra-tierra"
+              onClick={closeAllMenus}
+            >
+              Memorias de Nuestra Tierra
+            </NavLink>
             <NavLink className={styles.dropdownLink} activeclassname="active" to="/historia" onClick={closeAllMenus}>
               Historia
             </NavLink>
