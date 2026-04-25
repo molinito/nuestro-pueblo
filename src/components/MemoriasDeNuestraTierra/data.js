@@ -1,4 +1,3 @@
-import avenida from "../../img/galeria/avenida.webp";
 import platanos from "./platanos.webp";
 import platano1 from "./platano1.webp";
 import platano2 from "./platano2.webp";
