@@ -17,6 +17,8 @@ import TerminosCondiciones from "./components/TerminosCondiciones/TerminosCondic
 import Donacion from "./components/Donacion/Donacion";
 import { Analytics } from "@vercel/analytics/react";
 import Error404 from "./components/Error404/Error404";
+import MemoriasDeNuestraTierraIndex from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraIndex";
+import MemoriasDeNuestraTierraHistoria from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraHistoria";
 
 const App = () => {
   return (
@@ -41,6 +43,14 @@ const App = () => {
           <Route path="/personajes/:personajeId" element={<Personajes />} />
           <Route path="/ayer-hoy" element={<AyerHoy />} />
           <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
+          <Route
+            path="/memorias-de-nuestra-tierra"
+            element={<MemoriasDeNuestraTierraIndex />}
+          />
+          <Route
+            path="/memorias-de-nuestra-tierra/:memoriaSlug"
+            element={<MemoriasDeNuestraTierraHistoria />}
+          />
           <Route path="/terminos" element={<TerminosCondiciones />} />
           <Route path="/donacion" element={<Donacion />} />
           <Route path="*" element={<Error404 />} />

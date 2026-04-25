@@ -395,6 +395,22 @@ const CardList = () => {
         </div>
       </section>
 
+      <section className={styles.memoriasCallout} aria-label="Memorias de Nuestra Tierra">
+        <div className={styles.memoriasCalloutInner}>
+          <div className={styles.memoriasCalloutCopy}>
+            <p className={styles.memoriasCalloutEyebrow}>Nueva seccion homenaje</p>
+            <h2 className={styles.memoriasCalloutTitle}>Memorias de Nuestra Tierra</h2>
+            <p className={styles.memoriasCalloutText}>
+              Una seccion homenaje dedicada a Martha Canale y a las historias de los inmigrantes
+              que forjaron Colonia Caroya.
+            </p>
+          </div>
+          <Link className={styles.memoriasCalloutBtn} to="/memorias-de-nuestra-tierra">
+            Conocer las historias
+          </Link>
+        </div>
+      </section>
+
       <nav className={styles.quickLinks} aria-label="Secciones principales">
         <Link className={styles.quickLink} to="/historia">
           Historia del pueblo
