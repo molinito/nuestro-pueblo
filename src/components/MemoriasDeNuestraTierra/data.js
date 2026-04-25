@@ -14,7 +14,7 @@ export const memoriasHistorias = [
   {
     number: 1,
     status: "published",
-    slug: "platanos-colonia-caroya",
+    slug: "platanos",
     title: "Esos plátanos de Caroya",
     description:
       "La historia detrás de los árboles que forman el túnel natural más emblemático de la avenida principal de Colonia Caroya.",
