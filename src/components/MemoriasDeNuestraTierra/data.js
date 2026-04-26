@@ -1,4 +1,5 @@
 import platanos from "./platanos.webp";
+import platanosCover from "./platanos-cover.webp";
 import platano1 from "./platano1.webp";
 import platano2 from "./platano2.webp";
 import platano3 from "./platano3.webp";
@@ -18,8 +19,8 @@ export const memoriasHistorias = [
     title: "Esos plátanos de Caroya",
     description:
       "La historia detrás de los árboles que forman el túnel natural más emblemático de la avenida principal de Colonia Caroya.",
-    image: platanos,
-    imageAlt: "Plátanos de Colonia Caroya (Avenida San Martín)",
+    image: platanosCover,
+    imageAlt: "Martha Canale Vicentini",
     intro:
       "Quienes recorren la avenida San Martín de Colonia Caroya difícilmente olvidan la sensación de avanzar bajo un túnel verde que parece no tener fin. Pero pocos conocen la historia detrás de esos árboles que hoy forman parte de nuestra identidad.",
     closing:
