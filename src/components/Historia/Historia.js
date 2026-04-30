@@ -33,6 +33,87 @@ const festivalPhotos = [
   { src: festivalAntes4, alt: "Postales del público en el festival" },
 ];
 
+const rossiPhotos = [
+  {
+    src: require("./rossi/Emilia, Paulina y Gilda Messi.webp"),
+    alt: "Emilia, Paulina y Gilda Messi",
+    caption: "Emilia, Paulina y Gilda Messi",
+  },
+  {
+    src: require(
+      "./rossi/eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina.webp"
+    ),
+    alt: "eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina",
+    caption: "eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina",
+  },
+  {
+    src: require(
+      "./rossi/Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas.webp"
+    ),
+    alt: "Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas",
+    caption: "Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas",
+  },
+  {
+    src: require("./rossi/Gilda Messi, hija de Filomena.webp"),
+    alt: "Gilda Messi, hija de Filomena",
+    caption: "Gilda Messi, hija de Filomena",
+  },
+  {
+    src: require(
+      "./rossi/Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi.webp"
+    ),
+    alt: "Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi",
+    caption: "Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi",
+  },
+  {
+    src: require("./rossi/Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos.webp"),
+    alt: "Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos",
+    caption: "Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos",
+  },
+  {
+    src: require("./rossi/Martha Canale Vicentini.webp"),
+    alt: "Martha Canale Vicentini",
+    caption: "Martha Canale Vicentini",
+  },
+  {
+    src: require("./rossi/Nicolas Canale.webp"),
+    alt: "Nicolas Canale",
+    caption: "Nicolas Canale",
+  },
+  {
+    src: require("./rossi/Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta.webp"),
+    alt: "Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta",
+    caption: "Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta",
+  },
+  {
+    src: require(
+      "./rossi/Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina.webp"
+    ),
+    alt: "Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina",
+    caption: "Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina",
+  },
+  {
+    src: require("./rossi/Santina Rossi de Canale.webp"),
+    alt: "Santina Rossi de Canale",
+    caption: "Santina Rossi de Canale",
+  },
+  {
+    src: require("./rossi/Teresa - Luis Rossi.webp"),
+    alt: "Teresa - Luis Rossi",
+    caption: "Teresa - Luis Rossi",
+  },
+  {
+    src: require("./rossi/Teresa Casutti de Rossi.webp"),
+    alt: "Teresa Casutti de Rossi",
+    caption: "Teresa Casutti de Rossi",
+  },
+  {
+    src: require("./rossi/Teresa.webp"),
+    alt: "Teresa",
+    caption: "Teresa",
+  },
+];
+
 const historias = [
   {
     id: "festival-jesus-maria",
@@ -111,6 +192,27 @@ const historias = [
       source: "el doce.tv",
       href: "https://www.youtube.com/watch?v=2q0W3hPAKwE",
       label: "Ver nota en YouTube",
+    },
+  },
+  {
+    id: "rossi",
+    title: "La tierra, la noche y el silencio",
+    summary:
+      "Un relato documental sobre la vida de las familias pioneras, el trabajo rural y la memoria que sostuvo a la colonia.",
+    type: "gallery",
+    galleryNote: "Galeria fotografica familiar (archivo historico).",
+    gallery: rossiPhotos,
+    paragraphs: [
+      "A fines del siglo XIX, cuando Colonia Caroya era apenas monte y esperanza, muchas familias llegaron desde Italia con lo puesto y un futuro incierto. Entre ellas, la de Teresa Casutti y Luis Baldo, cuya historia -marcada por el esfuerzo, la perdida y la resiliencia- se entrelaza con la de Luis Rossi y su hermana Filomena, figura clave en los primeros años de la colonia.",
+      "En este relato, que atraviesa generaciones, aparecen escenas de una vida dura pero profundamente humana: el trabajo de la tierra, los lazos que se construyen en silencio, el nacimiento de tradiciones como la vitivinicultura, y el papel fundamental de quienes ensenaron, acompanaron y sostuvieron a una comunidad que recien comenzaba.",
+      "Esta es solo una puerta de entrada a una historia mayor... una historia que sigue viva en la memoria de quienes la heredaron.",
+      "Te invitamos a escuchar el relato completo en el video.",
+    ],
+    video: {
+      title: "La tierra, la noche y el silencio (documental)",
+      href: "https://youtu.be/rrPhFpzD_I8",
+      label: "Ver en YouTube",
+      thumbnail: "https://img.youtube.com/vi/rrPhFpzD_I8/hqdefault.jpg",
     },
   },
 ];
@@ -322,7 +424,7 @@ const Historia = () => {
                       </div>
                       <div className="historia__aside">
                         <p className="historia__gallery-note">
-                          Las imágenes son meramente ilustrativas
+                          {historia.galleryNote ?? "Las imágenes son meramente ilustrativas"}
                         </p>
                         <div className="historia__gallery">
                           {historia.gallery.map((photo, index) => (
@@ -340,6 +442,9 @@ const Historia = () => {
                               aria-label={`Agrandar imagen: ${photo.alt}`}
                             >
                               <img src={photo.src} alt={photo.alt} />
+                              {photo.caption ? (
+                                <div className="historia__gallery-caption">{photo.caption}</div>
+                              ) : null}
                               <div className="historia__overlay">Haz click para agrandar</div>
                             </div>
                           ))}

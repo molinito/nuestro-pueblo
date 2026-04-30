@@ -430,6 +430,22 @@
   box-shadow: 0 10px 20px rgba(115, 0, 52, 0.18);
 }
 
+.historia__gallery-caption {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(24, 0, 12, 0.55);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 650;
+  font-size: 0.86rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(6px);
+}
+
 .historia__gallery-item img {
   width: 100%;
   height: 100%;
