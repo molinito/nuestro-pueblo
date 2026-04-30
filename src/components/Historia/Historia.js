@@ -35,80 +35,72 @@ const festivalPhotos = [
 
 const rossiPhotos = [
   {
-    src: require("./rossi/Emilia, Paulina y Gilda Messi.webp"),
+    src: require("./rossi/rossi-02.webp"),
     alt: "Emilia, Paulina y Gilda Messi",
     caption: "Emilia, Paulina y Gilda Messi",
   },
   {
-    src: require(
-      "./rossi/eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina.webp"
-    ),
-    alt: "eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina",
-    caption: "eresa la primera de la izquierda, al medio su hija Luisa, Domingo y Santina",
+    src: require("./rossi/rossi-14.webp"),
+    alt: "Teresa, a la izquierda; al medio su hija Luisa; Domingo y Santina",
+    caption: "Teresa (izq.), al medio su hija Luisa, Domingo y Santina",
   },
   {
-    src: require(
-      "./rossi/Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas.webp"
-    ),
+    src: require("./rossi/rossi-03.webp"),
     alt: "Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas",
     caption: "Filomena con sus hijos Domingo, Paulina, Gilda, sus nietos y dos amigas",
   },
   {
-    src: require("./rossi/Gilda Messi, hija de Filomena.webp"),
+    src: require("./rossi/rossi-04.webp"),
     alt: "Gilda Messi, hija de Filomena",
     caption: "Gilda Messi, hija de Filomena",
   },
   {
-    src: require(
-      "./rossi/Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi.webp"
-    ),
+    src: require("./rossi/rossi-05.webp"),
     alt: "Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi",
     caption: "Luis Rossi, Teresa Casutti y sus hijas Ana Baldo, Catalina y Rosa Rossi",
   },
   {
-    src: require("./rossi/Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos.webp"),
+    src: require("./rossi/rossi-06.webp"),
     alt: "Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos",
     caption: "Luis, Teresa, los hijos Antonio, Angel, Domingo, nuera y nietos",
   },
   {
-    src: require("./rossi/Martha Canale Vicentini.webp"),
+    src: require("./rossi/rossi-07.webp"),
     alt: "Martha Canale Vicentini",
     caption: "Martha Canale Vicentini",
   },
   {
-    src: require("./rossi/Nicolas Canale.webp"),
+    src: require("./rossi/rossi-08.webp"),
     alt: "Nicolas Canale",
     caption: "Nicolas Canale",
   },
   {
-    src: require("./rossi/Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta.webp"),
+    src: require("./rossi/rossi-09.webp"),
     alt: "Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta",
     caption: "Pablo Messi, Filomena Rossi, sus hijas Paulina, Gilda y nieta",
   },
   {
-    src: require(
-      "./rossi/Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina.webp"
-    ),
-    alt: "Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina",
-    caption: "Antonio, Martha, José, Gema, Maria Teresa, abajo Antonieta, Santina, Brígida, Francisco, Catalina",
+    src: require("./rossi/rossi-01.webp"),
+    alt: "Antonio, Martha, Jose, Gema, Maria Teresa, abajo Antonieta, Santina, Brigida, Francisco, Catalina",
+    caption: "Antonio, Martha, Jose, Gema, Maria Teresa; abajo Antonieta, Santina, Brigida, Francisco, Catalina",
   },
   {
-    src: require("./rossi/Santina Rossi de Canale.webp"),
+    src: require("./rossi/rossi-10.webp"),
     alt: "Santina Rossi de Canale",
     caption: "Santina Rossi de Canale",
   },
   {
-    src: require("./rossi/Teresa - Luis Rossi.webp"),
+    src: require("./rossi/rossi-11.webp"),
     alt: "Teresa - Luis Rossi",
     caption: "Teresa - Luis Rossi",
   },
   {
-    src: require("./rossi/Teresa Casutti de Rossi.webp"),
+    src: require("./rossi/rossi-12.webp"),
     alt: "Teresa Casutti de Rossi",
     caption: "Teresa Casutti de Rossi",
   },
   {
-    src: require("./rossi/Teresa.webp"),
+    src: require("./rossi/rossi-13.webp"),
     alt: "Teresa",
     caption: "Teresa",
   },
