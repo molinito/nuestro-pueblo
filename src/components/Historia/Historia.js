@@ -208,11 +208,14 @@ const historias = [
       "Esta es solo una puerta de entrada a una historia mayor... una historia que sigue viva en la memoria de quienes la heredaron.",
       "Te invitamos a escuchar el relato completo en el video.",
     ],
+    videoInlineAfterParagraphIndex: 3,
     video: {
       title: "La tierra, la noche y el silencio (documental)",
       href: "https://youtu.be/rrPhFpzD_I8",
       label: "Ver en YouTube",
       thumbnail: "https://img.youtube.com/vi/rrPhFpzD_I8/hqdefault.jpg",
+      creditStrong:
+        "Créditos: Audio relato y fotos originales - Voz Patricia Vicentini - Fotos restauradas Marcelo Saravia.",
     },
   },
 ];
@@ -407,7 +410,43 @@ const Historia = () => {
                     <>
                       <div className="historia__content">
                         {historia.paragraphs.map((paragraph, index) => (
-                          <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
+                          <React.Fragment key={`${historia.id}-p-${index}`}>
+                            <p>{paragraph}</p>
+                            {historia.video &&
+                            typeof historia.videoInlineAfterParagraphIndex === "number" &&
+                            index === historia.videoInlineAfterParagraphIndex ? (
+                              <div className="historia__video">
+                                <span className="historia__video-label">Mira el video…!!</span>
+                                {historia.video.thumbnail && (
+                                  <a
+                                    className="historia__video-thumb"
+                                    href={historia.video.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    <img
+                                      src={historia.video.thumbnail}
+                                      alt={`Miniatura del video: ${historia.video.title}`}
+                                    />
+                                  </a>
+                                )}
+                                <p className="historia__video-title">{historia.video.title}</p>
+                                {historia.video.creditStrong ? (
+                                  <p className="historia__video-credit">
+                                    <strong>{historia.video.creditStrong}</strong>
+                                  </p>
+                                ) : null}
+                                <a
+                                  className="historia__video-link"
+                                  href={historia.video.href}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                >
+                                  {historia.video.label}
+                                </a>
+                              </div>
+                            ) : null}
+                          </React.Fragment>
                         ))}
                         {historia.list && (
                           <>
@@ -449,7 +488,8 @@ const Historia = () => {
                             </div>
                           ))}
                         </div>
-                        {historia.video && (
+                        {historia.video &&
+                        typeof historia.videoInlineAfterParagraphIndex !== "number" && (
                           <div className="historia__video">
                             <span className="historia__video-label">
                               Mira el video…!!
@@ -468,11 +508,16 @@ const Historia = () => {
                               </a>
                             )}
                           <p className="historia__video-title">{historia.video.title}</p>
-                          {historia.video.credit && (
-                            <p className="historia__video-credit">
-                              Creditos: {historia.video.credit}
+                            {historia.video.credit && (
+                              <p className="historia__video-credit">
+                                Creditos: {historia.video.credit}
                               </p>
                             )}
+                            {historia.video.creditStrong ? (
+                              <p className="historia__video-credit">
+                                <strong>{historia.video.creditStrong}</strong>
+                              </p>
+                            ) : null}
                             <a
                               className="historia__video-link"
                               href={historia.video.href}
