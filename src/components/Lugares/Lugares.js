@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
 import { estanciaJesuitica } from "./estancia-jesuitica/data";
@@ -42,18 +42,18 @@ const Lugares = () => {
       ? currentLightboxPhoto.referenceSrc
       : currentLightboxPhoto?.src;
 
-  const scrollToLugar = (id) => {
+  const scrollToLugar = (id, behavior = "auto") => {
     const header = document.getElementById(`lugares-header-${id}`);
     if (!header) return;
-    header.scrollIntoView({ block: "start", behavior: "smooth" });
-    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+    header.scrollIntoView({ block: "start", behavior });
+    window.scrollBy(0, -90);
   };
 
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/lugares/${nextId}` : "/lugares");
-      if (nextId) window.setTimeout(() => scrollToLugar(nextId), 60);
+      if (nextId) window.setTimeout(() => scrollToLugar(nextId, "smooth"), 60);
       return nextId;
     });
   };
@@ -104,11 +104,13 @@ const Lugares = () => {
     navigate("/lugares", { replace: true });
   }, [lugarId, navigate]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!lugarId) return;
     if (!hasLugarId(lugarId)) return;
     setOpenId(lugarId);
-    window.setTimeout(() => scrollToLugar(lugarId), 60);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => scrollToLugar(lugarId, "auto"))
+    );
   }, [lugarId]);
 
   const handleToggleKeyDown = (event, id) => {

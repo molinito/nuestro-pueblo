@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Personajes.css";
 import cufre from "./cufre/cufre.webp";
@@ -428,18 +428,18 @@ const Personajes = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
-  const scrollToPersonaje = (id) => {
+  const scrollToPersonaje = (id, behavior = "auto") => {
     const header = document.getElementById(`personajes-header-${id}`);
     if (!header) return;
-    header.scrollIntoView({ block: "start", behavior: "smooth" });
-    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+    header.scrollIntoView({ block: "start", behavior });
+    window.scrollBy(0, -90);
   };
 
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/personajes/${nextId}` : "/personajes");
-      if (nextId) window.setTimeout(() => scrollToPersonaje(nextId), 60);
+      if (nextId) window.setTimeout(() => scrollToPersonaje(nextId, "smooth"), 60);
       return nextId;
     });
   };
@@ -465,11 +465,13 @@ const Personajes = () => {
     navigate("/personajes", { replace: true });
   }, [personajeId, navigate]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!personajeId) return;
     if (!hasPersonajeId(personajeId)) return;
     setOpenId(personajeId);
-    window.setTimeout(() => scrollToPersonaje(personajeId), 60);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => scrollToPersonaje(personajeId, "auto"))
+    );
   }, [personajeId]);
 
   return (

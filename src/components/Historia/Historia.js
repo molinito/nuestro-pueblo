@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
 import museoImg from "./museo-jesuitico/museo.webp";
@@ -220,19 +220,19 @@ const Historia = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
-  const scrollToHistoria = (id) => {
+  const scrollToHistoria = (id, behavior = "auto") => {
     const header = document.getElementById(`historia-header-${id}`);
     if (!header) return;
-    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    header.scrollIntoView({ block: "start", behavior });
     // Offset for the sticky header/navbar if present.
-    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+    window.scrollBy(0, -90);
   };
 
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/historia/${nextId}` : "/historia");
-      if (nextId) window.setTimeout(() => scrollToHistoria(nextId), 60);
+      if (nextId) window.setTimeout(() => scrollToHistoria(nextId, "smooth"), 60);
       return nextId;
     });
   };
@@ -258,11 +258,12 @@ const Historia = () => {
     navigate("/historia", { replace: true });
   }, [historiaId, navigate]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!historiaId) return;
     if (!hasHistoriaId(historiaId)) return;
     setOpenId(historiaId);
-    window.setTimeout(() => scrollToHistoria(historiaId), 60);
+    // Two RAFs ensures the accordion panel is laid out before we scroll.
+    requestAnimationFrame(() => requestAnimationFrame(() => scrollToHistoria(historiaId, "auto")));
   }, [historiaId]);
 
   return (

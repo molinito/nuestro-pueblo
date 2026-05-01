@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./AyerHoy.css";
 import ayeryhoy from "./galeria/ayeryhoy.webp";
@@ -194,18 +194,18 @@ const AyerHoy = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
-  const scrollToAyerHoy = (id) => {
+  const scrollToAyerHoy = (id, behavior = "auto") => {
     const header = document.getElementById(`ayer-hoy-header-${id}`);
     if (!header) return;
-    header.scrollIntoView({ block: "start", behavior: "smooth" });
-    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+    header.scrollIntoView({ block: "start", behavior });
+    window.scrollBy(0, -90);
   };
 
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/ayer-hoy/${nextId}` : "/ayer-hoy");
-      if (nextId) window.setTimeout(() => scrollToAyerHoy(nextId), 60);
+      if (nextId) window.setTimeout(() => scrollToAyerHoy(nextId, "smooth"), 60);
       return nextId;
     });
   };
@@ -247,11 +247,13 @@ const AyerHoy = () => {
     navigate("/ayer-hoy", { replace: true });
   }, [ayerHoyId, navigate]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ayerHoyId) return;
     if (!hasAyerHoyId(ayerHoyId)) return;
     setOpenId(ayerHoyId);
-    window.setTimeout(() => scrollToAyerHoy(ayerHoyId), 60);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => scrollToAyerHoy(ayerHoyId, "auto"))
+    );
   }, [ayerHoyId]);
 
   useEffect(() => {
