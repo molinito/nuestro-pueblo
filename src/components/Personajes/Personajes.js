@@ -428,10 +428,18 @@ const Personajes = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
+  const scrollToPersonaje = (id) => {
+    const header = document.getElementById(`personajes-header-${id}`);
+    if (!header) return;
+    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+  };
+
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/personajes/${nextId}` : "/personajes");
+      if (nextId) window.setTimeout(() => scrollToPersonaje(nextId), 60);
       return nextId;
     });
   };
@@ -456,6 +464,13 @@ const Personajes = () => {
     if (hasPersonajeId(personajeId)) return;
     navigate("/personajes", { replace: true });
   }, [personajeId, navigate]);
+
+  useEffect(() => {
+    if (!personajeId) return;
+    if (!hasPersonajeId(personajeId)) return;
+    setOpenId(personajeId);
+    window.setTimeout(() => scrollToPersonaje(personajeId), 60);
+  }, [personajeId]);
 
   return (
     <main className="personajes">

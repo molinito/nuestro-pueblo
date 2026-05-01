@@ -194,10 +194,18 @@ const AyerHoy = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
+  const scrollToAyerHoy = (id) => {
+    const header = document.getElementById(`ayer-hoy-header-${id}`);
+    if (!header) return;
+    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+  };
+
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/ayer-hoy/${nextId}` : "/ayer-hoy");
+      if (nextId) window.setTimeout(() => scrollToAyerHoy(nextId), 60);
       return nextId;
     });
   };
@@ -238,6 +246,13 @@ const AyerHoy = () => {
     if (hasAyerHoyId(ayerHoyId)) return;
     navigate("/ayer-hoy", { replace: true });
   }, [ayerHoyId, navigate]);
+
+  useEffect(() => {
+    if (!ayerHoyId) return;
+    if (!hasAyerHoyId(ayerHoyId)) return;
+    setOpenId(ayerHoyId);
+    window.setTimeout(() => scrollToAyerHoy(ayerHoyId), 60);
+  }, [ayerHoyId]);
 
   useEffect(() => {
     if (!lightbox) return undefined;

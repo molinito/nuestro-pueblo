@@ -220,10 +220,19 @@ const Historia = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
+  const scrollToHistoria = (id) => {
+    const header = document.getElementById(`historia-header-${id}`);
+    if (!header) return;
+    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    // Offset for the sticky header/navbar if present.
+    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+  };
+
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/historia/${nextId}` : "/historia");
+      if (nextId) window.setTimeout(() => scrollToHistoria(nextId), 60);
       return nextId;
     });
   };
@@ -248,6 +257,13 @@ const Historia = () => {
     if (hasHistoriaId(historiaId)) return;
     navigate("/historia", { replace: true });
   }, [historiaId, navigate]);
+
+  useEffect(() => {
+    if (!historiaId) return;
+    if (!hasHistoriaId(historiaId)) return;
+    setOpenId(historiaId);
+    window.setTimeout(() => scrollToHistoria(historiaId), 60);
+  }, [historiaId]);
 
   return (
     <main className="historia">

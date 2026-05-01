@@ -42,10 +42,18 @@ const Lugares = () => {
       ? currentLightboxPhoto.referenceSrc
       : currentLightboxPhoto?.src;
 
+  const scrollToLugar = (id) => {
+    const header = document.getElementById(`lugares-header-${id}`);
+    if (!header) return;
+    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+  };
+
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/lugares/${nextId}` : "/lugares");
+      if (nextId) window.setTimeout(() => scrollToLugar(nextId), 60);
       return nextId;
     });
   };
@@ -95,6 +103,13 @@ const Lugares = () => {
     if (hasLugarId(lugarId)) return;
     navigate("/lugares", { replace: true });
   }, [lugarId, navigate]);
+
+  useEffect(() => {
+    if (!lugarId) return;
+    if (!hasLugarId(lugarId)) return;
+    setOpenId(lugarId);
+    window.setTimeout(() => scrollToLugar(lugarId), 60);
+  }, [lugarId]);
 
   const handleToggleKeyDown = (event, id) => {
     if (event.key === "Enter" || event.key === " ") {

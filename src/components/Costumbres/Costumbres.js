@@ -187,10 +187,18 @@ const Costumbres = () => {
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
 
+  const scrollToCostumbre = (id) => {
+    const header = document.getElementById(`costumbres-header-${id}`);
+    if (!header) return;
+    header.scrollIntoView({ block: "start", behavior: "smooth" });
+    window.setTimeout(() => window.scrollBy({ top: -90, left: 0, behavior: "instant" }), 250);
+  };
+
   const toggleItem = (id) => {
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/costumbres/${nextId}` : "/costumbres");
+      if (nextId) window.setTimeout(() => scrollToCostumbre(nextId), 60);
       return nextId;
     });
   };
@@ -231,6 +239,13 @@ const Costumbres = () => {
     if (hasCostumbreId(costumbreId)) return;
     navigate("/costumbres", { replace: true });
   }, [costumbreId, navigate]);
+
+  useEffect(() => {
+    if (!costumbreId) return;
+    if (!hasCostumbreId(costumbreId)) return;
+    setOpenId(costumbreId);
+    window.setTimeout(() => scrollToCostumbre(costumbreId), 60);
+  }, [costumbreId]);
 
   useEffect(() => {
     if (!lightbox) return undefined;
