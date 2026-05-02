@@ -53,10 +53,12 @@
     ]
   },
   "reactSnap": {
+    "fixWebpackChunksIssue": "CRA2",
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ],
+    "skipThirdPartyRequests": true,
     "include": [
       "/",
       "/acerca-de",
