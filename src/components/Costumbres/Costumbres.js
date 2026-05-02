@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Costumbres.css";
+import usePageMeta from "../../hooks/usePageMeta";
 import fiestaSalame from "./salame/Fiesta salame.webp";
 import chapita from "./chapitas/chapita.webp";
 import chapita1 from "./chapitas/chapita1.webp";
@@ -186,6 +187,23 @@ const Costumbres = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+
+  const activeCostumbre = costumbreId ? costumbres.find((c) => c.id === costumbreId) : null;
+  usePageMeta({
+    title: activeCostumbre
+      ? `${activeCostumbre.title} | Costumbres`
+      : "Costumbres y tradiciones | Nuestro Pueblo",
+    description: activeCostumbre
+      ? activeCostumbre.summary
+      : "Costumbres, juegos y celebraciones que forman parte de la memoria de nuestra tierra.",
+    path: activeCostumbre ? `/costumbres/${activeCostumbre.id}` : "/costumbres",
+    image: activeCostumbre
+      ? activeCostumbre.type === "single"
+        ? activeCostumbre.image
+        : activeCostumbre.gallery?.[0]?.src
+      : undefined,
+    imageAlt: activeCostumbre ? activeCostumbre.title : "Costumbres y tradiciones"
+  });
 
   const scrollToCostumbre = (id, behavior = "auto") => {
     const header = document.getElementById(`costumbres-header-${id}`);

@@ -6,7 +6,7 @@ import {
   MEMORIAS_BASE_PATH,
   getMemoriasHistoriaBySlug
 } from "./data";
-import usePageMeta from "./usePageMeta";
+import usePageMeta from "../../hooks/usePageMeta";
 import "./MemoriasDeNuestraTierra.css";
 
 const MemoriasDeNuestraTierraHistoria = () => {
@@ -23,6 +23,10 @@ const MemoriasDeNuestraTierraHistoria = () => {
     description: isPublished
       ? historia.description
       : "Historias reales de inmigrantes de Colonia Caroya recopiladas por Martha Canale en su libro Hacer la America."
+    ,
+    path: isPublished ? `${MEMORIAS_BASE_PATH}/${historia.slug}` : MEMORIAS_BASE_PATH,
+    image: isPublished ? historia.image : undefined,
+    imageAlt: isPublished ? historia.title : "Memorias de Nuestra Tierra"
   });
 
   const openImage = (gallery, index = 0) => setLightbox({ gallery, index });

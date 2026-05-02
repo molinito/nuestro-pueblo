@@ -4,14 +4,15 @@ import {
   MEMORIAS_BASE_PATH,
   memoriasHistorias
 } from "./data";
-import usePageMeta from "./usePageMeta";
+import usePageMeta from "../../hooks/usePageMeta";
 import "./MemoriasDeNuestraTierra.css";
 
 const MemoriasDeNuestraTierraIndex = () => {
   usePageMeta({
     title: "Memorias de Nuestra Tierra | Historias de Martha Canale",
     description:
-      "Historias reales de inmigrantes de Colonia Caroya recopiladas por Martha Canale en su libro Hacer la America."
+      "Historias reales de inmigrantes de Colonia Caroya recopiladas por Martha Canale en su libro Hacer la America.",
+    path: "/memorias"
   });
 
   return (

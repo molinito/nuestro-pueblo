@@ -3,6 +3,7 @@ import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Inicio.module.css";
 import Carousel from "../Carousel/Carousel";
+import usePageMeta from "../../hooks/usePageMeta";
 import sinsacateOrigen from "./origenes/sinsacate 1930.png";
 import jesusMariaOrigen from "./origenes/jesus maria 1870-1880.png";
 import caroyaOrigen from "./origenes/caroya.png";
@@ -32,6 +33,13 @@ const Card = ({ title, description, link, className }) => {
 const CardList = () => {
   const location = useLocation();
   const [lightbox, setLightbox] = useState(null);
+
+  usePageMeta({
+    title: "Nuestro Pueblo: historia, lugares y memoria de Jesus Maria, Colonia Caroya y Sinsacate",
+    description:
+      "Portal turistico cultural con historias, lugares, eventos y costumbres de Jesus Maria y Colonia Caroya (Cordoba, Argentina).",
+    path: "/"
+  });
 
   useEffect(() => {
     if (!location.hash) return;

@@ -1,10 +1,10 @@
 const { spawnSync } = require("child_process");
 
-const isVercel = String(process.env.VERCEL || "").toLowerCase() === "1";
 const isStrict = String(process.env.POSTBUILD_STRICT || "") === "1";
+const isDisabled = String(process.env.REACT_SNAP_DISABLE || "") === "1";
 
-if (isVercel) {
-  console.log("Skipping react-snap on Vercel.");
+if (isDisabled) {
+  console.log("Skipping react-snap (REACT_SNAP_DISABLE=1).");
   process.exit(0);
 }
 

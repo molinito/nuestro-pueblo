@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./AyerHoy.css";
+import usePageMeta from "../../hooks/usePageMeta";
 import ayeryhoy from "./galeria/ayeryhoy.webp";
 import ayeryhoy1 from "./galeria/ayeryhoy1.webp";
 import ayeryhoy2 from "./galeria/ayeryhoy2.webp";
@@ -193,6 +194,15 @@ const AyerHoy = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+
+  usePageMeta({
+    title: ayerHoyId ? `Ayer y Hoy: ${ayerHoyId} | Nuestro Pueblo` : "Ayer y Hoy | Nuestro Pueblo",
+    description:
+      "Comparativas visuales del ayer y el hoy: edificios, comercios y postales de Jesus Maria y Colonia Caroya.",
+    path: ayerHoyId ? `/ayer-hoy/${ayerHoyId}` : "/ayer-hoy",
+    image: ayeryhoy,
+    imageAlt: "Ayer y Hoy"
+  });
 
   const scrollToAyerHoy = (id, behavior = "auto") => {
     const header = document.getElementById(`ayer-hoy-header-${id}`);

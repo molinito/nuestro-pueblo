@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Personajes.css";
+import usePageMeta from "../../hooks/usePageMeta";
 import cufre from "./cufre/cufre.webp";
 import donaMecha from "./dona-mecha/donaMecha.webp";
 import dolivo from "./oscar-dolivo/dolivo.webp";
@@ -427,6 +428,23 @@ const Personajes = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+
+  const activePersonaje = personajeId ? personajes.find((p) => p.id === personajeId) : null;
+  usePageMeta({
+    title: activePersonaje
+      ? `${activePersonaje.title} | Personajes`
+      : "Memorias de nuestra gente | Personajes | Nuestro Pueblo",
+    description: activePersonaje
+      ? activePersonaje.summary
+      : "Relatos y personajes de Jesus Maria y Colonia Caroya: postales de quienes dejaron huella.",
+    path: activePersonaje ? `/personajes/${activePersonaje.id}` : "/personajes",
+    image: activePersonaje
+      ? activePersonaje.type === "single"
+        ? activePersonaje.image
+        : activePersonaje.gallery?.[0]?.src
+      : undefined,
+    imageAlt: activePersonaje ? activePersonaje.title : "Personajes de la zona"
+  });
 
   const scrollToPersonaje = (id, behavior = "auto") => {
     const header = document.getElementById(`personajes-header-${id}`);

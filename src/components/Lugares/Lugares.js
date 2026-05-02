@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
+import usePageMeta from "../../hooks/usePageMeta";
 import { estanciaJesuitica } from "./estancia-jesuitica/data";
 import { postaSinsacate } from "./sinsacate/data";
 import { sinsaCarruajes } from "./sinsa-carruajes/data";
@@ -41,6 +42,21 @@ const Lugares = () => {
     currentLightboxPhoto.referenceSrc
       ? currentLightboxPhoto.referenceSrc
       : currentLightboxPhoto?.src;
+
+  const activeLugar = lugarId ? lugares.find((l) => l.id === lugarId) : null;
+  usePageMeta({
+    title: activeLugar ? `${activeLugar.title} | Lugares` : "Lugares para visitar | Nuestro Pueblo",
+    description: activeLugar
+      ? activeLugar.summary
+      : "Postales, memoria y patrimonio: lugares para visitar en Jesus Maria y Colonia Caroya.",
+    path: activeLugar ? `/lugares/${activeLugar.id}` : "/lugares",
+    image: activeLugar
+      ? activeLugar.type === "single"
+        ? activeLugar.image
+        : activeLugar.gallery?.[0]?.src
+      : undefined,
+    imageAlt: activeLugar ? activeLugar.title : "Lugares para visitar"
+  });
 
   const scrollToLugar = (id, behavior = "auto") => {
     const header = document.getElementById(`lugares-header-${id}`);

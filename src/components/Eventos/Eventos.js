@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Eventos.css";
 import jm from "../../img/jm.webp";
+import usePageMeta from "../../hooks/usePageMeta";
 
 const Eventos = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  usePageMeta({
+    title: "Festival Nacional de Doma y Folclore | Eventos | Nuestro Pueblo",
+    description:
+      "Informacion del Festival Nacional de Doma y Folclore de Jesus Maria: tradicion, musica y cultura gaucha en Cordoba, Argentina.",
+    path: "/eventos",
+    image: jm,
+    imageAlt: "Festival Nacional de Doma y Folclore"
+  });
 
   const openImage = () => setIsOpen(true);
   const closeImage = () => setIsOpen(false);
@@ -34,7 +44,7 @@ const Eventos = () => {
           onKeyDown={handleKeyDown}
           aria-label="Agrandar imagen"
         >
-          <img src={jm} alt="Festival Nacional de Doma y Folclore" />
+          <img src={jm} alt="Festival Nacional de Doma y Folclore" loading="lazy" decoding="async" />
           <div className="eventos__overlay">Haz click para agrandar</div>
         </div>
         <div className="eventos__content">
@@ -80,7 +90,7 @@ const Eventos = () => {
       {isOpen && (
         <div className="eventos__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="eventos__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={jm} alt="Festival Nacional de Doma y Folclore" />
+            <img src={jm} alt="Festival Nacional de Doma y Folclore" loading="lazy" decoding="async" />
             <button type="button" className="eventos__lightbox-hint" onClick={closeImage}>
               Click para achicar
             </button>

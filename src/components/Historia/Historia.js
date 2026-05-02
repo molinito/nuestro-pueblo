@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
+import usePageMeta from "../../hooks/usePageMeta";
 import museoImg from "./museo-jesuitico/museo.webp";
 import historiaImg from "./colonia-san-martin/1.webp";
 import castillo1 from "./torre-cespedes/castillo1.webp";
@@ -219,6 +220,23 @@ const Historia = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+
+  const activeHistoria = historiaId ? historias.find((h) => h.id === historiaId) : null;
+  usePageMeta({
+    title: activeHistoria
+      ? `${activeHistoria.title} | Historia`
+      : "Historia de Jesus Maria y Colonia Caroya | Nuestro Pueblo",
+    description: activeHistoria
+      ? activeHistoria.summary
+      : "Historias, lugares y memorias que explican el origen de nuestros nombres, caminos y tradiciones.",
+    path: activeHistoria ? `/historia/${activeHistoria.id}` : "/historia",
+    image: activeHistoria
+      ? activeHistoria.type === "single"
+        ? activeHistoria.image
+        : activeHistoria.gallery?.[0]?.src
+      : undefined,
+    imageAlt: activeHistoria ? activeHistoria.title : "Historia de Jesus Maria y Colonia Caroya"
+  });
 
   const scrollToHistoria = (id, behavior = "auto") => {
     const header = document.getElementById(`historia-header-${id}`);

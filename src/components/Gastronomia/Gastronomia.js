@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Gastronomia.css";
 import comidasTipicas from "./comidas-tipicas.webp";
+import usePageMeta from "../../hooks/usePageMeta";
 
 const Gastronomia = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  usePageMeta({
+    title: "Fiesta de las Comidas Tipicas Caroyenses | Gastronomia | Nuestro Pueblo",
+    description:
+      "Fiesta de las Comidas Tipicas Caroyenses: tradicion e identidad gastronomica de Colonia Caroya, Cordoba, Argentina.",
+    path: "/gastronomia",
+    image: comidasTipicas,
+    imageAlt: "Fiesta de las Comidas Tipicas Caroyenses"
+  });
 
   const openImage = () => setIsOpen(true);
   const closeImage = () => setIsOpen(false);
@@ -38,6 +48,8 @@ const Gastronomia = () => {
             <img
               src={comidasTipicas}
               alt="Fiesta de las Comidas Típicas Caroyenses"
+              loading="lazy"
+              decoding="async"
             />
             <div className="gastronomia__overlay">Haz click para agrandar</div>
           </div>
@@ -71,7 +83,7 @@ const Gastronomia = () => {
       {isOpen && (
         <div className="gastronomia__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="gastronomia__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={comidasTipicas} alt="Fiesta de las Comidas Típicas Caroyenses" />
+            <img src={comidasTipicas} alt="Fiesta de las Comidas Típicas Caroyenses" loading="lazy" decoding="async" />
             <button type="button" className="gastronomia__lightbox-hint" onClick={closeImage}>
               Click para achicar
             </button>
