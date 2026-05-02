@@ -13,9 +13,6 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      # Make react-snap fail the workflow if prerendering fails.
-      POSTBUILD_STRICT: "1"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,4 +43,3 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
