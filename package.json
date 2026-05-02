@@ -56,9 +56,12 @@
     "fixWebpackChunksIssue": "CRA2",
     "puppeteerArgs": [
       "--no-sandbox",
-      "--disable-setuid-sandbox"
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage"
     ],
     "skipThirdPartyRequests": true,
+    "preconnectThirdParty": false,
+    "cacheAjaxRequests": true,
     "include": [
       "/",
       "/acerca-de",
