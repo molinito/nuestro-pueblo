@@ -25,6 +25,14 @@ const MemoriasLegacyRedirect = () => {
   return <Navigate to={memoriaSlug ? `/memorias/${memoriaSlug}` : "/memorias"} replace />;
 };
 
+const shouldRenderVercelAnalytics = () => {
+  // During react-snap prerender, navigator.userAgent is "ReactSnap".
+  // Vercel Analytics injects a script from "/_vercel/insights/script.js" which
+  // does not exist in the local prerender server and causes "Unexpected token '<'".
+  if (typeof navigator !== "undefined" && navigator.userAgent === "ReactSnap") return false;
+  return true;
+};
+
 const App = () => {
   return (
     
@@ -74,7 +82,7 @@ const App = () => {
         </Routes>
 
         <Footer />
-        <Analytics />
+        {shouldRenderVercelAnalytics() ? <Analytics /> : null}
       </BrowserRouter>
     </div>
     
