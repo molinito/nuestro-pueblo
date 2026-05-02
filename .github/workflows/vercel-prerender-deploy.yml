@@ -45,6 +45,13 @@ jobs:
           path: .vercel/output
           if-no-files-found: error
 
+      - name: Upload react-snap log (debug)
+        uses: actions/upload-artifact@v4
+        with:
+          name: react-snap-log
+          path: build/react-snap.log
+          if-no-files-found: warn
+
       - name: List prerendered HTML files (debug)
         run: |
           echo "HTML files in .vercel/output/static:"
