@@ -49,7 +49,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: react-snap-log
-          path: build/react-snap.log
+          path: |
+            build/react-snap.log
+            build/react-snap-files.log
           if-no-files-found: warn
 
       - name: List prerendered HTML files (debug)

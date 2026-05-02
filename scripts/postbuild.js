@@ -29,6 +29,22 @@ try {
   console.warn("Failed to write react-snap log file:", err && err.message ? err.message : err);
 }
 
+// Also log which routes were actually materialized as HTML on disk.
+try {
+  const entries = fs.readdirSync(path.join(process.cwd(), "build"), { withFileTypes: true });
+  const topLevelDirs = entries.filter((e) => e.isDirectory()).map((e) => e.name).sort();
+  const topLevelHtml = entries.filter((e) => e.isFile() && e.name.endsWith(".html")).map((e) => e.name).sort();
+  const outPath2 = path.join(process.cwd(), "build", "react-snap-files.log");
+  fs.writeFileSync(
+    outPath2,
+    `Top-level .html files:\\n${topLevelHtml.join(\"\\n\")}\\n\\nTop-level directories:\\n${topLevelDirs.join(\"\\n\")}\\n`,
+    "utf8"
+  );
+  console.log(`Saved react-snap file listing to ${outPath2}`);
+} catch (err) {
+  console.warn("Failed to write react-snap file listing:", err && err.message ? err.message : err);
+}
+
 if ((result.status ?? 0) !== 0 && !isStrict) {
   // react-snap relies on Chromium. If it cannot launch locally, do not fail the build.
   console.warn("react-snap failed; continuing without prerender (set POSTBUILD_STRICT=1 to fail).");
