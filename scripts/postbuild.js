@@ -37,7 +37,7 @@ try {
   const outPath2 = path.join(process.cwd(), "build", "react-snap-files.log");
   fs.writeFileSync(
     outPath2,
-    `Top-level .html files:\\n${topLevelHtml.join(\"\\n\")}\\n\\nTop-level directories:\\n${topLevelDirs.join(\"\\n\")}\\n`,
+    `Top-level .html files:\n${topLevelHtml.join("\n")}\n\nTop-level directories:\n${topLevelDirs.join("\n")}\n`,
     "utf8"
   );
   console.log(`Saved react-snap file listing to ${outPath2}`);
