@@ -35,6 +35,16 @@ export const searchIndex = [
     section: "Historia"
   },
   {
+    id: "historia-rossi",
+    title: "La tierra, la noche y el silencio",
+    subtitle: "Relato documental sobre familias pioneras y trabajo rural en Colonia Caroya",
+    href: "/historia/rossi",
+    section: "Historia",
+    content:
+      "A fines del siglo XIX, cuando Colonia Caroya era apenas monte y esperanza, muchas familias llegaron desde Italia con lo puesto y un futuro incierto. La historia de Teresa Casutti y Luis Baldo se entrelaza con la de Luis Rossi y su hermana Filomena, figura clave en los primeros anos de la colonia.",
+    keywords: ["rossi", "luis rossi", "filomena", "teresa casutti", "luis baldo"]
+  },
+  {
     id: "historia-belgrano",
     title: "Cuando Belgrano cruzó nuestra tierra",
     subtitle: "El paso del prócer por Jesús María y Colonia Caroya",

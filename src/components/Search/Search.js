@@ -16,7 +16,16 @@ const normalizeText = (value) =>
     .trim();
 
 const buildSearchText = (item) =>
-  [item.title, item.subtitle, item.section, ...(item.highlights || [])]
+  [
+    item.title,
+    item.subtitle,
+    item.section,
+    item.id,
+    item.href,
+    item.content,
+    ...(item.highlights || []),
+    ...(item.keywords || [])
+  ]
     .filter(Boolean)
     .join(" ");
 
