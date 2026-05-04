@@ -45,6 +45,16 @@ export const searchIndex = [
     keywords: ["rossi", "luis rossi", "filomena", "teresa casutti", "luis baldo"]
   },
   {
+    id: "memorias-rol-de-la-mujer",
+    title: "El rol de la mujer",
+    subtitle: "Trabajo, maternidad y resiliencia en la inmigracion a Colonia Caroya",
+    href: "/memorias/rol-de-la-mujer",
+    section: "Memorias",
+    content:
+      "Para la mujer inmigrante el trabajo era un habito obligado. Muchas madres debian ir a trabajar al campo, criar a sus hijos, sostener el hogar y transmitir valores en tiempos duros.",
+    keywords: ["mujer", "mujeres", "madres", "inmigrantes", "colonia caroya", "hacer la america"]
+  },
+  {
     id: "historia-belgrano",
     title: "Cuando Belgrano cruzó nuestra tierra",
     subtitle: "El paso del prócer por Jesús María y Colonia Caroya",
