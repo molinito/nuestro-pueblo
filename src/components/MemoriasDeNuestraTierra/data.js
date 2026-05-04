@@ -8,6 +8,10 @@ import platano6 from "./platano6.webp";
 import platano7 from "./platano7.webp";
 import platano8 from "./platano8.webp";
 import mujeresCover from "./mujeres.jpg";
+import rol from "./rol/rol.webp";
+import rol1 from "./rol/rol1.webp";
+import rol2 from "./rol/rol2.webp";
+import rol3 from "./rol/rol3.webp";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -115,6 +119,22 @@ export const memoriasHistorias = [
       "Las labores y manualidades se hacían en casa. Cosían, bordaban, tejían con la lana que allí procesaban. Zurcían la ropa como verdaderas artesanas. Los mates de zapallitos que crecían como enredaderas por sobre los alambrados se usaban como sostén para zurcir las medias.",
       "Cuando alguna esposa enviudaba, vestía toda de negro casi de por vida y usaba pañuelito, también negro, en la cabeza.",
       "Las hijas aliviaban a la madre y tenían repartidas las tareas en forma organizada, al punto que iban rotando una semana cada una en el lavado de la ropa, cocinar y amasar el pan, y realizar tareas en el campo. Cenaban a la bajada del sol; así podían acostar temprano a los niños y dedicar un tiempo a la costura, al tejido o el bordado para el futuro ajuar de las niñas casaderas. Todo se hacía en el hogar."
+    ],
+    inlineGalleries: [
+      {
+        afterParagraphIndex: 2,
+        images: [
+          { src: rol, alt: "El rol de la mujer inmigrante (imagen 1)" },
+          { src: rol1, alt: "Trabajo y vida familiar en la colonia (imagen 2)" }
+        ]
+      },
+      {
+        afterParagraphIndex: 9,
+        images: [
+          { src: rol2, alt: "Maternidad, crianza y trabajo (imagen 3)" },
+          { src: rol3, alt: "Vida cotidiana y tareas del hogar (imagen 4)" }
+        ]
+      }
     ]
   },
   {
