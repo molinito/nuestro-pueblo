@@ -7,7 +7,7 @@ import platano5 from "./platano5.webp";
 import platano6 from "./platano6.webp";
 import platano7 from "./platano7.webp";
 import platano8 from "./platano8.webp";
-import marthaCanaleCover from "./martha-canale.webp";
+import mujeresCover from "./mujeres.jpg";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -86,8 +86,8 @@ export const memoriasHistorias = [
     title: "El rol de la mujer",
     description:
       "Un fragmento sobre el trabajo, la maternidad y la resiliencia de las mujeres inmigrantes en los primeros años de Colonia Caroya.",
-    image: marthaCanaleCover,
-    imageAlt: "Martha Canale Vicentini",
+    image: mujeresCover,
+    imageAlt: "Mujeres inmigrantes",
     intro:
       "En los primeros tiempos de la colonia, la vida familiar se sostenía con un esfuerzo constante. Este fragmento retrata, con crudeza y humanidad, el rol de la mujer inmigrante: el trabajo, la crianza, el dolor y la esperanza.",
     closing:
