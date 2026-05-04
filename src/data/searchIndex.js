@@ -41,18 +41,18 @@ export const searchIndex = [
     href: "/historia/rossi",
     section: "Historia",
     content:
-      "A fines del siglo XIX, cuando Colonia Caroya era apenas monte y esperanza, muchas familias llegaron desde Italia con lo puesto y un futuro incierto. La historia de Teresa Casutti y Luis Baldo se entrelaza con la de Luis Rossi y su hermana Filomena, figura clave en los primeros anos de la colonia.",
+      "A fines del siglo XIX, cuando Colonia Caroya era apenas monte y esperanza, muchas familias llegaron desde Italia con lo puesto y un futuro incierto. La historia de Teresa Casutti y Luis Baldo se entrelaza con la de Luis Rossi y su hermana Filomena, figura clave en los primeros años de la colonia.",
     keywords: ["rossi", "luis rossi", "filomena", "teresa casutti", "luis baldo"]
   },
   {
     id: "memorias-rol-de-la-mujer",
     title: "El rol de la mujer",
-    subtitle: "Trabajo, maternidad y resiliencia en la inmigracion a Colonia Caroya",
+    subtitle: "Trabajo, maternidad y resiliencia en la inmigración a Colonia Caroya",
     href: "/memorias/rol-de-la-mujer",
     section: "Memorias",
     content:
-      "Para la mujer inmigrante el trabajo era un habito obligado. Muchas madres debian ir a trabajar al campo, criar a sus hijos, sostener el hogar y transmitir valores en tiempos duros.",
-    keywords: ["mujer", "mujeres", "madres", "inmigrantes", "colonia caroya", "hacer la america"]
+      "Para la mujer inmigrante el trabajo era un hábito obligado. Muchas madres debían ir a trabajar al campo, criar a sus hijos, sostener el hogar y transmitir valores en tiempos duros.",
+    keywords: ["mujer", "mujeres", "madres", "inmigrantes", "colonia caroya", "hacer la américa"]
   },
   {
     id: "historia-belgrano",
