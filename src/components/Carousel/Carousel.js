@@ -9,6 +9,7 @@ import anaLondero from '../../img/galeria/ana-londero.webp';
 import avenida from '../../img/galeria/avenida.webp';
 import chataVieja from '../../img/galeria/chata-vieja.webp';
 import familia from '../../img/galeria/familia.webp';
+import familia1 from '../../img/galeria/familia1.webp';
 import familia2 from '../../img/galeria/familia2.webp';
 import friuli from '../../img/galeria/friuli.webp';
 import patioInternoCasaCaroya from '../../img/galeria/patiointerno-casacaroya.webp';
@@ -25,6 +26,10 @@ import familia6 from '../../img/galeria/familia6.webp';
 import familia7 from '../../img/galeria/familia7.webp';
 import renatoEynard from '../../img/galeria/renato-eynard.webp';
 import escuelaVarones1923 from '../../img/galeria/escuela-varones-1923.webp';
+import jugadoresClubAgraria1966 from '../../img/galeria/jugadores-club-agraria-1966.webp';
+import munecaSusana from '../../img/galeria/la-del-medio-con-la-muneca-susana-de-candido.webp';
+import canaleMellizo from '../../img/galeria/sentado-izq-jose-canale-medio-susana-de-candido-y-derc-miguel-canale-mellizo.webp';
+import gildaFilomena from '../../img/galeria/parada-izq-gilda-hija-de-filomena-y-debajo-de-ella-la-otra-hija-de-filomena.webp';
 import albumCover from '../../img/album.png';
 
 const defaultSlides = [
@@ -37,6 +42,11 @@ const defaultSlides = [
   avenida,
   chataVieja,
   familia,
+  {
+    src: familia1,
+    alt: 'Familia (foto histórica)',
+    caption: 'Familia (archivo histórico). Créditos Susana de Cándido de Facebook.',
+  },
   familia2,
   friuli,
   patioInternoCasaCaroya,
@@ -93,12 +103,36 @@ const defaultSlides = [
     caption:
       'Esc de Varones, Jesus María 1923. La Directora , al centro , es la Srta Lydia Olmos Ossán.',
   },
+  {
+    src: jugadoresClubAgraria1966,
+    alt: 'Jugadores Club Agraria 1966',
+    caption: 'Jugadores Club Agraria (1966). Créditos Susana de Cándido de Facebook.',
+  },
+  {
+    src: munecaSusana,
+    alt: 'La del medio con la muñeca (Susana de Cándido)',
+    caption:
+      'La del medio con la muñeca - Susana de Cándido. Créditos Susana de Cándido de Facebook.',
+  },
+  {
+    src: canaleMellizo,
+    alt: 'Sentado izq. José Canale, medio Susana de Cándido y derc. Miguel Canale (mellizo)',
+    caption:
+      'Sentado izq. José Canale, medio Susana de Cándido y derc. Miguel Canale (mellizo). Créditos Susana de Cándido de Facebook.',
+  },
+  {
+    src: gildaFilomena,
+    alt: 'Parada izq. Gilda hija de Filomena y debajo de ella la otra hija de Filomena',
+    caption:
+      'Parada izq. Gilda (hija de Filomena) y debajo de ella la otra hija de Filomena. Créditos Susana de Cándido de Facebook.',
+  },
 ];
 
 function CustomCarousel({
   slides = defaultSlides,
   title = 'Descubre Nuestro Pueblo',
   subtitle = 'Un recorrido visual por nuestras tradiciones, lugares y gente',
+  credits = 'Créditos Susana de Cándido de Facebook.',
   ariaLabel = 'Galería de imágenes',
   onImageClick,
 }) {
@@ -216,6 +250,7 @@ function CustomCarousel({
         <header className="npAlbum__title">
           {title && <h2>{title}</h2>}
           {subtitle && <p>{subtitle}</p>}
+          {credits && <p className="npAlbum__credits">{credits}</p>}
         </header>
       )}
 

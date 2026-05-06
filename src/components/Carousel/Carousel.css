@@ -37,6 +37,12 @@
   color: #3e2f21;
 }
 
+.npAlbum__credits {
+  margin: 6px 0 0 0;
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: rgba(62, 47, 33, 0.75);
+}
+
 .npAlbum__cover {
   width: min(760px, 100%);
   margin: 0 auto;
