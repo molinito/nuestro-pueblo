@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./Inicio.module.css";
@@ -41,13 +41,28 @@ const CardList = () => {
     path: "/"
   });
 
-  useEffect(() => {
-    if (!location.hash) return;
-    const target = document.querySelector(location.hash);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.setTimeout(() => window.scrollBy(0, -90), 0);
-    }
+  useLayoutEffect(() => {
+    if (!location.hash) return undefined;
+    let cancelled = false;
+
+    const scrollToHash = (attempt = 0) => {
+      if (cancelled) return;
+      const target = document.querySelector(location.hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+        window.scrollBy(0, -90);
+        return;
+      }
+      if (attempt < 20) {
+        requestAnimationFrame(() => scrollToHash(attempt + 1));
+      }
+    };
+
+    // Wait for layout/paint (especially important on first load).
+    requestAnimationFrame(() => scrollToHash(0));
+    return () => {
+      cancelled = true;
+    };
   }, [location.hash]);
 
   return (
@@ -481,8 +496,8 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-      <section id="album">
-        <span id="album-fotos" style={{ position: "relative", top: "-90px" }} aria-hidden="true" />
+      <section id="album" style={{ scrollMarginTop: 100 }}>
+        <span id="album-fotos" style={{ scrollMarginTop: 100 }} aria-hidden="true" />
         <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
         <h3 className={styles.subtitle}>
           Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
