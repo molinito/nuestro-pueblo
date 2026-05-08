@@ -46,6 +46,7 @@ const CardList = () => {
     const target = document.querySelector(location.hash);
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.setTimeout(() => window.scrollBy(0, -90), 0);
     }
   }, [location.hash]);
 
@@ -480,7 +481,8 @@ const CardList = () => {
 
       <h3 className={styles.divider}>__________________________</h3>
 
-      <section id="album-fotos">
+      <section id="album">
+        <span id="album-fotos" style={{ position: "relative", top: "-90px" }} aria-hidden="true" />
         <h2 className={styles.title}>Visita nuestra galería de fotos</h2>
         <h3 className={styles.subtitle}>
           Reviviremos momentos que quedaron plasmados en el ojo de una cámara, desde
