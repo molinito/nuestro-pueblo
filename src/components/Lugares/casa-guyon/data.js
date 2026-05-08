@@ -24,26 +24,36 @@ export const casaGuyon = {
   id: "casa-guyon",
   title: "Casa Guyón",
   summary:
-    "La casona en ruinas y su parque botánico, testigos de una época de esplendor social.",
+    "Entre la grandeza, el poder y el abandono: la historia del chalet Guyón en Colonia Caroya.",
   address: "Dirección: Av. San Martín 1034, Colonia Caroya.",
   type: "gallery",
   gallery: guyonPhotos,
   paragraphs: [
-    "La Casa Guyón en Colonia Caroya, también conocida como el Chalet de Guyón o \"castillo\", es una histórica casona en ruinas ubicada en el Parque Urbano María Fogliarini de Guyón, en Avenida San Martín 1034, un espacio verde municipal que ahora alberga el Skate Bike Park y zonas recreativas, conservando vestigios de su opulencia pasada como parque botánico y lugar de vida social, a pesar de las disputas de herencia que la llevaron al abandono y la posterior recuperación municipal.",
+    "En el corazón de Colonia Caroya, sobre la tradicional Avenida San Martín, aún se alzan los restos de una construcción que alguna vez fue símbolo de poder, elegancia y vida social: la Casa Guyón.",
+    "Hoy, rodeada por el Parque Urbano María Fogliarini de Guyón, entre jóvenes que recorren el Skate Park y familias que disfrutan del espacio verde, la vieja casona parece observar en silencio el paso del tiempo, conservando ecos de un pasado tan brillante como conflictivo.",
+    "Pero la historia de este lugar no comienza con sus muros, sino mucho antes… con un hombre.",
   ],
-  featuresTitle: "Historia y características",
+  featuresTitle: "La historia de la Casa Guyón",
   features: [
     {
-      title: "Orígenes",
-      text: "Construida por Antonio Guyón y María Fogliarini, una adinerada familia que heredó propiedades, convirtiéndola en un símbolo de riqueza con materiales importados y un estilo ecléctico.",
+      title: "El origen",
+      text: "Andrés Fogliarini, inmigrante italiano llegado en los primeros años de la colonia, era —según cuentan— un hombre que no sabía leer ni escribir. Sin embargo, poseía una intuición y una visión poco comunes que le permitieron convertirse en uno de los primeros grandes terratenientes de la región. Fue intendente de Colonia Caroya entre 1902 y 1905, y su influencia se extendía más allá de la política: era propietario de tierras, acciones de agua y estancias como “El Indio”, en la zona de San Durí. Tras un desacuerdo con la Municipalidad —que rechazó comprarle sus acciones de agua— decidió impulsar la creación de un nuevo asentamiento: Colonia Vicente Agüero.",
     },
     {
-      title: "Lujo y grandeza",
-      text: "Era un lugar suntuoso, con mobiliario importado, cristalería, un piano y un gran jardín que funcionaba casi como un zoológico con aves exóticas, pajareras y diversas plantas.",
+      title: "Herencia, matrimonio y ascenso social",
+      text: "Toda esa riqueza recaería en una sola heredera: María Fogliarini. Dueña de más de 30 propiedades, su figura representaba la continuidad de ese poder económico. Su matrimonio con Antonio Guyón marcaría un giro inesperado: él, un maquinista del ferrocarril, pasó en pocos años de una vida humilde a convertirse en administrador de un vasto patrimonio… y más tarde, en Senador Provincial. Allí crecieron sus cinco hijos: Chicho, Nino, Pipo, Pipina y Porota.",
     },
     {
-      title: "Vida social",
-      text: "Fue centro de reuniones políticas y tertulias, con un estilo que recordaba a un castillo europeo.",
+      title: "El chalet: símbolo de opulencia y vida social",
+      text: "En la década de 1940, Antonio Guyón decidió construir una residencia acorde a su nueva posición. Eligió un terreno privilegiado, junto a la bodega Intihuasi, sobre la avenida principal. Así nació el famoso “chalet Guyón”, una casa de estilo ecléctico que muchos describían como un pequeño castillo europeo en medio de la colonia. La propiedad era imponente: siete habitaciones y tres baños, dos comedores amplios, una gran galería de acceso, uno de los primeros teléfonos fijos de la zona, mobiliario importado, cristalería fina y hasta un piano. El entorno la distinguía: un parque que parecía un jardín botánico, con aves exóticas, pajareras y especies vegetales traídas de distintos lugares. Desde la avenida, un túnel de árboles guiaba a los visitantes hasta la parte posterior de la casa, ya que el frente nunca llegó a completarse. La Casa Guyón no era solo una residencia: era un punto de encuentro, un escenario donde se mezclaban la política, las tertulias, las decisiones importantes y la vida social de una época.",
+    },
+    {
+      title: "El inicio del conflicto",
+      text: "Con la muerte de Antonio Guyón en 1956, comenzó lentamente el ocaso. Lo que había sido símbolo de unión familiar se transformó en motivo de disputa. La muerte de Rodolfo (Nino) fue el primer quiebre, y a partir de allí comenzaron los conflictos y la fragmentación del patrimonio.",
+    },
+    {
+      title: "El abandono y la memoria",
+      text: "Mientras los conflictos se multiplicaban en los papeles, el chalet quedaba vacío. Sin mantenimiento, sin habitantes, sin vida… la casa comenzó a deteriorarse. El paso del tiempo, el vandalismo y los saqueos hicieron el resto. Lo que alguna vez fue un símbolo de opulencia se convirtió en ruina. Hoy, integrada al parque urbano, la Casa Guyón convive con nuevas generaciones que tal vez no conocen su historia completa. Pero sus paredes, aunque desgastadas, todavía cuentan algo.",
     },
   ],
   credit: {
