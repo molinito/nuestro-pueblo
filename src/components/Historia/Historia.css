@@ -315,6 +315,25 @@
   margin: 0;
 }
 
+.historia__acknowledgements {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.3rem 0 0.2rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(250, 234, 244, 0.86);
+  border: 1px solid rgba(163, 0, 72, 0.22);
+  box-shadow: 0 10px 20px rgba(115, 0, 52, 0.08);
+}
+
+.historia__acknowledgements p {
+  margin: 0;
+  color: rgba(115, 0, 52, 0.95);
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
 .historia__list-title {
   margin: 0.6rem 0 0;
   font-weight: 700;
@@ -432,17 +451,19 @@
 
 .historia__gallery-caption {
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  padding: 8px 10px;
-  border-radius: 12px;
-  background: rgba(24, 0, 12, 0.55);
-  color: rgba(255, 255, 255, 0.92);
+  left: 50%;
+  bottom: 12px;
+  width: min(calc(100% - 20px), 94%);
+  transform: translateX(-50%);
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(92, 92, 92, 0.62);
+  color: #fff;
   font-weight: 650;
   font-size: 0.86rem;
   line-height: 1.25;
   letter-spacing: 0.01em;
+  text-align: center;
   backdrop-filter: blur(6px);
 }
 
@@ -539,6 +560,11 @@
   justify-items: center;
 }
 
+.historia__lightbox-imageWrap {
+  position: relative;
+  width: 100%;
+}
+
 .historia__lightbox img {
   width: 100%;
   height: auto;
@@ -546,6 +572,67 @@
   object-fit: contain;
   border-radius: 16px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.historia__lightbox-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  width: min(calc(100% - 36px), 900px);
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  background: rgba(92, 92, 92, 0.66);
+  color: #fff;
+  text-align: center;
+  font-size: clamp(0.9rem, 1.8vw, 1.08rem);
+  font-weight: 650;
+  line-height: 1.35;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+}
+
+.historia__lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(24, 0, 12, 0.45);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  z-index: 5;
+}
+
+.historia__lightbox-nav.is-prev {
+  left: 0.6rem;
+}
+
+.historia__lightbox-nav.is-next {
+  right: 0.6rem;
+}
+
+.historia__lightbox-nav:hover {
+  background: rgba(24, 0, 12, 0.7);
+}
+
+.historia__lightbox-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.historia__lightbox-counter {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .historia__lightbox-hint {

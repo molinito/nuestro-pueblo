@@ -107,7 +107,90 @@ const rossiPhotos = [
   },
 ];
 
+const jesusMariaImageContext = require.context("./jesus-maria", false, /\.webp$/);
+
+const jesusMariaPhotos = [
+  { file: "1.webp" },
+  { file: "2.webp" },
+  { file: "3.webp" },
+  { file: "4.webp" },
+  { file: "5.webp" },
+  { file: "6.webp" },
+  { file: "7.webp" },
+  { file: "8.webp" },
+  {
+    file: "9.webp",
+    caption:
+      "Foto desde atrás del Museo, de fondo línea blanca con el río y detrás un par de casonas, todo lo que existía entre 1870-1880. Fuente facebook",
+  },
+  {
+    file: "10.webp",
+    caption: "Foto don Pío León, de fondo museo Jesuítico",
+  },
+  {
+    file: "11.webp",
+    caption: "Foto real estación Jesús Maria, finales 1870",
+  },
+  { file: "12.webp" },
+  {
+    file: "13.webp",
+    caption: "Escuela Ortíz de Ocampo, sin datos fecha",
+  },
+  {
+    file: "14.webp",
+    caption: "Maestras Escuela O. de Ocampo, año 1940, créditos Aldo Eynard",
+  },
+  {
+    file: "15.webp",
+    caption: "Alumnos escuela O. de Ocampo, sin datos de fecha",
+  },
+  {
+    file: "16.webp",
+    caption: "Capilla Hospital Vicente Agüero",
+  },
+  { file: "17.webp" },
+  { file: "18.webp" },
+  { file: "19.webp" },
+  { file: "20.webp" },
+  { file: "21.webp" },
+  { file: "sociedad.webp" },
+].map(({ file, caption }) => ({
+  src: jesusMariaImageContext(`./${file}`),
+  alt: caption ?? `Historia de Jesús María - ${file.replace(".webp", "")}`,
+  caption,
+}));
+
 const historias = [
+  {
+    id: "jesus-maria",
+    title: "La historia de Jesús Maria",
+    summary:
+      "Un recorrido por los orígenes indígenas, la huella jesuítica, el ferrocarril y el crecimiento urbano de la ciudad.",
+    type: "gallery",
+    galleryNote: "Galería histórica de Jesús María.",
+    gallery: jesusMariaPhotos,
+    paragraphs: [
+      "Historia de Jesús María",
+      "Mucho antes de la llegada de los españoles, las tierras de Jesús María estaban habitadas por comunidades indígenas asentadas a orillas del río Guanusacate. Aquellos pueblos, luego llamados “comechingones”, vivían de la agricultura, la caza y la recolección, profundamente ligados a la naturaleza.",
+      "La historia de la región cambió en 1599 con la llegada de la Compañía de Jesús a Córdoba. En 1618, los jesuitas adquirieron la estancia que daría origen a Jesús María, donde desarrollaron un importante centro religioso y productivo, reconocido por su histórica bodega y el famoso vino “Lagrimilla de Oro”.",
+      "Tras la expulsión de los jesuitas en 1767, las tierras pasaron por distintos propietarios hasta que, en el siglo XIX, el avance del ferrocarril impulsó el nacimiento de un nuevo pueblo. Bajo el nombre de “Villa Primera”, comenzó el crecimiento urbano que más tarde sería oficialmente reconocido como Jesús María.",
+      "El progreso continuó con la llegada de inmigrantes, instituciones educativas, el correo, el hospital, el banco y numerosas organizaciones sociales que acompañaron el desarrollo de la ciudad.",
+      "En 1946, Jesús María fue declarada oficialmente ciudad, consolidando una historia construida a lo largo de siglos de encuentros, trabajo y transformación.",
+      "Hoy, su legado histórico permanece vivo en sus calles, edificios y tradiciones, convirtiendo a Jesús María en una ciudad donde el pasado y el presente continúan encontrándose.",
+    ],
+    acknowledgements: [
+      "Datos historicos tomados del Museo Luis Biondi",
+      "Agradecimiento Directora Carmen Moyano, Museo Luis Biondi, por su enseñanza y paseo durante mi visita al museo.",
+      "Relato video, adaptado para el documental",
+    ],
+    videoInlineAfterParagraphIndex: 6,
+    video: {
+      title: "Historia de Jesús María",
+      href: "https://youtu.be/91sjpvKjNlU",
+      label: "Ver video en YouTube",
+      thumbnail: "https://img.youtube.com/vi/91sjpvKjNlU/hqdefault.jpg",
+    },
+  },
   {
     id: "festival-jesus-maria",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
@@ -220,6 +303,7 @@ const Historia = () => {
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+  const currentLightboxPhoto = lightbox ? lightbox.gallery[lightbox.index] : null;
 
   const activeHistoria = historiaId ? historias.find((h) => h.id === historiaId) : null;
   usePageMeta({
@@ -255,12 +339,34 @@ const Historia = () => {
     });
   };
 
-  const openImage = (src, alt) => setLightbox({ src, alt });
+  const openImage = (src, alt, gallery = [{ src, alt }], index = 0) =>
+    setLightbox({ gallery, index });
   const closeImage = () => setLightbox(null);
-  const handleImageKeyDown = (event, src, alt) => {
+  const showPrevImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex =
+        (current.index - 1 + current.gallery.length) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const showNextImage = () => {
+    setLightbox((current) => {
+      if (!current || current.gallery.length <= 1) return current;
+      const nextIndex = (current.index + 1) % current.gallery.length;
+      return { ...current, index: nextIndex };
+    });
+  };
+  const handleImageKeyDown = (
+    event,
+    src,
+    alt,
+    gallery = [{ src, alt }],
+    index = 0
+  ) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-      openImage(src, alt);
+      openImage(src, alt, gallery, index);
     }
   };
   const handleKeyDown = (event, id) => {
@@ -283,6 +389,17 @@ const Historia = () => {
     // Two RAFs ensures the accordion panel is laid out before we scroll.
     requestAnimationFrame(() => requestAnimationFrame(() => scrollToHistoria(historiaId, "auto")));
   }, [historiaId]);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") closeImage();
+      if (event.key === "ArrowLeft") showPrevImage();
+      if (event.key === "ArrowRight") showNextImage();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightbox]);
 
   return (
     <main className="historia">
@@ -439,6 +556,14 @@ const Historia = () => {
                         {historia.paragraphs.map((paragraph, index) => (
                           <React.Fragment key={`${historia.id}-p-${index}`}>
                             <p>{paragraph}</p>
+                            {historia.acknowledgements &&
+                            index === historia.paragraphs.length - 1 ? (
+                              <div className="historia__acknowledgements">
+                                {historia.acknowledgements.map((text) => (
+                                  <p key={text}>{text}</p>
+                                ))}
+                              </div>
+                            ) : null}
                             {historia.video &&
                             typeof historia.videoInlineAfterParagraphIndex === "number" &&
                             index === historia.videoInlineAfterParagraphIndex ? (
@@ -501,16 +626,21 @@ const Historia = () => {
                               }${index === 3 ? " is-tall" : ""}`}
                               role="button"
                               tabIndex={0}
-                              onClick={() => openImage(photo.src, photo.alt)}
+                              onClick={() =>
+                                openImage(photo.src, photo.alt, historia.gallery, index)
+                              }
                               onKeyDown={(event) =>
-                                handleImageKeyDown(event, photo.src, photo.alt)
+                                handleImageKeyDown(
+                                  event,
+                                  photo.src,
+                                  photo.alt,
+                                  historia.gallery,
+                                  index
+                                )
                               }
                               aria-label={`Agrandar imagen: ${photo.alt}`}
                             >
                               <img src={photo.src} alt={photo.alt} />
-                              {photo.caption ? (
-                                <div className="historia__gallery-caption">{photo.caption}</div>
-                              ) : null}
                               <div className="historia__overlay">Haz click para agrandar</div>
                             </div>
                           ))}
@@ -583,10 +713,47 @@ const Historia = () => {
       {lightbox && (
         <div className="historia__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="historia__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
-            <button type="button" className="historia__lightbox-hint" onClick={closeImage}>
-              Click para achicar
-            </button>
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="historia__lightbox-nav is-prev"
+                onClick={showPrevImage}
+                aria-label="Imagen anterior"
+              >
+                ‹
+              </button>
+            )}
+            <div className="historia__lightbox-imageWrap">
+              <img
+                src={currentLightboxPhoto?.src}
+                alt={currentLightboxPhoto?.alt || ""}
+              />
+              {currentLightboxPhoto?.caption && (
+                <p className="historia__lightbox-caption">
+                  {currentLightboxPhoto.caption}
+                </p>
+              )}
+            </div>
+            {lightbox.gallery.length > 1 && (
+              <button
+                type="button"
+                className="historia__lightbox-nav is-next"
+                onClick={showNextImage}
+                aria-label="Imagen siguiente"
+              >
+                ›
+              </button>
+            )}
+            <div className="historia__lightbox-actions">
+              {lightbox.gallery.length > 1 && (
+                <span className="historia__lightbox-counter">
+                  {lightbox.index + 1} / {lightbox.gallery.length}
+                </span>
+              )}
+              <button type="button" className="historia__lightbox-hint" onClick={closeImage}>
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}

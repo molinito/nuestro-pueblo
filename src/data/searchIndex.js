@@ -21,6 +21,16 @@ export const searchIndex = [
     section: "Historia"
   },
   {
+    id: "historia-jesus-maria",
+    title: "La historia de Jesús Maria",
+    subtitle: "Orígenes indígenas, legado jesuítico, ferrocarril y crecimiento urbano",
+    href: "/historia/jesus-maria",
+    section: "Historia",
+    content:
+      "Mucho antes de la llegada de los españoles, las tierras de Jesús María estaban habitadas por comunidades indígenas asentadas a orillas del río Guanusacate. La historia cambió con la llegada de la Compañía de Jesús, el desarrollo de la estancia, el avance del ferrocarril y la declaración de ciudad en 1946.",
+    keywords: ["jesus maria", "guanusacate", "comechingones", "jesuitas", "ferrocarril", "villa primera"]
+  },
+  {
     id: "historia-festival",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
     subtitle: "Tradiciones, folklore y doma en el corazón del verano",
