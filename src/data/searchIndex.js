@@ -65,6 +65,16 @@ export const searchIndex = [
     keywords: ["mujer", "mujeres", "madres", "inmigrantes", "colonia caroya", "hacer la américa"]
   },
   {
+    id: "memorias-aquel-nino",
+    title: "Aquel niño que quedó en Brasil",
+    subtitle: "La historia de Juan, la familia Copetti y un reencuentro entre Argentina y Brasil",
+    href: "/memorias/aquel-nino",
+    section: "Memorias",
+    content:
+      "Juan descendió por error durante una escala del barco Nord-América en Brasil. Décadas después, descendientes de la familia Copetti volvieron a reconocerse en Misiones y retomaron los lazos familiares.",
+    keywords: ["juan", "copetti", "brasil", "nord america", "misiones", "friulano", "colonia caroya"]
+  },
+  {
     id: "historia-belgrano",
     title: "Cuando Belgrano cruzó nuestra tierra",
     subtitle: "El paso del prócer por Jesús María y Colonia Caroya",

@@ -12,6 +12,12 @@ import rol from "./rol/rol.webp";
 import rol1 from "./rol/rol1.webp";
 import rol2 from "./rol/rol2.webp";
 import rol3 from "./rol/rol3.webp";
+import brasil1 from "./brasil/brasil1.webp";
+import brasil3 from "./brasil/brasil3.webp";
+import brasil4 from "./brasil/brasil4.webp";
+import brasil5 from "./brasil/brasil5.webp";
+import brasil6 from "./brasil/brasil6.webp";
+import brasil7 from "./brasil/brasil7.webp";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -139,11 +145,71 @@ export const memoriasHistorias = [
   },
   {
     number: 3,
-    status: "coming_soon",
-    title: "Próximamente",
-    description: "Historia en preparacion.",
-    image: platanos,
-    imageAlt: "Platanos de Colonia Caroya"
+    status: "published",
+    slug: "aquel-nino",
+    title: "Aquel niño que quedó en Brasil",
+    description:
+      "El relato de Juan, el niño que descendió por error en una escala del Nord-América en Brasil, y del reencuentro familiar que llegó décadas después.",
+    image: brasil1,
+    imageAlt: "Registro familiar vinculado al niño que quedó en Brasil",
+    intro:
+      "Entre los viajes de inmigrantes que unieron Italia con América, hubo una historia familiar marcada por una ausencia dolorosa: la de un niño que, por una confusión durante una escala, quedó en Brasil.",
+    closing:
+      "La memoria familiar volvió a reunir aquello que el viaje había separado. Décadas después, nombres, apellidos y una lengua compartida permitieron reconocer los lazos que seguían vivos.",
+    bookPromoLead:
+      "Este relato forma parte del libro Hacer la América - Fare I’America, de Martha Canale Vicentini, una obra que reúne historias, testimonios y memorias de los inmigrantes que forjaron nuestra tierra. ",
+    bookPromoStrong:
+      "Si querés conocer más anécdotas, te invitamos a adquirir el libro en formato físico. Lo podés conseguir en la Biblioteca Filomena Rossi, Av. San Martín 3731, Colonia Caroya, Córdoba, Argentina.",
+    fragmentTitle: "Relato (fragmento del libro “Hacer la América”)",
+    relatedVideo: {
+      href: "https://youtu.be/-xfK08DDr_M",
+      thumbnail: "https://i.ytimg.com/vi/-xfK08DDr_M/hqdefault.jpg",
+      title: "Ver video relacionado en YouTube"
+    },
+    fragment: [
+      "Con posterioridad al primer contingente, que también partió en el barco Nord-América desde Italia rumbo a América, viajó un grupo numeroso de familias que emigraban con destino a las repúblicas de Brasil y Argentina.",
+      "Entre ellos venían los hermanos Antonio, de 16 años; Bautista, apenas adolescente; y Juan, niño de pocos años. Les acompañaba una tía mayor, Ana Peresini.",
+      "Allá habían quedado la madre de los niños, Lucia Ceschiutti, y sus hermanas Ana, Ursula, María y Antonia, que vendrían a la Argentina en un viaje posterior.",
+      "Cuando embarcaron, no imaginaban que en ese viaje ocurriría un hecho tremendo. Ya en América, el navío hacía escala en Brasil. Allí quedaría un grupo de inmigrantes. El pequeño Juan era el travieso de los hermanos. Se entremezcló con los que descendían y, entre el tumulto formado por los saludos de la despedida final, baúles y enormes cajas con los enseres de quienes se radicarían en Brasil, no repararon, mientras el Nord-América levaba anclas, si alguien se habría quedado por error.",
+      "Zarpó el barco y, ya muy alejado del puerto de Brasil, tía y sobrinos buscaron reunirse. Faltaba uno de ellos, el más pequeño. Todos colaboraron en la búsqueda, familia y compatriotas, pero fue en vano.",
+      "Al describir las características, alguien dijo: \"Un niño así bajó con otros niños que iban con un matrimonio\".",
+      "Ya era tarde. El barco no regresaba a buscar a alguien que hubiere quedado. Habían perdido a Juan.",
+      "Así es como el niño quedó en Brasil y los demás llegaron a Colonia Caroya, siempre con ese sufrimiento de haber perdido un hermano, un sobrino. Cada noche elevaban plegarias implorando por el bienestar de Juan. En ese caso, él tendría mamá y papá.",
+      "Todo esto ocurrió en el siglo pasado. Años después tuvieron noticias de quien fuera el otrora niño perdido. Supieron que estaba muy bien. Hubo un tiempo de comunicación que, después, se diluyó.",
+      "Pero volvieron a retomarse los hilos cuando, allá por el año 1960, Héctor Copetti debió cumplir el servicio militar. Fue designado a Misiones, provincia del Litoral Argentino, en el límite con Brasil.",
+      "Estando en el cuartel, un superior se dirigió a la tropa y llamó: \"¡Copetti Héctor!\".",
+      "Al instante, dos soldados se presentaron. Se miraron sorprendidos: ambos tenían idénticos nombres y apellidos. Intentaron conocerse; averiguaron uno con el otro nombres de padres, abuelos y demás.",
+      "Descubrieron así que uno de ellos era nieto de uno de los hermanos llegado en aquel barco a la Argentina. El otro era nieto del niño travieso que se bajó en Brasil. Estaba viviendo en El Chaco.",
+      "Siguiendo con el relato transmitido por otros descendientes, Ernesto y Digna, mientras esto ocurrió en el cuartel, casi simultáneamente ocurrió otro hecho vinculado a este mismo.",
+      "Los padres de Héctor, el de Colonia Caroya, Ernesto y su esposa, viajaron a Misiones para visitar a su hijo, que se encontraba bajo bandera.",
+      "Iban en una lancha con otros pasajeros, cruzando el río Paraná. Les llamó la atención escuchar que alguien hablaba en friulano.",
+      "Se acercaron y saludaron, identificándose. Allí empezaron a intercambiar datos precisos. El friulano, que vivía en el Chaco, era hijo del niño de esta historia; en consecuencia, primo hermano de su interlocutor.",
+      "Y algo curioso: estos dos primos, que recién se conocían, eran muy parecidos entre sí. Fueron muy grandes la alegría y la emoción, siendo fácil adivinar unas lágrimas.",
+      "Tiempo después, se encontraron muchos de estos parientes en una de las Sagras de la Uva. Tantos tíos, primos y otros descendientes de aquellos nonos suelen reunirse una vez en el año para recordar anécdotas e historias familiares, compartiendo ese día de fiesta hasta llegada la noche."
+    ],
+    inlineGalleries: [
+      {
+        afterParagraphIndex: 3,
+        images: [
+          { src: brasil1, alt: "Historia del niño que quedó en Brasil, registro 1" },
+          { src: brasil3, alt: "Historia del niño que quedó en Brasil, registro 3" }
+        ]
+      },
+      {
+        afterParagraphIndex: 8,
+        images: [
+          { src: brasil4, alt: "Familia y memoria del viaje a América, registro 4" },
+          { src: brasil5, alt: "Familia y memoria del viaje a América, registro 5" }
+        ]
+      },
+      {
+        afterParagraphIndex: 17,
+        images: [
+          { src: brasil6, alt: "Reencuentro familiar entre Argentina y Brasil, registro 6" },
+          { src: brasil7, alt: "Descendientes reunidos por la memoria familiar, registro 7" }
+        ]
+      }
+    ]
   },
   {
     number: 4,

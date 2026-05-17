@@ -65,6 +65,10 @@ const App = () => {
             element={<Navigate to="/memorias/platanos" replace />}
           />
           <Route
+            path="/memorias/aquel-nino-que-quedo-en-brasil"
+            element={<Navigate to="/memorias/aquel-nino" replace />}
+          />
+          <Route
             path="/memorias/:memoriaSlug"
             element={<MemoriasDeNuestraTierraHistoria />}
           />

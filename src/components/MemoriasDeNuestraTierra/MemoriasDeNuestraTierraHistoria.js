@@ -150,6 +150,31 @@ const MemoriasDeNuestraTierraHistoria = () => {
               "Aqui se insertara el fragmento del libro, publicado con autorizacion de su familia."}
           </p>
         )}
+
+        {historia.relatedVideo ? (
+          <div className="memorias__videoShare">
+            <a
+              className="memorias__videoLink"
+              href={historia.relatedVideo.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="memorias__videoThumb">
+                <img
+                  src={historia.relatedVideo.thumbnail}
+                  alt=""
+                  loading="lazy"
+                />
+                <span className="memorias__videoPlay" aria-hidden="true">
+                  ▶
+                </span>
+              </span>
+              <span className="memorias__videoText">
+                {historia.relatedVideo.title}
+              </span>
+            </a>
+          </div>
+        ) : null}
       </section>
 
       <p className="memorias__closing">{historia.closing}</p>
