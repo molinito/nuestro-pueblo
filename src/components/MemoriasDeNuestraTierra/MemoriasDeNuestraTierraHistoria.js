@@ -98,7 +98,7 @@ const MemoriasDeNuestraTierraHistoria = () => {
             <span>Autora:</span> Martha Canale Vicentini
           </p>
           <p className="memorias__ribbonNote">
-            <span>Publicado</span> en acuerdo con Patricia Vicentini (hija)
+            <span>Publicado</span> en acuerdo con Patricia y Mónica Vicentini (hijas)
           </p>
         </div>
       </header>
