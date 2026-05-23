@@ -75,6 +75,16 @@ export const searchIndex = [
     keywords: ["juan", "copetti", "brasil", "nord america", "misiones", "friulano", "colonia caroya"]
   },
   {
+    id: "memorias-san-antonio",
+    title: "San Antonio, viajero milagroso",
+    subtitle: "La imagen de San Antonio que acompañó a María Brollo durante una tormenta en alta mar",
+    href: "/memorias/san-antonio",
+    section: "Memorias",
+    content:
+      "María Brollo viajó desde Italia con su tía Ana y una imagen de San Antonio de Padua. En medio de una tormenta, la fe alrededor de esa reliquia familiar sostuvo a los inmigrantes durante la travesía.",
+    keywords: ["san antonio", "maria brollo", "ana", "friuli", "italia", "inmigrantes", "colonia caroya"]
+  },
+  {
     id: "historia-belgrano",
     title: "Cuando Belgrano cruzó nuestra tierra",
     subtitle: "El paso del prócer por Jesús María y Colonia Caroya",

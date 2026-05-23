@@ -32,6 +32,25 @@ const upsertLink = (rel, href) => {
   el.setAttribute("href", href);
 };
 
+const upsertJsonLd = (id, data) => {
+  const selector = `script[type="application/ld+json"][data-page-schema="${id}"]`;
+  let el = document.head.querySelector(selector);
+
+  if (!data) {
+    if (el) el.remove();
+    return;
+  }
+
+  if (!el) {
+    el = document.createElement("script");
+    el.setAttribute("type", "application/ld+json");
+    el.setAttribute("data-page-schema", id);
+    document.head.appendChild(el);
+  }
+
+  el.textContent = JSON.stringify(data);
+};
+
 const normalizePath = (path) => {
   if (!path) return "/";
   if (path.startsWith("http://") || path.startsWith("https://")) return path;
@@ -48,7 +67,9 @@ const usePageMeta = ({
   description,
   path,
   image,
-  imageAlt = "Nuestro Pueblo"
+  imageAlt = "Nuestro Pueblo",
+  type = "website",
+  structuredData
 } = {}) => {
   useEffect(() => {
     const nextTitle =
@@ -69,7 +90,7 @@ const usePageMeta = ({
     upsertMeta('meta[name="description"]', { name: "description", content: nextDescription });
     upsertLink("canonical", nextUrl);
 
-    upsertMeta('meta[property="og:type"]', { property: "og:type", content: "website" });
+    upsertMeta('meta[property="og:type"]', { property: "og:type", content: type });
     upsertMeta('meta[property="og:site_name"]', {
       property: "og:site_name",
       content: "Nuestro Pueblo"
@@ -96,8 +117,8 @@ const usePageMeta = ({
       content: nextDescription
     });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: nextImage });
-  }, [title, description, path, image, imageAlt]);
+    upsertJsonLd("route", structuredData || null);
+  }, [title, description, path, image, imageAlt, type, structuredData]);
 };
 
 export default usePageMeta;
-

@@ -18,6 +18,14 @@ import brasil4 from "./brasil/brasil4.webp";
 import brasil5 from "./brasil/brasil5.webp";
 import brasil6 from "./brasil/brasil6.webp";
 import brasil7 from "./brasil/brasil7.webp";
+import sanAntonio1 from "./san-antonio/1.png";
+import sanAntonio3 from "./san-antonio/3.png";
+import sanAntonio5 from "./san-antonio/5.png";
+import sanAntonio7 from "./san-antonio/7.png";
+import sanAntonio9 from "./san-antonio/9.png";
+import sanAntonio11 from "./san-antonio/11.png";
+import sanAntonio13 from "./san-antonio/13.png";
+import sanAntonio14 from "./san-antonio/14.png";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -213,11 +221,72 @@ export const memoriasHistorias = [
   },
   {
     number: 4,
-    status: "coming_soon",
-    title: "Próximamente",
-    description: "Historia en preparacion.",
-    image: platanos,
-    imageAlt: "Platanos de Colonia Caroya"
+    status: "published",
+    slug: "san-antonio",
+    title: "San Antonio, viajero milagroso",
+    description:
+      "La devoción de María Brollo y Ana durante una travesía difícil, cuando una imagen de San Antonio sostuvo la fe frente al mar embravecido.",
+    image: sanAntonio1,
+    imageAlt: "Imagen de San Antonio de Padua conservada por la familia de Maria Brollo",
+    intro:
+      "María Brollo tenía apenas nueve años cuando emigró desde Italia acompañada por su tía Ana. En medio del océano, una tormenta convirtió la travesía en una escena de miedo y plegarias alrededor de una pequeña imagen de San Antonio.",
+    closing:
+      "La imagen de San Antonio quedó como reliquia familiar y como recuerdo vivo de aquella travesía, transmitida con flores, devoción y gratitud entre las generaciones de descendientes.",
+    bookPromoLead:
+      "Este relato forma parte del libro Hacer la América - Fare I’America, de Martha Canale Vicentini, una obra que reúne historias, testimonios y memorias de los inmigrantes que forjaron nuestra tierra. ",
+    bookPromoStrong:
+      "Si querés conocer más anécdotas, te invitamos a adquirir el libro en formato físico. Lo podés conseguir en la Biblioteca Filomena Rossi, Av. San Martín 3731, Colonia Caroya, Córdoba, Argentina.",
+    fragmentTitle: "Relato (fragmento del libro “Hacer la América”)",
+    relatedVideo: {
+      href: "https://youtu.be/NR0TLlzcNgQ",
+      thumbnail: "https://i.ytimg.com/vi/NR0TLlzcNgQ/hqdefault.jpg",
+      title: "Ver video relacionado en YouTube"
+    },
+    fragment: [
+      "Sólo nueve años tenía María Brollo cuando emigra de su Italia natal, en barco, con posterioridad al primer contingente venido del Friuli. Viajaba acompañada por una tía llamada Ana.",
+      "Ya en alta mar, algo ocurrió un día de esos, en que el mar no estaba calmo. Las olas comenzaron a encresparse, el cielo se oscurecía más y más. Llegó un momento en el cual el alto oleaje balanceaba con furia el barco, que se hacía pequeño frente al gigantesco y embravecido mar.",
+      "En ese tremendo vaivén que les aterraba, el agua comenzaba a entrar por la escotilla del navío. Con unos baldes y tarritos que tenían, intentaban sacar el agua, devolviéndola a la inmensidad del océano.",
+      "Traían consigo desde su Italia una talla de treinta y cinco centímetros de San Antonio de Padua, el Santo de la devoción de los italianos. Ana, casi con desesperación, así le pidió a su sobrina María: \"Anda a sacar del baúl la imagen de Sant Antoni y traela rápido\".",
+      "Presa del miedo, la nena cumplió el mandato. Pusieron la estatuilla en alto y se postraron \"en rueda\" cerca de la bendita imagen de San Antonio, y comenzaron a rezar con fuerza, implorando al \"Santo de los Milagros\" que calmara las aguas salobres del mar.",
+      "Al tiempo que algunas mujeres, tratando de dominar el pánico, decían: \"Si llego a pisar tierra, nunca más volveré a la mar\", o \"jamás volveré a poner los pies en un barco\".",
+      "Calmóse brevemente el oleaje y pareció que el agua dejaba de amenazar, pero sólo duró unos momentos, ya que una y otra vez se repetían las escenas, hasta que al fin el oleaje serenó su ímpetu y poco a poco estas gentes que emigraban se fueron tranquilizando.",
+      "Agradecían a San Antonio por poderlo contar. Exclamaban: \"Sant Antoni benedet, simpri siedi da voi protet\" (San Antonio bendito, siempre sea por tí protegido).",
+      "Aquella estatua del Santo sigue ocupando un lugar destacado en la casa de los descendientes de María.",
+      "María Brollo siempre conservó, en un sitio relevante de su habitación, a su San Antonio milagroso, como una reliquia, asegurando que les había salvado en la travesía del océano; les enseñaba a sus nietas pequeñas que lo veneraran y que, siempre, le colocaran flores.",
+      "En el tiempo de invierno, cuando éstas escaseaban, tenía un pequeño cantero en la huerta, sembrado de violetas, y mandaba a su nieta Digna, a quien pertenece este relato, a recogerlas todos los días un ramito.",
+      "Le decía que había sembrado ese cantero, que ahora ofrecía sus violetas fragantes, para que fueran colocadas frente a la imagen misma de San Antonio, que le merecía gran devoción y respeto.",
+      "Como vivo recuerdo, se publica en este libro la foto de ese San Antonio, protagonista del presente relato, encofrado en su primitiva capillita transparente, hecha con vidrios y madera, que les proporcionó el valor y la fe necesarios en esos momentos difíciles."
+    ],
+    inlineGalleries: [
+      {
+        afterParagraphIndex: 1,
+        images: [
+          { src: sanAntonio1, alt: "San Antonio viajero milagroso, registro 1" },
+          { src: sanAntonio3, alt: "San Antonio viajero milagroso, registro 3" }
+        ]
+      },
+      {
+        afterParagraphIndex: 3,
+        images: [
+          { src: sanAntonio5, alt: "Travesia y devocion a San Antonio, registro 5" },
+          { src: sanAntonio7, alt: "Travesia y devocion a San Antonio, registro 7" }
+        ]
+      },
+      {
+        afterParagraphIndex: 5,
+        images: [
+          { src: sanAntonio9, alt: "Oraciones a San Antonio durante el viaje, registro 9" },
+          { src: sanAntonio11, alt: "Oraciones a San Antonio durante el viaje, registro 11" }
+        ]
+      },
+      {
+        afterParagraphIndex: 7,
+        images: [
+          { src: sanAntonio13, alt: "Recuerdo familiar de San Antonio, registro 13" },
+          { src: sanAntonio14, alt: "Recuerdo familiar de San Antonio, registro 14" }
+        ]
+      }
+    ]
   },
   {
     number: 5,

@@ -9,12 +9,56 @@ import {
 import usePageMeta from "../../hooks/usePageMeta";
 import "./MemoriasDeNuestraTierra.css";
 
+const SITE_ORIGIN = "https://nuestro-pueblo.vercel.app";
+
+const toAbsoluteUrl = (value) => {
+  if (!value) return undefined;
+  if (value.startsWith("http://") || value.startsWith("https://")) return value;
+  return `${SITE_ORIGIN}${value.startsWith("/") ? value : `/${value}`}`;
+};
+
 const MemoriasDeNuestraTierraHistoria = () => {
   const { memoriaSlug } = useParams();
   const historia = getMemoriasHistoriaBySlug(memoriaSlug);
   const [lightbox, setLightbox] = useState(null);
 
   const isPublished = Boolean(historia && historia.status === "published");
+  const pagePath = isPublished ? `${MEMORIAS_BASE_PATH}/${historia.slug}` : MEMORIAS_BASE_PATH;
+  const pageUrl = `${SITE_ORIGIN}${pagePath}`;
+  const articleSchema = isPublished
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: historia.title,
+        description: historia.description,
+        image: toAbsoluteUrl(historia.image),
+        mainEntityOfPage: pageUrl,
+        inLanguage: "es-AR",
+        author: {
+          "@type": "Person",
+          name: "Martha Canale Vicentini"
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "Nuestro Pueblo",
+          url: SITE_ORIGIN
+        },
+        isPartOf: {
+          "@type": "Book",
+          name: "Hacer la América - Fare I’America"
+        },
+        ...(historia.relatedVideo
+          ? {
+              associatedMedia: {
+                "@type": "VideoObject",
+                name: historia.relatedVideo.title,
+                url: historia.relatedVideo.href,
+                thumbnailUrl: historia.relatedVideo.thumbnail
+              }
+            }
+          : {})
+      }
+    : null;
 
   usePageMeta({
     title: isPublished
@@ -24,9 +68,11 @@ const MemoriasDeNuestraTierraHistoria = () => {
       ? historia.description
       : "Historias reales de inmigrantes de Colonia Caroya recopiladas por Martha Canale en su libro Hacer la America."
     ,
-    path: isPublished ? `${MEMORIAS_BASE_PATH}/${historia.slug}` : MEMORIAS_BASE_PATH,
+    path: pagePath,
     image: isPublished ? historia.image : undefined,
-    imageAlt: isPublished ? historia.title : "Memorias de Nuestra Tierra"
+    imageAlt: isPublished ? historia.imageAlt || historia.title : "Memorias de Nuestra Tierra",
+    type: isPublished ? "article" : "website",
+    structuredData: articleSchema
   });
 
   const openImage = (gallery, index = 0) => setLightbox({ gallery, index });
