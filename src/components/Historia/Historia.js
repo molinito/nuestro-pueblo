@@ -108,6 +108,7 @@ const rossiPhotos = [
 ];
 
 const jesusMariaImageContext = require.context("./jesus-maria", false, /\.webp$/);
+const sanMartinImageContext = require.context("./san-martin", false, /\.webp$/);
 
 const jesusMariaPhotos = [
   { file: "1.webp" },
@@ -159,6 +160,53 @@ const jesusMariaPhotos = [
   alt: caption ?? `Historia de Jesús María - ${file.replace(".webp", "")}`,
   caption,
 }));
+
+const sanMartinPhotos = [
+  "san-martin-01.webp",
+  "san-martin-02.webp",
+  "san-martin-03.webp",
+  "san-martin-04.webp",
+  "san-martin-05.webp",
+  "san-martin-06.webp",
+  "san-martin-07.webp",
+  "san-martin-08.webp",
+  "san-martin-10.webp",
+  "san-martin-11.webp",
+  "san-martin-14.webp",
+  "san-martin-15.webp",
+].map((file, index) => ({
+  src: sanMartinImageContext(`./${file}`),
+  alt: `San Martin y la Posta de Sinsacate - imagen ${index + 1}`,
+}));
+
+const sanMartinPostaSinsacateHistoria = {
+  id: "san-martin-posta-sinsacate",
+  title: "San Martín y su paso por la Posta de Sinsacate.",
+  summary:
+    "El Camino Real, la Posta de Sinsacate y la región como escenario de los pasos hacia la libertad.",
+  type: "gallery",
+  galleryNote: "Galeria de imagenes sobre San Martin y la Posta de Sinsacate.",
+  gallery: sanMartinPhotos,
+  paragraphs: [
+    "El paso de José de San Martín por Sinsacate recuerda que los caminos de nuestra región también fueron caminos de campaña, decisiones y organización patriota.",
+    "En los años decisivos de la independencia, el antiguo Camino Real al Alto Perú no era sólo una vía de tránsito: era una red vital que conectaba postas, estancias y parajes donde los viajeros descansaban, cambiaban caballos y se abastecían antes de seguir marcha.",
+    "La Posta de Sinsacate fue uno de esos puntos centrales. Ubicada junto al Camino Real, se convirtió en una escala estratégica para correos, comerciantes, viajeros y tropas que atravesaban la región.",
+    "Por allí pasó también José de San Martín, cuando marchaba hacia el norte para ponerse al frente del Ejército del Norte. No era un viaje ceremonial: era un desplazamiento cargado de responsabilidad militar, en un tiempo en que la independencia todavía se defendía paso a paso.",
+    "Los registros históricos señalan que, en esa posta, San Martín recibió ayuda de caballada por parte de José Javier Díaz, propietario de la cercana estancia de Santa Catalina. Ese gesto resume la importancia de las redes locales en las campañas patriotas: hombres, animales, caminos y lugares de descanso sostenían la marcha de la historia.",
+    "Ese recorrido no se entiende sólo desde Sinsacate. La Estancia Jesuítica de Caroya, también conocida como Casa de Caroya, formaba parte de ese corredor histórico y fue utilizada como posta por figuras como Belgrano, San Martín y Rondeau. Además, entre 1814 y 1816 funcionó allí una fábrica de armas blancas, un dato que muestra hasta qué punto la región estuvo vinculada al esfuerzo militar de aquellos años.",
+    "Pensarlo así cambia la mirada sobre nuestra región.",
+    "Donde hoy vemos pueblos tranquilos, rutas y paisajes familiares, hubo movimiento de tropas, decisiones urgentes y pasos firmes hacia la libertad. La historia grande no pasó sólo por capitales y campos de batalla: también cruzó nuestros caminos.",
+    "Saber que San Martín transitó esta tierra nos devuelve algo poderoso: la certeza de que Jesús María, Sinsacate y Colonia Caroya no fueron simples espectadores. Fueron parte del escenario donde se gestaba la Nación.",
+    "Y eso, lejos de ser un dato menor, es motivo de orgullo.",
+  ],
+  listTitle: "Referencias",
+  list: [
+    "Posta de Sinsacate - Argentina.gob.ar. https://www.argentina.gob.ar/node/417345",
+    "Estancia Jesuitica de Caroya - Argentina.gob.ar. https://www.argentina.gob.ar/capital-humano/cultura/monumentos/estancia-jesuitica-de-caroya",
+    "Posta de Sinsacate - Cordoba Turismo. https://cordobaturismo.gov.ar/experiencias/posta-de-sinsacate/",
+    "El Camino Real del norte de Cordoba - Museo Jesuitico Nacional. https://museojesuitico.cultura.gob.ar/noticia/el-camino-real-del-norte-de-cordoba-documental-de-la-posta-de-sinsacate/",
+  ],
+};
 
 const historias = [
   {
@@ -227,6 +275,7 @@ const historias = [
     ],
   },
   belgranoHistoria,
+  sanMartinPostaSinsacateHistoria,
   {
     id: "colonia-san-martin",
     title: "Colonia San Martín y el nombre Caroya",
@@ -548,6 +597,26 @@ const Historia = () => {
                         )}
                       </div>
                     </>
+                  )}
+
+                  {historia.type === "text" && (
+                    <div className="historia__content historia__content--wide">
+                      {historia.paragraphs.map((paragraph, index) => (
+                        <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
+                      ))}
+                      {historia.list && (
+                        <>
+                          {historia.listTitle && (
+                            <p className="historia__list-title">{historia.listTitle}</p>
+                          )}
+                          <ul className="historia__list">
+                            {historia.list.map((item, index) => (
+                              <li key={`${historia.id}-li-${index}`}>{item}</li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
+                    </div>
                   )}
 
                   {historia.type === "gallery" && (

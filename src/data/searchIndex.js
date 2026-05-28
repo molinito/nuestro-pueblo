@@ -92,6 +92,16 @@ export const searchIndex = [
     section: "Historia"
   },
   {
+    id: "historia-san-martin-posta-sinsacate",
+    title: "San Martín y su paso por la Posta de Sinsacate",
+    subtitle: "El Camino Real, la Posta de Sinsacate y la región como escenario histórico",
+    href: "/historia/san-martin-posta-sinsacate",
+    section: "Historia",
+    content:
+      "José de San Martín pasó por la Posta de Sinsacate cuando marchaba hacia el norte para ponerse al frente del Ejército del Norte. El recorrido también se vincula con la Estancia Jesuítica de Caroya, utilizada como posta y sede de una fábrica de armas blancas entre 1814 y 1816.",
+    keywords: ["san martin", "posta de sinsacate", "camino real", "ejercito del norte", "estancia caroya", "casa de caroya", "fabrica de armas", "jesus maria", "colonia caroya", "sinsacate"]
+  },
+  {
     id: "historia-colonia",
     title: "Colonia San Martín y el nombre Caroya",
     subtitle: "El origen del nombre y la memoria fundacional",

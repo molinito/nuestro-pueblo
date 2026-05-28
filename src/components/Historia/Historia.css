@@ -281,6 +281,10 @@
   overflow-wrap: anywhere;
 }
 
+.historia__content--wide {
+  grid-column: 1 / -1;
+}
+
 .historia__card-title {
   margin: 0;
   font-size: 1.45rem;
