@@ -553,6 +553,7 @@ const Historia = () => {
                 role="region"
                 aria-labelledby={headerId}
               >
+                {isOpen && (
                 <div
                   className={`historia__panel-inner${
                     historia.type === "gallery" ? " historia__panel-inner--gallery" : ""
@@ -570,7 +571,12 @@ const Historia = () => {
                         }
                         aria-label={`Agrandar imagen de ${historia.title}`}
                       >
-                        <img src={historia.image} alt={historia.alt} />
+                        <img
+                          src={historia.image}
+                          alt={historia.alt}
+                          loading="lazy"
+                          decoding="async"
+                        />
                         <div className="historia__overlay">Haz click para agrandar</div>
                       </div>
                       <div className="historia__content">
@@ -648,6 +654,8 @@ const Historia = () => {
                                     <img
                                       src={historia.video.thumbnail}
                                       alt={`Miniatura del video: ${historia.video.title}`}
+                                      loading="lazy"
+                                      decoding="async"
                                     />
                                   </a>
                                 )}
@@ -709,7 +717,12 @@ const Historia = () => {
                               }
                               aria-label={`Agrandar imagen: ${photo.alt}`}
                             >
-                              <img src={photo.src} alt={photo.alt} />
+                              <img
+                                src={photo.src}
+                                alt={photo.alt}
+                                loading="lazy"
+                                decoding="async"
+                              />
                               <div className="historia__overlay">Haz click para agrandar</div>
                             </div>
                           ))}
@@ -730,6 +743,8 @@ const Historia = () => {
                                 <img
                                   src={historia.video.thumbnail}
                                   alt={`Miniatura del video: ${historia.video.title}`}
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                               </a>
                             )}
@@ -757,7 +772,6 @@ const Historia = () => {
                       </div>
                     </>
                   )}
-                  {isOpen && (
                     <div className="historia__panel-actions">
                       <button
                         type="button"
@@ -767,8 +781,8 @@ const Historia = () => {
                         Cerrar —
                       </button>
                     </div>
-                  )}
                 </div>
+                )}
               </div>
             </article>
           );
@@ -796,6 +810,7 @@ const Historia = () => {
               <img
                 src={currentLightboxPhoto?.src}
                 alt={currentLightboxPhoto?.alt || ""}
+                decoding="async"
               />
               {currentLightboxPhoto?.caption && (
                 <p className="historia__lightbox-caption">

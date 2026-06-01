@@ -30,7 +30,7 @@ import jugadoresClubAgraria1966 from '../../img/galeria/jugadores-club-agraria-1
 import munecaSusana from '../../img/galeria/la-del-medio-con-la-muneca-susana-de-candido.webp';
 import canaleMellizo from '../../img/galeria/sentado-izq-jose-canale-medio-susana-de-candido-y-derc-miguel-canale-mellizo.webp';
 import gildaFilomena from '../../img/galeria/parada-izq-gilda-hija-de-filomena-y-debajo-de-ella-la-otra-hija-de-filomena.webp';
-import albumCover from '../../img/album.png';
+import albumCover from '../../img/album.webp';
 
 const defaultSlides = [
   img1,
@@ -238,7 +238,13 @@ function CustomCarousel({
         }}
         aria-label={`Agrandar imagen: ${slide.alt}`}
       >
-        <img src={slide.src} alt={slide.alt} draggable="false" />
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+        />
         <span className="npAlbum__zoom-hint">Click para agrandar</span>
       </button>
     );
@@ -266,6 +272,8 @@ function CustomCarousel({
             src={albumCover}
             alt="Tapa del album fotográfico"
             draggable="false"
+            loading="lazy"
+            decoding="async"
           />
           <span className="npAlbum__cover-button">Abrir</span>
         </button>
@@ -355,7 +363,7 @@ function CustomCarousel({
             >
               ‹
             </button>
-            <img src={lightbox.src} alt={lightbox.alt} />
+            <img src={lightbox.src} alt={lightbox.alt} decoding="async" />
             <button
               type="button"
               className="npAlbum__lightbox-nav is-next"

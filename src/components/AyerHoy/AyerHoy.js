@@ -345,7 +345,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -415,7 +415,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -483,7 +483,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -567,7 +567,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -633,7 +633,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -706,7 +706,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -770,7 +770,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -836,7 +836,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -920,7 +920,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -985,7 +985,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -1050,7 +1050,7 @@ const AyerHoy = () => {
                     }
                     aria-label={`Agrandar imagen: ${foto.alt}`}
                   >
-                    <img src={foto.src} alt={foto.alt} />
+                    <img src={foto.src} alt={foto.alt} loading="lazy" decoding="async" />
                     <div className="ayer-hoy__overlay">Haz click para agrandar</div>
                   </div>
                 ))}
@@ -1089,6 +1089,7 @@ const AyerHoy = () => {
             <img
               src={lightbox.gallery[lightbox.index].src}
               alt={lightbox.gallery[lightbox.index].alt}
+              decoding="async"
             />
             {lightbox.gallery.length > 1 && (
               <button

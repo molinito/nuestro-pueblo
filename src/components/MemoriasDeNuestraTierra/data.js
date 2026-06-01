@@ -18,14 +18,14 @@ import brasil4 from "./brasil/brasil4.webp";
 import brasil5 from "./brasil/brasil5.webp";
 import brasil6 from "./brasil/brasil6.webp";
 import brasil7 from "./brasil/brasil7.webp";
-import sanAntonio1 from "./san-antonio/1.png";
-import sanAntonio3 from "./san-antonio/3.png";
-import sanAntonio5 from "./san-antonio/5.png";
-import sanAntonio7 from "./san-antonio/7.png";
-import sanAntonio9 from "./san-antonio/9.png";
-import sanAntonio11 from "./san-antonio/11.png";
-import sanAntonio13 from "./san-antonio/13.png";
-import sanAntonio14 from "./san-antonio/14.png";
+import sanAntonio1 from "./san-antonio/1.webp";
+import sanAntonio3 from "./san-antonio/3.webp";
+import sanAntonio5 from "./san-antonio/5.webp";
+import sanAntonio7 from "./san-antonio/7.webp";
+import sanAntonio9 from "./san-antonio/9.webp";
+import sanAntonio11 from "./san-antonio/11.webp";
+import sanAntonio13 from "./san-antonio/13.webp";
+import sanAntonio14 from "./san-antonio/14.webp";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 

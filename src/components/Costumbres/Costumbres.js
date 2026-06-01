@@ -321,6 +321,8 @@ const Costumbres = () => {
                 role="region"
                 aria-labelledby={headerId}
               >
+                {isOpen && (
+                  <>
                 <div className="costumbres__panel-inner">
                   {costumbre.type === "single" && (
                     <div className="costumbres__panel-grid">
@@ -335,7 +337,12 @@ const Costumbres = () => {
                           }
                           aria-label="Agrandar imagen"
                         >
-                          <img src={costumbre.image} alt={costumbre.alt} />
+                          <img
+                            src={costumbre.image}
+                            alt={costumbre.alt}
+                            loading="lazy"
+                            decoding="async"
+                          />
                           <div className="costumbres__overlay">Haz click para agrandar</div>
                         </div>
                         <p className="costumbres__credit">{costumbre.credit}</p>
@@ -368,6 +375,8 @@ const Costumbres = () => {
                                   className="costumbres__video-thumb"
                                   src={costumbre.videoThumbnail}
                                   alt={costumbre.videoLabel}
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                                 <span className="costumbres__video-cta">
                                   Ver video en YouTube
@@ -393,7 +402,12 @@ const Costumbres = () => {
                             }
                             aria-label={`Agrandar imagen: ${photo.alt}`}
                           >
-                              <img src={photo.src} alt={photo.alt} />
+                              <img
+                                src={photo.src}
+                                alt={photo.alt}
+                                loading="lazy"
+                                decoding="async"
+                              />
                               <div className="costumbres__overlay">Haz click para agrandar</div>
                             </div>
                           ))}
@@ -421,7 +435,6 @@ const Costumbres = () => {
                     </>
                   )}
                 </div>
-                {isOpen && (
                   <div className="costumbres__panel-actions">
                     <button
                       type="button"
@@ -431,6 +444,7 @@ const Costumbres = () => {
                       Cerrar —
                     </button>
                   </div>
+                  </>
                 )}
               </div>
             </article>
@@ -458,6 +472,7 @@ const Costumbres = () => {
             <img
               src={lightbox.gallery[lightbox.index].src}
               alt={lightbox.gallery[lightbox.index].alt}
+              decoding="async"
             />
             {lightbox.gallery.length > 1 && (
               <button

@@ -7,7 +7,7 @@ import videoWebm from "../../img/tierra.webm";
 function Header() {
   return (
     <div className="header-container">
-      <video autoPlay loop muted playsInline preload="auto">
+      <video autoPlay loop muted playsInline preload="metadata">
         <source src="/tierra.mp4" type="video/mp4" />
         <source src={videoWebm} type="video/webm" />
       </video>
@@ -16,7 +16,6 @@ function Header() {
 }
 
 export default Header;
-
 
 
 

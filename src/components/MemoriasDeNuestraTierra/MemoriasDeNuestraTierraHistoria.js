@@ -134,6 +134,7 @@ const MemoriasDeNuestraTierraHistoria = () => {
           src={marthaCanalePhoto}
           alt="Martha Canale Vicentini"
           loading="lazy"
+          decoding="async"
         />
         <div className="memorias__ribbonText">
           <p>
@@ -181,7 +182,12 @@ const MemoriasDeNuestraTierraHistoria = () => {
                         onKeyDown={(event) => handleImageKeyDown(event, gallery.images, imageIndex)}
                         aria-label={`Agrandar imagen: ${image.alt ?? "Imagen del relato"}`}
                       >
-                        <img src={image.src} alt={image.alt ?? ""} loading="lazy" />
+                        <img
+                          src={image.src}
+                          alt={image.alt ?? ""}
+                          loading="lazy"
+                          decoding="async"
+                        />
                         <div className="memorias__overlay">Haz click para agrandar</div>
                       </figure>
                     ))}
@@ -210,6 +216,7 @@ const MemoriasDeNuestraTierraHistoria = () => {
                   src={historia.relatedVideo.thumbnail}
                   alt=""
                   loading="lazy"
+                  decoding="async"
                 />
                 <span className="memorias__videoPlay" aria-hidden="true">
                   ▶
@@ -257,6 +264,7 @@ const MemoriasDeNuestraTierraHistoria = () => {
             <img
               src={lightbox.gallery[lightbox.index].src}
               alt={lightbox.gallery[lightbox.index].alt ?? ""}
+              decoding="async"
             />
             {lightbox.gallery.length > 1 ? (
               <button

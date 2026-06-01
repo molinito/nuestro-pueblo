@@ -548,7 +548,8 @@ const Personajes = () => {
                 role="region"
                 aria-labelledby={headerId}
               >
-                <div className={panelClassName}>
+                {isOpen && (
+                  <div className={panelClassName}>
                   {personaje.type === "gallery" ? (
                     <>
                       {isSplitGallery ? (
@@ -601,7 +602,12 @@ const Personajes = () => {
                                   }
                                   aria-label={`Agrandar imagen: ${foto.alt}`}
                                 >
-                                  <img src={foto.src} alt={foto.alt} />
+                                  <img
+                                    src={foto.src}
+                                    alt={foto.alt}
+                                    loading="lazy"
+                                    decoding="async"
+                                  />
                                   <div className="personajes__overlay">
                                     Haz click para agrandar
                                   </div>
@@ -644,7 +650,12 @@ const Personajes = () => {
                                 }
                                 aria-label={`Agrandar imagen: ${foto.alt}`}
                               >
-                                <img src={foto.src} alt={foto.alt} />
+                                <img
+                                  src={foto.src}
+                                  alt={foto.alt}
+                                  loading="lazy"
+                                  decoding="async"
+                                />
                                 <div className="personajes__overlay">
                                   Haz click para agrandar
                                 </div>
@@ -706,7 +717,12 @@ const Personajes = () => {
                         }
                         aria-label={`Agrandar imagen: ${personaje.alt}`}
                       >
-                        <img src={personaje.image} alt={personaje.alt} />
+                        <img
+                          src={personaje.image}
+                          alt={personaje.alt}
+                          loading="lazy"
+                          decoding="async"
+                        />
                         <div className="personajes__overlay">Haz click para agrandar</div>
                       </div>
                       <div className="personajes__content">
@@ -723,18 +739,17 @@ const Personajes = () => {
                       </div>
                     </>
                   )}
-                  {isOpen && (
-                    <div className="personajes__panel-actions">
-                      <button
-                        type="button"
-                        className="personajes__panel-toggle"
-                        onClick={() => toggleItem(personaje.id)}
-                      >
-                        Cerrar —
-                      </button>
-                    </div>
-                  )}
+                  <div className="personajes__panel-actions">
+                    <button
+                      type="button"
+                      className="personajes__panel-toggle"
+                      onClick={() => toggleItem(personaje.id)}
+                    >
+                      Cerrar —
+                    </button>
+                  </div>
                 </div>
+                )}
               </div>
             </article>
           );
@@ -748,7 +763,7 @@ const Personajes = () => {
       {lightbox && (
         <div className="personajes__lightbox" onClick={closeImage} role="dialog" aria-modal="true">
           <div className="personajes__lightbox-content" onClick={(event) => event.stopPropagation()}>
-            <img src={lightbox.src} alt={lightbox.alt} />
+            <img src={lightbox.src} alt={lightbox.alt} decoding="async" />
             {lightbox.caption && (
               <p className="personajes__lightbox-caption">{lightbox.caption}</p>
             )}

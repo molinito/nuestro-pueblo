@@ -182,6 +182,7 @@ const Lugares = () => {
                 role="region"
                 aria-labelledby={headerId}
               >
+                {isOpen && (
                 <div className="lugares__panel-inner">
                   {lugar.type === "single" && (
                     <div
@@ -197,7 +198,12 @@ const Lugares = () => {
                       }}
                       aria-label={`Agrandar imagen: ${lugar.alt}`}
                     >
-                      <img src={lugar.image} alt={lugar.alt} />
+                      <img
+                        src={lugar.image}
+                        alt={lugar.alt}
+                        loading="lazy"
+                        decoding="async"
+                      />
                       <div className="lugares__overlay">Haz click para agrandar</div>
                     </div>
                   )}
@@ -252,6 +258,8 @@ const Lugares = () => {
                                 className="lugares__video-thumb"
                                 src={lugar.videoThumbnail}
                                 alt={lugar.videoLabel}
+                                loading="lazy"
+                                decoding="async"
                               />
                               <span className="lugares__video-cta">
                                 Ver documental en YouTube
@@ -313,7 +321,12 @@ const Lugares = () => {
                                   aria-label={`Agrandar imagen: ${photo.alt}`}
                                 >
                                   <div className="lugares__gallery-frame">
-                                    <img src={photo.src} alt={photo.alt} />
+                                    <img
+                                      src={photo.src}
+                                      alt={photo.alt}
+                                      loading="lazy"
+                                      decoding="async"
+                                    />
                                     <div className="lugares__overlay">
                                       Haz click para agrandar
                                     </div>
@@ -355,6 +368,8 @@ const Lugares = () => {
                                   className="lugares__video-thumb"
                                   src={lugar.videoThumbnail}
                                   alt={lugar.videoLabel}
+                                  loading="lazy"
+                                  decoding="async"
                                 />
                                 <span className="lugares__video-cta">
                                   Ver documental en YouTube
@@ -452,6 +467,7 @@ const Lugares = () => {
                     </div>
                   )}
                 </div>
+                )}
               </div>
             </article>
           );
@@ -476,7 +492,11 @@ const Lugares = () => {
               </button>
             )}
             <div className="lugares__lightbox-imageWrap">
-              <img src={lightboxImageSrc} alt={currentLightboxPhoto?.alt || ""} />
+              <img
+                src={lightboxImageSrc}
+                alt={currentLightboxPhoto?.alt || ""}
+                decoding="async"
+              />
               {(lightbox.showReference || currentLightboxPhoto?.identificationOverlay) &&
                 Array.isArray(currentLightboxPhoto?.identification) &&
                 currentLightboxPhoto.identification.length > 0 && (

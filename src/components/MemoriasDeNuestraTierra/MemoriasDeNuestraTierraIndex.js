@@ -43,7 +43,12 @@ const MemoriasDeNuestraTierraIndex = () => {
           const cardInner = (
             <>
               <div className="memorias__cardMedia">
-                <img src={historia.image} alt={historia.imageAlt} loading="lazy" />
+                <img
+                  src={historia.image}
+                  alt={historia.imageAlt}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span className="memorias__badge">{`Historia ${historia.number}`}</span>
                 {!isPublished && <span className="memorias__badgeSoon">Proximamente</span>}
               </div>

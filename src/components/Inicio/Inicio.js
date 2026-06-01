@@ -4,9 +4,9 @@ import { Link, useLocation } from "react-router-dom";
 import styles from "./Inicio.module.css";
 import Carousel from "../Carousel/Carousel";
 import usePageMeta from "../../hooks/usePageMeta";
-import sinsacateOrigen from "./origenes/sinsacate 1930.png";
-import jesusMariaOrigen from "./origenes/jesus maria 1870-1880.png";
-import caroyaOrigen from "./origenes/caroya.png";
+import sinsacateOrigen from "./origenes/sinsacate-1930.webp";
+import jesusMariaOrigen from "./origenes/jesus-maria-1870-1880.webp";
+import caroyaOrigen from "./origenes/caroya.webp";
 
 const Card = ({ title, description, link, className }) => {
   return (
@@ -184,6 +184,8 @@ const CardList = () => {
                   src={sinsacateOrigen}
                   alt="Foto historica de Sinsacate (circa 1930)"
                   className={styles.originThumb}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className={styles.originOverlay}>Click para agrandar</span>
               </div>
@@ -287,6 +289,8 @@ const CardList = () => {
                   src={jesusMariaOrigen}
                   alt="Foto historica de Jesus Maria (1870-1880)"
                   className={styles.originThumb}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className={styles.originOverlay}>Click para agrandar</span>
               </div>
@@ -390,6 +394,8 @@ const CardList = () => {
                   src={caroyaOrigen}
                   alt="Foto historica de Colonia Caroya"
                   className={styles.originThumb}
+                  loading="lazy"
+                  decoding="async"
                 />
                 <span className={styles.originOverlay}>Click para agrandar</span>
               </div>
@@ -519,7 +525,7 @@ const CardList = () => {
             className={styles.originLightboxContent}
             onClick={(event) => event.stopPropagation()}
           >
-            <img src={lightbox.src} alt={lightbox.alt} />
+            <img src={lightbox.src} alt={lightbox.alt} decoding="async" />
             <button
               type="button"
               className={styles.originLightboxClose}
