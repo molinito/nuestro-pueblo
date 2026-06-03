@@ -249,6 +249,7 @@ const memoryPoints = [
 const MapaDeLaMemoria = () => {
   const [activeCategory, setActiveCategory] = useState("todos");
   const [selectedId, setSelectedId] = useState(memoryPoints[0].id);
+  const [previewedId, setPreviewedId] = useState(null);
 
   usePageMeta({
     title: "Mapa de la Memoria | Nuestro Pueblo",
@@ -272,6 +273,16 @@ const MapaDeLaMemoria = () => {
         ? memoryPoints[0]
         : memoryPoints.find((point) => point.category === categoryId);
     if (nextPoint) setSelectedId(nextPoint.id);
+    setPreviewedId(null);
+  };
+
+  const handlePointSelect = (pointId) => {
+    setSelectedId(pointId);
+  };
+
+  const handlePointPointerDown = (pointId) => {
+    handlePointSelect(pointId);
+    setPreviewedId(pointId);
   };
 
   return (
@@ -382,9 +393,10 @@ const MapaDeLaMemoria = () => {
                 type="button"
                 className={`memoriaMap__pin memoriaMap__pin--${point.category} ${
                   selectedPoint.id === point.id ? "is-selected" : ""
-                }`}
+                } ${previewedId === point.id ? "is-previewed" : ""}`}
                 style={{ left: `${point.x}%`, top: `${point.y}%` }}
-                onClick={() => setSelectedId(point.id)}
+                onPointerDown={() => handlePointPointerDown(point.id)}
+                onClick={() => handlePointSelect(point.id)}
                 aria-label={`Ver ${point.title}`}
               >
                 <span className="memoriaMap__pinDot" />
@@ -429,7 +441,7 @@ const MapaDeLaMemoria = () => {
               selectedPoint.id === point.id ? "is-selected" : ""
             }`}
           >
-            <button type="button" onClick={() => setSelectedId(point.id)}>
+            <button type="button" onClick={() => handlePointSelect(point.id)}>
               <span>{point.categoryLabel}</span>
               <strong>{point.title}</strong>
             </button>

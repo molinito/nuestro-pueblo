@@ -393,7 +393,36 @@
 .memoriaMap__pin:hover .memoriaMap__pinPreview,
 .memoriaMap__pin:focus-visible .memoriaMap__pinPreview {
   opacity: 1;
+  pointer-events: auto;
   transform: translate(-50%, 0) scale(1);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .memoriaMap__pinPreview {
+    width: 160px;
+    grid-template-columns: 54px 1fr;
+    gap: 7px;
+    padding: 7px;
+  }
+
+  .memoriaMap__pinPreview img {
+    width: 54px;
+    height: 42px;
+  }
+
+  .memoriaMap__pinPreview strong {
+    font-size: 0.74rem;
+  }
+
+  .memoriaMap__pinPreview small {
+    font-size: 0.66rem;
+  }
+
+  .memoriaMap__pin.is-previewed .memoriaMap__pinPreview {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+  }
 }
 
 .memoriaMap__pinDot {
@@ -525,7 +554,7 @@
   }
 
   .memoriaMap__cards {
-    display: grid;
+    display: none;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 10px;
     margin-top: 14px;
