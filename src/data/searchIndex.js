@@ -14,6 +14,25 @@ export const searchIndex = [
     section: "Inicio"
   },
   {
+    id: "mapa-de-la-memoria",
+    title: "Mapa de la Memoria",
+    subtitle: "Historias, lugares y caminos de Jesús María, Colonia Caroya y Sinsacate",
+    href: "/mapa-de-la-memoria",
+    section: "Mapa de la Memoria",
+    content:
+      "Mapa interactivo de la memoria local con puntos sobre la Posta de Sinsacate, Estancia Caroya, Museo Jesuítico, Estación de tren, Casa Copetti, avenida San Martín, Colonia Caroya y Jesús María.",
+    keywords: [
+      "mapa",
+      "memoria",
+      "territorio",
+      "camino real",
+      "posta sinsacate",
+      "estancia caroya",
+      "ferrocarril",
+      "inmigracion"
+    ]
+  },
+  {
     id: "historia",
     title: "Historia de Jesús María y Colonia Caroya",
     subtitle: "Memorias que explican el origen de nuestros nombres, caminos y tradiciones",

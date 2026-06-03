@@ -445,6 +445,9 @@ const CardList = () => {
         <Link className={styles.quickLink} to="/historia">
           Historia del pueblo
         </Link>
+        <Link className={styles.quickLink} to="/mapa-de-la-memoria">
+          Mapa de la Memoria
+        </Link>
         <Link className={styles.quickLink} to="/lugares">
           Lugares históricos
         </Link>

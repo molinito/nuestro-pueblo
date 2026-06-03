@@ -19,6 +19,7 @@ import { Analytics } from "@vercel/analytics/react";
 import Error404 from "./components/Error404/Error404";
 import MemoriasDeNuestraTierraIndex from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraIndex";
 import MemoriasDeNuestraTierraHistoria from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraHistoria";
+import MapaDeLaMemoria from "./components/MapaDeLaMemoria/MapaDeLaMemoria";
 
 const MemoriasLegacyRedirect = () => {
   const { memoriaSlug } = useParams();
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="/personajes/:personajeId" element={<Personajes />} />
           <Route path="/ayer-hoy" element={<AyerHoy />} />
           <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
+          <Route path="/mapa-de-la-memoria" element={<MapaDeLaMemoria />} />
           <Route
             path="/memorias"
             element={<MemoriasDeNuestraTierraIndex />}

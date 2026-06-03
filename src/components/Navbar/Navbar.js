@@ -61,6 +61,9 @@ const Navbar = () => {
         <NavLink className={styles.link} activeclassname="active" exact="true" to="/" onClick={closeAllMenus}>
           Inicio
         </NavLink>
+        <NavLink className={styles.link} activeclassname="active" to="/mapa-de-la-memoria" onClick={closeAllMenus}>
+          Mapa de la Memoria
+        </NavLink>
         <div className={styles.dropdown} ref={dropdownRef}>
           <button
             type="button"
