@@ -33,6 +33,36 @@ export const searchIndex = [
     ]
   },
   {
+    id: "recorridos-de-la-memoria",
+    title: "Recorridos de la Memoria",
+    subtitle: "Rutas patrimoniales por Sinsacate, Jesús María y Colonia Caroya",
+    href: "/recorridos",
+    section: "Recorridos",
+    content:
+      "Recorridos guiados por la memoria local. Primera ruta: Camino Real, Posta de Sinsacate, Museo Jesuítico, Estancia Caroya, Belgrano y San Martín.",
+    keywords: [
+      "recorridos",
+      "rutas",
+      "camino real",
+      "posta de sinsacate",
+      "jesus maria",
+      "colonia caroya",
+      "belgrano",
+      "san martin",
+      "patrimonio"
+    ]
+  },
+  {
+    id: "recorridos-camino-real",
+    title: "Camino Real: Sinsacate, Jesús María y Caroya",
+    subtitle: "Recorrido guiado por postas, estancias jesuíticas e independencia",
+    href: "/recorridos/camino-real",
+    section: "Recorridos",
+    content:
+      "Ruta de la memoria por el Camino Real: Posta de Sinsacate, Museo Jesuítico Nacional, Estancia Caroya y relatos sobre Belgrano y San Martín en la región.",
+    keywords: ["camino real", "sinsacate", "jesus maria", "caroya", "postas", "estancias jesuiticas", "independencia"]
+  },
+  {
     id: "historia",
     title: "Historia de Jesús María y Colonia Caroya",
     subtitle: "Memorias que explican el origen de nuestros nombres, caminos y tradiciones",
