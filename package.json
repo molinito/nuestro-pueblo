@@ -30,6 +30,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "node scripts/postbuild.js",
+    "postinstall": "node scripts/patch-react-snap.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "check:encoding": "node scripts/check-encoding.js"
@@ -54,6 +55,7 @@
   },
   "reactSnap": {
     "fixWebpackChunksIssue": "CRA2",
+    "headless": "new",
     "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox",
@@ -123,9 +125,13 @@
       "/terminos"
     ]
   },
+  "overrides": {
+    "puppeteer": "19.11.1"
+  },
   "devDependencies": {
     "@babel/plugin-transform-class-properties": "^7.23.3",
     "@types/react-router-dom": "^5.3.3",
+    "puppeteer": "19.11.1",
     "react-snap": "^1.23.0"
   },
   "engines": {
