@@ -53,6 +53,27 @@ export const searchIndex = [
     ]
   },
   {
+    id: "linea-de-tiempo",
+    title: "Línea de Tiempo Interactiva",
+    subtitle: "Exploradores del Tiempo: misiones educativas sobre la historia local",
+    href: "/linea-de-tiempo",
+    section: "Línea de Tiempo",
+    content:
+      "Linea de tiempo interactiva para chicos, familias y escuelas. Recorre Camino Real, estancias jesuiticas, independencia, inmigracion, ferrocarril y tradiciones con preguntas e insignias.",
+    keywords: [
+      "linea de tiempo",
+      "exploradores del tiempo",
+      "educacion",
+      "escuela primaria",
+      "historia local",
+      "misiones",
+      "insignias",
+      "camino real",
+      "inmigracion",
+      "ferrocarril"
+    ]
+  },
+  {
     id: "recorridos-camino-real",
     title: "Camino Real: Sinsacate, Jesús María y Caroya",
     subtitle: "Recorrido guiado por postas, estancias jesuíticas e independencia",

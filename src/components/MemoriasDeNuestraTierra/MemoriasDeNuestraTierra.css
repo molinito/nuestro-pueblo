@@ -241,6 +241,18 @@
   font-size: clamp(1.9rem, 3vw, 2.4rem);
 }
 
+.memorias__detailHeader {
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.memorias__detailHeader .memorias__detailTitle {
+  margin: 0;
+}
+
 .memorias__detailIntro {
   margin: 0 0 1.4rem;
   line-height: 1.75;
@@ -507,7 +519,51 @@
 .memorias__backRow {
   margin-top: 2.2rem;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
   justify-content: center;
+}
+
+.memorias__timelineReturn {
+  align-items: center;
+  background: rgba(255, 232, 138, 0.84);
+  border: 1px solid rgba(173, 118, 48, 0.36);
+  color: rgba(58, 28, 12, 0.95);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+}
+
+.memorias__mapReturn {
+  align-items: center;
+  background: rgba(255, 232, 138, 0.84);
+  border: 1px solid rgba(173, 118, 48, 0.36);
+  color: rgba(58, 28, 12, 0.95);
+  display: inline-flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.7rem 1rem;
+  text-decoration: none;
+}
+
+.memorias__timelineReturn:hover {
+  background: rgba(255, 220, 102, 0.92);
+}
+
+.memorias__mapReturn:hover {
+  background: rgba(255, 220, 102, 0.92);
+}
+
+.memorias__timelineReturn--top {
+  flex-shrink: 0;
+}
+
+.memorias__mapReturn--top {
+  flex-shrink: 0;
 }
 
 @media (max-width: 900px) {
@@ -521,6 +577,12 @@
 
   .memorias__detail {
     padding: 2rem 1.4rem;
+  }
+
+  .memorias__detailHeader {
+    margin-top: 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .memorias__ribbon {

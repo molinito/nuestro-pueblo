@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
 import usePageMeta from "../../hooks/usePageMeta";
 import museoImg from "./museo-jesuitico/museo.webp";
@@ -349,12 +349,25 @@ const hasHistoriaId = (id) => historias.some((historia) => historia.id === id);
 
 const Historia = () => {
   const { historiaId } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
   const currentLightboxPhoto = lightbox ? lightbox.gallery[lightbox.index] : null;
 
   const activeHistoria = historiaId ? historias.find((h) => h.id === historiaId) : null;
+  const searchParams = new URLSearchParams(location.search);
+  const timelineMission = searchParams.get("mision");
+  const mapPoint = searchParams.get("punto");
+  const source = searchParams.get("desde");
+  const timelineReturnPath = timelineMission
+    ? `/linea-de-tiempo?mision=${encodeURIComponent(timelineMission)}#misiones`
+    : "/linea-de-tiempo#misiones";
+  const mapReturnPath = mapPoint
+    ? `/mapa-de-la-memoria?punto=${encodeURIComponent(mapPoint)}`
+    : "/mapa-de-la-memoria";
+  const shouldShowTimelineReturn = source === "linea-de-tiempo";
+  const shouldShowMapReturn = source === "mapa-de-la-memoria";
   usePageMeta({
     title: activeHistoria
       ? `${activeHistoria.title} | Historia`
@@ -547,6 +560,22 @@ const Historia = () => {
                   <span className="historia__toggle-secondary">Abrir +</span>
                 )}
               </button>
+              {isOpen && shouldShowTimelineReturn && (
+                <Link
+                  className="historia__toggle-timeline-return"
+                  to={timelineReturnPath}
+                >
+                  Volver a la Línea de tiempo
+                </Link>
+              )}
+              {isOpen && shouldShowMapReturn && (
+                <Link
+                  className="historia__toggle-map-return"
+                  to={mapReturnPath}
+                >
+                  Volver al Mapa
+                </Link>
+              )}
               <div
                 className="historia__panel"
                 id={panelId}
@@ -773,6 +802,22 @@ const Historia = () => {
                     </>
                   )}
                     <div className="historia__panel-actions">
+                      {shouldShowTimelineReturn && (
+                        <Link
+                          className="historia__timeline-return"
+                          to={timelineReturnPath}
+                        >
+                          Volver a la Línea de tiempo
+                        </Link>
+                      )}
+                      {shouldShowMapReturn && (
+                        <Link
+                          className="historia__map-return"
+                          to={mapReturnPath}
+                        >
+                          Volver al Mapa
+                        </Link>
+                      )}
                       <button
                         type="button"
                         className="historia__panel-toggle"

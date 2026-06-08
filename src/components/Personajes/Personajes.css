@@ -53,6 +53,7 @@
 }
 
 .personajes__item {
+  position: relative;
   border-radius: 18px;
   border: 1px solid rgba(163, 0, 72, 0.18);
   background: rgba(255, 255, 255, 0.7);
@@ -65,7 +66,7 @@
   width: 100%;
   border: none;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 223, 236, 0.8));
-  padding: 1.4rem 6rem 1.4rem 1.6rem;
+  padding: 1.4rem 14rem 1.4rem 1.6rem;
   text-align: left;
   display: grid;
   gap: 0.4rem;
@@ -130,6 +131,28 @@
   pointer-events: none;
 }
 
+.personajes__toggle-map-return {
+  position: absolute;
+  right: 1.2rem;
+  top: 1rem;
+  z-index: 3;
+  border: 1px solid rgba(163, 0, 72, 0.3);
+  background: rgba(255, 232, 138, 0.84);
+  color: rgba(115, 0, 52, 0.9);
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--site-font);
+  font-size: 0.82rem;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.12);
+}
+
+.personajes__toggle-map-return:hover {
+  background: rgba(255, 220, 102, 0.92);
+}
+
 .personajes__panel {
   max-height: 0;
   opacity: 0;
@@ -184,6 +207,25 @@
   font-family: var(--site-font);
   font-size: 0.9rem;
   box-shadow: 0 6px 16px rgba(115, 0, 52, 0.12);
+}
+
+.personajes__map-return {
+  border: 1px solid rgba(163, 0, 72, 0.3);
+  background: rgba(255, 232, 138, 0.84);
+  color: rgba(115, 0, 52, 0.9);
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: var(--site-font);
+  font-size: 0.9rem;
+  box-shadow: 0 6px 16px rgba(115, 0, 52, 0.12);
+  text-decoration: none;
+  margin-right: 0.7rem;
+}
+
+.personajes__map-return:hover {
+  background: rgba(255, 220, 102, 0.92);
 }
 
 .personajes__panel-toggle:hover {
@@ -522,7 +564,14 @@
   }
 
   .personajes__toggle {
-    padding: 1.2rem 5rem 1.2rem 1.2rem;
+    padding: 1.2rem 11.4rem 1.2rem 1.2rem;
+  }
+
+  .personajes__toggle-map-return {
+    top: 0.85rem;
+    right: 0.9rem;
+    font-size: 0.75rem;
+    padding: 0.26rem 0.58rem;
   }
 
   .personajes__toggle-title {

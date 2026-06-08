@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Personajes.css";
 import usePageMeta from "../../hooks/usePageMeta";
 import cufre from "./cufre/cufre.webp";
@@ -425,9 +425,16 @@ const hasPersonajeId = (id) => personajes.some((personaje) => personaje.id === i
 
 const Personajes = () => {
   const { personajeId } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
+  const searchParams = new URLSearchParams(location.search);
+  const mapPoint = searchParams.get("punto");
+  const shouldShowMapReturn = searchParams.get("desde") === "mapa-de-la-memoria";
+  const mapReturnPath = mapPoint
+    ? `/mapa-de-la-memoria?punto=${encodeURIComponent(mapPoint)}`
+    : "/mapa-de-la-memoria";
 
   const activePersonaje = personajeId ? personajes.find((p) => p.id === personajeId) : null;
   usePageMeta({
@@ -541,6 +548,11 @@ const Personajes = () => {
                   <span className="personajes__toggle-secondary">Abrir +</span>
                 )}
               </button>
+              {isOpen && shouldShowMapReturn && (
+                <Link className="personajes__toggle-map-return" to={mapReturnPath}>
+                  Volver al Mapa
+                </Link>
+              )}
 
               <div
                 className="personajes__panel"
@@ -740,6 +752,11 @@ const Personajes = () => {
                     </>
                   )}
                   <div className="personajes__panel-actions">
+                    {shouldShowMapReturn && (
+                      <Link className="personajes__map-return" to={mapReturnPath}>
+                        Volver al Mapa
+                      </Link>
+                    )}
                     <button
                       type="button"
                       className="personajes__panel-toggle"

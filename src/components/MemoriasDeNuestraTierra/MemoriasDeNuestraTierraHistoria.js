@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Error404 from "../Error404/Error404";
 import marthaCanalePhoto from "./martha-canale.webp";
 import {
@@ -19,10 +19,23 @@ const toAbsoluteUrl = (value) => {
 
 const MemoriasDeNuestraTierraHistoria = () => {
   const { memoriaSlug } = useParams();
+  const location = useLocation();
   const historia = getMemoriasHistoriaBySlug(memoriaSlug);
   const [lightbox, setLightbox] = useState(null);
 
   const isPublished = Boolean(historia && historia.status === "published");
+  const searchParams = new URLSearchParams(location.search);
+  const timelineMission = searchParams.get("mision");
+  const mapPoint = searchParams.get("punto");
+  const source = searchParams.get("desde");
+  const timelineReturnPath = timelineMission
+    ? `/linea-de-tiempo?mision=${encodeURIComponent(timelineMission)}#misiones`
+    : "/linea-de-tiempo#misiones";
+  const mapReturnPath = mapPoint
+    ? `/mapa-de-la-memoria?punto=${encodeURIComponent(mapPoint)}`
+    : "/mapa-de-la-memoria";
+  const shouldShowTimelineReturn = source === "linea-de-tiempo";
+  const shouldShowMapReturn = source === "mapa-de-la-memoria";
   const pagePath = isPublished ? `${MEMORIAS_BASE_PATH}/${historia.slug}` : MEMORIAS_BASE_PATH;
   const pageUrl = `${SITE_ORIGIN}${pagePath}`;
   const articleSchema = isPublished
@@ -150,7 +163,19 @@ const MemoriasDeNuestraTierraHistoria = () => {
         </div>
       </header>
 
-      <h1 className="memorias__detailTitle">{historia.title}</h1>
+      <div className="memorias__detailHeader">
+        <h1 className="memorias__detailTitle">{historia.title}</h1>
+        {shouldShowTimelineReturn && (
+          <Link className="memorias__timelineReturn memorias__timelineReturn--top" to={timelineReturnPath}>
+            Volver a la Línea de tiempo
+          </Link>
+        )}
+        {shouldShowMapReturn && (
+          <Link className="memorias__mapReturn memorias__mapReturn--top" to={mapReturnPath}>
+            Volver al Mapa
+          </Link>
+        )}
+      </div>
       <p className="memorias__detailIntro">{historia.intro}</p>
 
       <section className="memorias__fragment" aria-label="Fragmento pendiente">
@@ -240,6 +265,16 @@ const MemoriasDeNuestraTierraHistoria = () => {
       </section>
 
       <div className="memorias__backRow">
+        {shouldShowTimelineReturn && (
+          <Link className="memorias__timelineReturn" to={timelineReturnPath}>
+            Volver a la Línea de tiempo
+          </Link>
+        )}
+        {shouldShowMapReturn && (
+          <Link className="memorias__mapReturn" to={mapReturnPath}>
+            Volver al Mapa
+          </Link>
+        )}
         <Link className="memorias__cardCta" to={MEMORIAS_BASE_PATH}>
           Volver a Memorias
         </Link>

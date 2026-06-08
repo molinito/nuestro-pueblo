@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import usePageMeta from "../../hooks/usePageMeta";
 import "./MapaDeLaMemoria.css";
 import sinsacateThumb from "../Lugares/sinsacate/sinsacate-01.webp";
@@ -247,6 +247,7 @@ const memoryPoints = [
 ];
 
 const MapaDeLaMemoria = () => {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState("todos");
   const [selectedId, setSelectedId] = useState(memoryPoints[0].id);
   const [previewedId, setPreviewedId] = useState(null);
@@ -265,6 +266,16 @@ const MapaDeLaMemoria = () => {
 
   const selectedPoint =
     memoryPoints.find((point) => point.id === selectedId) || visiblePoints[0] || memoryPoints[0];
+
+  useEffect(() => {
+    const pointId = new URLSearchParams(location.search).get("punto");
+    if (!pointId) return;
+    const point = memoryPoints.find((item) => item.id === pointId);
+    if (!point) return;
+    setSelectedId(point.id);
+    setActiveCategory(point.category);
+    setPreviewedId(null);
+  }, [location.search]);
 
   const handleCategoryChange = (categoryId) => {
     setActiveCategory(categoryId);
@@ -425,7 +436,10 @@ const MapaDeLaMemoria = () => {
           <p className="memoriaMap__summary">{selectedPoint.summary}</p>
           <div className="memoriaMap__links" aria-label="Relatos relacionados">
             {selectedPoint.links.map((link) => (
-              <Link key={`${selectedPoint.id}-${link.to}`} to={link.to}>
+              <Link
+                key={`${selectedPoint.id}-${link.to}`}
+                to={`${link.to}?desde=mapa-de-la-memoria&punto=${encodeURIComponent(selectedPoint.id)}`}
+              >
                 {link.label}
               </Link>
             ))}

@@ -64,6 +64,9 @@ const Navbar = () => {
         <NavLink className={styles.link} activeclassname="active" to="/mapa-de-la-memoria" onClick={closeAllMenus}>
           Mapa de la Memoria
         </NavLink>
+        <NavLink className={styles.link} activeclassname="active" to="/linea-de-tiempo" onClick={closeAllMenus}>
+          Línea de Tiempo
+        </NavLink>
         <NavLink className={styles.link} activeclassname="active" to="/recorridos" onClick={closeAllMenus}>
           Recorridos
         </NavLink>

@@ -21,6 +21,7 @@ import MemoriasDeNuestraTierraIndex from "./components/MemoriasDeNuestraTierra/M
 import MemoriasDeNuestraTierraHistoria from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraHistoria";
 import MapaDeLaMemoria from "./components/MapaDeLaMemoria/MapaDeLaMemoria";
 import RecorridosDeLaMemoria from "./components/RecorridosDeLaMemoria/RecorridosDeLaMemoria";
+import LineaDeTiempo from "./components/LineaDeTiempo/LineaDeTiempo";
 
 const MemoriasLegacyRedirect = () => {
   const { memoriaSlug } = useParams();
@@ -59,6 +60,7 @@ const App = () => {
           <Route path="/ayer-hoy" element={<AyerHoy />} />
           <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
           <Route path="/mapa-de-la-memoria" element={<MapaDeLaMemoria />} />
+          <Route path="/linea-de-tiempo" element={<LineaDeTiempo />} />
           <Route path="/recorridos" element={<RecorridosDeLaMemoria />} />
           <Route path="/recorridos/camino-real" element={<RecorridosDeLaMemoria />} />
           <Route

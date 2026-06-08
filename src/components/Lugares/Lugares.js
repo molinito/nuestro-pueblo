@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Lugares.css";
 import usePageMeta from "../../hooks/usePageMeta";
 import { estanciaJesuitica } from "./estancia-jesuitica/data";
@@ -32,6 +32,7 @@ const hasLugarId = (id) => lugares.some((lugar) => lugar.id === id);
 
 const Lugares = () => {
   const { lugarId } = useParams();
+  const location = useLocation();
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
@@ -44,6 +45,18 @@ const Lugares = () => {
       : currentLightboxPhoto?.src;
 
   const activeLugar = lugarId ? lugares.find((l) => l.id === lugarId) : null;
+  const searchParams = new URLSearchParams(location.search);
+  const timelineMission = searchParams.get("mision");
+  const mapPoint = searchParams.get("punto");
+  const source = searchParams.get("desde");
+  const timelineReturnPath = timelineMission
+    ? `/linea-de-tiempo?mision=${encodeURIComponent(timelineMission)}#misiones`
+    : "/linea-de-tiempo#misiones";
+  const mapReturnPath = mapPoint
+    ? `/mapa-de-la-memoria?punto=${encodeURIComponent(mapPoint)}`
+    : "/mapa-de-la-memoria";
+  const shouldShowTimelineReturn = source === "linea-de-tiempo";
+  const shouldShowMapReturn = source === "mapa-de-la-memoria";
   usePageMeta({
     title: activeLugar ? `${activeLugar.title} | Lugares` : "Lugares para visitar | Nuestro Pueblo",
     description: activeLugar
@@ -175,6 +188,22 @@ const Lugares = () => {
                   <span className="lugares__toggle-secondary">Abrir +</span>
                 )}
               </button>
+              {isOpen && shouldShowTimelineReturn && (
+                <Link
+                  className="lugares__toggle-timeline-return"
+                  to={timelineReturnPath}
+                >
+                  Volver a la Línea de tiempo
+                </Link>
+              )}
+              {isOpen && shouldShowMapReturn && (
+                <Link
+                  className="lugares__toggle-map-return"
+                  to={mapReturnPath}
+                >
+                  Volver al Mapa
+                </Link>
+              )}
 
               <div
                 className="lugares__panel"
@@ -431,6 +460,22 @@ const Lugares = () => {
                       })()}
                       {isOpen && (
                         <div className="lugares__panel-actions">
+                          {shouldShowTimelineReturn && (
+                            <Link
+                              className="lugares__timeline-return"
+                              to={timelineReturnPath}
+                            >
+                              Volver a la Línea de tiempo
+                            </Link>
+                          )}
+                          {shouldShowMapReturn && (
+                            <Link
+                              className="lugares__map-return"
+                              to={mapReturnPath}
+                            >
+                              Volver al Mapa
+                            </Link>
+                          )}
                           <button
                             type="button"
                             className="lugares__panel-toggle"
