@@ -451,9 +451,6 @@ const CardList = () => {
         <Link className={styles.quickLink} to="/linea-de-tiempo">
           Línea de Tiempo
         </Link>
-        <Link className={styles.quickLink} to="/recorridos">
-          Recorridos de la Memoria
-        </Link>
         <Link className={styles.quickLink} to="/lugares">
           Lugares históricos
         </Link>

@@ -213,6 +213,11 @@ const MemoriasDeNuestraTierraHistoria = () => {
                           loading="lazy"
                           decoding="async"
                         />
+                        {image.caption ? (
+                          <figcaption className="memorias__galleryCaption">
+                            {image.caption}
+                          </figcaption>
+                        ) : null}
                         <div className="memorias__overlay">Haz click para agrandar</div>
                       </figure>
                     ))}

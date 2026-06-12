@@ -67,9 +67,6 @@ const Navbar = () => {
         <NavLink className={styles.link} activeclassname="active" to="/linea-de-tiempo" onClick={closeAllMenus}>
           Línea de Tiempo
         </NavLink>
-        <NavLink className={styles.link} activeclassname="active" to="/recorridos" onClick={closeAllMenus}>
-          Recorridos
-        </NavLink>
         <div className={styles.dropdown} ref={dropdownRef}>
           <button
             type="button"

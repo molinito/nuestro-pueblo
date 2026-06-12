@@ -468,7 +468,7 @@ const LineaDeTiempo = () => {
         </div>
         <div className="lineaTiempo__closingLinks">
           <Link to="/mapa-de-la-memoria">🗺️ Abrir mapa</Link>
-            <Link to="/recorridos/camino-real">🚶 Ver recorrido</Link>
+          <Link to="/mapa-de-la-memoria?punto=posta-sinsacate">📍 Ver Camino Real en el mapa</Link>
         </div>
       </section>
     </main>

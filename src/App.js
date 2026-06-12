@@ -20,7 +20,6 @@ import Error404 from "./components/Error404/Error404";
 import MemoriasDeNuestraTierraIndex from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraIndex";
 import MemoriasDeNuestraTierraHistoria from "./components/MemoriasDeNuestraTierra/MemoriasDeNuestraTierraHistoria";
 import MapaDeLaMemoria from "./components/MapaDeLaMemoria/MapaDeLaMemoria";
-import RecorridosDeLaMemoria from "./components/RecorridosDeLaMemoria/RecorridosDeLaMemoria";
 import LineaDeTiempo from "./components/LineaDeTiempo/LineaDeTiempo";
 
 const MemoriasLegacyRedirect = () => {
@@ -61,8 +60,8 @@ const App = () => {
           <Route path="/ayer-hoy/:ayerHoyId" element={<AyerHoy />} />
           <Route path="/mapa-de-la-memoria" element={<MapaDeLaMemoria />} />
           <Route path="/linea-de-tiempo" element={<LineaDeTiempo />} />
-          <Route path="/recorridos" element={<RecorridosDeLaMemoria />} />
-          <Route path="/recorridos/camino-real" element={<RecorridosDeLaMemoria />} />
+          <Route path="/recorridos" element={<Navigate to="/linea-de-tiempo" replace />} />
+          <Route path="/recorridos/camino-real" element={<Navigate to="/linea-de-tiempo?mision=camino-real#misiones" replace />} />
           <Route
             path="/memorias"
             element={<MemoriasDeNuestraTierraIndex />}

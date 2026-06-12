@@ -330,6 +330,26 @@
   filter: saturate(1.05) contrast(1.04);
 }
 
+.memorias__galleryCaption {
+  position: absolute;
+  left: 50%;
+  bottom: 0.75rem;
+  z-index: 1;
+  width: min(calc(100% - 1.5rem), 520px);
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  background: rgba(72, 72, 72, 0.66);
+  color: #fff;
+  font-size: clamp(0.86rem, 1.6vw, 1rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
 .memorias__lightbox {
   position: fixed;
   inset: 0;

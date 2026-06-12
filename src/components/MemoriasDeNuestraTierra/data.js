@@ -26,6 +26,14 @@ import sanAntonio9 from "./san-antonio/9.webp";
 import sanAntonio11 from "./san-antonio/11.webp";
 import sanAntonio13 from "./san-antonio/13.webp";
 import sanAntonio14 from "./san-antonio/14.webp";
+import sanAntonioMariaBrollo from "./san-antonio/Luci1.png";
+import sanAntonioDigna from "./san-antonio/Luci2.png";
+import piccoli0 from "./piccoli/piccoli0.png";
+import piccoli1 from "./piccoli/piccoli1.png";
+import piccoli2 from "./piccoli/piccoli2.png";
+import piccoli3 from "./piccoli/piccoli3.png";
+import piccoli4 from "./piccoli/piccoli4.png";
+import piccoli5 from "./piccoli/piccoli5.png";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -225,22 +233,22 @@ export const memoriasHistorias = [
     slug: "san-antonio",
     title: "San Antonio, viajero milagroso",
     description:
-      "La devoción de María Brollo y Ana durante una travesía difícil, cuando una imagen de San Antonio sostuvo la fe frente al mar embravecido.",
+      "La historia real de María Brollo, la imagen de San Antonio que la acompañó en el mar y las fotografías familiares que hoy le devuelven rostro a esa memoria.",
     image: sanAntonio1,
     imageAlt: "Imagen de San Antonio de Padua conservada por la familia de Maria Brollo",
     intro:
-      "María Brollo tenía apenas nueve años cuando emigró desde Italia acompañada por su tía Ana. En medio del océano, una tormenta convirtió la travesía en una escena de miedo y plegarias alrededor de una pequeña imagen de San Antonio.",
+      "María Brollo tenía apenas nueve años cuando emigró desde Italia acompañada por su tía Ana. En medio del océano, una tormenta convirtió la travesía en una escena de miedo y plegarias alrededor de una pequeña imagen de San Antonio. Hoy, gracias al aporte de sus descendientes, esta historia real también puede mirarnos desde fotografías familiares de María y de Digna, la nieta que juntaba violetas para el santo.",
     closing:
-      "La imagen de San Antonio quedó como reliquia familiar y como recuerdo vivo de aquella travesía, transmitida con flores, devoción y gratitud entre las generaciones de descendientes.",
+      "La imagen de San Antonio quedó como reliquia familiar y como recuerdo vivo de aquella travesía, transmitida con flores, devoción y gratitud entre generaciones. Agradecemos especialmente a Lucía Rossi, hija de Digna y bisnieta de María Brollo, por compartir fotografías familiares que enriquecen este relato.",
     bookPromoLead:
       "Este relato forma parte del libro Hacer la América - Fare I’America, de Martha Canale Vicentini, una obra que reúne historias, testimonios y memorias de los inmigrantes que forjaron nuestra tierra. ",
     bookPromoStrong:
       "Si querés conocer más anécdotas, te invitamos a adquirir el libro en formato físico. Lo podés conseguir en la Biblioteca Filomena Rossi, Av. San Martín 3731, Colonia Caroya, Córdoba, Argentina.",
     fragmentTitle: "Relato (fragmento del libro “Hacer la América”)",
     relatedVideo: {
-      href: "https://youtu.be/NR0TLlzcNgQ",
-      thumbnail: "https://i.ytimg.com/vi/NR0TLlzcNgQ/hqdefault.jpg",
-      title: "Ver video relacionado en YouTube"
+      href: "https://youtu.be/kcjF7DR4rxM",
+      thumbnail: "https://i.ytimg.com/vi/kcjF7DR4rxM/hqdefault.jpg",
+      title: "Ver video documental con fotografias familiares en YouTube"
     },
     fragment: [
       "Sólo nueve años tenía María Brollo cuando emigra de su Italia natal, en barco, con posterioridad al primer contingente venido del Friuli. Viajaba acompañada por una tía llamada Ana.",
@@ -285,16 +293,85 @@ export const memoriasHistorias = [
           { src: sanAntonio13, alt: "Recuerdo familiar de San Antonio, registro 13" },
           { src: sanAntonio14, alt: "Recuerdo familiar de San Antonio, registro 14" }
         ]
+      },
+      {
+        afterParagraphIndex: 10,
+        images: [
+          {
+            src: sanAntonioMariaBrollo,
+            alt: "Maria Brollo ya abuela con su bisnieta Lucia Rossi",
+            caption: "Maria Brollo ya abuela, con su bisnieta Lucia Rossi"
+          },
+          {
+            src: sanAntonioDigna,
+            alt: "Digna, la niña que juntaba las violetas",
+            caption: "Digna, la niña que juntaba las violetas"
+          }
+        ]
       }
     ]
   },
   {
     number: 5,
-    status: "coming_soon",
-    title: "Próximamente",
-    description: "Historia en preparacion.",
-    image: platanos,
-    imageAlt: "Platanos de Colonia Caroya"
+    status: "published",
+    slug: "piccoli-conti",
+    title: "Píccoli Conti",
+    description:
+      "Una pequeña memoria familiar de 1942, una boda de plata, una niña escondida en la acequia y el valor inmenso de una moneda de diez centavos.",
+    image: piccoli0,
+    imageAlt: "Píccoli Conti, memoria familiar",
+    intro:
+      "A veces una historia mínima conserva mejor que cualquier documento el clima de una época: una mañana fría, una familia preparándose para ir a misa, una niña caprichosa y una moneda hallada entre los guijarros.",
+    closing:
+      "En esos diez centavos cabía mucho más que una golosina: cabía la alegría inesperada de la infancia, el recuerdo familiar y una forma sencilla de mirar la vida cotidiana de aquellos años.",
+    bookPromoLead:
+      "Este relato forma parte del libro Hacer la América - Fare I’America, de Martha Canale Vicentini, una obra que reúne historias, testimonios y memorias de los inmigrantes que forjaron nuestra tierra. ",
+    bookPromoStrong:
+      "Si querés conocer más anécdotas, te invitamos a adquirir el libro en formato físico. Lo podés conseguir en la Biblioteca Filomena Rossi, Av. San Martín 3731, Colonia Caroya, Córdoba, Argentina.",
+    fragmentTitle: "Relato (fragmento del libro “Hacer la América”)",
+    relatedVideo: {
+      href: "https://youtu.be/3rfDgGEsTFw",
+      thumbnail: "https://i.ytimg.com/vi/3rfDgGEsTFw/hqdefault.jpg",
+      title: "Ver video relacionado en YouTube"
+    },
+    fragment: [
+      "José y María cumplían en aquel 1942 sus 25 años de matrimonio. El festejo consistía en una Misa de Acción de Gracias y un almuerzo acompañados por sus hijos, hermanos y cuñados.",
+      "Era una gélida mañana de junio en que los árboles mostraban sus brazos desnudos y los jardines se veían algo tristes por la escasez de flores; se lucían los malvones, caléndulas, espuelas de caballero y perfumadas violetas.",
+      "El párroco quiso agasajar al matrimonio en sus bodas de plata y mandó su auto para que les acercaran al templo. Los dos hijos mayores irían en bicicleta.",
+      "Luisa, una vecina muy servicial, ofreció llevar a alguien en su jardinera. Enviaron a la nena de 7 años, a quien le decían Negrita. No quiso saber nada: ella quería ir en el auto, pero todos no cabían en él.",
+      "Negrita desapareció. Había que partir para asistir a la Santa Misa.",
+      "La pequeña, cuando se descuidó la familia, fue a esconderse en la acequía, que ese día estaba sin agua, al amparo de los mimbres que la bordeaban. Allí se acurrucó para no ser vista, llorando en silencio, pues no quería ir a la iglesia en la jardinera.",
+      "Su madre y la hermana mayor la buscaban presurosas, llamándola preocupadas. Negrita oía todo, pero no contestaba. Seguía agachadita, llorando bajito.",
+      "De pronto, entre unos guijarros, vio algo que brillaba. Escapóse una risita a través de sus lágrimas al comprobar que ese objeto circular era nada menos que una moneda de diez centavos.",
+      "¿Qué podía comprar con ese dinero? Por algo Jesusito se lo había puesto en la acequia para ella.",
+      "Tan contenta estaba que salió de su escondite. No había tiempo para reprimendas. Puso la monedita en el bolsillo de su tapadito de tartán a cuadros y se fue con Luisa en la jardinera tirada por el caballo moro que corría veloz.",
+      "Al llegar a la iglesia y mientras Luisa ataba el caballo en uno de los plátanos de la calle ancha, Negrita corrió al bar de Don Marcos a comprar dos grandes Chupagansos, que así se denominaba a las paletas Misky con sabor a dulce de leche.",
+      "Además Don Marcos le dio la yapa: un puñado de maní japonés.",
+      "Puso todo en el bolsillo grande de su abrigo, pensando en el festín que se daría con sus hermanitos, más allá del almuerzo y la torta de las Bodas de Plata de sus papás."
+    ],
+    inlineGalleries: [
+      {
+        afterParagraphIndex: 2,
+        images: [
+          { src: piccoli0, alt: "Píccoli Conti, imagen 0" },
+          { src: piccoli1, alt: "Píccoli Conti, imagen 1" }
+        ]
+      },
+      {
+        afterParagraphIndex: 6,
+        images: [
+          { src: piccoli2, alt: "Píccoli Conti, imagen 2" },
+          { src: piccoli3, alt: "Píccoli Conti, imagen 3" }
+        ]
+      },
+      {
+        afterParagraphIndex: 10,
+        images: [
+          { src: piccoli4, alt: "Píccoli Conti, imagen 4" },
+          { src: piccoli5, alt: "Píccoli Conti, imagen 5" }
+        ]
+      }
+    ]
   },
   {
     number: 6,

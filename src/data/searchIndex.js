@@ -33,26 +33,6 @@ export const searchIndex = [
     ]
   },
   {
-    id: "recorridos-de-la-memoria",
-    title: "Recorridos de la Memoria",
-    subtitle: "Rutas patrimoniales por Sinsacate, Jesús María y Colonia Caroya",
-    href: "/recorridos",
-    section: "Recorridos",
-    content:
-      "Recorridos guiados por la memoria local. Primera ruta: Camino Real, Posta de Sinsacate, Museo Jesuítico, Estancia Caroya, Belgrano y San Martín.",
-    keywords: [
-      "recorridos",
-      "rutas",
-      "camino real",
-      "posta de sinsacate",
-      "jesus maria",
-      "colonia caroya",
-      "belgrano",
-      "san martin",
-      "patrimonio"
-    ]
-  },
-  {
     id: "linea-de-tiempo",
     title: "Línea de Tiempo Interactiva",
     subtitle: "Exploradores del Tiempo: misiones educativas sobre la historia local",
@@ -72,16 +52,6 @@ export const searchIndex = [
       "inmigracion",
       "ferrocarril"
     ]
-  },
-  {
-    id: "recorridos-camino-real",
-    title: "Camino Real: Sinsacate, Jesús María y Caroya",
-    subtitle: "Recorrido guiado por postas, estancias jesuíticas e independencia",
-    href: "/recorridos/camino-real",
-    section: "Recorridos",
-    content:
-      "Ruta de la memoria por el Camino Real: Posta de Sinsacate, Museo Jesuítico Nacional, Estancia Caroya y relatos sobre Belgrano y San Martín en la región.",
-    keywords: ["camino real", "sinsacate", "jesus maria", "caroya", "postas", "estancias jesuiticas", "independencia"]
   },
   {
     id: "historia",
@@ -147,12 +117,22 @@ export const searchIndex = [
   {
     id: "memorias-san-antonio",
     title: "San Antonio, viajero milagroso",
-    subtitle: "La imagen de San Antonio que acompañó a María Brollo durante una tormenta en alta mar",
+    subtitle: "La imagen de San Antonio, María Brollo y las fotografías familiares que conservan esta memoria",
     href: "/memorias/san-antonio",
     section: "Memorias",
     content:
-      "María Brollo viajó desde Italia con su tía Ana y una imagen de San Antonio de Padua. En medio de una tormenta, la fe alrededor de esa reliquia familiar sostuvo a los inmigrantes durante la travesía.",
-    keywords: ["san antonio", "maria brollo", "ana", "friuli", "italia", "inmigrantes", "colonia caroya"]
+      "María Brollo viajó desde Italia con su tía Ana y una imagen de San Antonio de Padua. En medio de una tormenta, la fe alrededor de esa reliquia familiar sostuvo a los inmigrantes durante la travesía. Fotografías familiares compartidas por Lucía Rossi recuperan el rostro de María y de Digna, la nieta que juntaba violetas.",
+    keywords: ["san antonio", "maria brollo", "digna", "lucia rossi", "ana", "friuli", "italia", "inmigrantes", "colonia caroya"]
+  },
+  {
+    id: "memorias-piccoli-conti",
+    title: "Píccoli Conti",
+    subtitle: "El valor de diez centavos en una memoria familiar de 1942",
+    href: "/memorias/piccoli-conti",
+    section: "Memorias",
+    content:
+      "Jose y Maria celebraban sus bodas de plata en 1942. Negrita, una niña de siete años, se escondió en la acequia porque no quería ir a la iglesia en jardinera y encontró una moneda de diez centavos para comprar Chupagansos Misky en el bar de Don Marcos.",
+    keywords: ["piccoli conti", "diez centavos", "negrita", "don marcos", "misky", "chupagansos", "bodas de plata", "colonia caroya"]
   },
   {
     id: "historia-belgrano",
