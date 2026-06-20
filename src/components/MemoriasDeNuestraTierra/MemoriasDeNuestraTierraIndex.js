@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   MEMORIAS_BASE_PATH,
@@ -8,6 +8,8 @@ import usePageMeta from "../../hooks/usePageMeta";
 import "./MemoriasDeNuestraTierra.css";
 
 const MemoriasDeNuestraTierraIndex = () => {
+  const [closingStory, setClosingStory] = useState(null);
+
   usePageMeta({
     title: "Memorias de Nuestra Tierra | Historias de Martha Canale",
     description:
@@ -76,6 +78,19 @@ const MemoriasDeNuestraTierraIndex = () => {
             );
           }
 
+          if (historia.slug === "costumbres-comercios-personajes") {
+            return (
+              <button
+                key={`memorias-${historia.number}`}
+                className={`${cardClassName} memorias__cardButton`}
+                type="button"
+                onClick={() => setClosingStory(historia)}
+              >
+                {cardInner}
+              </button>
+            );
+          }
+
           return (
             <Link
               key={`memorias-${historia.number}`}
@@ -87,6 +102,55 @@ const MemoriasDeNuestraTierraIndex = () => {
           );
         })}
       </section>
+
+      {closingStory ? (
+        <div className="memorias__closingNoticeBackdrop" role="presentation">
+          <section
+            className="memorias__closingNotice"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="memorias-closing-notice-title"
+          >
+            <p className="memorias__closingNoticeEyebrow">Agradecimiento especial</p>
+            <h2 id="memorias-closing-notice-title">
+              Antes de ingresar al último relato
+            </h2>
+            <p>
+              Esta última historia ha sido editada y resumida para mostrar la mayor
+              cantidad de contenido referente a los oficios, comercios y recuerdos de la
+              primera Colonia, siempre respetando la esencia del libro{" "}
+              <strong>Hacer la América</strong>.
+            </p>
+            <p>
+              Mi más profundo agradecimiento a Patricia y Mónica Vicentini por permitirme
+              publicar parte de este hermoso libro y honrar a Martha Canale Vicentini, su
+              autora.
+            </p>
+            <p>
+              Este último relato contiene nombres y apellidos, casi todos conocidos. Invito
+              a familiares y amigos que quieran compartir alguna anécdota o foto de los
+              personajes a hacerlo sin ningún compromiso, enviándome su mensaje por Facebook
+              o WhatsApp.
+            </p>
+            <p>Gracias por permitirme ser parte de esta comunidad.</p>
+            <div className="memorias__closingNoticeActions">
+              <button
+                className="memorias__closingNoticeSecondary"
+                type="button"
+                onClick={() => setClosingStory(null)}
+              >
+                Volver
+              </button>
+              <Link
+                className="memorias__closingNoticePrimary"
+                to={`${MEMORIAS_BASE_PATH}/${closingStory.slug}`}
+              >
+                Ir al relato
+              </Link>
+            </div>
+          </section>
+        </div>
+      ) : null}
     </main>
   );
 };

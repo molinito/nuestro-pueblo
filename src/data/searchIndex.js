@@ -135,6 +135,29 @@ export const searchIndex = [
     keywords: ["piccoli conti", "diez centavos", "negrita", "don marcos", "misky", "chupagansos", "bodas de plata", "colonia caroya"]
   },
   {
+    id: "memorias-costumbres-comercios-personajes",
+    title: "Costumbres, comercios y personajes de la Colonia de antaño",
+    subtitle: "Fotógrafos, peluqueros, comercios, bailes y vendimias de Colonia Caroya",
+    href: "/memorias/costumbres-comercios-personajes",
+    section: "Memorias",
+    content:
+      "Memoria de la vida cotidiana de Colonia Caroya: Foto Roma, Foto Estrella, Foto Laporta, peluqueros como Luis Polesel y Fidel Peluca, comercios, bares, bailes familiares, Fiesta de la Vendimia y Reina de la Uva.",
+    keywords: [
+      "costumbres",
+      "comercios",
+      "personajes",
+      "colonia caroya",
+      "foto roma",
+      "foto estrella",
+      "foto laporta",
+      "luis polesel",
+      "fidel peluca",
+      "vendimia",
+      "reina de la uva",
+      "bochas sport club"
+    ]
+  },
+  {
     id: "historia-belgrano",
     title: "Cuando Belgrano cruzó nuestra tierra",
     subtitle: "El paso del prócer por Jesús María y Colonia Caroya",

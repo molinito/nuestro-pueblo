@@ -34,6 +34,13 @@ import piccoli2 from "./piccoli/piccoli2.png";
 import piccoli3 from "./piccoli/piccoli3.png";
 import piccoli4 from "./piccoli/piccoli4.png";
 import piccoli5 from "./piccoli/piccoli5.png";
+import costumbresComerciosCover from "./costumbres-comercios-personajes.png";
+import costumbresFotografo from "./costumbres-comercios/fotografo.webp";
+import costumbresPeluquero from "./costumbres-comercios/peluquero.webp";
+import costumbresPeluquera from "./costumbres-comercios/peluquera.webp";
+import costumbresErnesto from "./costumbres-comercios/ernesto.webp";
+import costumbresBar from "./costumbres-comercios/bar.webp";
+import costumbresReina from "./costumbres-comercios/reina.webp";
 
 export const MEMORIAS_BASE_PATH = "/memorias";
 
@@ -375,11 +382,61 @@ export const memoriasHistorias = [
   },
   {
     number: 6,
-    status: "coming_soon",
-    title: "Próximamente",
-    description: "Historia en preparacion.",
-    image: platanos,
-    imageAlt: "Platanos de Colonia Caroya"
+    status: "published",
+    slug: "costumbres-comercios-personajes",
+    title: "Costumbres, comercios y personajes de la Colonia de antaño",
+    description:
+      "Fotógrafos, peluqueros, comercios, bailes, vendimias y nombres familiares que reconstruyen la vida cotidiana de la antigua Colonia Caroya.",
+    image: costumbresComerciosCover,
+    imageAlt: "Ilustracion de costumbres, comercios y personajes de la Colonia de antaño",
+    intro:
+      "Durante las primeras décadas de Colonia Caroya, la vida cotidiana fue construyéndose con el esfuerzo de familias, comerciantes y trabajadores que dejaron una profunda huella en la comunidad.",
+    closing:
+      "Fotógrafos, peluqueros, comerciantes, músicos, reinas y vecinos anónimos fueron protagonistas de una época sencilla y laboriosa. Sus historias, transmitidas de generación en generación, siguen formando parte de la identidad y del patrimonio cultural de Colonia Caroya.",
+    bookPromoLead:
+      "Este relato forma parte del libro Hacer la América - Fare I’America, de Martha Canale Vicentini, una obra que reúne historias, testimonios y memorias de los inmigrantes que forjaron nuestra tierra. ",
+    bookPromoStrong:
+      "Si querés conocer más anécdotas, te invitamos a adquirir el libro en formato físico. Lo podés conseguir en la Biblioteca Filomena Rossi, Av. San Martín 3731, Colonia Caroya, Córdoba, Argentina.",
+    fragmentTitle: "Relato (fragmento del libro “Hacer la América”)",
+    fragment: [
+      "Quienes deseaban conservar un recuerdo familiar, de un casamiento o del servicio militar, debían viajar hasta Córdoba para retratarse. Más tarde surgieron estudios más cercanos como Artico y Andreoli en Jesús María, y posteriormente Foto Laporta en Colonia Caroya.",
+      "Luego llegó José D'Andreis con su tradicional \"Foto Roma\", conocido especialmente como el fotógrafo de los novios. También dejaron su marca Hugo Gremico con Foto Estrella y Luis Contessi, continuando una actividad que permitió conservar innumerables recuerdos de las familias caroyenses.",
+      "Entre los oficios más apreciados se encontraba el de peluquero. Luis Polesel fue el primer peluquero de la Colonia y, debido a la creciente clientela, incorporó a Damián Luján, formando una sociedad que perduró durante muchos años.",
+      "También era conocido el peluquero ambulante Fidel \"Peluca\", quien recorría la zona rural visitando chacras y quintas con su inseparable maletín. Para las damas, la pionera fue Luisa Iribarren, instalada frente a la Iglesia, seguida por María Noves y más tarde Anita Báccola.",
+      "Mujeres de distintos puntos de la región llegaban en sulky para atenderse, convirtiendo aquellas jornadas en verdaderos encuentros sociales.",
+      "La actividad comercial crecía junto con la colonia. Entre las tiendas más recordadas figuraban \"La Caperucita\" de Gregorio Boscatto, el comercio de Ayech Cabuchi, Casa San José de José Silva e hijo, además de los negocios de Marcela Polesel y Maruca Arce.",
+      "En distintos sectores funcionaban importantes Ramos Generales como los de Nadaya, Candussi, D'Olivo, Gentilini y Cía., mientras que la Zapatería Zanello era referencia obligada para muchas familias.",
+      "También eran habituales los vendedores ambulantes, como Ernesto Boscatto, que recorría las chacras con su jardinera cargada de telas, mercería y calzado.",
+      "Los momentos de recreación tenían lugar en los bares y confiterías de la época. En la Casa de D'Olivo, en los bares de Domingo y Marcos Copetti, y en la confitería de Juan Bautista Lauret, se compartían partidas de truco, tres siete, bochas y el tradicional juego de \"la mora\".",
+      "Otra de las diversiones más frecuentes eran los bailes familiares, animados por acordeones, verduleras o fonógrafos. Polcas, mazurcas y valses acompañaban reuniones donde no faltaban el vino, el café, los crostui y las canciones friulanas que todos entonaban en coro.",
+      "Las celebraciones vendimiales también ocuparon un lugar destacado. En 1939 se realizó la primera Fiesta de la Vendimia, resultando electa María Monasterolo como reina y Adelina Cargnelutti como princesa.",
+      "Años más tarde, en 1961, María Luisa Andreatta fue coronada Reina Provincial de la Vendimia, dando continuidad a una tradición que aún perdura.",
+      "Otra recordada celebración fue la elección de la Reina de la Uva, organizada por el Bochas Sport Club. La primera soberana fue Rita Fantini en 1942, sucedida por Florentina Irene Nicolodi y posteriormente por Lidia Elba Nóbile.",
+      "Aquellas fiestas se convirtieron en acontecimientos esperados por toda la comunidad y forman parte de la memoria colectiva de Colonia Caroya."
+    ],
+    inlineGalleries: [
+      {
+        afterParagraphIndex: 1,
+        images: [
+          { src: costumbresFotografo, alt: "Fotógrafo de la Colonia de antaño" },
+          { src: costumbresPeluquero, alt: "Peluquero de la antigua Colonia Caroya" }
+        ]
+      },
+      {
+        afterParagraphIndex: 4,
+        images: [
+          { src: costumbresPeluquera, alt: "Peluquera pionera de la Colonia" },
+          { src: costumbresErnesto, alt: "Vendedor ambulante recorriendo las chacras" }
+        ]
+      },
+      {
+        afterParagraphIndex: 9,
+        images: [
+          { src: costumbresBar, alt: "Bar y recreación en la Colonia de antaño" },
+          { src: costumbresReina, alt: "Celebraciones vendimiales y reinas de la Colonia" }
+        ]
+      }
+    ]
   }
 ];
 
