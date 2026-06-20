@@ -144,6 +144,7 @@ const MemoriasDeNuestraTierraIndex = () => {
               <Link
                 className="memorias__closingNoticePrimary"
                 to={`${MEMORIAS_BASE_PATH}/${closingStory.slug}`}
+                state={{ skipClosingNotice: true }}
               >
                 Ir al relato
               </Link>

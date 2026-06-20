@@ -22,8 +22,15 @@ const MemoriasDeNuestraTierraHistoria = () => {
   const location = useLocation();
   const historia = getMemoriasHistoriaBySlug(memoriaSlug);
   const [lightbox, setLightbox] = useState(null);
+  const [closingNoticeAccepted, setClosingNoticeAccepted] = useState(() =>
+    Boolean(location.state?.skipClosingNotice)
+  );
 
   const isPublished = Boolean(historia && historia.status === "published");
+  const shouldGateClosingStory = historia?.slug === "costumbres-comercios-personajes";
+  const shouldSkipClosingNotice = Boolean(location.state?.skipClosingNotice);
+  const shouldShowClosingNotice =
+    isPublished && shouldGateClosingStory && !closingNoticeAccepted;
   const searchParams = new URLSearchParams(location.search);
   const timelineMission = searchParams.get("mision");
   const mapPoint = searchParams.get("punto");
@@ -113,6 +120,10 @@ const MemoriasDeNuestraTierraHistoria = () => {
   };
 
   useEffect(() => {
+    setClosingNoticeAccepted(shouldSkipClosingNotice);
+  }, [memoriaSlug, shouldSkipClosingNotice]);
+
+  useEffect(() => {
     if (!lightbox) return undefined;
     const handleKeyDown = (event) => {
       if (event.key === "Escape") setLightbox(null);
@@ -137,6 +148,54 @@ const MemoriasDeNuestraTierraHistoria = () => {
 
   if (!isPublished) {
     return <Error404 />;
+  }
+
+  if (shouldShowClosingNotice) {
+    return (
+      <main className="memorias__detail memorias__detail--noticeOnly">
+        <section
+          className="memorias__closingNotice memorias__closingNotice--inline"
+          role="dialog"
+          aria-modal="false"
+          aria-labelledby="memorias-closing-detail-notice-title"
+        >
+          <p className="memorias__closingNoticeEyebrow">Agradecimiento especial</p>
+          <h2 id="memorias-closing-detail-notice-title">
+            Antes de ingresar al último relato
+          </h2>
+          <p>
+            Esta última historia ha sido editada y resumida para mostrar la mayor cantidad
+            de contenido referente a los oficios, comercios y recuerdos de la primera
+            Colonia, siempre respetando la esencia del libro{" "}
+            <strong>Hacer la América</strong>.
+          </p>
+          <p>
+            Mi más profundo agradecimiento a Patricia y Mónica Vicentini por permitirme
+            publicar parte de este hermoso libro y honrar a Martha Canale Vicentini, su
+            autora.
+          </p>
+          <p>
+            Este último relato contiene nombres y apellidos, casi todos conocidos. Invito a
+            familiares y amigos que quieran compartir alguna anécdota o foto de los
+            personajes a hacerlo sin ningún compromiso, enviándome su mensaje por Facebook o
+            WhatsApp.
+          </p>
+          <p>Gracias por permitirme ser parte de esta comunidad.</p>
+          <div className="memorias__closingNoticeActions">
+            <Link className="memorias__closingNoticeSecondary" to={MEMORIAS_BASE_PATH}>
+              Volver
+            </Link>
+            <button
+              className="memorias__closingNoticePrimary"
+              type="button"
+              onClick={() => setClosingNoticeAccepted(true)}
+            >
+              Ir al relato
+            </button>
+          </div>
+        </section>
+      </main>
+    );
   }
 
   return (
@@ -329,6 +388,7 @@ const MemoriasDeNuestraTierraHistoria = () => {
           </div>
         </div>
       ) : null}
+
     </main>
   );
 };
