@@ -78,6 +78,26 @@ export const searchIndex = [
     section: "Historia"
   },
   {
+    id: "historia-sarmiento-aurelia",
+    title: "Sarmiento y Aurelia: el camino hacia Jesús María",
+    subtitle: "Entrega I: la historia antes del nogal",
+    href: "/historia/sarmiento-aurelia",
+    section: "Historia",
+    content:
+      "Domingo Faustino Sarmiento, Aurelia Vélez Sarsfield, la enfermedad de Rosario Vélez y el viaje a Córdoba que vincula a Jesús María con la tradición del nogal de la Estancia Jesuítica.",
+    keywords: [
+      "sarmiento",
+      "aurelia velez sarsfield",
+      "rosario velez",
+      "nogal",
+      "estancia jesuitica",
+      "jesus maria",
+      "cordoba",
+      "1879",
+      "1880"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",

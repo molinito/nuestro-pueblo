@@ -201,7 +201,7 @@
 }
 
 .historia__item.is-open .historia__panel {
-  max-height: 3000px;
+  max-height: 22000px;
   opacity: 1;
 }
 
@@ -221,6 +221,123 @@
 
 .historia__panel-inner--gallery {
   align-items: start;
+}
+
+.historia__panel-inner--inline-gallery {
+  grid-template-columns: 1fr;
+}
+
+.historia__text-section {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.historia__text-section + .historia__text-section {
+  margin-top: 1.7rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(163, 0, 72, 0.12);
+}
+
+.historia__text-section h3 {
+  margin: 0;
+  color: rgba(115, 0, 52, 0.96);
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  line-height: 1.25;
+}
+
+.historia__text-section p {
+  margin: 0;
+}
+
+.historia__references-wrap {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  margin-top: 1.8rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(163, 0, 72, 0.14);
+}
+
+.historia__references-button,
+.historia__references-return {
+  border: 1px solid rgba(163, 0, 72, 0.32);
+  background: linear-gradient(135deg, rgba(255, 232, 138, 0.92), rgba(247, 219, 236, 0.92));
+  color: rgba(115, 0, 52, 0.94);
+  font-family: var(--site-font);
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  border-radius: 999px;
+  padding: 0.62rem 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(115, 0, 52, 0.14);
+}
+
+.historia__references-button:hover,
+.historia__references-return:hover {
+  background: linear-gradient(135deg, rgba(255, 220, 102, 0.98), rgba(246, 219, 233, 1));
+  transform: translateY(-1px);
+}
+
+.historia__references-button:focus-visible,
+.historia__references-return:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.35);
+  outline-offset: 4px;
+}
+
+.historia__references-box {
+  width: 100%;
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.18);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 232, 0.9)),
+    radial-gradient(circle at top left, rgba(255, 232, 138, 0.35), transparent 42%);
+  box-shadow: 0 16px 32px rgba(115, 0, 52, 0.12);
+}
+
+.historia__references-box h3 {
+  margin: 0;
+  color: rgba(115, 0, 52, 0.96);
+  font-size: clamp(1.25rem, 2.3vw, 1.6rem);
+}
+
+.historia__references-list {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.historia__references-list li {
+  padding-left: 0.25rem;
+}
+
+.historia__references-list strong,
+.historia__references-list span {
+  display: block;
+}
+
+.historia__references-list strong {
+  color: rgba(115, 0, 52, 0.96);
+}
+
+.historia__references-list span {
+  margin-top: 0.12rem;
+  color: rgba(163, 0, 72, 0.9);
+  font-weight: 700;
+}
+
+.historia__references-list p {
+  margin: 0.35rem 0;
+}
+
+.historia__references-list a {
+  color: rgba(115, 0, 52, 0.92);
+  font-weight: 700;
+  word-break: break-word;
 }
 
 .historia__panel-actions {
@@ -537,6 +654,67 @@
   grid-row: span 2;
 }
 
+.historia__inline-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0.55rem 0 1.25rem;
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(163, 0, 72, 0.16);
+  background:
+    radial-gradient(420px 220px at 12% 0%, rgba(255, 232, 138, 0.24), transparent 60%),
+    rgba(255, 255, 255, 0.68);
+  box-shadow: 0 14px 28px rgba(115, 0, 52, 0.1);
+}
+
+.historia__inline-gallery-item {
+  position: relative;
+  min-height: 260px;
+  margin: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: rgba(58, 0, 26, 0.08);
+  box-shadow: 0 12px 24px rgba(115, 0, 52, 0.15);
+}
+
+.historia__inline-gallery-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 240ms ease;
+}
+
+.historia__inline-gallery-item:hover img,
+.historia__inline-gallery-item:focus-visible img {
+  transform: scale(1.06);
+}
+
+.historia__inline-gallery-item:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.35);
+  outline-offset: 4px;
+}
+
+.historia__inline-gallery-caption {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 12px;
+  background: rgba(58, 0, 26, 0.66);
+  color: #fff;
+  font-size: 0.93rem;
+  font-weight: 750;
+  line-height: 1.3;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(6px);
+}
+
 .historia__credit {
   margin-top: 1.8rem;
   padding: 1.2rem 1.4rem;
@@ -753,6 +931,16 @@
 
   .historia__gallery-item.is-feature {
     grid-column: span 2;
+  }
+
+  .historia__inline-gallery {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+  }
+
+  .historia__inline-gallery-item,
+  .historia__inline-gallery-item img {
+    min-height: 240px;
   }
 }
 

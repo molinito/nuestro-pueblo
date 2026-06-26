@@ -16,6 +16,7 @@ import festivalAntes2 from "./festival-jesus-maria/festival-antes2.webp";
 import festivalAntes3 from "./festival-jesus-maria/festival-antes3.webp";
 import festivalAntes4 from "./festival-jesus-maria/festival-antes4.webp";
 import belgranoHistoria from "./belgrano/data";
+import sarmientoAureliaHistoria from "./sarmiento-aurelia/data";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -239,6 +240,7 @@ const historias = [
       thumbnail: "https://img.youtube.com/vi/91sjpvKjNlU/hqdefault.jpg",
     },
   },
+  sarmientoAureliaHistoria,
   {
     id: "festival-jesus-maria",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
@@ -347,11 +349,37 @@ const historias = [
 
 const hasHistoriaId = (id) => historias.some((historia) => historia.id === id);
 
+const renderHistoriaTextBlock = (historia, block, index) => {
+  if (typeof block === "string") {
+    return (
+      <p id={index === 0 ? `historia-relato-${historia.id}` : undefined} key={`${historia.id}-p-${index}`}>
+        {block}
+      </p>
+    );
+  }
+
+  return (
+    <section
+      className="historia__text-section"
+      id={index === 0 ? `historia-relato-${historia.id}` : undefined}
+      key={`${historia.id}-section-${index}`}
+    >
+      <h3>{block.heading}</h3>
+      {block.body.map((paragraph, paragraphIndex) => (
+        <p key={`${historia.id}-section-${index}-p-${paragraphIndex}`}>
+          {paragraph}
+        </p>
+      ))}
+    </section>
+  );
+};
+
 const Historia = () => {
   const { historiaId } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const [openId, setOpenId] = useState(null);
+  const [referencesOpenId, setReferencesOpenId] = useState(null);
   const [lightbox, setLightbox] = useState(null);
   const currentLightboxPhoto = lightbox ? lightbox.gallery[lightbox.index] : null;
 
@@ -392,7 +420,20 @@ const Historia = () => {
     window.scrollBy(0, -90);
   };
 
+  const scrollToRelato = (id) => {
+    const relato = document.getElementById(`historia-relato-${id}`);
+    if (!relato) return;
+    const top = relato.getBoundingClientRect().top + window.scrollY - 100;
+    window.scrollTo({ top: Math.max(top, 0), behavior: "smooth" });
+  };
+
+  const returnToRelato = (id) => {
+    setReferencesOpenId(null);
+    requestAnimationFrame(() => requestAnimationFrame(() => scrollToRelato(id)));
+  };
+
   const toggleItem = (id) => {
+    setReferencesOpenId(null);
     setOpenId((current) => {
       const nextId = current === id ? null : id;
       navigate(nextId ? `/historia/${nextId}` : "/historia");
@@ -586,6 +627,8 @@ const Historia = () => {
                 <div
                   className={`historia__panel-inner${
                     historia.type === "gallery" ? " historia__panel-inner--gallery" : ""
+                  }${
+                    historia.inlineGallery ? " historia__panel-inner--inline-gallery" : ""
                   }`}
                 >
                   {historia.type === "single" && (
@@ -636,9 +679,57 @@ const Historia = () => {
 
                   {historia.type === "text" && (
                     <div className="historia__content historia__content--wide">
-                      {historia.paragraphs.map((paragraph, index) => (
-                        <p key={`${historia.id}-p-${index}`}>{paragraph}</p>
-                      ))}
+                      {historia.paragraphs.map((block, index) =>
+                        renderHistoriaTextBlock(historia, block, index)
+                      )}
+                      {historia.references && (
+                        <div className="historia__references-wrap">
+                          <button
+                            type="button"
+                            className="historia__references-button"
+                            onClick={() =>
+                              setReferencesOpenId((current) =>
+                                current === historia.id ? null : historia.id
+                              )
+                            }
+                            aria-expanded={referencesOpenId === historia.id}
+                            aria-controls={`historia-referencias-${historia.id}`}
+                          >
+                            Referencias
+                          </button>
+                          {referencesOpenId === historia.id && (
+                            <aside
+                              className="historia__references-box"
+                              id={`historia-referencias-${historia.id}`}
+                            >
+                              <h3>{historia.referencesTitle}</h3>
+                              <ol className="historia__references-list">
+                                {historia.references.map((reference) => (
+                                  <li key={reference.href}>
+                                    <strong>{reference.title}</strong>
+                                    <span>{reference.subtitle}</span>
+                                    <p>{reference.description}</p>
+                                    <a
+                                      href={reference.href}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {reference.href}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ol>
+                              <button
+                                type="button"
+                                className="historia__references-return"
+                                onClick={() => returnToRelato(historia.id)}
+                              >
+                                Volver al relato
+                              </button>
+                            </aside>
+                          )}
+                        </div>
+                      )}
                       {historia.list && (
                         <>
                           {historia.listTitle && (
@@ -656,10 +747,14 @@ const Historia = () => {
 
                   {historia.type === "gallery" && (
                     <>
-                      <div className="historia__content">
+                      <div
+                        className={`historia__content${
+                          historia.inlineGallery ? " historia__content--wide" : ""
+                        }`}
+                      >
                         {historia.paragraphs.map((paragraph, index) => (
                           <React.Fragment key={`${historia.id}-p-${index}`}>
-                            <p>{paragraph}</p>
+                            {renderHistoriaTextBlock(historia, paragraph, index)}
                             {historia.acknowledgements &&
                             index === historia.paragraphs.length - 1 ? (
                               <div className="historia__acknowledgements">
@@ -704,6 +799,66 @@ const Historia = () => {
                                 </a>
                               </div>
                             ) : null}
+                            {historia.inlineGallery && Array.isArray(historia.inlineGalleries)
+                              ? historia.inlineGalleries
+                                  .filter((gallery) => gallery.afterSectionIndex === index)
+                                  .map((gallery) => (
+                                    <div
+                                      className="historia__inline-gallery"
+                                      key={`${historia.id}-inline-gallery-${index}`}
+                                      role="group"
+                                      aria-label="Galería de imágenes del relato"
+                                    >
+                                      {gallery.images.slice(0, 2).map((image) => {
+                                        const galleryIndex = historia.gallery.findIndex(
+                                          (photo) => photo.src === image.src
+                                        );
+                                        const lightboxIndex =
+                                          galleryIndex >= 0 ? galleryIndex : 0;
+
+                                        return (
+                                          <figure
+                                            className="historia__inline-gallery-item"
+                                            key={image.src}
+                                            role="button"
+                                            tabIndex={0}
+                                            onClick={() =>
+                                              openImage(
+                                                image.src,
+                                                image.alt,
+                                                historia.gallery,
+                                                lightboxIndex
+                                              )
+                                            }
+                                            onKeyDown={(event) =>
+                                              handleImageKeyDown(
+                                                event,
+                                                image.src,
+                                                image.alt,
+                                                historia.gallery,
+                                                lightboxIndex
+                                              )
+                                            }
+                                            aria-label={`Agrandar imagen: ${image.alt}`}
+                                          >
+                                            <img
+                                              src={image.src}
+                                              alt={image.alt}
+                                              loading="lazy"
+                                              decoding="async"
+                                            />
+                                            <figcaption className="historia__inline-gallery-caption">
+                                              {image.caption}
+                                            </figcaption>
+                                            <div className="historia__overlay">
+                                              Haz click para agrandar
+                                            </div>
+                                          </figure>
+                                        );
+                                      })}
+                                    </div>
+                                  ))
+                              : null}
                           </React.Fragment>
                         ))}
                         {historia.list && (
@@ -718,7 +873,56 @@ const Historia = () => {
                             </ul>
                           </>
                         )}
+                        {historia.references && (
+                          <div className="historia__references-wrap">
+                            <button
+                              type="button"
+                              className="historia__references-button"
+                              onClick={() =>
+                                setReferencesOpenId((current) =>
+                                  current === historia.id ? null : historia.id
+                                )
+                              }
+                              aria-expanded={referencesOpenId === historia.id}
+                              aria-controls={`historia-referencias-${historia.id}`}
+                            >
+                              Referencias
+                            </button>
+                            {referencesOpenId === historia.id && (
+                              <aside
+                                className="historia__references-box"
+                                id={`historia-referencias-${historia.id}`}
+                              >
+                                <h3>{historia.referencesTitle}</h3>
+                                <ol className="historia__references-list">
+                                  {historia.references.map((reference) => (
+                                    <li key={reference.href}>
+                                      <strong>{reference.title}</strong>
+                                      <span>{reference.subtitle}</span>
+                                      <p>{reference.description}</p>
+                                      <a
+                                        href={reference.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                      >
+                                        {reference.href}
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ol>
+                                <button
+                                  type="button"
+                                  className="historia__references-return"
+                                  onClick={() => returnToRelato(historia.id)}
+                                >
+                                  Volver al relato
+                                </button>
+                              </aside>
+                            )}
+                          </div>
+                        )}
                       </div>
+                      {!historia.inlineGallery && (
                       <div className="historia__aside">
                         <p className="historia__gallery-note">
                           {historia.galleryNote ?? "Las imágenes son meramente ilustrativas"}
@@ -799,6 +1003,7 @@ const Historia = () => {
                           </div>
                         )}
                       </div>
+                      )}
                     </>
                   )}
                     <div className="historia__panel-actions">
