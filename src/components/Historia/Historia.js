@@ -2,6 +2,8 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Historia.css";
 import usePageMeta from "../../hooks/usePageMeta";
+import HistoricalPhoto from "./HistoricalPhoto";
+import HistorySeries from "./HistorySeries";
 import museoImg from "./museo-jesuitico/museo.webp";
 import historiaImg from "./colonia-san-martin/1.webp";
 import castillo1 from "./torre-cespedes/castillo1.webp";
@@ -631,6 +633,14 @@ const Historia = () => {
                     historia.inlineGallery ? " historia__panel-inner--inline-gallery" : ""
                   }`}
                 >
+                  {historia.series && (
+                    <HistorySeries
+                      title={historia.series.title}
+                      currentPart={historia.series.currentPart}
+                      totalParts={historia.series.totalParts}
+                      parts={historia.series.parts}
+                    />
+                  )}
                   {historia.type === "single" && (
                     <>
                       <div
@@ -816,7 +826,40 @@ const Historia = () => {
                                         const lightboxIndex =
                                           galleryIndex >= 0 ? galleryIndex : 0;
 
-                                        return (
+                                        return image.document ? (
+                                          <HistoricalPhoto
+                                            key={image.src}
+                                            number={image.document.number ?? lightboxIndex + 1}
+                                            image={image.src}
+                                            alt={image.alt}
+                                            title={image.document.title ?? image.caption}
+                                            subtitle={image.document.subtitle}
+                                            date={image.document.date}
+                                            location={image.document.location}
+                                            description={
+                                              image.document.description ?? image.caption
+                                            }
+                                            source={image.document.source}
+                                            author={image.document.author}
+                                            onOpen={() =>
+                                              openImage(
+                                                image.src,
+                                                image.alt,
+                                                historia.gallery,
+                                                lightboxIndex
+                                              )
+                                            }
+                                            onKeyDown={(event) =>
+                                              handleImageKeyDown(
+                                                event,
+                                                image.src,
+                                                image.alt,
+                                                historia.gallery,
+                                                lightboxIndex
+                                              )
+                                            }
+                                          />
+                                        ) : (
                                           <figure
                                             className="historia__inline-gallery-item"
                                             key={image.src}

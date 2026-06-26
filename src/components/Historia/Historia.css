@@ -715,6 +715,168 @@
   backdrop-filter: blur(6px);
 }
 
+.historia__series {
+  grid-column: 1 / -1;
+  width: min(760px, 100%);
+  margin: -0.25rem auto 0.4rem;
+  padding: clamp(1rem, 2.4vw, 1.35rem);
+  border: 1px solid rgba(115, 0, 52, 0.18);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.96), rgba(250, 238, 219, 0.92)),
+    radial-gradient(circle at 10% 0%, rgba(255, 232, 138, 0.28), transparent 42%);
+  box-shadow: 0 14px 26px rgba(92, 52, 16, 0.1);
+  animation: historiaFadeUp 420ms ease-out;
+}
+
+.historia__series-title {
+  margin: 0 0 0.85rem;
+  color: rgba(80, 45, 18, 0.9);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.historia__series-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.historia__series-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(80, 45, 18, 0.72);
+  font-size: 1rem;
+}
+
+.historia__series-marker {
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.historia__series-item.is-current {
+  color: rgba(115, 0, 52, 0.96);
+  font-weight: 800;
+}
+
+.historia__series-item.is-current .historia__series-marker {
+  background: currentColor;
+}
+
+.historia__series-item.is-disabled {
+  opacity: 0.48;
+}
+
+.historia__series-link {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(115, 0, 52, 0.35);
+}
+
+.historia__series-link:hover {
+  color: rgba(115, 0, 52, 0.98);
+}
+
+.historia__historical-photo {
+  position: relative;
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: clamp(1rem, 2.4vw, 1.25rem);
+  border: 1px solid rgba(80, 45, 18, 0.22);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 245, 0.98), rgba(246, 236, 216, 0.96)),
+    repeating-linear-gradient(90deg, rgba(80, 45, 18, 0.025) 0 1px, transparent 1px 18px);
+  color: rgba(80, 45, 18, 0.92);
+  box-shadow: 0 16px 30px rgba(80, 45, 18, 0.12);
+  cursor: zoom-in;
+  animation: historiaFadeUp 520ms ease-out;
+}
+
+.historia__historical-photo:focus-visible {
+  outline: 3px solid rgba(163, 0, 72, 0.3);
+  outline-offset: 4px;
+}
+
+.historia__historical-photo-kicker {
+  color: rgba(115, 0, 52, 0.76);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.historia__historical-photo-head {
+  display: grid;
+  gap: 0.18rem;
+  color: rgba(80, 45, 18, 0.86);
+  font-size: 0.96rem;
+  line-height: 1.35;
+}
+
+.historia__historical-photo-head strong {
+  color: rgba(58, 31, 12, 0.96);
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  line-height: 1.2;
+}
+
+.historia__historical-photo-image {
+  position: relative;
+  min-height: 260px;
+  border: 10px solid rgba(255, 255, 255, 0.86);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(80, 45, 18, 0.08);
+  box-shadow:
+    inset 0 0 0 1px rgba(80, 45, 18, 0.14),
+    0 12px 20px rgba(80, 45, 18, 0.12);
+}
+
+.historia__historical-photo-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  display: block;
+  object-fit: cover;
+  transition: transform 260ms ease;
+}
+
+.historia__historical-photo:hover .historia__historical-photo-image img,
+.historia__historical-photo:focus-visible .historia__historical-photo-image img {
+  transform: scale(1.025);
+}
+
+.historia__historical-photo-body {
+  display: grid;
+  gap: 0.45rem;
+  padding-top: 0.15rem;
+  color: rgba(80, 45, 18, 0.82);
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+.historia__historical-photo-body p {
+  margin: 0;
+}
+
+.historia__historical-photo-body span {
+  color: rgba(115, 0, 52, 0.82);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
 .historia__credit {
   margin-top: 1.8rem;
   padding: 1.2rem 1.4rem;
@@ -942,11 +1104,22 @@
   .historia__inline-gallery-item img {
     min-height: 240px;
   }
+
+  .historia__series {
+    margin-top: 0;
+  }
+
+  .historia__historical-photo-image,
+  .historia__historical-photo-image img {
+    min-height: 240px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .historia__card,
-  .historia__media img {
+  .historia__media img,
+  .historia__series,
+  .historia__historical-photo {
     animation: none;
   }
 }

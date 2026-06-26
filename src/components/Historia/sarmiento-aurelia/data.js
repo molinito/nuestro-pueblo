@@ -14,6 +14,12 @@ const sarmientoAureliaHistoria = {
     "Entrega I: la historia antes del nogal, el vínculo con Aurelia Vélez Sarsfield y el viaje de Sarmiento a Córdoba.",
   type: "gallery",
   inlineGallery: true,
+  series: {
+    title: "Investigación histórica",
+    currentPart: 1,
+    totalParts: 2,
+    parts: [{ number: 2, status: "próximamente…" }],
+  },
   galleryNote: "Galería histórica y patrimonial sobre Sarmiento, Aurelia y la Estancia Jesuítica.",
   gallery: [
     {
@@ -65,11 +71,21 @@ const sarmientoAureliaHistoria = {
           src: sarmientoPortada,
           alt: "Domingo Faustino Sarmiento y el contexto histórico del siglo XIX",
           caption: "Sarmiento y el contexto histórico del siglo XIX",
+          document: {
+            number: 1,
+            title: "Sarmiento y el contexto histórico del siglo XIX",
+            description: "Sarmiento y el contexto histórico del siglo XIX",
+          },
         },
         {
           src: sarmientoJoven,
           alt: "Domingo Faustino Sarmiento en su juventud",
           caption: "Sarmiento joven: el hombre público antes del retiro político",
+          document: {
+            number: 2,
+            title: "Domingo Faustino Sarmiento en su juventud",
+            description: "Sarmiento joven: el hombre público antes del retiro político",
+          },
         },
       ],
     },
@@ -80,11 +96,21 @@ const sarmientoAureliaHistoria = {
           src: sarmientoAurelia,
           alt: "Aurelia Vélez Sarsfield",
           caption: "Aurelia Vélez Sarsfield, figura intelectual y política de su tiempo",
+          document: {
+            number: 3,
+            title: "Aurelia Vélez Sarsfield",
+            description: "Aurelia Vélez Sarsfield, figura intelectual y política de su tiempo",
+          },
         },
         {
           src: aurelia,
           alt: "Retrato de Aurelia Vélez Sarsfield",
           caption: "Retrato de Aurelia Vélez Sarsfield",
+          document: {
+            number: 4,
+            title: "Retrato de Aurelia Vélez Sarsfield",
+            description: "Retrato de Aurelia Vélez Sarsfield",
+          },
         },
       ],
     },
@@ -95,11 +121,22 @@ const sarmientoAureliaHistoria = {
           src: sarmientoRetrato,
           alt: "Retrato de Domingo Faustino Sarmiento",
           caption: "Sarmiento en su madurez, entre la vida pública y los vínculos personales",
+          document: {
+            number: 5,
+            title: "Retrato de Domingo Faustino Sarmiento",
+            description:
+              "Sarmiento en su madurez, entre la vida pública y los vínculos personales",
+          },
         },
         {
           src: sarmiento,
           alt: "Domingo Faustino Sarmiento",
           caption: "Domingo Faustino Sarmiento",
+          document: {
+            number: 6,
+            title: "Domingo Faustino Sarmiento",
+            description: "Domingo Faustino Sarmiento",
+          },
         },
       ],
     },
@@ -110,11 +147,22 @@ const sarmientoAureliaHistoria = {
           src: parque,
           alt: "Parque de la Estancia Jesuítica de Jesús María",
           caption: "El parque de la Estancia, escenario de la memoria local",
+          document: {
+            number: 7,
+            title: "Parque de la Estancia Jesuítica de Jesús María",
+            description: "El parque de la Estancia, escenario de la memoria local",
+          },
         },
         {
           src: parque1,
           alt: "Senderos y arboleda del parque de la Estancia Jesuítica",
           caption: "Árboles, senderos y silencio: el paisaje asociado a la tradición del nogal",
+          document: {
+            number: 8,
+            title: "Senderos y arboleda del parque de la Estancia Jesuítica",
+            description:
+              "Árboles, senderos y silencio: el paisaje asociado a la tradición del nogal",
+          },
         },
       ],
     },
