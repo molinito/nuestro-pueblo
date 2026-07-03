@@ -7,7 +7,7 @@ import sarmientoPortada from "./sarmiento-portada.webp";
 import sarmientoRetrato from "./sarmiento-retrato.webp";
 import sarmiento from "./sarmiento.webp";
 
-const sarmientoAureliaHistoria = {
+const sarmientoAureliaEntregaUno = {
   id: "sarmiento-aurelia",
   title: "Sarmiento y Aurelia: el camino hacia Jesús María",
   summary:
@@ -17,8 +17,11 @@ const sarmientoAureliaHistoria = {
   series: {
     title: "Investigación histórica",
     currentPart: 1,
-    totalParts: 2,
-    parts: [{ number: 2, status: "próximamente…" }],
+    totalParts: 3,
+    parts: [
+      { number: 2, href: "/historia/sarmiento-aurelia-entrega-2" },
+      { number: 3, status: "próximamente…" },
+    ],
   },
   galleryNote: "Galería histórica y patrimonial sobre Sarmiento, Aurelia y la Estancia Jesuítica.",
   gallery: [
@@ -320,4 +323,4 @@ const sarmientoAureliaHistoria = {
   ],
 };
 
-export default sarmientoAureliaHistoria;
+export default sarmientoAureliaEntregaUno;

@@ -19,6 +19,7 @@ import festivalAntes3 from "./festival-jesus-maria/festival-antes3.webp";
 import festivalAntes4 from "./festival-jesus-maria/festival-antes4.webp";
 import belgranoHistoria from "./belgrano/data";
 import sarmientoAureliaHistoria from "./sarmiento-aurelia/data";
+import sarmientoAureliaEntregaDosHistoria from "./sarmiento-aurelia-entrega-2/data";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -243,6 +244,7 @@ const historias = [
     },
   },
   sarmientoAureliaHistoria,
+  sarmientoAureliaEntregaDosHistoria,
   {
     id: "festival-jesus-maria",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
@@ -815,7 +817,9 @@ const Historia = () => {
                                   .map((gallery) => (
                                     <div
                                       className="historia__inline-gallery"
-                                      key={`${historia.id}-inline-gallery-${index}`}
+                                      key={`${historia.id}-inline-gallery-${index}-${gallery.images
+                                        .map((image) => image.src)
+                                        .join("-")}`}
                                       role="group"
                                       aria-label="Galería de imágenes del relato"
                                     >

@@ -98,6 +98,27 @@ export const searchIndex = [
     ]
   },
   {
+    id: "historia-sarmiento-aurelia-entrega-2",
+    title: "Sarmiento y Aurelia: la villa y la Estancia Jesuítica",
+    subtitle: "Entrega II: la villa, la Estancia Jesuítica y los meses que dieron origen a una historia",
+    href: "/historia/sarmiento-aurelia-entrega-2",
+    section: "Historia",
+    content:
+      "La Jesús María de 1879, la antigua Estancia Jesuítica, el parque, el clima serrano y los meses en que Sarmiento acompañó a Aurelia Vélez Sarsfield durante la enfermedad de Rosario Vélez.",
+    keywords: [
+      "sarmiento",
+      "aurelia velez sarsfield",
+      "rosario velez",
+      "estancia jesuitica",
+      "parque",
+      "tajamar",
+      "nogal",
+      "jesus maria",
+      "cordoba",
+      "1879"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",
