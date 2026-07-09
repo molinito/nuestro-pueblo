@@ -119,6 +119,27 @@ export const searchIndex = [
     ]
   },
   {
+    id: "historia-sarmiento-aurelia-entrega-3",
+    title: "Sarmiento y Aurelia: el nogal histórico",
+    subtitle: "Entrega III: el nogal histórico, entre la memoria y los documentos",
+    href: "/historia/sarmiento-aurelia-entrega-3",
+    section: "Historia",
+    content:
+      "La tradición del nogal de Sarmiento, la memoria colectiva de Jesús María, la centella de 1942, el tronco preservado y la investigación del Museo Jesuítico Nacional.",
+    keywords: [
+      "sarmiento",
+      "aurelia velez sarsfield",
+      "nogal historico",
+      "memoria colectiva",
+      "museo jesuitico",
+      "estancia jesuitica",
+      "centella 1942",
+      "tronco",
+      "jesus maria",
+      "patrimonio"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",

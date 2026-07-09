@@ -17,10 +17,11 @@ const sarmientoAureliaEntregaUno = {
   series: {
     title: "Investigación histórica",
     currentPart: 1,
-    totalParts: 3,
+    totalParts: 4,
     parts: [
       { number: 2, href: "/historia/sarmiento-aurelia-entrega-2" },
-      { number: 3, status: "próximamente…" },
+      { number: 3, href: "/historia/sarmiento-aurelia-entrega-3" },
+      { number: 4, status: "próximamente…" },
     ],
   },
   galleryNote: "Galería histórica y patrimonial sobre Sarmiento, Aurelia y la Estancia Jesuítica.",

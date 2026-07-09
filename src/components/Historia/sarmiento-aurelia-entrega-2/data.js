@@ -23,10 +23,11 @@ const sarmientoAureliaEntregaDos = {
   series: {
     title: "Investigación histórica",
     currentPart: 2,
-    totalParts: 3,
+    totalParts: 4,
     parts: [
       { number: 1, href: "/historia/sarmiento-aurelia" },
-      { number: 3, status: "próximamente…" },
+      { number: 3, href: "/historia/sarmiento-aurelia-entrega-3" },
+      { number: 4, status: "próximamente…" },
     ],
   },
   galleryNote:
