@@ -21,6 +21,7 @@ import belgranoHistoria from "./belgrano/data";
 import sarmientoAureliaHistoria from "./sarmiento-aurelia/data";
 import sarmientoAureliaEntregaDosHistoria from "./sarmiento-aurelia-entrega-2/data";
 import sarmientoAureliaEntregaTresHistoria from "./sarmiento-aurelia-entrega-3/data";
+import sarmientoAureliaEntregaCuatroHistoria from "./sarmiento-aurelia-entrega-4/data";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -247,6 +248,7 @@ const historias = [
   sarmientoAureliaHistoria,
   sarmientoAureliaEntregaDosHistoria,
   sarmientoAureliaEntregaTresHistoria,
+  sarmientoAureliaEntregaCuatroHistoria,
   {
     id: "festival-jesus-maria",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
@@ -371,11 +373,27 @@ const renderHistoriaTextBlock = (historia, block, index) => {
       key={`${historia.id}-section-${index}`}
     >
       <h3>{block.heading}</h3>
-      {block.body.map((paragraph, paragraphIndex) => (
-        <p key={`${historia.id}-section-${index}-p-${paragraphIndex}`}>
-          {paragraph}
-        </p>
-      ))}
+      {block.body.map((paragraph, paragraphIndex) => {
+        const key = `${historia.id}-section-${index}-p-${paragraphIndex}`;
+
+        if (typeof paragraph === "object" && paragraph?.quote) {
+          return (
+            <blockquote className="historia__quote" key={key}>
+              <p>{paragraph.emphasis ? <em>{paragraph.text}</em> : paragraph.text}</p>
+            </blockquote>
+          );
+        }
+
+        return (
+          <p key={key}>
+            {typeof paragraph === "object" && paragraph?.emphasis ? (
+              <em>{paragraph.text}</em>
+            ) : (
+              paragraph
+            )}
+          </p>
+        );
+      })}
     </section>
   );
 };
@@ -718,18 +736,20 @@ const Historia = () => {
                             >
                               <h3>{historia.referencesTitle}</h3>
                               <ol className="historia__references-list">
-                                {historia.references.map((reference) => (
-                                  <li key={reference.href}>
+                                {historia.references.map((reference, index) => (
+                                  <li key={reference.href ?? `${reference.title}-${index}`}>
                                     <strong>{reference.title}</strong>
                                     <span>{reference.subtitle}</span>
                                     <p>{reference.description}</p>
-                                    <a
-                                      href={reference.href}
-                                      target="_blank"
-                                      rel="noreferrer"
-                                    >
-                                      {reference.href}
-                                    </a>
+                                    {reference.href && (
+                                      <a
+                                        href={reference.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                      >
+                                        {reference.href}
+                                      </a>
+                                    )}
                                   </li>
                                 ))}
                               </ol>
@@ -944,18 +964,20 @@ const Historia = () => {
                               >
                                 <h3>{historia.referencesTitle}</h3>
                                 <ol className="historia__references-list">
-                                  {historia.references.map((reference) => (
-                                    <li key={reference.href}>
+                                  {historia.references.map((reference, index) => (
+                                    <li key={reference.href ?? `${reference.title}-${index}`}>
                                       <strong>{reference.title}</strong>
                                       <span>{reference.subtitle}</span>
                                       <p>{reference.description}</p>
-                                      <a
-                                        href={reference.href}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                      >
-                                        {reference.href}
-                                      </a>
+                                      {reference.href && (
+                                        <a
+                                          href={reference.href}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                        >
+                                          {reference.href}
+                                        </a>
+                                      )}
                                     </li>
                                   ))}
                                 </ol>

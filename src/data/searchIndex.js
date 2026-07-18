@@ -140,6 +140,27 @@ export const searchIndex = [
     ]
   },
   {
+    id: "historia-sarmiento-aurelia-entrega-4",
+    title: "Sarmiento y Aurelia: ¿el gran amor de Sarmiento?",
+    subtitle: "Entrega IV: Aurelia Vélez Sarsfield entre las cartas, la historia y el misterio",
+    href: "/historia/sarmiento-aurelia-entrega-4",
+    section: "Historia",
+    content:
+      "La relación entre Domingo Faustino Sarmiento y Aurelia Vélez Sarsfield a partir de las cartas, la interpretación de los historiadores, el lugar de Benita y la memoria de Jesús María.",
+    keywords: [
+      "sarmiento",
+      "aurelia velez sarsfield",
+      "cartas",
+      "amor",
+      "benita",
+      "araceli bellotta",
+      "ignacio garcia hamilton",
+      "estancia jesuitica",
+      "jesus maria",
+      "historiadores"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",

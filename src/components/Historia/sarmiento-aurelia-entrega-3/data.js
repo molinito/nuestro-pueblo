@@ -21,7 +21,7 @@ const sarmientoAureliaEntregaTres = {
     parts: [
       { number: 1, href: "/historia/sarmiento-aurelia" },
       { number: 2, href: "/historia/sarmiento-aurelia-entrega-2" },
-      { number: 4, status: "próximamente…" },
+      { number: 4, href: "/historia/sarmiento-aurelia-entrega-4" },
     ],
   },
   galleryNote:
