@@ -151,7 +151,7 @@
 }
 
 .costumbres__item.is-open .costumbres__panel {
-  max-height: 5200px;
+  max-height: 24000px;
   opacity: 1;
 }
 
@@ -401,6 +401,11 @@
   gap: 0.75rem;
 }
 
+.costumbres__gallery--wide {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 150px;
+}
+
 .costumbres__gallery-item {
   position: relative;
   border-radius: 14px;
@@ -484,6 +489,53 @@
 
 .costumbres__content p {
   margin: 0;
+}
+
+.costumbres__story {
+  width: min(780px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 244, 230, 0.88)),
+    radial-gradient(circle at top left, rgba(163, 0, 72, 0.12), transparent 34%);
+  border: 1px solid rgba(163, 0, 72, 0.15);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.58);
+  color: var(--site-ink);
+  font-size: clamp(1.02rem, 1.7vw, 1.12rem);
+  line-height: 1.78;
+}
+
+.costumbres__story h2 {
+  margin: 2.4rem 0 1rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+  line-height: 1.2;
+  color: rgba(115, 0, 52, 0.95);
+}
+
+.costumbres__story h2:first-child {
+  margin-top: 0;
+}
+
+.costumbres__story p {
+  margin: 0 0 0.82rem;
+}
+
+.costumbres__story-gallery {
+  display: grid;
+  gap: 1rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(163, 0, 72, 0.15);
+  box-shadow: 0 14px 26px rgba(115, 0, 52, 0.1);
+}
+
+.costumbres__story-gallery h2 {
+  margin: 0;
+  text-align: center;
+  color: rgba(115, 0, 52, 0.95);
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
 }
 
 .button {

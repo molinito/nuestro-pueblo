@@ -336,6 +336,13 @@ export const searchIndex = [
     section: "Costumbres"
   },
   {
+    id: "costumbres-crimson",
+    title: "Las noches que nos hicieron grandes",
+    subtitle: "Crimson y las historias de una generación",
+    href: "/costumbres/crimson",
+    section: "Costumbres"
+  },
+  {
     id: "costumbres-salame",
     title: "Fiesta Nacional e Internacional del Salame",
     subtitle: "Tradición culinaria de Colonia Caroya",

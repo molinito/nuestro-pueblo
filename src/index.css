@@ -21,6 +21,7 @@ body,
 body.chakra-ui-light,
 body.chakra-ui-dark {
   margin: 0;
+  padding-bottom: 92px;
   font-family: var(--site-font);
   color: var(--site-ink);
   background-color: var(--site-bg-color);
@@ -46,4 +47,12 @@ select {
 ::placeholder {
   color: var(--site-ink);
   opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  body.chakra-ui-light,
+  body.chakra-ui-dark {
+    padding-bottom: 124px;
+  }
 }

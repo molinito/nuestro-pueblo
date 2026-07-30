@@ -39,6 +39,31 @@ import saraFru5 from "./sarayfru/5.webp";
 import saraFru6 from "./sarayfru/6.webp";
 import saraFru7 from "./sarayfru/7.webp";
 import saraFru8 from "./sarayfru/8.webp";
+import crimsonRelato from "./Crimson/relato";
+import crimson from "./Crimson/crimson.webp";
+import crimson1 from "./Crimson/crimson1.webp";
+import crimson2 from "./Crimson/crimson2.webp";
+import crimson3 from "./Crimson/crimson3.webp";
+import crimson4 from "./Crimson/crimson4.webp";
+import crimson5 from "./Crimson/crimson5.webp";
+import crimson6 from "./Crimson/crimson6.webp";
+import crimson7 from "./Crimson/crimson7.webp";
+import crimson8 from "./Crimson/crimson8.webp";
+import crimson9 from "./Crimson/crimson9.webp";
+import crimson10 from "./Crimson/crimson10.webp";
+import crimson11 from "./Crimson/crimson11.webp";
+import crimson12 from "./Crimson/crimson12.webp";
+import crimson13 from "./Crimson/crimson13.webp";
+import crimson14 from "./Crimson/crimson14.webp";
+import crimson15 from "./Crimson/crimson15.webp";
+import crimson16 from "./Crimson/crimson16.webp";
+import crimson17 from "./Crimson/crimson17.webp";
+import crimson18 from "./Crimson/crimson18.webp";
+import crimson19 from "./Crimson/crimson19.webp";
+import crimson20 from "./Crimson/crimson20.webp";
+import crimson21 from "./Crimson/crimson21.webp";
+import crimson22 from "./Crimson/crimson22.webp";
+import crimson23 from "./Crimson/crimson23.webp";
 
 const chapitas = [
   { src: chapita, alt: "Chapitas clásicas de colección" },
@@ -91,7 +116,56 @@ const saraYFru = [
   { src: saraFru8, alt: "Figuritas Sara Key y Frutillitas: colección 8" },
 ];
 
+const crimsonFotos = [
+  crimson,
+  crimson1,
+  crimson2,
+  crimson3,
+  crimson4,
+  crimson5,
+  crimson6,
+  crimson7,
+  crimson8,
+  crimson9,
+  crimson10,
+  crimson11,
+  crimson12,
+  crimson13,
+  crimson14,
+  crimson15,
+  crimson16,
+  crimson17,
+  crimson18,
+  crimson19,
+  crimson20,
+  crimson21,
+  crimson22,
+  crimson23,
+].map((src, index) => ({
+  src,
+  alt: `Foto histórica de Crimson ${index + 1}`,
+}));
+
 const costumbres = [
+  {
+    id: "crimson",
+    title: "Las noches que nos hicieron grandes",
+    summary: "Crimson: el boliche, la barra y las historias que todavía vuelven con una sonrisa.",
+    type: "story",
+    blocks: crimsonRelato,
+    galleryTitle: "Galería de fotos de Crimson",
+    gallery: crimsonFotos,
+    credits: {
+      title: "Todo el agradecimiento y créditos para los grupos de Facebook:",
+      links: [
+        { href: "https://www.facebook.com/YOFUIACRIMSON/", label: "Yo fui a Crimson" },
+        {
+          href: "https://www.facebook.com/groups/1045382362576583/",
+          label: "Fotos antiguas Colonia Caroya y Jesús María",
+        },
+      ],
+    },
+  },
   {
     id: "salame",
     title: "Fiesta Nacional e Internacional del Salame",
@@ -459,6 +533,77 @@ const Costumbres = () => {
                             ))}
                           </div>
                         </div>
+                      )}
+                    </>
+                  )}
+
+                  {costumbre.type === "story" && (
+                    <>
+                      <div className="costumbres__story">
+                        {costumbre.blocks.map((block, index) =>
+                          block.type === "heading" ? (
+                            <h2 key={`${costumbre.id}-block-${index}`}>{block.text}</h2>
+                          ) : (
+                            <p key={`${costumbre.id}-block-${index}`}>{block.text}</p>
+                          )
+                        )}
+                      </div>
+
+                      {costumbre.gallery && (
+                        <section className="costumbres__story-gallery">
+                          <h2>{costumbre.galleryTitle}</h2>
+                          <div className="costumbres__gallery costumbres__gallery--wide">
+                            {costumbre.gallery.map((photo, index) => (
+                              <div
+                                key={photo.src}
+                                className={`costumbres__gallery-item${
+                                  index === 0 ? " is-feature" : ""
+                                }${index === 3 || index === 10 ? " is-tall" : ""}`}
+                                role="button"
+                                tabIndex={0}
+                                onClick={() =>
+                                  openImage(photo.src, photo.alt, costumbre.gallery, index)
+                                }
+                                onKeyDown={(event) =>
+                                  handleImageKeyDown(
+                                    event,
+                                    photo.src,
+                                    photo.alt,
+                                    costumbre.gallery,
+                                    index
+                                  )
+                                }
+                                aria-label={`Agrandar imagen: ${photo.alt}`}
+                              >
+                                <img
+                                  src={photo.src}
+                                  alt={photo.alt}
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                                <div className="costumbres__overlay">Haz click para agrandar</div>
+                              </div>
+                            ))}
+                          </div>
+                          {costumbre.credits && (
+                            <div className="costumbres__credits">
+                              <span className="costumbres__credit-label">Créditos</span>
+                              <p className="costumbres__credit-text">{costumbre.credits.title}</p>
+                              <div className="costumbres__credit-links">
+                                {costumbre.credits.links.map((link) => (
+                                  <a
+                                    key={link.href}
+                                    href={link.href}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                  >
+                                    {link.label}
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </section>
                       )}
                     </>
                   )}

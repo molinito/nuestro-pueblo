@@ -1,36 +1,42 @@
 .footer {
   box-shadow: inset 0 0 10px #730034;
   background-color: var(--site-surface);
-  position: relative;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
   color: var(--site-ink);
   width: 100%;
-  margin-top: 40px;
+  margin-top: 0;
   display: flex;
   justify-content: center;
-  padding: 16px 24px;
+  padding: 10px 18px;
+  border-top: 1px solid rgba(115, 0, 52, 0.18);
 }
 
 .footerInner {
   width: min(1100px, 100%);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px 28px;
+  justify-content: space-between;
+  gap: 10px 20px;
   flex-wrap: wrap;
 }
 
 .footerText {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
   text-align: center;
 }
 
 .footerText p {
   color: var(--site-ink);
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .socialIcons {
@@ -55,13 +61,13 @@
 }
 
 .qrImage {
-  width: clamp(80px, 12vw, 110px);
+  width: clamp(46px, 7vw, 58px);
   height: auto;
-  padding: 6px;
-  border-radius: 12px;
+  padding: 4px;
+  border-radius: 10px;
   background: #fff;
   border: 1px solid rgba(115, 0, 52, 0.2);
-  box-shadow: 0 10px 18px rgba(115, 0, 52, 0.16);
+  box-shadow: 0 8px 14px rgba(115, 0, 52, 0.14);
 }
 
 .socialLink {
@@ -110,13 +116,37 @@
 }
 
 @media screen and (max-width: 768px) {
+  .footer {
+    padding: 8px 12px;
+  }
+
   .footerInner {
-    flex-direction: column;
+    justify-content: center;
+    gap: 8px 12px;
+  }
+
+  .footerText {
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footerText p {
+    font-size: 0.78rem;
+  }
+
+  .socialLink {
+    width: 34px;
+    height: 34px;
+  }
+
+  .qrImage {
+    width: 44px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .footerText p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
 }
