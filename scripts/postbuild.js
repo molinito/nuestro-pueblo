@@ -1,5 +1,7 @@
 const fs = require("fs");
 const url = require("url");
+const path = require("path");
+const { spawnSync } = require("child_process");
 const { run } = require("react-snap");
 const { reactSnap, homepage, devDependencies, dependencies } = require("../package.json");
 
@@ -38,18 +40,31 @@ const reactSnapOptions = {
   ...(puppeteerExecutablePath ? { puppeteerExecutablePath } : {})
 };
 
+const generateRouteMeta = () => {
+  const result = spawnSync(process.execPath, [path.join(__dirname, "generate-route-meta.js")], {
+    stdio: "inherit"
+  });
+
+  if (result.status !== 0) {
+    process.exit(result.status || 1);
+  }
+};
+
 run({
   publicPath: process.env.PUBLIC_URL || homepage
     ? url.parse(process.env.PUBLIC_URL || homepage).pathname
     : "/",
   fixWebpackChunksIssue,
   ...reactSnapOptions
-}).catch(error => {
+})
+  .then(generateRouteMeta)
+  .catch(error => {
   console.error(error);
 
   if (!isStrict) {
     // react-snap relies on Chromium. If it cannot launch locally, do not fail the build.
     console.warn("react-snap failed; continuing without prerender (set POSTBUILD_STRICT=1 to fail).");
+    generateRouteMeta();
     process.exit(0);
   }
 

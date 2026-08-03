@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Link, NavLink, useLocation, useNavigate, useParams } from "react-router-dom";
 import "./Costumbres.css";
 import usePageMeta from "../../hooks/usePageMeta";
+import seoRoutes from "../../data/seoRoutes.json";
 import fiestaSalame from "./salame/Fiesta salame.webp";
 import chapita from "./chapitas/chapita.webp";
 import chapita1 from "./chapitas/chapita1.webp";
@@ -155,6 +156,7 @@ const costumbres = [
     blocks: crimsonRelato,
     galleryTitle: "Galería de fotos de Crimson",
     gallery: crimsonFotos,
+    seo: seoRoutes.routes["/costumbres/crimson"],
     credits: {
       title: "Todo el agradecimiento y créditos para los grupos de Facebook:",
       links: [
@@ -275,20 +277,24 @@ const Costumbres = () => {
     : "/mapa-de-la-memoria";
   const shouldShowTimelineReturn = source === "linea-de-tiempo";
   const shouldShowMapReturn = source === "mapa-de-la-memoria";
+  const activeSeo = activeCostumbre?.seo;
   usePageMeta({
-    title: activeCostumbre
+    title: activeSeo?.title || (activeCostumbre
       ? `${activeCostumbre.title} | Costumbres`
-      : "Costumbres y tradiciones | Nuestro Pueblo",
-    description: activeCostumbre
+      : "Costumbres y tradiciones | Nuestro Pueblo"),
+    ogTitle: activeSeo?.ogTitle,
+    description: activeSeo?.description || (activeCostumbre
       ? activeCostumbre.summary
-      : "Costumbres, juegos y celebraciones que forman parte de la memoria de nuestra tierra.",
+      : "Costumbres, juegos y celebraciones que forman parte de la memoria de nuestra tierra."),
+    ogDescription: activeSeo?.description,
     path: activeCostumbre ? `/costumbres/${activeCostumbre.id}` : "/costumbres",
     image: activeCostumbre
       ? activeCostumbre.type === "single"
         ? activeCostumbre.image
         : activeCostumbre.gallery?.[0]?.src
       : undefined,
-    imageAlt: activeCostumbre ? activeCostumbre.title : "Costumbres y tradiciones"
+    imageAlt: activeSeo?.imageAlt || (activeCostumbre ? activeCostumbre.title : "Costumbres y tradiciones"),
+    type: activeSeo?.type || (activeCostumbre ? "article" : "website")
   });
 
   const scrollToCostumbre = (id, behavior = "auto") => {

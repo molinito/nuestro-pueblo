@@ -1,0 +1,21 @@
+{
+  "siteOrigin": "https://nuestro-pueblo.vercel.app",
+  "default": {
+    "title": "Nuestro Pueblo: Historia, Cultura y Tradición en Jesús María y Colonia Caroya",
+    "ogTitle": "Nuestro Pueblo: Historia, Cultura y Tradición",
+    "description": "Historia, lugares, eventos, costumbres y memorias de Jesús María y Colonia Caroya (Córdoba, Argentina).",
+    "type": "website",
+    "image": "/png6.png",
+    "imageAlt": "Nuestro Pueblo"
+  },
+  "routes": {
+    "/costumbres/crimson": {
+      "title": "Las noches que nos hicieron grandes | Crimson | Nuestro Pueblo",
+      "ogTitle": "Las noches que nos hicieron grandes — Crimson",
+      "description": "Volvemos a las noches del Crimson, el boliche que marcó la juventud de toda una generación de Jesús María. Música, amigos, bailes, lentos, anécdotas y recuerdos de los años 80.",
+      "type": "article",
+      "imageAsset": "static/media/crimson.webp",
+      "imageAlt": "Las noches que nos hicieron grandes — Crimson"
+    }
+  }
+}

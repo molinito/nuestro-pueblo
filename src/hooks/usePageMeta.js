@@ -64,10 +64,14 @@ const normalizePath = (path) => {
  */
 const usePageMeta = ({
   title,
+  ogTitle,
   description,
+  ogDescription,
   path,
   image,
   imageAlt = "Nuestro Pueblo",
+  imageWidth,
+  imageHeight,
   type = "website",
   structuredData
 } = {}) => {
@@ -77,6 +81,8 @@ const usePageMeta = ({
     const nextDescription =
       description ||
       "Historia, lugares, eventos, costumbres y memorias de Jesus Maria y Colonia Caroya (Cordoba, Argentina).";
+    const nextOgTitle = ogTitle || nextTitle;
+    const nextOgDescription = ogDescription || nextDescription;
 
     const nextPath = normalizePath(path || window.location.pathname || "/");
     const nextUrl = nextPath.startsWith("http") ? nextPath : `${SITE_ORIGIN}${nextPath}`;
@@ -95,10 +101,10 @@ const usePageMeta = ({
       property: "og:site_name",
       content: "Nuestro Pueblo"
     });
-    upsertMeta('meta[property="og:title"]', { property: "og:title", content: nextTitle });
+    upsertMeta('meta[property="og:title"]', { property: "og:title", content: nextOgTitle });
     upsertMeta('meta[property="og:description"]', {
       property: "og:description",
-      content: nextDescription
+      content: nextOgDescription
     });
     upsertMeta('meta[property="og:url"]', { property: "og:url", content: nextUrl });
     upsertMeta('meta[property="og:image"]', { property: "og:image", content: nextImage });
@@ -106,19 +112,43 @@ const usePageMeta = ({
       property: "og:image:alt",
       content: imageAlt
     });
+    if (imageWidth) {
+      upsertMeta('meta[property="og:image:width"]', {
+        property: "og:image:width",
+        content: String(imageWidth)
+      });
+    }
+    if (imageHeight) {
+      upsertMeta('meta[property="og:image:height"]', {
+        property: "og:image:height",
+        content: String(imageHeight)
+      });
+    }
 
     upsertMeta('meta[name="twitter:card"]', {
       name: "twitter:card",
       content: "summary_large_image"
     });
-    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: nextTitle });
+    upsertMeta('meta[name="twitter:title"]', { name: "twitter:title", content: nextOgTitle });
     upsertMeta('meta[name="twitter:description"]', {
       name: "twitter:description",
-      content: nextDescription
+      content: nextOgDescription
     });
     upsertMeta('meta[name="twitter:image"]', { name: "twitter:image", content: nextImage });
     upsertJsonLd("route", structuredData || null);
-  }, [title, description, path, image, imageAlt, type, structuredData]);
+  }, [
+    title,
+    ogTitle,
+    description,
+    ogDescription,
+    path,
+    image,
+    imageAlt,
+    imageWidth,
+    imageHeight,
+    type,
+    structuredData
+  ]);
 };
 
 export default usePageMeta;
