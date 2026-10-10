@@ -201,7 +201,8 @@
 }
 
 .historia__item.is-open .historia__panel {
-  max-height: 22000px;
+  /* The article can grow without a magic height cap. */
+  max-height: none;
   opacity: 1;
 }
 

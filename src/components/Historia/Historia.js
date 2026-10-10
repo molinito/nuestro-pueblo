@@ -22,6 +22,7 @@ import sarmientoAureliaHistoria from "./sarmiento-aurelia/data";
 import sarmientoAureliaEntregaDosHistoria from "./sarmiento-aurelia-entrega-2/data";
 import sarmientoAureliaEntregaTresHistoria from "./sarmiento-aurelia-entrega-3/data";
 import sarmientoAureliaEntregaCuatroHistoria from "./sarmiento-aurelia-entrega-4/data";
+import coleraParteUnoHistoria from "./colera-parte1/data";
 
 const torreCespedesPhotos = [
   { src: castillo1, alt: "Torre Céspedes (Club Social), vista principal" },
@@ -249,6 +250,7 @@ const historias = [
   sarmientoAureliaEntregaDosHistoria,
   sarmientoAureliaEntregaTresHistoria,
   sarmientoAureliaEntregaCuatroHistoria,
+  coleraParteUnoHistoria,
   {
     id: "festival-jesus-maria",
     title: "Festival Nacional de Doma y Folklore de Jesús María",
@@ -357,11 +359,54 @@ const historias = [
 
 const hasHistoriaId = (id) => historias.some((historia) => historia.id === id);
 
+const renderTextWithLinks = (text) => {
+  if (typeof text !== "string") return text;
+
+  const markdownLink = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const parts = [];
+  let cursor = 0;
+  let match;
+
+  while ((match = markdownLink.exec(text)) !== null) {
+    if (match.index > cursor) parts.push(text.slice(cursor, match.index));
+    parts.push(
+      <a href={match[2]} key={`${match[2]}-${match.index}`} target="_blank" rel="noreferrer">
+        {match[1]}
+      </a>
+    );
+    cursor = markdownLink.lastIndex;
+  }
+
+  if (!parts.length) return text;
+  if (cursor < text.length) parts.push(text.slice(cursor));
+  return parts;
+};
+
+const renderInlineHistoricalGallery = (galleries = []) =>
+  galleries.map((gallery, galleryIndex) => (
+    <div
+      className="historia__inline-gallery"
+      key={`inline-gallery-${galleryIndex}-${gallery.images.map((image) => image.number).join("-")}`}
+      role="group"
+      aria-label="Galería de imágenes del relato"
+    >
+      {gallery.images.map((image) => (
+        <HistoricalPhoto
+          key={image.image}
+          number={image.number}
+          image={image.image}
+          alt={image.alt}
+          title={image.title}
+        />
+      ))}
+    </div>
+  ));
+
 const renderHistoriaTextBlock = (historia, block, index) => {
   if (typeof block === "string") {
     return (
       <p id={index === 0 ? `historia-relato-${historia.id}` : undefined} key={`${historia.id}-p-${index}`}>
-        {block}
+        {renderTextWithLinks(block)}
       </p>
     );
   }
@@ -375,23 +420,32 @@ const renderHistoriaTextBlock = (historia, block, index) => {
       <h3>{block.heading}</h3>
       {block.body.map((paragraph, paragraphIndex) => {
         const key = `${historia.id}-section-${index}-p-${paragraphIndex}`;
+        const galleries = block.inlineGalleries?.filter(
+          (gallery) => gallery.afterParagraphIndex === paragraphIndex
+        );
 
         if (typeof paragraph === "object" && paragraph?.quote) {
           return (
-            <blockquote className="historia__quote" key={key}>
-              <p>{paragraph.emphasis ? <em>{paragraph.text}</em> : paragraph.text}</p>
-            </blockquote>
+            <React.Fragment key={key}>
+              <blockquote className="historia__quote">
+                <p>{paragraph.emphasis ? <em>{renderTextWithLinks(paragraph.text)}</em> : renderTextWithLinks(paragraph.text)}</p>
+              </blockquote>
+              {renderInlineHistoricalGallery(galleries)}
+            </React.Fragment>
           );
         }
 
         return (
-          <p key={key}>
-            {typeof paragraph === "object" && paragraph?.emphasis ? (
-              <em>{paragraph.text}</em>
-            ) : (
-              paragraph
-            )}
-          </p>
+          <React.Fragment key={key}>
+            <p>
+              {typeof paragraph === "object" && paragraph?.emphasis ? (
+                <em>{paragraph.text}</em>
+              ) : (
+                renderTextWithLinks(paragraph)
+              )}
+            </p>
+            {renderInlineHistoricalGallery(galleries)}
+          </React.Fragment>
         );
       })}
     </section>

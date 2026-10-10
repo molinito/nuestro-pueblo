@@ -9,6 +9,14 @@
     "imageAlt": "Nuestro Pueblo"
   },
   "routes": {
+    "/historia/colera-parte1": {
+      "title": "Cuando la peste llegó a la Colonia | Nuestro Pueblo",
+      "ogTitle": "Cuando la peste llegó a la Colonia",
+      "description": "Primera parte de una reconstrucción histórica sobre la epidemia de cólera de 1886-1887, las pérdidas y la memoria de las familias de Colonia Caroya.",
+      "type": "article",
+      "image": "/png6.png",
+      "imageAlt": "Nuestro Pueblo"
+    },
     "/costumbres/crimson": {
       "title": "Las noches que nos hicieron grandes | Crimson | Nuestro Pueblo",
       "ogTitle": "Las noches que nos hicieron grandes — Crimson",

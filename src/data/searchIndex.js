@@ -161,6 +161,26 @@ export const searchIndex = [
     ]
   },
   {
+    id: "historia-colera-parte1",
+    title: "Cuando la peste llegó a la Colonia",
+    subtitle: "Primera parte — El verano de los carros",
+    href: "/historia/colera-parte1",
+    section: "Historia",
+    content:
+      "Reconstrucción histórica sobre la epidemia de cólera de 1886-1887, las pérdidas de las familias inmigrantes, Nicolás Canale, José Bonoris y la memoria de Colonia Caroya.",
+    keywords: [
+      "colera",
+      "epidemia",
+      "colonia caroya",
+      "1886",
+      "1887",
+      "martha canale",
+      "nicolas canale",
+      "jose bonoris",
+      "monserrat"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",
