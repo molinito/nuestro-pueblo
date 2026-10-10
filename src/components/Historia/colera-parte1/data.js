@@ -29,15 +29,15 @@ Ocho años después seguían construyendo su mundo.
 Habían abierto acequias, trabajado la tierra, sembrado, plantado viñas, levantado viviendas y comenzado a transformar el paisaje.
 Pero aquella sociedad era todavía extremadamente vulnerable.
 Y entonces llegó el cólera.
-Los registros locales sitúan la aparición de la epidemia en Caroya hacia fines de diciembre de 1886, extendiéndose fundamentalmente durante diciembre y enero. [FM Comunicar](https://fm-comunicar.com.ar/contenido/14506/a-133-anos-de-un-milagro-que-colonia-caroya-todavia-agradece?utm_source=chatgpt.com)
+Los registros locales sitúan la aparición de la epidemia en Caroya hacia fines de diciembre de 1886, extendiéndose fundamentalmente durante diciembre y enero. 
 No era un episodio aislado.
 Formaba parte de una epidemia mucho mayor que estaba golpeando la Argentina.
 El cólera ya había mostrado décadas antes de qué era capaz.
-Argentina había sufrido una epidemia devastadora en 1867-1868. La enfermedad regresó en 1886-1887 y volvería nuevamente en 1894-1895. [Revistas UIS](https://revistas.uis.edu.co/index.php/anuariohistoria/article/view/5551?utm_source=chatgpt.com)
+Argentina había sufrido una epidemia devastadora en 1867-1868. La enfermedad regresó en 1886-1887 y volvería nuevamente en 1894-1895. 
 En Córdoba las autoridades intentaron detener el avance del brote estableciendo un cordón sanitario en Tortugas, en el límite con Santa Fe, y rechazando trenes y pasajeros provenientes de Rosario.
 Pero las comunicaciones terminaron siendo liberadas.
 El cólera entró.
-La investigación histórica de Adrián Carbonetti reconstruye que la epidemia afectó a la ciudad de Córdoba desde el 22 de noviembre de 1886 hasta el 25 de enero de 1887. Las estimaciones históricas utilizadas por el investigador hablan de alrededor de 500 muertes en la capital y una cifra posiblemente semejante en el interior de la provincia. [Memoria Académica](https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.9590/ev.9590.pdf)
+La investigación histórica de Adrián Carbonetti reconstruye que la epidemia afectó a la ciudad de Córdoba desde el 22 de noviembre de 1886 hasta el 25 de enero de 1887. Las estimaciones históricas utilizadas por el investigador hablan de alrededor de 500 muertes en la capital y una cifra posiblemente semejante en el interior de la provincia. 
 Y en algún momento de diciembre llegó hasta aquella pequeña colonia italiana situada al norte de Córdoba.
 Hoy sabemos que el cólera es causado por la bacteria Vibrio cholerae y que su transmisión está vinculada fundamentalmente al consumo de agua o alimentos contaminados.
 Pero en 1886 la relación entre microorganismos, agua, higiene y enfermedad comenzaba recién a abrirse paso en la medicina y las políticas sanitarias.
@@ -47,17 +47,17 @@ Lo que ellos veían era mucho más sencillo y aterrador:
 una persona podía estar trabajando un día...
 y gravemente enferma al siguiente.
 El relato que sobrevivió entre las familias caroyenses es estremecedor.
-La historiadora Martha Lucía Canale de Vicentini dedicó buena parte de su vida a recopilar la memoria de aquellos inmigrantes. Muchos de esos testimonios quedaron plasmados en su libro Hacer la América – Fare l'America, publicado en 2001. Su trabajo fue reconocido oficialmente por Colonia Caroya; desde 2021 la Casa de la Historia y la Cultura del Bicentenario lleva su nombre. [Concejo Deliberante Colonia Caroya](https://cdcoloniacaroya.gob.ar/Noticia/Detalles/357?utm_source=chatgpt.com)
+La historiadora Martha Lucía Canale de Vicentini dedicó buena parte de su vida a recopilar la memoria de aquellos inmigrantes. Muchos de esos testimonios quedaron plasmados en su libro Hacer la América – Fare l'America, publicado en 2001. Su trabajo fue reconocido oficialmente por Colonia Caroya; desde 2021 la Casa de la Historia y la Cultura del Bicentenario lleva su nombre. 
 Pero Martha no conocía la epidemia únicamente como historiadora.
 La conocía como descendiente.
 Su bisabuela había muerto de cólera.
 Y su abuelo, Nicolás Canale, había tenido uno de los trabajos más duros de aquellos días.
-Enterrar a los muertos. [FM Comunicar](https://fm-comunicar.com.ar/contenido/3119/el-emocionante-relato-de-martha-canale-sobre-la-promesa)
+Enterrar a los muertos. 
 Nicolás Canale y otros tres hombres eran los encargados de cavar las fosas.
 Cuando alguien moría había que actuar rápidamente.
 No existían velatorios como los entendemos hoy.
 El miedo al contagio convertía al muerto en una amenaza para quienes permanecían vivos.
-Los cuerpos eran retirados y enterrados con urgencia. [FM Comunicar](https://fm-comunicar.com.ar/contenido/3119/el-emocionante-relato-de-martha-canale-sobre-la-promesa)
+Los cuerpos eran retirados y enterrados con urgencia. 
 Es difícil imaginar lo que significaba aquella tarea.
 Los sepultureros también tenían familia.
 También tenían miedo.
@@ -73,7 +73,7 @@ Son relatos transmitidos de generación en generación y no hemos encontrado has
 Eso importa.
 Porque contar la historia también significa distinguir entre lo que está documentado y lo que pertenece a la memoria oral.
 Pero que aquellos relatos sobrevivieran durante más de un siglo nos revela otra verdad:
-el miedo que sintieron esas familias. [FM Comunicar](https://fm-comunicar.com.ar/contenido/3119/el-emocionante-relato-de-martha-canale-sobre-la-promesa)
+el miedo que sintieron esas familias. 
 El temor era tan grande que cualquier demora frente a un cadáver podía interpretarse como un riesgo para toda la casa.
 La muerte tenía prisa.
 Entre las historias recuperadas por Martha Canale aparece otro episodio extraordinario.
@@ -87,9 +87,8 @@ Pero ocurrió algo históricamente igualmente interesante:
 los colonos dejaron de confiar en él.
 La tradición oral sostiene que terminaron expulsándolo del pueblo.
 Martha Canale lo expresó muchos años después con una frase que todavía conserva toda la bronca transmitida por sus mayores:
-“Lo sacaron del pueblo a los patadones”. [FM Comunicar](https://fm-comunicar.com.ar/contenido/3119/el-emocionante-relato-de-martha-canale-sobre-la-promesa)
-Más allá de cuánto haya de precisión literal en aquella historia, el episodio muestra algo que las investigaciones académicas también detectan en la epidemia cordobesa: el enfrentamiento entre la medicina institucional que comenzaba a consolidarse y una población que muchas veces desconfiaba de médicos, autoridades y medidas sanitarias. [Revistas UIS](https://revistas.uis.edu.co/index.php/anuariohistoria/article/view/5551?utm_source=chatgpt.com)
-Intentemos detenernos ahí.
+“Lo sacaron del pueblo a los patadones”. 
+Más allá de cuánto haya de precisión literal en aquella historia, el episodio muestra algo que las investigaciones académicas también detectan en la epidemia cordobesa: el enfrentamiento entre la medicina institucional que comenzaba a consolidarse y una población que muchas veces desconfiaba de médicos, autoridades y medidas sanitarias. 
 Una familia friulana.
 Una vivienda modesta.
 Verano.
@@ -113,7 +112,7 @@ Que fuera friulano no era un detalle menor.
 Podía comunicarse con aquellos inmigrantes.
 Conocía su lengua.
 Comprendía sus costumbres.
-Y compartía su fe. [FM Comunicar](https://fm-comunicar.com.ar/contenido/17668/la-iglesia-del-lote-xv-el-sueno-cumplido-de-jose-bonoris?utm_source=chatgpt.com)
+Y compartía su fe. 
 Para una población asustada y desconfiada, Bonoris era mucho más que el sacerdote que celebraba misa.
 Era alguien de los suyos.
 Cuando la medicina no ofrecía respuestas que ellos pudieran comprender y los muertos continuaban apareciendo, muchos colonos buscaron respuesta donde habían aprendido a encontrarla durante generaciones.
@@ -127,7 +126,7 @@ Convocaría al pueblo.
 La memoria caroyense conserva incluso las palabras con las que habría hecho la convocatoria.
 Todos debían ir.
 En cada casa con enfermos graves permanecería únicamente alguien cuidándolos.
-Los demás debían encontrarse en la Estancia. [FM Comunicar](https://fm-comunicar.com.ar/contenido/3119/el-emocionante-relato-de-martha-canale-sobre-la-promesa)
+Los demás debían encontrarse en la Estancia. 
 No sabemos cuántas personas caminaron aquel día hacia allí.
 Quizás nunca lo sepamos.
 Pero podemos imaginar los caminos convergiendo.
@@ -142,7 +141,7 @@ No estaban celebrando una fiesta.
 Estaban pidiendo que dejara de morir gente.
 Frente a la Virgen del Monserrat hicieron una promesa.
 Si la epidemia cesaba, conservarían su devoción y sacarían su imagen en procesión en señal de agradecimiento.
-Las fuentes caroyenses ubican aquel gran acto de oración entre el 26 y el 27 de enero de 1887. [FM Comunicar](https://fm-comunicar.com.ar/contenido/18779/el-milagro-del-26-de-enero-de-1887?utm_source=chatgpt.com)
+Las fuentes caroyenses ubican aquel gran acto de oración entre el 26 y el 27 de enero de 1887. 
 Y entonces ocurrió algo que cambió para siempre la historia del pueblo.
 Según la tradición transmitida durante generaciones, los enfermos comenzaron a mejorar.
 Y dejaron de aparecer nuevos casos.
@@ -154,7 +153,7 @@ Puede situarla dentro del brote cordobés de 1886-1887.
 Puede documentar a Bonoris.
 Puede comprobar que existió la promesa.
 Puede demostrar que la procesión comenzó entonces y que continúa.
-También puede observar un dato extremadamente interesante: la investigación académica sitúa el final del gran brote de la ciudad de Córdoba alrededor del 25 de enero de 1887, prácticamente coincidente con las jornadas de oración de Caroya. [Memoria Académica](https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.9590/ev.9590.pdf)
+También puede observar un dato extremadamente interesante: la investigación académica sitúa el final del gran brote de la ciudad de Córdoba alrededor del 25 de enero de 1887, prácticamente coincidente con las jornadas de oración de Caroya. 
 Lo que la historia no puede hacer es determinar científicamente la intervención sobrenatural.
 Eso pertenece al ámbito de la fe.
 Para la comunidad creyente de 1887 fue un milagro.
