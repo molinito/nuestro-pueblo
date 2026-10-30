@@ -17,6 +17,14 @@
       "image": "/png6.png",
       "imageAlt": "Nuestro Pueblo"
     },
+    "/historia/colera-parte2": {
+      "title": "La promesa de los que quedaron | Nuestro Pueblo",
+      "ogTitle": "La promesa de los que quedaron",
+      "description": "Segunda parte de la historia de la epidemia de cólera en Colonia Caroya: la promesa, el templo de Nuestra Señora del Monserrat y la memoria que atravesó generaciones.",
+      "type": "article",
+      "image": "/png6.png",
+      "imageAlt": "Nuestro Pueblo"
+    },
     "/costumbres/crimson": {
       "title": "Las noches que nos hicieron grandes | Crimson | Nuestro Pueblo",
       "ogTitle": "Las noches que nos hicieron grandes — Crimson",

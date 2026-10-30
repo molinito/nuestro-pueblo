@@ -183,7 +183,7 @@ const coleraParteUno = {
     title: "Cuando la peste llegó a la Colonia",
     currentPart: 1,
     totalParts: 2,
-    parts: [{ number: 2, status: "— Próximamente" }],
+    parts: [{ number: 2, href: "/historia/colera-parte2" }],
   },
   paragraphs: [
     {

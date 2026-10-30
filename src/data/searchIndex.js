@@ -181,6 +181,26 @@ export const searchIndex = [
     ]
   },
   {
+    id: "historia-colera-parte2",
+    title: "La promesa de los que quedaron",
+    subtitle: "Segunda parte — La memoria que atravesó generaciones",
+    href: "/historia/colera-parte2",
+    section: "Historia",
+    content:
+      "La continuación de la historia del cólera en Colonia Caroya: la procesión de la Virgen del Monserrat, la construcción de la iglesia y la memoria de las familias que sobrevivieron.",
+    keywords: [
+      "colera",
+      "epidemia",
+      "colonia caroya",
+      "virgen del monserrat",
+      "procesion",
+      "jose bonoris",
+      "iglesia monserrat",
+      "martha canale",
+      "memoria"
+    ]
+  },
+  {
     id: "historia-museo",
     title: "Museo Jesuítico de Jesús María",
     subtitle: "Herencia jesuita y patrimonio cultural de la región",
